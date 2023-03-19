@@ -22,7 +22,25 @@ Para as ações de copiar e colar arquivo, até conseguimos fazer com os módulo
 
 from pathlib import Path
 
-Path.cwd() # cwd = current working directory
+Path.cwd() # cwd = current working directory, mostra o diretorio atual onde o programa esta rodando
 
 print(Path.cwd()) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPython-ArquivosPastasComputador\001-pathlib-shutil-pythonNavegarNoComputador
 
+
+
+# Descobrindo onde está o nosso arquivo
+
+# caminho=Path('Arquivos_Lojas') # sem o caminho completo so funciona no jupiter
+caminho=Path('C:\\Users\\Jorge\\Desktop\\hashtag\\hashtagPython\\022-integracaoPython-ArquivosPastasComputador\\001-pathlib-shutil-pythonNavegarNoComputador\\Arquivos_Lojas')
+# caminho=Path('C:/Users/Jorge/Desktop/hashtag/hashtagPython/022-integracaoPython-ArquivosPastasComputador/001-pathlib-shutil-pythonNavegarNoComputador/Arquivos_Lojas')
+print(caminho) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPython-ArquivosPastasComputador\001-pathlib-shutil-pythonNavegarNoComputador
+
+
+
+# Vamos listar todos os arquivos de uma pasta
+
+arquivos=caminho.iterdir()
+print(arquivos) # printa apenas o objeto
+
+for arquivo in arquivos: # printa todos os arquivos do diretorio (ls)
+    print(arquivo)
