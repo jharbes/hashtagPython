@@ -18,7 +18,7 @@ Para as ações de copiar e colar arquivo, até conseguimos fazer com os módulo
 
 """
 
-# Importando os módulos
+## Importando os módulos
 
 from pathlib import Path
 
@@ -28,7 +28,7 @@ print(Path.cwd()) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoP
 
 
 
-# Descobrindo onde está o nosso arquivo
+## Descobrindo onde está o nosso arquivo
 
 # caminho=Path('Arquivos_Lojas') # sem o caminho completo so funciona no jupiter
 caminho=Path('C:\\Users\\Jorge\\Desktop\\hashtag\\hashtagPython\\022-integracaoPython-ArquivosPastasComputador\\Arquivos_Lojas')
@@ -37,7 +37,7 @@ print(caminho) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPyth
 
 
 
-# Vamos listar todos os arquivos de uma pasta
+## Vamos listar todos os arquivos de uma pasta
 
 arquivos=caminho.iterdir()
 print(arquivos) # printa apenas o objeto
@@ -47,10 +47,31 @@ for arquivo in arquivos: # printa todos os arquivos do diretorio (ls)
 
 
 
-# Agora, vamos verificar se um arquivo que estamos procurando existe na pasta
+## Agora, vamos verificar se um arquivo que estamos procurando existe na pasta
 
 print('\nArquivo existe\n') if Path('Arquivos_Lojas\\202004_Shopping Cidade_MG.csv').exists() else print('\nNão existe\n')
 
 # ou
 
 print('\nArquivo existe\n') if (caminho / Path('202004_Shopping Cidade_MG.csv')).exists() else print('\nNão existe\n')
+
+
+
+
+## Criando uma nova pasta
+
+# Path('Pasta Auxiliar\\Pasta2').mkdir()
+
+
+## Criando uma cópia do nosso arquivo na nova pasta que criamos
+
+# copia o arquivo para a pasta selecionada com o nome novo que escolhemos, sobreescreve o arquivo se eles ja existir
+import shutil
+arquivoCopiar=Path('Arquivos_Lojas\\201801_Amazonas Shopping_AM.csv')
+arquivoColar=Path('Pasta Auxiliar\\201801_Amazonas Shopping_AM_versao2.csv')
+shutil.copy2(arquivoCopiar,arquivoColar)
+
+
+
+## Movendo um arquivo
+
