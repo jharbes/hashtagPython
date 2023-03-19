@@ -17,3 +17,28 @@ import time
 
 navegador=webdriver.Chrome()
 time.sleep(5)
+
+
+"""
+
+#### Alternativa
+
+- Uma alternativa que surgiu recentemente é usar o webdriver-manager, uma outra biblioteca que faz o gerenciamento do seu chromedriver para você. Nesse caso, precisamos primeiro instalar o webdriver-manager
+
+```
+pip install webdriver-manager
+```
+
+- Em seguida, importamos o ChromeDriverManager e usamos ele no Serviço do nosso Selenium, assim:
+
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+servico = Service(ChromeDriverManager().install())
+navegador = webdriver.Chrome(service=servico)
+
+
+"""
+
