@@ -6,7 +6,7 @@
 
 Caso o arquivo do webdriver nao seja reconhecido pode se fazer o seguinte procedimento:
 
-servico=Service(r'c:\users\xyz\chromedriver.exe') # path onde está o chromedriver
+servico=Service(r'c:\users\xyz\chromedriver.exe') # path onde está o chromedriver, lembre-se que no linux ou mac o arquivo do chromedriver nao possui exe no final 
 
 driver=webdriver.Chrome(service=servico)
 
