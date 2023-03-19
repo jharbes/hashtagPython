@@ -44,3 +44,13 @@ print(arquivos) # printa apenas o objeto
 
 for arquivo in arquivos: # printa todos os arquivos do diretorio (ls)
     print(arquivo)
+
+
+
+# Agora, vamos verificar se um arquivo que estamos procurando existe na pasta
+
+print('\nArquivo existe\n') if Path('Arquivos_Lojas\\202004_Shopping Cidade_MG.csv').exists() else print('\nNão existe\n')
+
+# ou
+
+print('\nArquivo existe\n') if (caminho / Path('202004_Shopping Cidade_MG.csv')).exists() else print('\nNão existe\n')
