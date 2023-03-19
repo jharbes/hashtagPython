@@ -24,16 +24,16 @@ from pathlib import Path
 
 Path.cwd() # cwd = current working directory, mostra o diretorio atual onde o programa esta rodando
 
-print(Path.cwd()) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPython-ArquivosPastasComputador\001-pathlib-shutil-pythonNavegarNoComputador
+print(Path.cwd()) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPython-ArquivosPastasComputador
 
 
 
 # Descobrindo onde está o nosso arquivo
 
 # caminho=Path('Arquivos_Lojas') # sem o caminho completo so funciona no jupiter
-caminho=Path('C:\\Users\\Jorge\\Desktop\\hashtag\\hashtagPython\\022-integracaoPython-ArquivosPastasComputador\\001-pathlib-shutil-pythonNavegarNoComputador\\Arquivos_Lojas')
-# caminho=Path('C:/Users/Jorge/Desktop/hashtag/hashtagPython/022-integracaoPython-ArquivosPastasComputador/001-pathlib-shutil-pythonNavegarNoComputador/Arquivos_Lojas')
-print(caminho) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPython-ArquivosPastasComputador\001-pathlib-shutil-pythonNavegarNoComputador
+caminho=Path('C:\\Users\\Jorge\\Desktop\\hashtag\\hashtagPython\\022-integracaoPython-ArquivosPastasComputador\\Arquivos_Lojas')
+# caminho=Path('C:/Users/Jorge/Desktop/hashtag/hashtagPython/022-integracaoPython-ArquivosPastasComputador/Arquivos_Lojas')
+print(caminho) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPython-ArquivosPastasComputador\
 
 
 
