@@ -53,6 +53,7 @@ print('\nArquivo existe\n') if Path('Arquivos_Lojas\\202004_Shopping Cidade_MG.c
 
 # ou
 
+# observe que caminho é um path, ao fazermos 'caminho / Path('202004_Shopping Cidade_MG.csv')' estamos fazendo uma concatenacao de Paths que NAO SAO o mesmo que strings 
 print('\nArquivo existe\n') if (caminho / Path('202004_Shopping Cidade_MG.csv')).exists() else print('\nNão existe\n')
 
 

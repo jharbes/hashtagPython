@@ -24,6 +24,7 @@ for arquivo in caminho.iterdir():
 
             print(arquivo.name, type(arquivo.name))
 
+            # observe que caminho é um path, ao fazermos 'caminho / Path('202004_Shopping Cidade_MG.csv')' estamos fazendo uma concatenacao de Paths que NAO SAO o mesmo que strings 
             shutil.copy2(caminho / Path(arquivo.name),Path('Pasta Auxiliar\\'+estado+'\\'+arquivo.name))
 
 
