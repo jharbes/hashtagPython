@@ -75,3 +75,12 @@ shutil.copy2(arquivoCopiar,arquivoColar)
 
 ## Movendo um arquivo
 
+# 2 formas:
+
+# Path('caminho/arquivo.extensao').rename('caminho_novo/arquivo.extensao')<br>
+
+# ou
+
+# shutil.move(Path('caminho/arquivo.extensao'), Path('caminho_novo/arquivo.extensao'))
+
+shutil.move(Path('Pasta Auxiliar\\201801_Amazonas Shopping_AM_versao2.csv'), Path('Pasta Auxiliar\\Pasta2\\201801_Amazonas Shopping_AM_versao2.csv'))
