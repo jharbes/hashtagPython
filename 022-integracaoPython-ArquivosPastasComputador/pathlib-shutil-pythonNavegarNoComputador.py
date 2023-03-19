@@ -85,3 +85,10 @@ shutil.copy2(arquivoCopiar,arquivoColar)
 
 # se colocarmos outro nome do arquivo na pasta final ele automaticamente fara essa alteracao de nome
 shutil.move(Path('Pasta Auxiliar\\201801_Amazonas Shopping_AM_versao2.csv'), Path('Pasta Auxiliar\\Pasta2\\201801_Amazonas Shopping_AM_versao2.csv'))
+
+
+"""
+Obs: Para pegar o nome de um arquivo como um texto no pathlib, você pode usar Path.name ou arquivo.name:<br>
+caminho = Path('Pasta/Arquivo.csv')
+print(caminho.name) -> resposta: 'Arquivo.csv'
+"""

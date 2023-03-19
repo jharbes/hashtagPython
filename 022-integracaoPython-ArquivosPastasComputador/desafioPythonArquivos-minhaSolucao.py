@@ -27,3 +27,9 @@ for arquivo in caminho.iterdir():
             shutil.copy2(caminho / Path(arquivo.name),Path('Pasta Auxiliar\\'+estado+'\\'+arquivo.name))
 
 
+
+"""
+Obs: Para pegar o nome de um arquivo como um texto no pathlib, você pode usar Path.name ou arquivo.name:<br>
+caminho = Path('Pasta/Arquivo.csv')
+print(caminho.name) -> resposta: 'Arquivo.csv'
+"""
