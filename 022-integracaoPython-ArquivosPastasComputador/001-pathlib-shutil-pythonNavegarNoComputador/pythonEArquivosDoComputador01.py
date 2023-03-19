@@ -24,4 +24,5 @@ from pathlib import Path
 
 Path.cwd() # cwd = current working directory
 
-print(Path.cwd())
+print(Path.cwd()) # C:\Users\Jorge\Desktop\hashtag\hashtagPython\022-integracaoPython-ArquivosPastasComputador\001-pathlib-shutil-pythonNavegarNoComputador
+
