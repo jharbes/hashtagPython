@@ -83,4 +83,5 @@ shutil.copy2(arquivoCopiar,arquivoColar)
 
 # shutil.move(Path('caminho/arquivo.extensao'), Path('caminho_novo/arquivo.extensao'))
 
+# se colocarmos outro nome do arquivo na pasta final ele automaticamente fara essa alteracao de nome
 shutil.move(Path('Pasta Auxiliar\\201801_Amazonas Shopping_AM_versao2.csv'), Path('Pasta Auxiliar\\Pasta2\\201801_Amazonas Shopping_AM_versao2.csv'))
