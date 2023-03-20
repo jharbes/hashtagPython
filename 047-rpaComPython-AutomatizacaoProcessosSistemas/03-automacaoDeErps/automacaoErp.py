@@ -59,6 +59,7 @@ def clicarCentroImagem(localizacao):
 def clicarDireitaImagem(localizacao):
     # localizacao(Box) = (x, y, largura, altura) funciona com os indices (iteravel)
     pyautogui.click(localizacao[0]+localizacao[2],localizacao[1]+localizacao[3]/2)
+    print(f'imagem {localizacao} clicada')
 
 
 
