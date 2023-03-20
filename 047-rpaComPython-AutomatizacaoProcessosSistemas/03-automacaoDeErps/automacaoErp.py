@@ -36,17 +36,20 @@ import pyautogui
 import subprocess # utilizado para rodar um processo no computador, usaremos para abrir o ERP
 
 # pasta onde ficarao as imagens pertinentes ao reconhecimento de tela do pyautogui
-pastaImagens='C:\\Users\\jharbes\\Documents\\GitHub\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
+pastaImagensTrabalho='C:\\Users\\jharbes\\Documents\\GitHub\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
+pastaImagensCasa='C:\\Users\\Jorge\\Desktop\\hashtag\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
+
+pastaImagensAtual=pastaImagensCasa
 
 pyautogui.FAILSAFE=True # caso o codigo falhe ou entre em loop infinito basta colocar o mouse em uma das extremidades da tela para que ele seja pausado
 
 def encontrarImagem(imagem):
     temporizador=0
-    while not pyautogui.locateOnScreen(pastaImagens+imagem, grayscale=True, confidence=0.9) and temporizador<=60:
+    while not pyautogui.locateOnScreen(pastaImagensAtual+imagem, grayscale=True, confidence=0.9) and temporizador<=60:
         time.sleep(1)    
         temporizador+=1
     if temporizador<=60:
-        return pyautogui.locateOnScreen(pastaImagens+imagem, grayscale=True, confidence=0.9)
+        return pyautogui.locateOnScreen(pastaImagensAtual+imagem, grayscale=True, confidence=0.9)
     else:
         sys.exit('Tempo maximo de espera ultrapassado')
 
