@@ -36,3 +36,6 @@ import subprocess # utilizado para rodar um processo no computador, usaremos par
 
 # 1- Abrir o ERP (Fakturama)
 subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"]) # acertar o diretorio
+
+
+encontrou=pyautogui.locateOnScreen(imagem) # reconhecimento de imagem 
