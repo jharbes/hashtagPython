@@ -143,4 +143,14 @@ pyautogui.press('tab')
 pyautogui.press('tab')
 escreverTexto('5,00')
 
+# Select a picture
+encontrou=encontrarImagem('selectPicture.png')
+clicarCentroImagem(encontrou)
+
+# Anexando a foto
+time.sleep(2)
+escreverTexto(r'C:\Users\Jorge\Desktop\hashtag\hashtagPython\047-rpaComPython-AutomatizacaoProcessosSistemas\03-automacaoDeErps\Imagens Produtos\notebook.jpg')
+pyautogui.press('enter')
+
+
 print('\nSistema finalizado com sucesso')
