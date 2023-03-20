@@ -71,6 +71,8 @@ def escreverTexto(texto):
     pyautogui.hotkey('ctrl','v')
 
 
+
+time.sleep(3)
 #1- Abrir o ERP (Fakturama)
 subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"])
 """
@@ -100,10 +102,45 @@ clicarCentroImagem(encontrou)
 encontrou=encontrarImagem('newProduct.png')
 clicarCentroImagem(encontrou)
 
+# Preenchimento do formulario
+
+# Item number
 encontrou=encontrarImagem('newProduct-itemNumber.png')
 clicarDireitaImagem(encontrou)
+escreverTexto('2')
 
+# Name
+pyautogui.press('tab')
+escreverTexto('Computador')
 
+# Category
+pyautogui.press('tab')
+escreverTexto('Acessórios')
 
+# GTIN
+pyautogui.press('tab')
+escreverTexto('12345689')
+
+# supplier code
+pyautogui.press('tab')
+escreverTexto('127')
+
+# Description
+pyautogui.press('tab')
+escreverTexto('Computador novo do Lira')
+
+# Price
+pyautogui.press('tab')
+escreverTexto('100,00')
+
+# Cost price
+pyautogui.press('tab')
+escreverTexto('50,00')
+
+# Stock
+pyautogui.press('tab')
+pyautogui.press('tab')
+pyautogui.press('tab')
+escreverTexto('5,00')
 
 print('\nSistema finalizado com sucesso')
