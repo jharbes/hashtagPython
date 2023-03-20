@@ -30,12 +30,20 @@ Passo a passo do processo:
 6- Clicar em salvar
 """
 
+import time
 import pyautogui
 import subprocess # utilizado para rodar um processo no computador, usaremos para abrir o ERP
 
 
 # 1- Abrir o ERP (Fakturama)
-subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"]) # acertar o diretorio
+# subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"]) # acertar o diretorio
 
+# grayscale=True - ignora as cores para a comparacao
+# confidence=0.9 - aceita ate 90% de semelhanca entre as imagens
+# reconhecimento de imagem, passamos os argumentos grayscale e confidence para que ele aceita imperfeicoes na comparacao entre imagens porque elas nunca serao 100% iguais mesmo que feitas na mesma tela 
+# Enquanto ele nao reconhece a imagem selecionado ele fica esperando pra seguir com o codigo
+while not pyautogui.locateOnScreen(r'C:\Users\jharbes\Documents\GitHub\hashtagPython\047-rpaComPython-AutomatizacaoProcessosSistemas\03-automacaoDeErps\testeDeLocateOnScreen.png', grayscale=True, confidence=0.9):
+    time.sleep(1)
 
-encontrou=pyautogui.locateOnScreen(imagem) # reconhecimento de imagem 
+encontrou=pyautogui.locateOnScreen(r'C:\Users\jharbes\Documents\GitHub\hashtagPython\047-rpaComPython-AutomatizacaoProcessosSistemas\03-automacaoDeErps\testeDeLocateOnScreen.png', grayscale=True, confidence=0.9)
+print(encontrou)
