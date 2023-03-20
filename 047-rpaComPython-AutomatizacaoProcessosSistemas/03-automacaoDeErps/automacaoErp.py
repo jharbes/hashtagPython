@@ -66,8 +66,8 @@ def clicarDireitaImagem(localizacao):
 
 
 
-# 1- Abrir o ERP (Fakturama)
-# subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"]) # acertar o diretorio
+#1- Abrir o ERP (Fakturama)
+subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"]) 
 
 """
 
@@ -85,7 +85,11 @@ print(encontrou)
 """
 
 
-encontrou=encontrarImagem('testeDeLocateOnScreen.png')
+encontrou=encontrarImagem('fakturamaImagemLogin.png')
+
+print(encontrou)
+
+encontrou=encontrarImagem('newMenu.png')
 
 print(encontrou)
 
