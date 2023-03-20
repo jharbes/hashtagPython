@@ -67,8 +67,7 @@ def clicarDireitaImagem(localizacao):
 
 
 #1- Abrir o ERP (Fakturama)
-subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"]) 
-
+subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"])
 """
 
 grayscale=True - ignora as cores para a comparacao
