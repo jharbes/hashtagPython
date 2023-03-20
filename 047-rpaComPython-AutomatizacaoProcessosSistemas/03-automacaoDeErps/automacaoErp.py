@@ -36,11 +36,16 @@ import pyautogui
 import subprocess # utilizado para rodar um processo no computador, usaremos para abrir o ERP
 import pyperclip
 
+
+pyautogui.PAUSE=0.2
+
 # pasta onde ficarao as imagens pertinentes ao reconhecimento de tela do pyautogui
 pastaImagensTrabalho='C:\\Users\\jharbes\\Documents\\GitHub\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
 pastaImagensCasa='C:\\Users\\Jorge\\Desktop\\hashtag\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
 
 pastaImagensAtual=pastaImagensCasa
+
+pastaImagensProdutos='C:\\Users\\Jorge\\Desktop\\hashtag\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\Imagens Produtos\\'
 
 pyautogui.FAILSAFE=True # caso o codigo falhe ou entre em loop infinito basta colocar o mouse em uma das extremidades da tela para que ele seja pausado
 
@@ -72,7 +77,7 @@ def escreverTexto(texto):
 
 
 
-time.sleep(3)
+
 #1- Abrir o ERP (Fakturama)
 subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"])
 """
@@ -149,8 +154,12 @@ clicarCentroImagem(encontrou)
 
 # Anexando a foto
 time.sleep(2)
-escreverTexto(r'C:\Users\Jorge\Desktop\hashtag\hashtagPython\047-rpaComPython-AutomatizacaoProcessosSistemas\03-automacaoDeErps\Imagens Produtos\notebook.jpg')
+escreverTexto(pastaImagensProdutos+'notebook.jpg')
 pyautogui.press('enter')
+
+# Salvando o produto
+encontrou=encontrarImagem('saveButton.png')
+clicarCentroImagem(encontrou)
 
 
 print('\nSistema finalizado com sucesso')
