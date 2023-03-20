@@ -34,6 +34,7 @@ import sys
 import time
 import pyautogui
 import subprocess # utilizado para rodar um processo no computador, usaremos para abrir o ERP
+import pyperclip
 
 # pasta onde ficarao as imagens pertinentes ao reconhecimento de tela do pyautogui
 pastaImagensTrabalho='C:\\Users\\jharbes\\Documents\\GitHub\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
@@ -64,6 +65,10 @@ def clicarDireitaImagem(localizacao):
     pyautogui.click(localizacao[0]+localizacao[2],localizacao[1]+localizacao[3]/2)
     print(f'imagem {localizacao} clicada')
 
+
+def escreverTexto(texto):
+    pyperclip.copy(texto)
+    pyautogui.hotkey('ctrl','v')
 
 
 #1- Abrir o ERP (Fakturama)
@@ -100,4 +105,5 @@ clicarDireitaImagem(encontrou)
 
 
 
-print('Sistema finalizado com sucesso')
+
+print('\nSistema finalizado com sucesso')
