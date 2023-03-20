@@ -59,7 +59,7 @@ def encontrarImagem(imagem):
     while not pyautogui.locateOnScreen(pastaImagensAtual+imagem, grayscale=True, confidence=0.9) and temporizador<=29:
         time.sleep(1)    
         temporizador+=1
-    if temporizador<=10:
+    if temporizador<=29:
         return pyautogui.locateOnScreen(pastaImagensAtual+imagem, grayscale=True, confidence=0.9)
     else:
         sys.exit(f'Tempo maximo de {temporizador} segundos ultrapassado, sistema sendo finalizado.')
