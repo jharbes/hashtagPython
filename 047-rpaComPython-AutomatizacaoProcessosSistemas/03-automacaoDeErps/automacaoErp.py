@@ -30,18 +30,32 @@ Passo a passo do processo:
 6- Clicar em salvar
 """
 
+import sys
 import time
 import pyautogui
 import subprocess # utilizado para rodar um processo no computador, usaremos para abrir o ERP
 
+# pasta onde ficarao as imagens pertinentes ao reconhecimento de tela do pyautogui
 pastaImagens='C:\\Users\\jharbes\\Documents\\GitHub\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
 
 pyautogui.FAILSAFE=True # caso o codigo falhe ou entre em loop infinito basta colocar o mouse em uma das extremidades da tela para que ele seja pausado
 
 def encontrarImagem(imagem):
-    while not pyautogui.locateOnScreen(pastaImagens+imagem, grayscale=True, confidence=0.9):
+    temporizador=0
+    while not pyautogui.locateOnScreen(pastaImagens+imagem, grayscale=True, confidence=0.9) and temporizador<=60:
         time.sleep(1)    
-    return pyautogui.locateOnScreen(pastaImagens+imagem, grayscale=True, confidence=0.9)
+        temporizador+=1
+    if temporizador<=60:
+        return pyautogui.locateOnScreen(pastaImagens+imagem, grayscale=True, confidence=0.9)
+    else:
+        sys.exit('Tempo maximo de espera ultrapassado')
+
+
+def clicarImagem(localizacao):
+    pyautogui.click(pyautogui.center(localizacao))
+    print(f'imagem {localizacao} clicada')
+
+
 
 # 1- Abrir o ERP (Fakturama)
 # subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"]) # acertar o diretorio
@@ -58,7 +72,7 @@ Enquanto ele nao reconhece a imagem selecionado ele fica esperando pra seguir co
 
 encontrou=pyautogui.locateOnScreen('C:\\Users\\jharbes\\Documents\\GitHub\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\testeDeLocateOnScreen.png', grayscale=True, confidence=0.9)
 print(encontrou)
-
+ 
 """
 
 
@@ -66,4 +80,4 @@ encontrou=encontrarImagem('testeDeLocateOnScreen.png')
 
 print(encontrou)
 
-pyautogui.click(pyautogui.center(encontrou))
+clicarImagem(encontrou)
