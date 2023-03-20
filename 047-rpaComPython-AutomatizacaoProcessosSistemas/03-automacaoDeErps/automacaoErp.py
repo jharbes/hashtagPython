@@ -35,9 +35,14 @@ import time
 import pyautogui
 import subprocess # utilizado para rodar um processo no computador, usaremos para abrir o ERP
 import pyperclip
+import pandas as pd
 
 
 pyautogui.PAUSE=0.2
+
+pastaApp='C:\\Users\\Jorge\\Desktop\\hashtag\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\'
+
+arquivoExcel='Produtos.xlsx'
 
 # pasta onde ficarao as imagens pertinentes ao reconhecimento de tela do pyautogui
 pastaImagensTrabalho='C:\\Users\\jharbes\\Documents\\GitHub\\hashtagPython\\047-rpaComPython-AutomatizacaoProcessosSistemas\\03-automacaoDeErps\\imagensApp\\'
@@ -72,6 +77,13 @@ def clicarDireitaImagem(localizacao):
 
 
 def escreverTexto(texto):
+    texto=str(texto)
+    pyperclip.copy(texto)
+    pyautogui.hotkey('ctrl','v')
+
+
+def escreverTextoComVirgula(texto):
+    texto=str(texto)+',00'
     pyperclip.copy(texto)
     pyautogui.hotkey('ctrl','v')
 
@@ -97,69 +109,87 @@ print(encontrou)
 
 
 encontrou=encontrarImagem('fakturamaImagemLogin.png')
-
 print(encontrou)
-encontrou=encontrarImagem('newMenu.png')
 
-print(encontrou)
-clicarCentroImagem(encontrou)
 
-encontrou=encontrarImagem('newProduct.png')
-clicarCentroImagem(encontrou)
+tabelaProdutos=pd.read_excel(pastaApp+arquivoExcel)
+print(tabelaProdutos)
 
-# Preenchimento do formulario
 
-# Item number
-encontrou=encontrarImagem('newProduct-itemNumber.png')
-clicarDireitaImagem(encontrou)
-escreverTexto('2')
+for linha in tabelaProdutos.index:
+    id=tabelaProdutos.loc[linha,'ID']
+    nome=tabelaProdutos.loc[linha,'Nome']
+    categoria=tabelaProdutos.loc[linha,'Categoria']
+    gtin=tabelaProdutos.loc[linha,'GTIN']
+    supplier=tabelaProdutos.loc[linha,'Supplier']
+    descricao=tabelaProdutos.loc[linha,'Descrição']
+    imagem=tabelaProdutos.loc[linha,'Imagem']
+    preco=tabelaProdutos.loc[linha,'Preço']
+    custo=tabelaProdutos.loc[linha,'Custo']
+    estoque=tabelaProdutos.loc[linha,'Estoque']
 
-# Name
-pyautogui.press('tab')
-escreverTexto('Computador')
+    # clica no item New do Menu superior
+    encontrou=encontrarImagem('newMenu.png')
+    print(encontrou)
+    clicarCentroImagem(encontrou)
 
-# Category
-pyautogui.press('tab')
-escreverTexto('Acessórios')
+    # clica na opcao New Product do item New do menu superior para abrir o formulario
+    encontrou=encontrarImagem('newProduct.png')
+    clicarCentroImagem(encontrou)
 
-# GTIN
-pyautogui.press('tab')
-escreverTexto('12345689')
+    # Preenchimento do formulario
 
-# supplier code
-pyautogui.press('tab')
-escreverTexto('127')
+    # Item number
+    encontrou=encontrarImagem('newProduct-itemNumber.png')
+    clicarDireitaImagem(encontrou)
+    escreverTexto(id)
 
-# Description
-pyautogui.press('tab')
-escreverTexto('Computador novo do Lira')
+    # Name
+    pyautogui.press('tab')
+    escreverTexto(nome)
 
-# Price
-pyautogui.press('tab')
-escreverTexto('100,00')
+    # Category
+    pyautogui.press('tab')
+    escreverTexto(categoria)
 
-# Cost price
-pyautogui.press('tab')
-escreverTexto('50,00')
+    # GTIN
+    pyautogui.press('tab')
+    escreverTexto(gtin)
 
-# Stock
-pyautogui.press('tab')
-pyautogui.press('tab')
-pyautogui.press('tab')
-escreverTexto('5,00')
+    # supplier code
+    pyautogui.press('tab')
+    escreverTexto(supplier)
 
-# Select a picture
-encontrou=encontrarImagem('selectPicture.png')
-clicarCentroImagem(encontrou)
+    # Description
+    pyautogui.press('tab')
+    escreverTexto(descricao)
 
-# Anexando a foto
-time.sleep(2)
-escreverTexto(pastaImagensProdutos+'notebook.jpg')
-pyautogui.press('enter')
+    # Price
+    pyautogui.press('tab')
+    escreverTextoComVirgula(preco)
 
-# Salvando o produto
-encontrou=encontrarImagem('saveButton.png')
-clicarCentroImagem(encontrou)
+    # Cost price
+    pyautogui.press('tab')
+    escreverTexto(str(custo).replace('.',',')+'0')
+
+    # Stock
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    pyautogui.press('tab')
+    escreverTextoComVirgula(estoque)
+
+    # Select a picture
+    encontrou=encontrarImagem('selectPicture.png')
+    clicarCentroImagem(encontrou)
+
+    # Anexando a foto
+    time.sleep(2)
+    escreverTexto(pastaImagensProdutos+imagem)
+    pyautogui.press('enter')
+
+    # Salvando o produto
+    encontrou=encontrarImagem('saveButton.png')
+    clicarCentroImagem(encontrou)
 
 
 print('\nSistema finalizado com sucesso')
