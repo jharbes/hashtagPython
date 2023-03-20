@@ -45,13 +45,13 @@ pyautogui.FAILSAFE=True # caso o codigo falhe ou entre em loop infinito basta co
 
 def encontrarImagem(imagem):
     temporizador=0
-    while not pyautogui.locateOnScreen(pastaImagensAtual+imagem, grayscale=True, confidence=0.9) and temporizador<=60:
+    while not pyautogui.locateOnScreen(pastaImagensAtual+imagem, grayscale=True, confidence=0.9) and temporizador<=10:
         time.sleep(1)    
         temporizador+=1
-    if temporizador<=60:
+    if temporizador<=10:
         return pyautogui.locateOnScreen(pastaImagensAtual+imagem, grayscale=True, confidence=0.9)
     else:
-        sys.exit('Tempo maximo de espera ultrapassado')
+        sys.exit(f'Tempo maximo de {temporizador} segundos ultrapassado, sistema sendo finalizado.')
 
 
 def clicarCentroImagem(localizacao):
@@ -94,3 +94,5 @@ encontrou=encontrarImagem('newMenu.png')
 print(encontrou)
 
 clicarCentroImagem(encontrou)
+
+print('Sistema finalizado com sucesso')
