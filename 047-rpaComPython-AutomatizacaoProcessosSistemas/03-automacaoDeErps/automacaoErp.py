@@ -51,9 +51,14 @@ def encontrarImagem(imagem):
         sys.exit('Tempo maximo de espera ultrapassado')
 
 
-def clicarImagem(localizacao):
+def clicarCentroImagem(localizacao):
     pyautogui.click(pyautogui.center(localizacao))
     print(f'imagem {localizacao} clicada')
+
+
+def clicarDireitaImagem(localizacao):
+    # localizacao(Box) = (x, y, largura, altura) funciona com os indices (iteravel)
+    pyautogui.click(localizacao[0]+localizacao[2],localizacao[1]+localizacao[3]/2)
 
 
 
@@ -80,4 +85,4 @@ encontrou=encontrarImagem('testeDeLocateOnScreen.png')
 
 print(encontrou)
 
-clicarImagem(encontrou)
+clicarCentroImagem(encontrou)
