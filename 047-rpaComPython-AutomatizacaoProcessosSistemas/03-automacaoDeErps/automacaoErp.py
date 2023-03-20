@@ -87,15 +87,17 @@ print(encontrou)
 encontrou=encontrarImagem('fakturamaImagemLogin.png')
 
 print(encontrou)
-
 encontrou=encontrarImagem('newMenu.png')
 
 print(encontrou)
-
 clicarCentroImagem(encontrou)
 
 encontrou=encontrarImagem('newProduct.png')
-
 clicarCentroImagem(encontrou)
+
+encontrou=encontrarImagem('newProduct-itemNumber.png')
+clicarDireitaImagem(encontrou)
+
+
 
 print('Sistema finalizado com sucesso')
