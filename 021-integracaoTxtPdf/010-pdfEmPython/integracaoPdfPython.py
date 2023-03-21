@@ -10,3 +10,4 @@
 
 ### Para os nossos exemplos, vamos avaliar o Release de Resultados do 3º e 4º Trimestre de 2020 da Magazine Luiza
 """
+
