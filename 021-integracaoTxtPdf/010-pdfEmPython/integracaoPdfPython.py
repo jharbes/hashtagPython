@@ -11,3 +11,28 @@
 ### Para os nossos exemplos, vamos avaliar o Release de Resultados do 3º e 4º Trimestre de 2020 da Magazine Luiza
 """
 
+# importando as bibliotecas:
+
+import PyPDF2 as pyf
+from pathlib import Path
+
+pyf.PdfFileReader # para ler um arquivo em PDF
+pyf.PdfFileWriter # criar/escrever um arquivo em PDF
+pyf.PdfFileMerger # mesclar arquivos PDF
+
+nomeArquivoPdf='MGLU_ER_3T20_POR.pdf'
+arquivoPdf=pyf.PdfReader(nomeArquivoPdf)
+print(arquivoPdf)
+
+# torna o arquivo iteravel, o for vai rolar pagina por pagina
+for pagina in arquivoPdf.pages: 
+    # cria o arquivo com uma pagina apenas
+    arquivoNovo=pyf.PdfWriter()
+    arquivoNovo.addPage(pagina)
+    # salva o arquivo
+    
+
+# #### 1º Objetivo: Queremos conseguir separar apenas o DRE do Release de Resultados (Página 14) para enviar para a Diretoria, como fazemos?
+
+
+# - Separar as páginas de um pdf
