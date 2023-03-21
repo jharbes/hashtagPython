@@ -20,6 +20,12 @@ pyf.PdfFileReader # para ler um arquivo em PDF
 pyf.PdfFileWriter # criar/escrever um arquivo em PDF
 pyf.PdfFileMerger # mesclar arquivos PDF
 
+
+
+# #### 1º Objetivo: Queremos conseguir separar apenas o DRE do Release de Resultados (Página 14) para enviar para a Diretoria, como fazemos?
+
+# - Separar as páginas de um pdf
+
 nomeArquivoPdf='MGLU_ER_3T20_POR.pdf'
 arquivoPdf=pyf.PdfReader(nomeArquivoPdf)
 print(arquivoPdf)
@@ -30,9 +36,9 @@ for pagina in arquivoPdf.pages:
     arquivoNovo=pyf.PdfWriter()
     arquivoNovo.addPage(pagina)
     # salva o arquivo
-    
+    # abre o arquivo Arquivo1.pdf em paginas\\ no mode='wb' (modo writable)
+    # escreve/salva o arquivo novo no arquivo final
+    with Path('paginas\\Arquivo1.pdf').open(mode='wb') as arquivoFinal:
+        arquivoNovo.write(arquivoFinal)
 
-# #### 1º Objetivo: Queremos conseguir separar apenas o DRE do Release de Resultados (Página 14) para enviar para a Diretoria, como fazemos?
 
-
-# - Separar as páginas de um pdf
