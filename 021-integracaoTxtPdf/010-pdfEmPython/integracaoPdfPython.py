@@ -20,8 +20,6 @@ pyf.PdfFileReader # para ler um arquivo em PDF
 pyf.PdfFileWriter # criar/escrever um arquivo em PDF
 pyf.PdfFileMerger # mesclar arquivos PDF
 
-pastaAtualTrabalho=r'C:\Users\jharbes\Documents\GitHub\hashtagPython\021-integracaoTxtPdf\010-pdfEmPython'
-
 # #### 1º Objetivo: Queremos conseguir separar apenas o DRE do Release de Resultados (Página 14) para enviar para a Diretoria, como fazemos?
 
 # - Separar as páginas de um pdf
