@@ -41,3 +41,23 @@ for pagina in arquivoPdf.pages:
         arquivoNovo.write(arquivoFinal)
         numPagina+=1
 
+
+
+# #### 2º Objetivo: Com o Release de Resultados já separado página por página, queremos incluir apenas as Páginas de Destaque (Página 1), DRE (Página 14) e Balanço (Página 16).
+
+# - Juntar vários pdfs em 1
+
+paginasSolicitadas=[1,14,16]
+
+arquivoNovo=pyf.PdfWriter()
+for numPagina in paginasSolicitadas:
+    # Pegar o arquivo numero da pagina
+    # Adicionar no novo PDF
+    nomeArquivo=f'paginas\\Arquivo{numPagina}.pdf'
+    arquivoPdf=pyf.PdfReader(nomeArquivo)
+    pagina=arquivoPdf.pages[0]
+    arquivoNovo.add_page(pagina)
+
+# salvar o novo PDF
+with Path(f'Consolidado.pdf').open(mode='wb') as arquivoFinal:
+    arquivoNovo.write(arquivoFinal)
