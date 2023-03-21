@@ -55,7 +55,7 @@ for numPagina in paginasSolicitadas:
     # Adicionar no novo PDF
     nomeArquivo=f'paginas\\Arquivo{numPagina}.pdf'
     arquivoPdf=pyf.PdfReader(nomeArquivo)
-    pagina=arquivoPdf.pages[0]
+    pagina=arquivoPdf.pages[0] # tem que ter o indice zero porque por natureza é uma lista de paginas, na ausencia desse passara a lista inteira (mesmo que so haja um elemento)
     arquivoNovo.add_page(pagina)
 
 # salvar o novo PDF
