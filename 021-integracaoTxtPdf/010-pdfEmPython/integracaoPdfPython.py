@@ -63,6 +63,8 @@ with Path(f'Consolidado.pdf').open(mode='wb') as arquivoFinal:
     arquivoNovo.write(arquivoFinal)
 
 
+
+
 # ### Extra: Para adicionar todas as páginas de 2 pdfs
 ## como unir qualquer PDF entre si em um só:
 
@@ -71,8 +73,27 @@ pdfMesclado=pyf.PdfMerger()
 arquivo1='MGLU_ER_3T20_POR.pdf'
 arquivo2='MGLU_ER_4T20_POR.pdf'
 
+# so funciona com um append de cada vez
 pdfMesclado.append(arquivo1)
 pdfMesclado.append(arquivo2)
 
 with Path(f'ConsolidadoAppend.pdf').open(mode='wb') as arquivoFinal:
+    pdfMesclado.write(arquivoFinal)
+
+
+
+
+## # Funcionalidades que podem ser úteis:
+
+# - Inserir arquivo no meio do outro
+# - Quero colocar dentro do Resultado do 4T20 os destaques do 3T20 para poder comparar os 2 dentro do mesmo relatório
+
+pdfMesclado=pyf.PdfMerger()
+
+pdfMesclado.append(arquivo1)
+
+# adiciona o arquivo 2 APÓS a pagina número 1 do arquivo 1
+pdfMesclado.merge(1,arquivo2)
+
+with Path(f'ConsolidadoMerge.pdf').open(mode='wb') as arquivoFinal:
     pdfMesclado.write(arquivoFinal)
