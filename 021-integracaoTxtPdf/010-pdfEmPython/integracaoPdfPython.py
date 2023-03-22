@@ -112,3 +112,23 @@ for pagina in pdfRodar.pages:
 
 with Path(f'Rodado.pdf').open(mode='wb') as arquivoFinal:
     pdfFinal.write(arquivoFinal)
+
+
+
+
+#### Trabalhando com Textos e Informações Dentro do PDF
+
+#### 1º Objetivo: Quero identificar como foram as Despesas com Vendas da MGLU
+
+# - Pegar texto da página e identificar onde está essa informação
+
+nomeArquivo='MGLU_ER_3T20_POR.pdf'
+arquivo=pyf.PdfReader(nomeArquivo)
+
+# imprime o numero de paginas do arquivo
+numPaginas=len(arquivo.pages)
+print(numPaginas)
+
+# imprime as informacoes do arquivo
+informacoesArquivo=arquivo.metadata
+print(informacoesArquivo)
