@@ -193,3 +193,14 @@ tabela=tabela.reset_index(drop=True)
 print(tabela)
 
 tabela.to_excel('TabelaExtraidaPDF.xlsx')
+
+
+
+
+## #### 3º Objetivo: Quero analisar o Capital de Giro e os Investimentos (ambas as tabelas na página 12)
+#    - Páginas com mais de 1 tabela
+
+df=tabula.io.read_pdf('MGLU_ER_3T20_POR.pdf', pages=12)
+
+for tabela in df:
+    display(tabela)
