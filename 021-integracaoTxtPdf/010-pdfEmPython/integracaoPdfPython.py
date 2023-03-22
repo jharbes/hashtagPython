@@ -132,3 +132,24 @@ print(numPaginas)
 # imprime as informacoes do arquivo
 informacoesArquivo=arquivo.metadata
 print(informacoesArquivo)
+
+
+textoProcurado='| Despesas com Vendas'
+
+# percorrendo todas as páginas
+numPagina=1
+for pagina in arquivo.pages:
+    # pegar o que está escrito na página
+    textoPagina=pagina.extract_text()
+    # textoPagina=pagina.extract_text().replace('  ',' ').replace('\n \n ','&&&&&&').replace('\n','').replace('&&&&&&','\n')
+
+    # verificar se dentro do texto da pagina tem o texto procurado
+    if textoProcurado in textoPagina:
+        print(f'Está na página {numPagina}')
+        textoFinal=textoPagina
+
+    # se tiver, retornar qual o numero da pagina
+
+    numPagina+=1
+
+print(textoFinal)
