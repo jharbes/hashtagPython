@@ -92,7 +92,7 @@ pdfMesclado=pyf.PdfMerger()
 
 pdfMesclado.append(arquivo1)
 
-# adiciona o arquivo 2 APÓS a pagina número 1 do arquivo 1
+# adiciona o arquivo 2 APÓS a pagina número 1 do arquivo 1, nesse caso 1 seria efetivamente a primeira folha e nao 0 como de costume
 pdfMesclado.merge(1,arquivo2)
 
 with Path(f'ConsolidadoMerge.pdf').open(mode='wb') as arquivoFinal:
