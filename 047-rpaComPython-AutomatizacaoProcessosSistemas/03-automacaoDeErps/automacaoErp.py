@@ -87,8 +87,10 @@ def escreverTextoComVirgula(texto):
     pyperclip.copy(texto)
     pyautogui.hotkey('ctrl','v')
 
-
-
+# tentativa de fechar o fakturama caso ele esteja aberto:
+#while 1 :
+#    subprocess.call("TASKKILL /F /IM path/to/facturama.exe", shell=True)
+#    time.sleep(10)
 
 #1- Abrir o ERP (Fakturama)
 subprocess.Popen([r"C:\Program Files\Fakturama2\Fakturama.exe"])
