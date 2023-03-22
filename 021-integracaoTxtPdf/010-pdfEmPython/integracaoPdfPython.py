@@ -203,4 +203,26 @@ tabela.to_excel('TabelaExtraidaPDF.xlsx')
 df=tabula.io.read_pdf('MGLU_ER_3T20_POR.pdf', pages=12)
 
 for tabela in df:
-    display(tabela)
+    tabela=tabela.dropna(how='all')
+    tabela=tabela.dropna(how='all',axis=1)
+    print(tabela)
+
+
+
+## #### O que fazer quando o tabula não consegue ler alguma linha da tabela? Como o cabeçalho, no nosso caso?
+
+# primeira tabela da pagina 5 extraida da maneira normal
+capitalGiro=df[0]
+capitalGiro=capitalGiro.dropna(how='all')
+capitalGiro=capitalGiro.dropna(how='all',axis=1)
+print(capitalGiro)
+
+# outro metodo para ler a tabela, mais desorganizado porem inclui mais coisas, entao dependendo do caso pode ser util
+df2=tabula.io.read_pdf('MGLU_ER_3T20_POR.pdf', pages=12, lattice=True)
+tituloCapitalGiro=df2[0]
+tituloCapitalGiro=tituloCapitalGiro.dropna(how='all')
+tituloCapitalGiro=tituloCapitalGiro.dropna(how='all',axis=1)
+tituloCapitalGiro=tituloCapitalGiro.iloc[0]
+tituloCapitalGiro=tituloCapitalGiro.dropna()
+capitalGiro.columns=tituloCapitalGiro
+print(tituloCapitalGiro)
