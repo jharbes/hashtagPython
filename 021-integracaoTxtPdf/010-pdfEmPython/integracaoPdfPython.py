@@ -174,6 +174,11 @@ print(textoDespesa)
 
 import tabula.io
 
-# o tabula procura todas as tabelas que estao na pagina
+
+# o numero da pagina nao segue a logica dos arrays/listas e comeca por 1
 df=tabula.io.read_pdf('MGLU_ER_3T20_POR.pdf', pages=5)
 print(df)
+
+# o tabula procura todas as tabelas que estao na pagina, sendo assim ela tem indices, pois cada indice será uma tabela da pagina comecando pelo indice [0], se houver apenas uma sera apenas esse elemento na lista de tabelas
+tabela=df[0]
+print(tabela)
