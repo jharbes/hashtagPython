@@ -181,4 +181,15 @@ print(df)
 
 # o tabula procura todas as tabelas que estao na pagina, sendo assim ela tem indices, pois cada indice será uma tabela da pagina comecando pelo indice [0], se houver apenas uma sera apenas esse elemento na lista de tabelas
 tabela=df[0]
+
+tabela=tabela.dropna(how='all') # deleta todas as LINHAS que estejam com tudo em branco (NaN), utiliza default axis=0 (linha)
+
+tabela=tabela.dropna(how='all',axis=1) # deleta todas as COLUNAS que estejam com tudo em branco (NaN)
+
+tabela.columns=tabela.iloc[0]
+tabela=tabela.drop(tabela.index[0])
+tabela=tabela.reset_index(drop=True)
+
 print(tabela)
+
+tabela.to_excel('TabelaExtraidaPDF.xlsx')
