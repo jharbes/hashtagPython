@@ -61,3 +61,18 @@ for numPagina in paginasSolicitadas:
 # salvar o novo PDF
 with Path(f'Consolidado.pdf').open(mode='wb') as arquivoFinal:
     arquivoNovo.write(arquivoFinal)
+
+
+# ### Extra: Para adicionar todas as páginas de 2 pdfs
+## como unir qualquer PDF entre si em um só:
+
+pdfMesclado=pyf.PdfMerger()
+
+arquivo1='MGLU_ER_3T20_POR.pdf'
+arquivo2='MGLU_ER_4T20_POR.pdf'
+
+pdfMesclado.append(arquivo1)
+pdfMesclado.append(arquivo2)
+
+with Path(f'ConsolidadoAppend.pdf').open(mode='wb') as arquivoFinal:
+    pdfMesclado.write(arquivoFinal)
