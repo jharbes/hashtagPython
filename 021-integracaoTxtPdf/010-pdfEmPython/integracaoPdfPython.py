@@ -165,3 +165,15 @@ print(posicaoFinalTexto)
 textoDespesa=textoFinal[posicaoInicialTexto:posicaoFinalTexto]
 print(textoDespesa)
 
+
+
+
+### #### 2º Objetivo: Quero analisar o DRE (sem ajuste - Página 5)
+
+#- Para ler tabelas em pdf, use o tabula (é ninja)
+
+import tabula.io
+
+# o tabula procura todas as tabelas que estao na pagina
+df=tabula.io.read_pdf('MGLU_ER_3T20_POR.pdf', pages=5)
+print(df)
