@@ -141,7 +141,7 @@ numPagina=1
 for pagina in arquivo.pages:
     # pegar o que está escrito na página
     textoPagina=pagina.extract_text()
-    # textoPagina=pagina.extract_text().replace('  ',' ').replace('\n \n ','&&&&&&').replace('\n','').replace('&&&&&&','\n')
+    # textoPagina=pagina.extract_text().replace('  ',' ').replace('\n \n ','&&&&&&').replace('\n','').replace('&&&&&&','\n') # tentativa de padronizar o texto
 
     # verificar se dentro do texto da pagina tem o texto procurado
     if textoProcurado in textoPagina:
@@ -152,4 +152,16 @@ for pagina in arquivo.pages:
 
     numPagina+=1
 
-print(textoFinal)
+# print(textoFinal)
+
+# descobre a posicao do primeiro caractere referente ao texto procurado
+posicaoInicialTexto=textoFinal.find('| Despesas com Vendas')
+print(posicaoInicialTexto)
+
+# pesquisa a proxima barrinha do texto, o segundo argumento é a partir de que posicao ele vai procurar
+posicaoFinalTexto=textoFinal.find('|', posicaoInicialTexto+1)
+print(posicaoFinalTexto)
+
+textoDespesa=textoFinal[posicaoInicialTexto:posicaoFinalTexto]
+print(textoDespesa)
+
