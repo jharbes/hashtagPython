@@ -97,3 +97,18 @@ pdfMesclado.merge(1,arquivo2)
 
 with Path(f'ConsolidadoMerge.pdf').open(mode='wb') as arquivoFinal:
     pdfMesclado.write(arquivoFinal)
+
+
+
+## - Rodar Página
+
+pdfRodar=pyf.PdfReader(arquivo1)
+
+pdfFinal=pyf.PdfWriter()
+for pagina in pdfRodar.pages:
+    # 90 deita a pagina, 180 coloca ao contrario
+    pagina.rotate(90)
+    pdfFinal.add_page(pagina)
+
+with Path(f'Rodado.pdf').open(mode='wb') as arquivoFinal:
+    pdfFinal.write(arquivoFinal)
