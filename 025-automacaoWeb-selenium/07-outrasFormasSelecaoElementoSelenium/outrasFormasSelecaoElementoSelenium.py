@@ -13,17 +13,19 @@ navegador.get(arquivo)
 """
 MANEIRAS DE SELECIONAR NO SELENIUM:
 
-id                  .ID
-xpath               .XPATH
-class_name          .CLASS_NAME
-texto inteiro       .LINK_TEXT
-pedaço de texto     .PARTIAL_LINK_TEXT
-name                .NAME
-tag name            .TAG_NAME
-css selector        .CSS_SELECTOR
+id                      .ID
+xpath                   .XPATH
+class_name              .CLASS_NAME
+texto inteiro de link   .LINK_TEXT
+pedaço de texto de link .PARTIAL_LINK_TEXT
+name                    .NAME
+tag name                .TAG_NAME
+css selector            .CSS_SELECTOR
 
 Preferencia de uso:
 id
+class
+xpath
 """
 
 
@@ -46,7 +48,7 @@ print(titulo)
 # sendo assim iremos procurar em algum lugar o elemento cujo texto possua o valor desejado (WhatsApp)
 
 # Extrai o texto do elemento cujo texto tenha em alguma das suas partes a palavra escolhida
-numero_whatsapp = navegador.find_element(By.PARTIAL_LINK_TEXT, 'WhatsApp').text
+numero_whatsapp = navegador.find_element(By.PARTIAL_LINK_TEXT, 'WhatsApp').text # o elemento procurado é case sensitive
 print(numero_whatsapp)
 
 
