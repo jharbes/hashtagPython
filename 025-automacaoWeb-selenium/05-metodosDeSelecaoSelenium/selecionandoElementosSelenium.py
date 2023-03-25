@@ -10,9 +10,32 @@ navegador = webdriver.Chrome(service=servico)
 import os
 import time
 
-caminho = os.getcwd()
+caminho=os.getcwd()
 print(os.getcwd())
 arquivo = caminho + r"\Pagina Hashtag.html"
 navegador.get(arquivo)
 
 time.sleep(5)
+
+"""
+MANEIRAS DE SELECIONAR NO SELENIUM:
+
+id
+xpath
+class_name
+text (texto que está no corpo)
+tipo de informacao
+
+Preferencia de uso:
+id
+"""
+
+# Duas maneiras de selecionar um elemento no selenium:
+
+navegador.find_element # retorna um unico elemento (nao lista)
+
+navegador.find_elements # retorna uma lista (lista python) com varios itens, se so houver um retornara uma lista com apenas um elemento
+
+
+# necessario importar esse elemento para selecionar elementos no selenium, o By é o elemento que escolhe a maneira como serao selecionados os elementos
+from selenium.webdriver.common.by import By
