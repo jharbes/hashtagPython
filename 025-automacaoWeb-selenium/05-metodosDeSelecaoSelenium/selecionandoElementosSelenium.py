@@ -39,3 +39,12 @@ navegador.find_elements # retorna uma lista (lista python) com varios itens, se 
 
 # necessario importar esse elemento para selecionar elementos no selenium, o By é o elemento que escolhe a maneira como serao selecionados os elementos
 from selenium.webdriver.common.by import By
+
+campoNome=navegador.find_element(By.ID,'fullname')
+campoNome.send_keys('Jorge')
+
+campoEmail=navegador.find_element(By.ID,'email')
+campoEmail.send_keys('jharbes@hotmail.com')
+
+botaoEnviar=navegador.find_element(By.ID,'_form_176_submit')
+botaoEnviar.click()
