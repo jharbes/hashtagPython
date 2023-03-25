@@ -29,4 +29,9 @@ id
 """
 
 
+from selenium.webdriver.common.by import By
+
+navegador.find_element(By.CLASS_NAME,'custom-logo').click() # clica no logo da hashtag na pagina inicial (esquerda superior)
+
+
 time.sleep(5)
