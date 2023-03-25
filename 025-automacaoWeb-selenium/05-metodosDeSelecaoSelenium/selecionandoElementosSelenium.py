@@ -6,3 +6,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 servico = Service(ChromeDriverManager().install())
 navegador = webdriver.Chrome(service=servico)
+
+import os
+import time
+
+caminho = os.getcwd()
+print(os.getcwd())
+arquivo = caminho + r"\Pagina Hashtag.html"
+navegador.get(arquivo)
+
+time.sleep(5)
