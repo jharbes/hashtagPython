@@ -18,8 +18,8 @@ MANEIRAS DE SELECIONAR NO SELENIUM:
 id                  .ID
 xpath               .XPATH
 class_name          .CLASS_NAME
-text                .LINK_TEXT
-tipo de informacao  .PARTIAL_LINK_TEXT
+texto inteiro       .LINK_TEXT
+pedaço de texto     .PARTIAL_LINK_TEXT
 name                .NAME
 tag name            .TAG_NAME
 css selector        .CSS_SELECTOR
