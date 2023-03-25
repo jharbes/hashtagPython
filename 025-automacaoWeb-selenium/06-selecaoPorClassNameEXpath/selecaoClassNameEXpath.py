@@ -31,7 +31,11 @@ id
 
 from selenium.webdriver.common.by import By
 
+# achando o elemento por classe
 navegador.find_element(By.CLASS_NAME,'custom-logo').click() # clica no logo da hashtag na pagina inicial (esquerda superior)
+
+# achando o mesmo elemento, agora por xpath
+navegador.find_element(By.XPATH,'//*[@id="header"]/div/div/div[1]/a/img').click()
 
 
 time.sleep(5)
