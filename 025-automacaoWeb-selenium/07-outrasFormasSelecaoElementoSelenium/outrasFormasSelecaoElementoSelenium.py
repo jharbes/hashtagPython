@@ -45,11 +45,26 @@ print(titulo)
 #### Selecionar pelo Partial Link Text (ou LINK_TEXT)
 
 # - Quero conseguir pegar o número de whatsapp de contato
-# sendo assim iremos procurar em algum lugar o elemento cujo texto possua o valor desejado (WhatsApp)
+# sendo assim iremos procurar em algum lugar o elemento cujo texto DE LINK possua o valor desejado (WhatsApp)
 
-# Extrai o texto do elemento cujo texto tenha em alguma das suas partes a palavra escolhida
+# Extrai o texto do elemento cujo texto DE LINK tenha em alguma das suas partes a palavra escolhida
 numero_whatsapp = navegador.find_element(By.PARTIAL_LINK_TEXT, 'WhatsApp').text # o elemento procurado é case sensitive
 print(numero_whatsapp)
+
+
+
+# #### Selecionar pelo name
+# - Preencher o formulário
+
+navegador.find_element(By.NAME, 'email').send_keys("pythonimpressionador@gmail.com")
+
+
+
+
+# #### Selecionar pelo CSS Selector
+# - Parecido com o XPATH, acaba não usando tanto, mas caso queira, tem uma referência aqui:
+# https://saucelabs.com/resources/articles/selenium-tips-css-selectors
+
 
 
 time.sleep(5)
