@@ -19,11 +19,14 @@ navegador.get(arquivo)
 """
 MANEIRAS DE SELECIONAR NO SELENIUM:
 
-id
-xpath
-class_name
-text (texto que está no corpo)
-tipo de informacao
+id                  .ID
+xpath               .XPATH
+class_name          .CLASS_NAME
+text                .LINK_TEXT
+tipo de informacao  .PARTIAL_LINK_TEXT
+name                .NAME
+tag name            .TAG_NAME
+css selector        .CSS_SELECTOR
 
 Preferencia de uso:
 id
