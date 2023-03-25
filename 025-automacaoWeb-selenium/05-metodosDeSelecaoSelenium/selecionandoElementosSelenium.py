@@ -15,7 +15,6 @@ print(os.getcwd())
 arquivo = caminho + r"\Pagina Hashtag.html"
 navegador.get(arquivo)
 
-time.sleep(5)
 
 """
 MANEIRAS DE SELECIONAR NO SELENIUM:
@@ -48,3 +47,6 @@ campoEmail.send_keys('jharbes@hotmail.com')
 
 botaoEnviar=navegador.find_element(By.ID,'_form_176_submit')
 botaoEnviar.click()
+
+
+time.sleep(5)
