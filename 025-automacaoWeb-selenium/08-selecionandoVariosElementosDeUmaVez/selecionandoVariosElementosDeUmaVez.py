@@ -37,7 +37,13 @@ from selenium.webdriver.common.by import By
 # - Vamos selecionar pelo find_elements
 # - Vamos clicar no item Blog do menu
 
+lista_elementos = navegador.find_elements(By.CLASS_NAME, 'nav-link')
+print(lista_elementos)
 
+for elemento in lista_elementos:
+    if "blog" in elemento.text.lower():
+        elemento.click()
+        break # importante usar o break  apos encontrar o elemento pois ele vai trocar de pagina e os proximos elementos nao irao mais existir, podendo ocasionar erro e quebrar o programa
 
 
 
