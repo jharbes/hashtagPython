@@ -35,7 +35,16 @@ from selenium.webdriver.common.by import By
 # #### Botão Padrão (clicar em botão)
 
 
+# clica no botao "Clique em mim"
+navegador.find_element(By.XPATH, '/html/body/form/input[1]').click()
 
+
+# interage com o pop up de resposta
+alerta = navegador.switch_to.alert # faz com que o navegador altere seu comando para o alerta e nao para o navegador em si
+
+time.sleep(2) # apenas para dar tempo de ver o alerta abrindo se sendo fechado
+
+alerta.accept() # aceita a resposta do pop up, para recursar seria alerta.dismiss()
 
 
 
