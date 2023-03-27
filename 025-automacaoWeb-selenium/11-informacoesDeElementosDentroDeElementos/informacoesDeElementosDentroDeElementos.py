@@ -34,10 +34,14 @@ from selenium.webdriver.common.by import By
 # Pegar todos os links das imagens:
 
 # aqui pegamos todos os elementos que possuem a tag figure, que é o que envolve as imagens grandes do site
-listaElementos=navegador.find_elements(By.TAG_NAME,'figure')
+listaElementos=navegador.find_elements(By.TAG_NAME,'figure') # lista de figures
 print(listaElementos)
+print(len(listaElementos))
 
-
+# buscaremos os links de cada imagem dentro da tag <a> que esta dentro da tag <figure>, atributo href
+for elemento in listaElementos:
+    link=elemento.find_element(By.TAG_NAME,'a').get_attribute('href')
+    print(link)
 
 
 time.sleep(5)
