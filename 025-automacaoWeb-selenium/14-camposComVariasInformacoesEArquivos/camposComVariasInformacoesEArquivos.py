@@ -123,7 +123,7 @@ print(valor) # 1983-06-21T06:50
 
 # preenchendo
 
-caminho = os.getcwd()
+caminho = os.getcwd() # current working directory
 arquivo = caminho + r"\formulario.html"
 
 navegador.find_element(By.XPATH, '/html/body/form/input[8]').send_keys(arquivo)
