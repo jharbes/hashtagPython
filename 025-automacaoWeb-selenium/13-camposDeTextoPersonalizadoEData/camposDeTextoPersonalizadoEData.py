@@ -75,10 +75,11 @@ print(valor)
 #### Botão de Seleção de Cores (enviar valor)
 
 # verificar qual a cor está selecionada
-valor0=navegador.find_element(By.XPATH,'/html/body/form/input[4]').get_attribute
+valor0=navegador.find_element(By.XPATH,'/html/body/form/input[4]').get_attribute('value')
+print(valor0) # #000000
 
 valor = navegador.find_element(By.XPATH, '/html/body/form/input[5]').get_attribute("value")
-print(valor)
+print(valor) # #000000
 
 
 # preencher a cor
@@ -91,7 +92,13 @@ navegador.find_element(By.XPATH, '/html/body/form/input[5]').send_keys('#D11515'
 
 #### Botão de Datas (enviar valor)
 
+# preencher o valor, a maneira de preencher vai depender do formulario em questao, pode variar
+navegador.find_element(By.XPATH, '/html/body/form/input[6]').send_keys('21/06/1983')
 
+
+# pegar o valor, o valor armazenado, nesse caso é no formato universal de data com o ano/mes/dia, mas isso pode variar de site pra site
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[6]').get_attribute("value")
+print(valor) # 1983-06-21
 
 
 
