@@ -74,7 +74,40 @@ print(valor)
 
 #### Botão de Seleção de Cores (enviar valor)
 
+# verificar qual a cor está selecionada
+valor0=navegador.find_element(By.XPATH,'/html/body/form/input[4]').get_attribute
 
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[5]').get_attribute("value")
+print(valor)
+
+
+# preencher a cor
+navegador.find_element(By.XPATH, '/html/body/form/input[4]').send_keys('#243DBC')
+
+navegador.find_element(By.XPATH, '/html/body/form/input[5]').send_keys('#D11515')
+
+
+
+
+#### Botão de Datas (enviar valor)
+
+
+
+
+
+
+
+
+#### Caixa de Texto
+
+
+# preencher
+navegador.find_element(By.XPATH, '/html/body/form/input[16]').send_keys("Vasco")
+
+# capturar valor preenchido
+# embora o elemento em si de input normalmente nao possua esse atributo "value", ele retorna o valor com o valor preenchido do campo input, isso é valido para todo tipo de input
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[16]').get_attribute("value")
+print(valor)
 
 
 time.sleep(5)
