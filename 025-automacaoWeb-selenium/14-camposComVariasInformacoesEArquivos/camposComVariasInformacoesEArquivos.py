@@ -103,6 +103,36 @@ print(valor) # 1983-06-21
 
 
 
+#### Botão de Datas com Horas (enviar valor)
+
+# preenchendo
+from selenium.webdriver.common.keys import Keys
+
+# pra trocar de campo (data pra hora) e continuar o preenchimento precisamos usar a tecla tab, sendo assim usaremos o argumento Keys.TAB no metodo send_keys
+navegador.find_element(By.XPATH, '/html/body/form/input[7]').send_keys('21/06/1983', Keys.TAB, '06:50')
+
+
+# pegando o valor, nesse caso retorna o formato date time 1983-06-21T06:50
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[7]').get_attribute("value")
+print(valor) # 1983-06-21T06:50
+
+
+
+
+#### Botão para selecionar o arquivo (enviar valor com caminho completo)
+
+# preenchendo
+
+caminho = os.getcwd()
+arquivo = caminho + r"\formulario.html"
+
+navegador.find_element(By.XPATH, '/html/body/form/input[8]').send_keys(arquivo)
+
+
+# pegar o valor, se nao houver nenhum arquivo selecionado tera o retorno vazio
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[8]').get_attribute("value")
+print(valor)
+
 
 
 #### Caixa de Texto
