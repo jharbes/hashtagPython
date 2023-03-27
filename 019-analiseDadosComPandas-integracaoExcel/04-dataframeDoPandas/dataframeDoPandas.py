@@ -56,3 +56,18 @@ print(vendas_df['ID Produto'][0]) # extrai a primeira linha da coluna 'ID Produt
 
 # Usaremos o .info() para isso
 
+vendas_df.info() # mostra todas as colunas e as informacoes sobre seus tipos de dados
+
+
+
+# - Vamos criar então agora uma lista de Clientes
+
+listaClientes=vendas_df['ID Cliente']
+print(listaClientes)
+
+
+
+# - Vamos criar agora uma lista com os produtos e as quantidades de vendas dele, caso a gente queira analisar só os produtos (independente de data ou de cliente)
+
+produtosQuantidade=vendas_df[['ID Produto','Quantidade Vendida','Quantidade Devolvida']]
+print(produtosQuantidade)
