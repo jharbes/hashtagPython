@@ -46,6 +46,28 @@ time.sleep(2) # apenas para dar tempo de ver o alerta abrindo se sendo fechado
 
 alerta.accept() # aceita a resposta do pop up, para recursar seria alerta.dismiss()
 
+time.sleep(2)
+
+
+"""
+#### Dica, esteja atento ao atributo "value" dos inputs, ele pode te ajudar
+
+- .text
+- .get_attribute("value")
+- .is_selected
+"""
+
+#### Botão de Seleção estilo Checkbox (clicar no botão)
+
+# clicar no botão
+# observe o primeiro botao do checkbox sendo marcado
+navegador.find_element(By.XPATH, '/html/body/form/input[2]').click() 
+
+
+# verificar o valor do botão
+# retorna um booleano dizendo se o botao esta selecionado ou nao (True ou False)
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[2]').is_selected()
+print(valor) 
 
 
 time.sleep(5)
