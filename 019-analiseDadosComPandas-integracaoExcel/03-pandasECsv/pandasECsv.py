@@ -21,18 +21,18 @@ import pandas as pd
 
 vendasDf=pd.read_csv('Contoso - Cadastro Produtos.csv')
 print(vendasDf)
-vendasDf # tambem exibe o arquivo csv
+vendasDf # tambem exibe o arquivo csv (jupyter)
 
 vendasDf2=pd.read_csv('Contoso - Vendas - 2017.csv')
 print(vendasDf2)
-vendasDf2 # tambem exibe o arquivo csv
+vendasDf2 # tambem exibe o arquivo csv (jupyter)
 
 # nesse caso o arquivo está com a separacao de colunas feitas com (;) ponto e virgula, porem o padrao do csv é a separacao por (,) virgula, logo teremos que indicar esse separador para que a leitura seja feita adequadamente.
 
 vendasDf=pd.read_csv('Contoso - Cadastro Produtos.csv',sep=';')
 print(vendasDf)
-vendasDf # tambem exibe o arquivo csv
+vendasDf # tambem exibe o arquivo csv (jupyter)
 
 vendasDf2=pd.read_csv('Contoso - Vendas - 2017.csv',sep=';')
 print(vendasDf2)
-vendasDf2 # tambem exibe o arquivo csv
+vendasDf2 # tambem exibe o arquivo csv (jupyter)

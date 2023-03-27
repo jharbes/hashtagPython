@@ -29,9 +29,25 @@ vendas_df['coluna_x'][0] -> pega o item da 1ª linha da coluna coluna_x
 
 import pandas as pd
 
-vendas_df = pd.read_csv(r'Contoso - Vendas  - 2017.csv', sep=';')
+vendas_df = pd.read_csv(r'Contoso - Vendas - 2017.csv', sep=';')
 
-vendas_df
+vendas_df # tambem exibe o arquivo (jupyter)
+print(vendas_df)
+
+print(vendas_df['ID Cliente']) # ele extrai apenas a coluna 'ID Cliente' do dataframe
+
+
+# lembrando que o primeiro indice das linhas é 0 (zero)
+print(vendas_df[:3]) # imprime ate a linha 3 (0, 1 e 2)
+
+print(vendas_df[2:5]) # imprime da linha 3 até a 5
+
+print(vendas_df[:1]) # imprime o cabeçalho e primeira linha
+
+print(vendas_df[['Numero da Venda','Data da Venda','ID Produto']]) # extrai as tres colunas selecionadas em um novo dataframe, ****repare que deve ser passada uma lista (colchetes de lista dentro dos colchetes de indice de coluna)
+
+print(vendas_df['ID Produto'][0]) # extrai a primeira linha da coluna 'ID Produto', o elemento ficara cru, nao mais em formato de tabela
+
 
 
 # ## Aplicação
