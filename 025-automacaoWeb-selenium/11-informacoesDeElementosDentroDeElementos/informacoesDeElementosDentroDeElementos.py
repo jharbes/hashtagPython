@@ -31,6 +31,11 @@ xpath
 
 from selenium.webdriver.common.by import By
 
+# Pegar todos os links das imagens:
+
+# aqui pegamos todos os elementos que possuem a tag figure, que é o que envolve as imagens grandes do site
+listaElementos=navegador.find_elements(By.TAG_NAME,'figure')
+print(listaElementos)
 
 
 
