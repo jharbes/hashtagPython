@@ -13,6 +13,9 @@ vendasDf = vendasDf.merge(produtosDf, on='ID Produto')
 
 produtosVendidos=vendasDf.groupby('Nome do Produto').sum()
 
-produtosVendidos=produtosVendidos.sort_values('Quantidade Vendida')[0:1]['Nome do Produto']
+produtoQueMenosVendeu=produtosVendidos.sort_values('Quantidade Vendida')[:1]
 
-print(produtosVendidos)
+produtoQueMenosVendeu=produtoQueMenosVendeu['Quantidade Vendida'].idxmin()
+
+print(produtoQueMenosVendeu)
+
