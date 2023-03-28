@@ -70,4 +70,50 @@ vendasLojas=vendasDf.groupby('Nome da Loja').sum()
 
 vendasLojas=vendasLojas[['Quantidade Vendida']] # nao precisamos passar o nome da loja pois ele se tornou o indice no novo dataframe
 
+print(vendasLojas) # importante notar que a tabela mostra o valor vendido de cada loja mas ainda nao esta ordenado de maneira crescente ou decrescente
+
+
+
+
+# - Agora precisamos pegar o maior valor. Temos 2 formas:
+#    1. Ordenar o dataframe em ordem decrescente de Quantidade Vendida
+#        - Método .sort_values
+#    2. Pegar o Maior valor diretamente
+#        - Métodos .max() e .idxmax()
+
+# ordenando o dataframe
+
+vendasLojas=vendasLojas.sort_values('Quantidade Vendida', ascending=False) # ascending=False para que ele ordene de forma decrescente
+
+# podemos plotar em um gráfico
+
+vendasLojas[:5].plot(figsize=(15,5),kind='bar') # figsize ajusta o tamanho do grafico, kind ajusta para um grafico de barra em vez de linha
+
+plt.show() # mostra todos os graficos gerados pelo codigo
+
+
 print(vendasLojas)
+
+
+# pegando o maior valor e se índice
+
+maiorValor=vendasLojas['Quantidade Vendida'].max()
+
+melhorLoja=vendasLojas['Quantidade Vendida'].idxmax()
+
+print(f'{melhorLoja=} {maiorValor=}')
+
+
+
+
+### Qual produto que menos vendeu?
+
+#- Já temos uma lista criada para isso, basta verificarmos o final da lista (já que ela está ordenada) ou então usarmos os métodos:
+#    1. min()
+#    2. idxmin()
+
+print(vendasLojas[-1:]) # nao funciona so com o -1 pois os dataframes nao aceitam apenas o indice, aceitam apenas ranges
+
+# ou
+
+print(vendasLojas['Quantidade Vendida'].idxmin())
