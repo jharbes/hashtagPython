@@ -15,10 +15,21 @@ Vamos modificar os IDs para os nomes dos produtos, dos clientes e das lojas, par
 
 import pandas as pd
 
-# às vezes precisaremos mudar o encoding. Possiveis valores para testar:
+# **** as vezes precisaremos mudar o encoding. Possiveis valores para testar:
 # encoding='latin1', encoding='ISO-8859-1', encoding='utf-8' ou então encoding='cp1252'
-vendas_df = pd.read_csv(r'Contoso - Vendas  - 2017.csv', sep=';')
+
+vendasDf = pd.read_csv(r'Contoso - Vendas - 2017.csv', sep=';')
+
+produtosDf=pd.read_csv(r'Contoso - Cadastro Produtos.csv',sep=';')
+
+lojasDf=pd.read_csv(r'Contoso - Lojas.csv',sep=';')
+
+clientesDf=pd.read_csv(r'Contoso - Clientes.csv',sep=';')
 
 
 # usaremos o display/print para ver todos os dataframes
-print(vendas_df)
+print(vendasDf)
+print(produtosDf)
+print(lojasDf)
+print(clientesDf)
+
