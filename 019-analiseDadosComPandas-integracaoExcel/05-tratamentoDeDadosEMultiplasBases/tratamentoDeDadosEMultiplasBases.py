@@ -50,3 +50,31 @@ lojasDf=lojasDf[['ID Loja','Nome da Loja']] # lojasDf agora so possuira as colun
 
 
 print(produtosDf)
+
+
+
+
+### Agora vamos juntar os dataframes para ter 1 único dataframe com tudo "bonito"
+
+# novo_dataframe = dataframe1.merge(dataframe2, on='coluna')
+
+# - Obs: O merge precisa das colunas com o mesmo nome para funcionar. Se não tiver, você precisa alterar o nome da coluna com o .rename
+
+# dataframe.rename(columns={'coluna1': 'novo_coluna_1'})
+
+
+# juntando os dataframes, observe que no final do arquivo estarao as informacoes 'extras' vindas das tabelas anexadas => nome do produto, nome da loja e email, com a correlacao adequada de id de cada um
+vendasDf=vendasDf.merge(produtosDf,on='ID Produto')
+vendasDf=vendasDf.merge(lojasDf,on='ID Loja')
+vendasDf=vendasDf.merge(clientesDf,on='ID Cliente')
+
+
+# exibindo o dataframe final
+print(vendasDf)
+
+
+# vamos renomear o e-mail para ficar claro que é do cliente
+# dataframe.rename(columns={'coluna1': 'novo_coluna_1'})
+vendasDf=vendasDf.rename(columns={'E-mail': 'E-mail do Cliente'})
+
+print(vendasDf)
