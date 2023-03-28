@@ -33,3 +33,20 @@ print(produtosDf)
 print(lojasDf)
 print(clientesDf)
 
+
+
+
+### Vamos tirar as colunas inúteis do clientes_df ou pegar apenas as colunas que quisermos
+
+# .drop([coluna1, coluna2, coluna3]) -> retira as colunas: coluna1, coluna2, coluna3
+
+clientesDf=clientesDf.drop(['Unnamed: 7','Unnamed: 8','Unnamed: 9','Unnamed: 10'],axis=1) # retirando as colunas com esses nomes , axis=1 é coluna
+
+clientesDf=clientesDf[['ID Cliente','E-mail']] # agora criamos uma nova tabela clientesDf, so que essa só possuira as colunas 'ID Cliente' e 'E-mail'
+
+produtosDf=produtosDf[['ID Produto','Nome do Produto']] # produtosDf agora só tera as colunas 'ID Produto' e 'Nome do Produto'
+
+lojasDf=lojasDf[['ID Loja','Nome da Loja']] # lojasDf agora so possuira as colunas 'ID Loja' e 'Nome da Loja'
+
+
+print(produtosDf)
