@@ -25,12 +25,12 @@ produtosDf = pd.read_csv(r'Contoso - Cadastro Produtos.csv', sep=';')
 lojasDf = pd.read_csv(r'Contoso - Lojas.csv', sep=';')
 clientesDf = pd.read_csv(r'Contoso - Clientes.csv', sep=';')
 
-#limpando apenas as colunas que queremos
+# limpando apenas as colunas que queremos
 clientesDf = clientesDf[['ID Cliente', 'E-mail']]
 produtosDf = produtosDf[['ID Produto', 'Nome do Produto']]
 lojasDf = lojasDf[['ID Loja', 'Nome da Loja']]
 
-#mesclando e renomeando os dataframes
+# mesclando e renomeando os dataframes
 vendasDf = vendasDf.merge(produtosDf, on='ID Produto')
 vendasDf = vendasDf.merge(lojasDf, on='ID Loja')
 vendasDf = vendasDf.merge(clientesDf, on='ID Cliente').rename(columns={'E-mail': 'E-mail do Cliente'})
@@ -54,4 +54,20 @@ print(frequenciaClientes)
 
 frequenciaClientes[:5].plot(figsize=(15,5),yticks=range(0,100,5)) # aqui colocamos o eixo y para mostrar valores de 0 a 100 de 5 em 5, alem das outras marcacoes ja feitas
 
-plt.show() # mostra o grafico 
+# plt.show() # mostra o grafico 
+
+
+
+
+### Qual a Loja que mais vendeu?
+
+# - Usaremos o .groupby para agrupar o nosso dataframe, de acordo com o que queremos (somando as quantidades de vendas, por exemplo)
+
+vendasLojas=vendasDf.groupby('Nome da Loja').sum()
+
+# vendasLojas=vendasLojas['Quantidade Vendida'] # formatacao diferente
+# display(vendasLojas)
+
+vendasLojas=vendasLojas[['Quantidade Vendida']] # nao precisamos passar o nome da loja pois ele se tornou o indice no novo dataframe
+
+print(vendasLojas)
