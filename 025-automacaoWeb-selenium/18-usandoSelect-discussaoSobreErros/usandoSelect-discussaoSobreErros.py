@@ -322,8 +322,30 @@ elemento_select.select_by_visible_text('C')
 elemento_select.select_by_value('a')
 
 
-# funciona para efetuar cancelar a selecao de todos os itens envolvidos, em alguns casos uma opcao é sempre obrigatoria, nesses casos ele nao ira funcionar
+# funciona para efetuar cancelar a selecao de todos os itens envolvidos, so funciona para elementos multiselecoes
 # elemento_select.deselect_all()
 
+
+# informa se o elemento em questao é multiplo ou nao (possui mais de uma opcao para ser selecionada)
+print(elemento_select.is_multiple)
+
+
+# ler o item selecionado
+item=elemento_select.first_selected_option # retorna o valor que esta selecionado no select, o primeiro elemento pois so tem um elemento
+print(item)
+print(item.get_attribute('value')) # retorna o value do objeto selecionado
+
+
+# selecionando uma lista de elementos
+lista_itens = elemento_select.all_selected_options
+print(lista_itens) # retorna uma lista de elementos (objetos do site), no caso apenas um elemento pois so ha um (porem no formato de lista)
+# find_element = elemento
+# find_elements = [elemento1, elemento2, elemento3]
+
+print(lista_itens[0].get_attribute("text"))
+print(lista_itens[0].get_attribute("value"))
+
+
+ 
 
 time.sleep(5)
