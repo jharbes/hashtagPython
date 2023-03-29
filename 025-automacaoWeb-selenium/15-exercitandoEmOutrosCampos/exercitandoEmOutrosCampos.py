@@ -147,4 +147,33 @@ valor = navegador.find_element(By.XPATH, '/html/body/form/input[16]').get_attrib
 print(valor)
 
 
+
+
+#### Botão para selecionar mês e ano (enviar valor)
+
+# preenche
+navegador.find_element(By.XPATH, '/html/body/form/input[9]').send_keys('junho', Keys.TAB, '1983')
+
+
+# pegar o valor
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[9]').get_attribute('value')
+print(valor) # 1983-06
+
+
+
+
+#### Campos Numéricos
+
+# para apagar tudo que houver preenchido no campo, garantir que nao vai preencher por cima, serve pra qualquer campo
+navegador.find_element(By.XPATH, '/html/body/form/input[10]').clear()
+
+# preenchendo o campo numerico(aceita so numeros)
+navegador.find_element(By.XPATH, '/html/body/form/input[10]').send_keys("123456")
+
+
+
+
+
+
+
 time.sleep(5)
