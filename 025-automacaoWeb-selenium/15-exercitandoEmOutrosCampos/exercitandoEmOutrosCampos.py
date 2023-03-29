@@ -135,19 +135,6 @@ print(valor)
 
 
 
-#### Caixa de Texto
-
-
-# preencher
-navegador.find_element(By.XPATH, '/html/body/form/input[16]').send_keys("Vasco")
-
-# capturar valor preenchido
-# embora o elemento em si de input normalmente nao possua esse atributo "value", ele retorna o valor com o valor preenchido do campo input, isso é valido para todo tipo de input
-valor = navegador.find_element(By.XPATH, '/html/body/form/input[16]').get_attribute("value")
-print(valor)
-
-
-
 
 #### Botão para selecionar mês e ano (enviar valor)
 
@@ -169,6 +156,83 @@ navegador.find_element(By.XPATH, '/html/body/form/input[10]').clear()
 
 # preenchendo o campo numerico(aceita so numeros)
 navegador.find_element(By.XPATH, '/html/body/form/input[10]').send_keys("123456")
+
+
+
+
+#### Campos de Senha
+
+# preencher
+navegador.find_element(By.XPATH, '/html/body/form/input[11]').send_keys("123456")
+
+# pegar o valor
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[11]').get_attribute('value')
+print(valor)
+
+
+
+
+#### RadioButtons (botões que só consegue marcar 1)
+
+# marcar, cada um dos botoes possui um xpath proprio
+navegador.find_element(By.XPATH, '/html/body/form/input[14]').click()
+
+# saber se está marcado
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[12]').is_selected()
+print(valor)
+
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[13]').is_selected()
+print(valor)
+
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[14]').is_selected()
+print(valor)
+
+
+
+
+#### Slider (enviar valor)
+
+
+
+
+#### Caixa de Texto
+
+
+# preencher
+navegador.find_element(By.XPATH, '/html/body/form/input[16]').send_keys("Vasco")
+
+# capturar valor preenchido
+# embora o elemento em si de input normalmente nao possua esse atributo "value", ele retorna o valor com o valor preenchido do campo input, isso é valido para todo tipo de input
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[16]').get_attribute("value")
+print(valor)
+
+
+
+
+#### Caixa de Horas
+
+# navegador.find_element(By.XPATH, '/html/body/form/input[17]').send_keys('15:15')
+
+# ou
+
+navegador.find_element(By.XPATH, '/html/body/form/input[17]').send_keys('1515')
+
+
+
+
+#### Caixa de Data Personalizada (Semanal)
+
+# navegador.find_element(By.XPATH, '/html/body/form/input[18]').send_keys('17', '2005')
+
+# ou
+
+navegador.find_element(By.XPATH, '/html/body/form/input[18]').send_keys('172005')
+
+
+
+
+#### Blocos de texto (enviar valor)
+
 
 
 
