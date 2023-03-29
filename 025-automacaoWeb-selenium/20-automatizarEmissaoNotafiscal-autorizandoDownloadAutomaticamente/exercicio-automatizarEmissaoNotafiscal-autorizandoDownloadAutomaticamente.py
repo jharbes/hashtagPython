@@ -3,7 +3,7 @@ import time
 import pyautogui
 import pyperclip
 
-navegador=webdriver.Chrome()
+
 
 # opcoes para cancelar a pergunta ao baixar arquivos xml no chrome
 options = webdriver.ChromeOptions()
@@ -13,7 +13,7 @@ options.add_experimental_option("prefs", {
   "download.directory_upgrade": True,
   "safebrowsing.enabled": True
 })
-navegador = webdriver.Chrome(service=servico, options=options)
+navegador = webdriver.Chrome(options=options)
 
 import os
 import time
