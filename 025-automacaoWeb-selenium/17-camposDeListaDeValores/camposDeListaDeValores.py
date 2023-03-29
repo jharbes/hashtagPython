@@ -264,4 +264,37 @@ print(valor)
 
 
 
+#### Selecionando itens de uma lista
+
+# preencher o valor da opcao 'B'
+
+navegador.find_element(By.XPATH, '/html/body/form/select[1]').send_keys('B')
+
+
+# pegando o valor
+
+valor = navegador.find_element(By.XPATH, '/html/body/form/select[1]').get_attribute('value')
+print(valor)
+
+
+time.sleep(5)
+
+
+# clicando para selecionar a opção 'C', o xpath das opcoes so está disponivel no código
+# IMPORTANTE: é necessario abrir a lista antes de clicar em qualquer uma das opcoes
+
+navegador.find_element(By.XPATH, '/html/body/form/select[1]').click()
+
+time.sleep(0.5)
+
+navegador.find_element(By.XPATH, '/html/body/form/select[1]/option[3]').click()
+
+# pegando o valor
+
+valor = navegador.find_element(By.XPATH, '/html/body/form/select[1]').get_attribute('value')
+print(valor)
+
+
+
+
 time.sleep(5)
