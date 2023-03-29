@@ -295,6 +295,35 @@ valor = navegador.find_element(By.XPATH, '/html/body/form/select[1]').get_attrib
 print(valor)
 
 
+time.sleep(3)
+
+
+#### Selecionando itens de uma lista com o SELECT
+
+# https://www.selenium.dev/pt-br/documentation/webdriver/elements/select_lists/
+
+# biblioteca para interagir com elementos (tags) do tipo select
+from selenium.webdriver.support.select import Select
+
+elemento = navegador.find_element(By.TAG_NAME, 'select')
+elemento_select = Select(elemento)
+
+
+
+# agora estarao diponiveis novos metodos para o elemento_select
+
+# seleciona o elemento do primeiro indice, no caso a letra 'A'
+elemento_select.select_by_index(0)
+
+# seleciona o elemento cujo valor explicito no HTML é a letra 'C' (nao confundir com o atributo value que pode ser diferente)
+elemento_select.select_by_visible_text('C')
+
+# seleciona o elemento pelo valor presente no codigo html, atributo value
+elemento_select.select_by_value('a')
+
+
+# funciona para efetuar cancelar a selecao de todos os itens envolvidos, em alguns casos uma opcao é sempre obrigatoria, nesses casos ele nao ira funcionar
+# elemento_select.deselect_all()
 
 
 time.sleep(5)
