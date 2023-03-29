@@ -192,6 +192,24 @@ print(valor)
 
 #### Slider (enviar valor)
 
+# pegar o valor
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[15]').get_attribute('value')
+print(valor)
+
+
+# preencher o valor
+elemento = navegador.find_element(By.XPATH, '/html/body/form/input[15]')
+
+elemento.clear() # seta o slider em 50 (o padrao depende do site, nem sempre é 50)
+
+# coloca o slider em 30: 50-30=20 Arrow left (cada vez que aperta seta pra esquerda ele anda um pra esquerda, ou seja, 20 vezes pra esquerda chega no 30)
+for i in range(50 - 30):
+    elemento.send_keys(Keys.ARROW_LEFT)
+
+
+valor = navegador.find_element(By.XPATH, '/html/body/form/input[15]').get_attribute('value')
+print(valor)
+
 
 
 
