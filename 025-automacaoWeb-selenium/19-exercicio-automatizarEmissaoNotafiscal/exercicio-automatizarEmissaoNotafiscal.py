@@ -5,13 +5,13 @@ import pyperclip
 
 navegador=webdriver.Chrome()
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option("prefs", {
-  "download.default_directory": r"C:\Users\jharbes\downloads",
-  "download.prompt_for_download": False,
-  "download.directory_upgrade": True,
-  "safebrowsing.enabled": False
-})
+# options = webdriver.ChromeOptions()
+# options.add_experimental_option("prefs", {
+#   "download.default_directory": r"C:\Users\jharbes\downloads",
+#   "download.prompt_for_download": False,
+#   "download.directory_upgrade": True,
+#   "safebrowsing.enabled": True
+# })
 
 import os
 import time
