@@ -233,9 +233,15 @@ navegador.find_element(By.XPATH, '/html/body/form/input[18]').send_keys('172005'
 
 #### Blocos de texto (enviar valor)
 
+# limpa o campo (garante que nao haja texto indesejado ja preenchido)
+navegador.find_element(By.XPATH, '//*[@id="story"]').clear()
 
+# preenchendo o campo de texto, com utilizacao de enter para mudar de linha
+navegador.find_element(By.XPATH, '//*[@id="story"]').send_keys("Olá", Keys.ENTER, 'Meu nome é Lira', Keys.ENTER, 'Valeu, Tmj')
 
-
+# pegando o valor preenchido
+valor=navegador.find_element(By.XPATH, '//*[@id="story"]').get_attribute('value')
+print(valor)
 
 
 
