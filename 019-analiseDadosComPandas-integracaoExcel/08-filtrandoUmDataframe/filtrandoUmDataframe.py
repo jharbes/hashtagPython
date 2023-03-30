@@ -71,7 +71,7 @@ for linha in vendas_df.index:
 
 if quantidadeVendidaLoja1>0:
     percentualDevolvidoLoja1=(quantidadeDevolvidaLoja1/quantidadeVendidaLoja1)*100
-    print(f'{percentualDevolvidoLoja1=:.2f}%')
+    print(f'{percentualDevolvidoLoja1=:.2f}%\n')
 else:
     print('Sem vendas para essa loja\n')
 
@@ -95,3 +95,42 @@ else:
 ### Vamos fazer em 2 passos para entender certinho o que está acontecendo.
 
 # vendasLojaContosoEuropeOnline=vendas_df[vendas_df['Nome da Loja']=='Loja Contoso Europe Online ']
+# vendasLojaContosoEuropeOnline=vendas_df[vendas_df['ID Loja']==306]
+
+# lista a tabela apenas com vendas da loja ID 306
+todasLojasId306=vendas_df[vendas_df['ID Loja']==306]
+print(todasLojasId306)
+
+# informa se a venda eh loja ID 306 ou nao
+ehLoja306= vendas_df['ID Loja']==306
+print(ehLoja306)
+
+
+
+
+### Desafio: e se eu quisesse criar uma tabela apenas com as vendas da Loja Contoso Europe Online e que não tiveram nenhuma devolução. Quero criar essa tabela e saber quantas vendas são.
+
+# - Repare que nesse caso são 2 condições, como fazemos isso?
+
+# tudo junto
+
+import numpy as np
+
+vendasLoja306SemDevolucao=vendas_df[np.logical_and(vendas_df['ID Loja']==306, vendas_df['Quantidade Devolvida']==0)]
+
+# ou
+
+# o parenteses em cada condicao eh obrigatorio
+# vendasLoja306SemDevolucao=vendas_df[(vendas_df['ID Loja']==306) & (vendas_df['Quantidade Devolvida']==0)]
+
+print(vendasLoja306SemDevolucao)
+print(vendasLoja306SemDevolucao['Quantidade Vendida'].sum())
+
+
+# separado
+
+vendasLoja306SemDevolucao = vendas_df[vendas_df['ID Loja']==306]
+vendasLoja306SemDevolucao = vendasLoja306SemDevolucao[vendas_df['Quantidade Devolvida']==0]
+
+print(vendasLoja306SemDevolucao)
+print(vendasLoja306SemDevolucao['Quantidade Vendida'].sum())
