@@ -94,7 +94,7 @@ print(vendasLoja306SemDevolucao['Quantidade Vendida'].sum())
 
 
 
-# DATETIME EM PYTHON
+# DATETIME EM PANDAS
 # transformando a data da venda no formato object (texto) para o formato datetime, com o formato mostramos o que cada elemento é e separamos de acordo com as barras que ja estao nas informacoes do dataframe (poderia ser diferente)
 vendas_df['Data da Venda']=pd.to_datetime(vendas_df['Data da Venda'], format='%d/%m/%Y')
 
