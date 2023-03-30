@@ -89,3 +89,19 @@ vendasLoja306SemDevolucao = vendasLoja306SemDevolucao[vendas_df['Quantidade Devo
 
 print(vendasLoja306SemDevolucao)
 print(vendasLoja306SemDevolucao['Quantidade Vendida'].sum())
+
+
+
+
+
+# DATETIME EM PYTHON
+# transformando a data da venda no formato object (texto) para o formato datetime, com o formato mostramos o que cada elemento é e separamos de acordo com as barras que ja estao nas informacoes do dataframe (poderia ser diferente)
+vendas_df['Data da Venda']=pd.to_datetime(vendas_df['Data da Venda'], format='%d/%m/%Y')
+
+print(vendas_df)
+vendas_df.info()
+
+# Conforme os dicionarios em python, caso uma coluna nao exista ele cria a coluna
+vendas_df['Ano da Venda']=vendas_df['Data da Venda'].dt.year
+vendas_df['Mes da Venda']=vendas_df['Data da Venda'].dt.month
+vendas_df['Dia da Venda']=vendas_df['Data da Venda'].dt.day
