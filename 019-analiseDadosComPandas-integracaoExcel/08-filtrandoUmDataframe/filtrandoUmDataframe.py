@@ -52,7 +52,7 @@ quantidadeDevolvida=vendas_df['Quantidade Devolvida'].sum()
 print(quantidadeDevolvida)
 
 percentualDevolvido=(quantidadeDevolvida/quantidadeVendida)*100
-print(f'{percentualDevolvido=:.2f}%')
+print(f'{percentualDevolvido=:.2f}%\n')
 
 
 
@@ -73,7 +73,7 @@ if quantidadeVendidaLoja1>0:
     percentualDevolvidoLoja1=(quantidadeDevolvidaLoja1/quantidadeVendidaLoja1)*100
     print(f'{percentualDevolvidoLoja1=:.2f}%')
 else:
-    print('Sem vendas para essa loja')
+    print('Sem vendas para essa loja\n')
 
 
 # ou
@@ -82,6 +82,16 @@ else:
 vendasLojaContosoEuropeOnline=vendas_df[vendas_df['Nome da Loja']=='Loja Contoso Europe Online ']
 print(vendasLojaContosoEuropeOnline)
 
-percentualDevolvidoLojaContosoEuropeOnline=(vendasLojaContosoEuropeOnline['Quantidade Devolvida'].sum()/vendasLojaContosoEuropeOnline['Quantidade Vendida'].sum())*100
+if vendasLojaContosoEuropeOnline['Quantidade Vendida'].sum()>0:
+    percentualDevolvidoLojaContosoEuropeOnline=(vendasLojaContosoEuropeOnline['Quantidade Devolvida'].sum()/vendasLojaContosoEuropeOnline['Quantidade Vendida'].sum())*100
 
-print(f'{percentualDevolvidoLojaContosoEuropeOnline=:.2f}%')
+    print(f'{percentualDevolvidoLojaContosoEuropeOnline=:.2f}%\n')
+else:
+    print('Sem vendas para essa loja\n')
+
+
+
+
+### Vamos fazer em 2 passos para entender certinho o que está acontecendo.
+
+# vendasLojaContosoEuropeOnline=vendas_df[vendas_df['Nome da Loja']=='Loja Contoso Europe Online ']
