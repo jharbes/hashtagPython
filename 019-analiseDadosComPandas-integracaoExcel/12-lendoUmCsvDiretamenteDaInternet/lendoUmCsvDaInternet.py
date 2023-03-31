@@ -18,3 +18,14 @@
 
 import pandas as pd
 
+url='https://drive.google.com/uc?authuser=0&id=1Ru7s-x3YJuStZK1mqr_qNqiHVvdHUN66&export=download'
+
+cotacaoDf=pd.read_csv(url)
+print(cotacaoDf)
+
+
+
+
+### Caso 2: csv em uma requisição que precisa ser tratada
+
+# Pesquisei por histórico de preços do café no Google e cheguei nesse site: http://portalweb.cooxupe.com.br:8080/portal/precohistoricocafe_2.jsp
