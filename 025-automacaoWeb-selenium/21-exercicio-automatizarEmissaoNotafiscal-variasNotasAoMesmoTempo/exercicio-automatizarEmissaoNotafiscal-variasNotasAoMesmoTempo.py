@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import os
 import pyautogui
 import pyperclip
 
@@ -114,7 +115,18 @@ for linha in range(len(tabela)):
 
     # clicar no botao 'emitir nota'
     navegador.find_element(By.XPATH,'//*[@id="formulario"]/button').click()
-    time.sleep(0.2)
+    time.sleep(1)
+
+    # Especifica o nome antigo do arquivo
+    antigo_nome = r"C:\Users\jharbes\Downloads\nota.xml"
+
+    # Especifica o novo nome do arquivo incluindo o nome do cliente
+    cliente = tabela.loc[linha, "Cliente"]
+    novo_nome = f"C:\\Users\\jharbes\\Downloads\\nota_{cliente}.xml"
+
+    # Renomeia o arquivo
+    os.rename(antigo_nome, novo_nome)
+
 
     # escreverTexto(f'notaNumero{linha+1}')
     # time.sleep(0.5)
