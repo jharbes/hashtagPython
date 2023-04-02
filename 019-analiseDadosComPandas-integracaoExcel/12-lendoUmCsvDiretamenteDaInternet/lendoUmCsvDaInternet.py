@@ -29,3 +29,27 @@ print(cotacaoDf)
 ### Caso 2: csv em uma requisição que precisa ser tratada
 
 # Pesquisei por histórico de preços do café no Google e cheguei nesse site: http://portalweb.cooxupe.com.br:8080/portal/precohistoricocafe_2.jsp
+
+### Apenas para lembrar os tipos de encoding principais que vamos usar:
+
+# - encoding='latin1'
+# - encoding='ISO-8859-1'
+# - encoding='utf-8'
+# - encoding='cp1252'
+
+import pandas as pd
+import requests
+import io
+
+url='http://portalweb.cooxupe.com.br:8080/portal/precohistoricocafe_2.jsp'
+
+# iremos utilizar a biblioteca requests que ajuda a puxar o conteudo de um link
+conteudoUrl=requests.get(url).content
+
+print(conteudoUrl) # observe que a formatacao ainda nao esta amigavel para utilizacao  
+
+arquivo=io.StringIO(conteudoUrl.decode('latin1')) # usaremos a biblioteca io para acerto de formatacao das informacoes recebidas 
+
+
+cafeDf=pd.read_html(arquivo) # na nova versao o arquivo esta em html, por isso fazemos uma leitura nesse sentido
+print(cafeDf)
