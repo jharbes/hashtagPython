@@ -20,8 +20,11 @@ Por padrão o selenium não troca de aba automaticamente quando ao clicar em alg
 navegador.find_element(By.XPATH,'/html/body/section[2]/div/div[6]/figure/a').click()
 
 # tentando preencher o formulario que esta na nova aba sem sucesso
-navegador.find_element(By.NAME,'firstname').send_keys('Jorge')
-
+try:
+    navegador.find_element(By.NAME,'firstname').send_keys('Jorge')
+    navegador.find_element(By.NAME,'email').send_keys('jharbes@hotmail.com')
+except:
+    print('Elemento inexistente na aba/pagina atual')
 
 
 ### Outra aba
@@ -34,7 +37,40 @@ novaAba=navegador.window_handles[1]
 
 navegador.switch_to.window(novaAba)
 
+try:
+    navegador.find_element(By.NAME,'firstname').send_keys('Jorge')
+    navegador.find_element(By.NAME,'email').send_keys('jharbes@hotmail.com')
+except:
+    print('Elemento inexistente na aba/pagina atual')
 
+
+time.sleep(2)
+# voltando para a aba original
+navegador.switch_to.window(abaOriginal)
+
+navegador.find_element(By.XPATH,'/html/body/section[2]/div/div[4]/figure/a/img').click()
+
+
+
+# observe que o listaAbas criado tera que ser recriado para que ele obtenha os novos elementos de abas abertos
+
+print(listaAbas) # ['2754369FD71C6788DD409D06DCAAE3D3', '61E7D2632071A06F6A3C957801E06D7C']
+
+print(navegador.window_handles) # ['2754369FD71C6788DD409D06DCAAE3D3', '61E7D2632071A06F6A3C957801E06D7C', 'F718CB13500E8C9E9ED44F7545508BBB']
+
+# vendo o titulo de todas as abas para melhor controle
+for aba in navegador.window_handles:
+    navegador.switch_to.window(aba)
+    print(navegador.title)
+
+
+# *** NOVAS JANELAS SERAO TRATADAS EXATAMENTE COMO NOVAS ABAS ***
+
+# *** fechar a janela ou aba atual
+navegador.close()
+
+# *** fecha todo o navegador
+navegador.quit()
 
 
 
