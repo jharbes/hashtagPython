@@ -67,9 +67,36 @@ alerta.dismiss()
 
 
 
-
+time.sleep(2)
 #### Pegar o texto do alerta
 
+navegador.find_element(By.XPATH,'/html/body/div[2]/input').click()
+
+alerta=Alert(navegador)
+texto=alerta.text
+print(texto)
+alerta.dismiss()
+
+
+
+time.sleep(3)
+
+
+#### Alertas de Input
+
+navegador.find_element(By.XPATH,'/html/body/div[3]/button').click()
+
+alerta=Alert(navegador)
+
+
+# preenchendo o alerta com input
+# ***IMPORTANTE: os dados preenchidos nao irao aparecer (fica em branco) mas eles terao sido preenchidos
+alerta.send_keys('12312312312')
+
+time.sleep(1)
+
+# se o accept nao for por meio do codigo o preenchimento nao funcionara
+alerta.accept()
 
 
 
