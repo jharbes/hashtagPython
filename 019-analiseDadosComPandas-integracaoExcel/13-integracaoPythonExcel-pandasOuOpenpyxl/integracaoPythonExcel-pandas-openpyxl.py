@@ -26,3 +26,19 @@
 
 # pandas
 
+import pandas as pd
+
+tabela=pd.read_excel('Produtos.xlsx')
+print(tabela)
+
+
+# atualizando a cotação e as colunas seguintes
+
+# autualizar o multiplicador
+tabela.loc[tabela['Tipo']=='Serviço','Multiplicador Imposto']=1.5
+
+# fazer a conta do preço base reais
+tabela['Preço Base Reais']=tabela['Multiplicador Imposto']*tabela['Preço Base Original']
+
+# utilizamos o index=False para que a nova tabela gerada nao venha com os indices gerados pelos pandas de 0 até o (n-1) itens da tabela
+tabela.to_excel('ProdutosPandas.xlsx',index=False)
