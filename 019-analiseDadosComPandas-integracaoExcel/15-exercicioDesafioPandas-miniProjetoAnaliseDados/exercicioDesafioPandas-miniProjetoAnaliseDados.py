@@ -66,6 +66,8 @@ cadastroFuncionarios=pd.read_csv('CadastroFuncionarios.csv',sep=';',decimal=',',
 
 cadastroClientes=pd.read_csv('CadastroClientes.csv',sep=';',encoding='utf-8')
 
+baseServicosPrestados=pd.read_excel('BaseServiçosPrestados.xlsx')
+
 print(cadastroFuncionarios)
 print()
 print(cadastroClientes)
@@ -77,6 +79,8 @@ print(f'{valorTotalFolhaSalarial=:.2f}')
 
 
 
-# 2. Qual foi o faturamento da empresa?<br>
+# 2. Qual foi o faturamento da empresa?
 # Sugestão: calcule o faturamento total de cada serviço e depois some o faturamento de todos
 
+print(baseServicosPrestados)
+# numeroMesesDeContrato=
