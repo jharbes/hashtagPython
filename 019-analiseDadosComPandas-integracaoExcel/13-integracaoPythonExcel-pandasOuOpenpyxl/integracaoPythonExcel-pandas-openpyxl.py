@@ -42,3 +42,22 @@ tabela['Preço Base Reais']=tabela['Multiplicador Imposto']*tabela['Preço Base 
 
 # utilizamos o index=False para que a nova tabela gerada nao venha com os indices gerados pelos pandas de 0 até o (n-1) itens da tabela
 tabela.to_excel('ProdutosPandas.xlsx',index=False)
+
+
+
+
+# openpyxl
+# no openpyxl assim como no VBA, um arquivo excel é chamado de workbook
+
+from openpyxl import Workbook, load_workbook
+
+planilha=load_workbook('Produtos.xlsx')
+
+abaAtiva=planilha.active
+
+for celula in abaAtiva['C']:
+    if celula.value=='Serviço':
+        linha=celula.row
+        abaAtiva[f'D{linha}']=1.5
+
+planilha.save('ProdutosOpenpyxl.xlsx')
