@@ -34,3 +34,14 @@ print(vendas_df)
 
 # - Farei com um for, principalmente por motivos didáticos, mas teríamos outras formas de fazer isso também.
 
+from tqdm import tqdm
+
+# total é o que a barra vai percorrer, position e leave farao com que a barra fique em apenas uma linha
+pbar=tqdm(total=len(vendas_df['ID Loja']),position=0,leave=True)
+
+for index,idLoja in enumerate(vendas_df['ID Loja']):
+    pbar.update()
+    if idLoja==222:
+        vendas_df.loc[index,'Quantidade Devolvida']+=1
+
+print(vendas_df)
