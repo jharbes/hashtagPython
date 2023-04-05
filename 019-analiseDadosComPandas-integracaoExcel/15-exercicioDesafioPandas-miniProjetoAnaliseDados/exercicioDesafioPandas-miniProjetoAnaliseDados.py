@@ -55,3 +55,28 @@ Observação Importante: Se o seu código der um erro na hora de importar os arq
 Use separador ";" (ponto e vírgula) para resolver
 
 """
+
+import pandas as pd
+
+# 1. Valor Total da Folha Salarial -> Qual foi o gasto total com salários de funcionários pela empresa? <br>
+
+# Sugestão: calcule o salário total de cada funcionário, salário + benefícios + impostos, depois some todos os salários
+
+cadastroFuncionarios=pd.read_csv('CadastroFuncionarios.csv',sep=';',decimal=',',encoding='utf-8')
+
+cadastroClientes=pd.read_csv('CadastroClientes.csv',sep=';',encoding='utf-8')
+
+print(cadastroFuncionarios)
+print()
+print(cadastroClientes)
+
+valorTotalFolhaSalarial=cadastroFuncionarios['Salario Base'].sum()+cadastroFuncionarios['Impostos'].sum()+cadastroFuncionarios['Beneficios'].sum()+cadastroFuncionarios['VT'].sum()+cadastroFuncionarios['VR'].sum()
+
+print(f'{valorTotalFolhaSalarial=:.2f}')
+
+
+
+
+# 2. Qual foi o faturamento da empresa?<br>
+# Sugestão: calcule o faturamento total de cada serviço e depois some o faturamento de todos
+
