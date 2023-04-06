@@ -85,12 +85,18 @@ print('Total da Folha Salarial Mensal é de R${:,}'.format(funcionarios_df['Sala
 # Sugestão: calcule o faturamento total de cada serviço e depois some o faturamento de todos
 
 faturamentos_df = servicos_df[['ID Cliente', 'Tempo Total de Contrato (Meses)']].merge(clientes_df[['ID Cliente' ,'Valor Contrato Mensal']], on='ID Cliente')
+
 faturamentos_df['Faturamento Total'] = faturamentos_df['Tempo Total de Contrato (Meses)'] * faturamentos_df['Valor Contrato Mensal']
+
 print('Faturamento Total: R${:,}'.format(sum(faturamentos_df['Faturamento Total'])))
 
 
 
 print()
+
+
+
+
 # 3. Qual o % de funcionários que já fechou algum contrato?<br>
 
 #    Sugestão: na base de serviços temos o funcionário que fechou cada serviço. Mas nem todos os funcionários que a empresa tem já fecharam algum serviço.<br>
@@ -105,14 +111,11 @@ print()
 
  #   Ex: unicos_colunaA = dataframe['colunaA'].unique() te dá como resposta uma lista com todos os itens da colunaA aparecendo uma única vez. Todos os valores repetidos da colunaA são excluidos da variável unicos_colunaA 
 
-numeroFuncionariosFecharamContrato=baseServicosPrestados['ID Funcionário'].nunique()
+qtde_funcionario_fecharamcontrato = len(servicos_df['ID Funcionário'].unique())
 
-numeroFuncionariosTotal=cadastroFuncionarios['ID Funcionário'].count()
+qtde_funcionario_total = len(funcionarios_df['ID Funcionário'])
 
-print(f'{numeroFuncionariosFecharamContrato=}')
-print(f'{numeroFuncionariosTotal=}')
-
-print(f'Percentual de funcionarios que fecharam contrato = {numeroFuncionariosFecharamContrato/numeroFuncionariosTotal*100:.2f}%')
+print('Percentual Funcionários Fecharam Contrato: {:.2%}'.format(qtde_funcionario_fecharamcontrato / qtde_funcionario_total))
 
 
 
