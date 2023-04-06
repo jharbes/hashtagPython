@@ -124,25 +124,9 @@ print('Percentual Funcionários Fecharam Contrato: {:.2%}'.format(qtde_funcionar
 
 # Areas da empresa: Administrativo, Logística, Financeiro, Operações, Comercial
 
-baseContratosArea=baseServicosPrestados.merge(cadastroFuncionarios, on='ID Funcionário')
-
-print(baseContratosArea)
-
-
-totalAdministrativo=(baseContratosArea[baseContratosArea['Area']=='Administrativo'])['Area'].count()
-print(f'{totalAdministrativo=}')
-
-totalLogistica=(baseContratosArea[baseContratosArea['Area']=='Logística'])['Area'].count()
-print(f'{totalLogistica=}')
-
-totalFinanceiro=(baseContratosArea[baseContratosArea['Area']=='Financeiro'])['Area'].count()
-print(f'{totalFinanceiro=}')
-
-totalOperacoes=(baseContratosArea[baseContratosArea['Area']=='Operações'])['Area'].count()
-print(f'{totalOperacoes=}')
-
-totalComercial=(baseContratosArea[baseContratosArea['Area']=='Comercial'])['Area'].count()
-print(f'{totalComercial=}')
+contratos_area_df = servicos_df[['ID Funcionário']].merge(funcionarios_df[['ID Funcionário', 'Area']], on='ID Funcionário')
+contratos_area_qtde = contratos_area_df['Area'].value_counts()
+print(contratos_area_qtde)
 
 print()
 
