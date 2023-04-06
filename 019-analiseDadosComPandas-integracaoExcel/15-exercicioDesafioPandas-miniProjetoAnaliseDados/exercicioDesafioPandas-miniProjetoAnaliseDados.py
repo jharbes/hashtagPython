@@ -181,3 +181,5 @@ print()
 # 6. Qual o ticket médio mensal (faturamento médio mensal) dos contratos?<br>
 #    Dica: .mean() calcula a média -> exemplo: media_colunaA = dataframe['colunaA'].mean()
 
+ticketMedioMensal=cadastroClientes['Valor Contrato Mensal'].mean()
+print(f'{ticketMedioMensal=:.2f}')
