@@ -118,3 +118,30 @@ print(f'{numeroFuncionariosFecharamContrato=}')
 print(f'{numeroFuncionariosTotal=}')
 
 print(f'Percentual de funcionarios que fecharam contrato = {numeroFuncionariosFecharamContrato/numeroFuncionariosTotal*100:.2f}%')
+
+
+
+
+# 4. Calcule o total de contratos que cada área da empresa já fechou
+
+# Areas da empresa: Administrativo, Logística, Financeiro, Operações, Comercial
+
+baseContratosArea=baseServicosPrestados.merge(cadastroFuncionarios, on='ID Funcionário')
+
+print(baseContratosArea)
+
+
+totalAdministrativo=(baseContratosArea[baseContratosArea['Area']=='Administrativo'])['Area'].count()
+print(f'{totalAdministrativo=}')
+
+totalLogistica=(baseContratosArea[baseContratosArea['Area']=='Logística'])['Area'].count()
+print(f'{totalLogistica=}')
+
+totalFinanceiro=(baseContratosArea[baseContratosArea['Area']=='Financeiro'])['Area'].count()
+print(f'{totalFinanceiro=}')
+
+totalOperacoes=(baseContratosArea[baseContratosArea['Area']=='Operações'])['Area'].count()
+print(f'{totalOperacoes=}')
+
+totalComercial=(baseContratosArea[baseContratosArea['Area']=='Comercial'])['Area'].count()
+print(f'{totalComercial=}')
