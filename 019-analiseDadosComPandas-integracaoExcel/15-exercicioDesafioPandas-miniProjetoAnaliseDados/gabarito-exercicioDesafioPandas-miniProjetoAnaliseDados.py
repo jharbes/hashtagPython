@@ -136,9 +136,12 @@ print()
 
 # Areas da empresa: Administrativo, Logística, Financeiro, Operações, Comercial
 
+import matplotlib.pyplot as plt
+
 funcionarios_area = funcionarios_df['Area'].value_counts()
 print(funcionarios_area)
 funcionarios_area.plot(kind='bar')
+plt.show()
 
 print()
 
@@ -147,5 +150,5 @@ print()
 # 6. Qual o ticket médio mensal (faturamento médio mensal) dos contratos?<br>
 #    Dica: .mean() calcula a média -> exemplo: media_colunaA = dataframe['colunaA'].mean()
 
-ticketMedioMensal=cadastroClientes['Valor Contrato Mensal'].mean()
-print(f'{ticketMedioMensal=:.2f}')
+ticket_medio = clientes_df['Valor Contrato Mensal'].mean()
+print('Ticket Médio Mensal: R${:,.2f}'.format(ticket_medio))

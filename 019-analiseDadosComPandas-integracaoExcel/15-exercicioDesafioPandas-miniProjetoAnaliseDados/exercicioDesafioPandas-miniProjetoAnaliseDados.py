@@ -181,12 +181,14 @@ print(f'{totalFuncionariosComercial=}')
 
 
 
-
 print()
 # ou
+import matplotlib.pyplot as plt
 
 funcionariosArea=cadastroFuncionarios['Area'].value_counts()
 print(funcionariosArea)
+funcionariosArea.plot(kind='pie')
+plt.show()
 
 print()
 
