@@ -93,3 +93,28 @@ for linha in faturamentoDf.index:
     somaFaturamento+=faturamentoDf.loc[linha,'Valor Contrato Mensal']*faturamentoDf.loc[linha,'Tempo Total de Contrato (Meses)']
 print(f'{somaFaturamento=:.2f}')
 
+
+
+print()
+# 3. Qual o % de funcionários que já fechou algum contrato?<br>
+
+#    Sugestão: na base de serviços temos o funcionário que fechou cada serviço. Mas nem todos os funcionários que a empresa tem já fecharam algum serviço.<br>
+
+#    . Na base de funcionários temos uma lista com todos os funcionários<br>
+
+#    . Queremos calcular          Qtde_Funcionarios_Fecharam_Serviço / Qtde_Funcionários_Totais<br>  
+
+#    . Para calcular a qtde de funcionários que fecharam algum serviço, use a base de serviços e conte quantos funcionários tem ali. Mas lembre-se, cada funcionário só pode ser contado uma única vez.<br><br>
+
+#    Dica: se você aplicar o método .unique() em uma variável que é apenas 1 coluna de um dataframe, ele vai excluir todos os valores duplicados daquela coluna.<br>
+
+ #   Ex: unicos_colunaA = dataframe['colunaA'].unique() te dá como resposta uma lista com todos os itens da colunaA aparecendo uma única vez. Todos os valores repetidos da colunaA são excluidos da variável unicos_colunaA 
+
+numeroFuncionariosFecharamContrato=baseServicosPrestados['ID Funcionário'].nunique()
+
+numeroFuncionariosTotal=cadastroFuncionarios['ID Funcionário'].count()
+
+print(f'{numeroFuncionariosFecharamContrato=}')
+print(f'{numeroFuncionariosTotal=}')
+
+print(f'Percentual de funcionarios que fecharam contrato = {numeroFuncionariosFecharamContrato/numeroFuncionariosTotal*100:.2f}%')
