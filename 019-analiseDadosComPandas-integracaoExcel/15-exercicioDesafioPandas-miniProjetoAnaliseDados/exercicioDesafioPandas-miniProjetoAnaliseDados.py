@@ -83,4 +83,13 @@ print(f'{valorTotalFolhaSalarial=:.2f}')
 # Sugestão: calcule o faturamento total de cada serviço e depois some o faturamento de todos
 
 print(baseServicosPrestados)
-# numeroMesesDeContrato=
+
+faturamentoDf=baseServicosPrestados.merge(cadastroClientes, on='ID Cliente')
+
+print(faturamentoDf)
+
+somaFaturamento=0
+for linha in faturamentoDf.index:
+    somaFaturamento+=faturamentoDf.loc[linha,'Valor Contrato Mensal']*faturamentoDf.loc[linha,'Tempo Total de Contrato (Meses)']
+print(f'{somaFaturamento=:.2f}')
+
