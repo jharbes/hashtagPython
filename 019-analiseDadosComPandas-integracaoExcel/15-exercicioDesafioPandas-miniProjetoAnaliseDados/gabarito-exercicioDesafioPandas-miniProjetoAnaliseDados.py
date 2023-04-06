@@ -84,16 +84,9 @@ print('Total da Folha Salarial Mensal é de R${:,}'.format(funcionarios_df['Sala
 # 2. Qual foi o faturamento da empresa?
 # Sugestão: calcule o faturamento total de cada serviço e depois some o faturamento de todos
 
-print(baseServicosPrestados)
-
-faturamentoDf=baseServicosPrestados.merge(cadastroClientes, on='ID Cliente')
-
-print(faturamentoDf)
-
-somaFaturamento=0
-for linha in faturamentoDf.index:
-    somaFaturamento+=faturamentoDf.loc[linha,'Valor Contrato Mensal']*faturamentoDf.loc[linha,'Tempo Total de Contrato (Meses)']
-print(f'{somaFaturamento=:.2f}')
+faturamentos_df = servicos_df[['ID Cliente', 'Tempo Total de Contrato (Meses)']].merge(clientes_df[['ID Cliente' ,'Valor Contrato Mensal']], on='ID Cliente')
+faturamentos_df['Faturamento Total'] = faturamentos_df['Tempo Total de Contrato (Meses)'] * faturamentos_df['Valor Contrato Mensal']
+print('Faturamento Total: R${:,}'.format(sum(faturamentos_df['Faturamento Total'])))
 
 
 
