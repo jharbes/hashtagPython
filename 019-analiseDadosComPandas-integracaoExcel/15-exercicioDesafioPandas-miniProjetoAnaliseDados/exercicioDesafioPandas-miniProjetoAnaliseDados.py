@@ -148,6 +148,12 @@ print(f'{totalComercial=}')
 
 print()
 
+# ou
+
+totalContratosArea=baseContratosArea['Area'].value_counts()
+print(totalContratosArea)
+
+print()
 
 
 # 5. Calcule o total de funcionários por área
@@ -172,6 +178,15 @@ print(f'{totalFuncionariosOperacoes=}')
 
 totalFuncionariosComercial=(cadastroFuncionarios[cadastroFuncionarios['Area']=='Comercial'])['Area'].count()
 print(f'{totalFuncionariosComercial=}')
+
+
+
+
+print()
+# ou
+
+funcionariosArea=cadastroFuncionarios['Area'].value_counts()
+print(funcionariosArea)
 
 print()
 

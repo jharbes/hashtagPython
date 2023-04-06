@@ -136,27 +136,11 @@ print()
 
 # Areas da empresa: Administrativo, Logística, Financeiro, Operações, Comercial
 
-areasEmpresa=cadastroFuncionarios['Area'].unique()
-print(areasEmpresa)
-
-
-totalFuncionariosAdministrativo=(cadastroFuncionarios[cadastroFuncionarios['Area']=='Administrativo'])['Area'].count()
-print(f'{totalFuncionariosAdministrativo=}')
-
-totalFuncionariosLogistica=(cadastroFuncionarios[cadastroFuncionarios['Area']=='Logística'])['Area'].count()
-print(f'{totalFuncionariosLogistica=}')
-
-totalFuncionariosFinanceiro=(cadastroFuncionarios[cadastroFuncionarios['Area']=='Financeiro'])['Area'].count()
-print(f'{totalFuncionariosFinanceiro=}')
-
-totalFuncionariosOperacoes=(cadastroFuncionarios[cadastroFuncionarios['Area']=='Operações'])['Area'].count()
-print(f'{totalFuncionariosOperacoes=}')
-
-totalFuncionariosComercial=(cadastroFuncionarios[cadastroFuncionarios['Area']=='Comercial'])['Area'].count()
-print(f'{totalFuncionariosComercial=}')
+funcionarios_area = funcionarios_df['Area'].value_counts()
+print(funcionarios_area)
+funcionarios_area.plot(kind='bar')
 
 print()
-
 
 
 
