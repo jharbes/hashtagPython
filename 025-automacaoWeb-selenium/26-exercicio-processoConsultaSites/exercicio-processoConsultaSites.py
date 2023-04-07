@@ -55,15 +55,22 @@ for linha in tabela.index:
     while i<30:
         try:
             alerta=navegador.switch_to.alert
-            alerta.accept()
+            if "Processo encontrado com sucesso" in alerta.text:
+                alerta.accept()
+                tabela.loc[linha, "Status"] = "Encontrado"
+            else:
+                alerta.accept()
+                tabela.loc[linha, "Status"] = "Não encontrado"
             break
         except:
             time.sleep(2)
             i+=1
+    
     navegador.close()
     navegador.switch_to.window(abaOriginal)
 
-
+print(tabela)
+tabela.to_excel('ProcessosAtualizados.xlsx')
 
 
 
