@@ -31,10 +31,38 @@ for linha in tabela.index:
     else:
         item=navegador.find_element(By.XPATH,xpathSp)
     ActionChains(navegador).move_to_element(menu).perform()
-    time.sleep(0.5)
+    time.sleep(2)
     item.click()
+    time.sleep(2)
+    listaAbas=navegador.window_handles
+
+    abaOriginal=navegador.window_handles[0]
+    novaAba=navegador.window_handles[1]
+    navegador.switch_to.window(novaAba)
+
+    try:
+        navegador.find_element(By.ID,'nome').send_keys(tabela.loc[linha,'Nome'])
+        navegador.find_element(By.ID,'advogado').send_keys(tabela.loc[linha,'Advogado'])
+        navegador.find_element(By.ID,'numero').send_keys(tabela.loc[linha,'Processo'])
+        navegador.find_element(By.XPATH,'//*[@id="formulario"]/div/button').click()
+    except:
+        print('Elemento inexistente na aba/pagina atual')
     time.sleep(0.5)
-    navegador.get(arquivo)
+    alerta=navegador.switch_to.alert
+    alerta.accept()
+    time.sleep(3)
+    i=0
+    while i<30:
+        try:
+            alerta=navegador.switch_to.alert
+            alerta.accept()
+            break
+        except:
+            time.sleep(2)
+            i+=1
+    navegador.close()
+    navegador.switch_to.window(abaOriginal)
+
 
 
 
