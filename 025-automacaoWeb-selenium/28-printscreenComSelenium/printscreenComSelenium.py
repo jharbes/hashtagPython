@@ -29,6 +29,7 @@ tamanho=elemento.size
 print(posicao)
 print(tamanho)
 
+# caso o monitor esteja funcionando com percentual diferente de 100% pode ser necessario efetuar o multiplicador pertinente nas posicoes xInicial, yInicial, xFinal, yFinal 
 xInicial=posicao['x']
 yInicial=posicao['y']
 
