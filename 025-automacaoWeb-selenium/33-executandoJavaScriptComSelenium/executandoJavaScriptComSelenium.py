@@ -17,3 +17,13 @@ options=webdriver.ChromeOptions()
 # chrome://version
 options.add_argument(r'user-data-dir=C:\Users\Jorge\AppData\Local\Google\Chrome\User Data\Profile Selenium')
 navegador=webdriver.Chrome(options=options)
+
+
+navegador.get("https://www.youtube.com/results?search_query=python")
+
+
+
+
+
+
+time.sleep(7)
