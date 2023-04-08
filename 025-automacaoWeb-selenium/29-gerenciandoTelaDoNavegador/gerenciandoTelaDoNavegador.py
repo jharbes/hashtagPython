@@ -14,11 +14,37 @@ navegador.get(arquivo)
 
 #### maximizar
 
+navegador.maximize_window()
 
 
 
 
+#### minimizar
 
+# nao é clicar no minimizar e sim voltar ao tamanho normal no qual ele abriu
+navegador.minimize_window()
+
+
+
+
+#### headless
+
+# Atenção que nem sempre funciona igual
+
+options=webdriver.ChromeOptions()
+options.add_argument('--headless')
+
+"""
+Argumentos extras que podem ser adicionados ao incializar um navegador:
+
+Desabilitar extensoes:  --disable-extensions
+Comecar maximizado:     --start-maximized
+"""
+
+novoNavegador=webdriver.Chrome(options=options)
+
+novoNavegador.get('https://facebook.com')
+print(novoNavegador.title)
 
 
 
