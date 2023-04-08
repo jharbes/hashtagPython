@@ -34,12 +34,22 @@ while len(navegador.find_elements(By.ID,'thumbnail'))<1:
     if i>30:
         break
 
+
+# vou dar scroll na tela antes de pegar a lista de videos para que possam ser pegos um numero maior de videos
+for i in range(5):
+    numeroDeScroll=i*2000
+    navegador.execute_script(f'window.scroll(0,{numeroDeScroll})')
+    time.sleep(3)
+
+
 listaVideos=navegador.find_elements(By.ID,'thumbnail')
 
-for video in listaVideos:
-    print(video.get_attribute('href'))
+listaLinksVideos=[video.get_attribute('href') for video in listaVideos if video.get_attribute('href')!=None]
 
+for link in listaLinksVideos:
+    print(link)
 
+print(len(listaLinksVideos))
 
 
 
