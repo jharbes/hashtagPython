@@ -24,3 +24,31 @@ navegador=webdriver.Chrome(options=options)
 
 
 navegador.get(link) # entrando no site
+time.sleep(10)
+
+i=0
+while len(navegador.find_elements(By.TAG_NAME,'iframe'))<1:
+    time.sleep(3)
+    i+=1
+    if i>30:
+        break
+
+# devemos usar duas vezes para entrar no primeiro iframe e depois entrar no segundo iframe que está dentro do primeiro iframe
+iframe = navegador.find_element(By.TAG_NAME, 'iframe')
+navegador.switch_to.frame(iframe)
+iframe = navegador.find_element(By.TAG_NAME, 'iframe')
+navegador.switch_to.frame(iframe)
+
+valor_xpath = '//*[@id="pvExplorationHost"]/div/div/exploration/div/explore-canvas/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container[19]/transform/div/div[2]/div/visual-modern/div/div/div[2]/div[1]/div[4]/div/div[1]/div[8]'
+texto = navegador.find_element(By.XPATH, valor_xpath).text
+print(texto)
+
+
+
+
+
+
+
+
+
+time.sleep(7)
