@@ -16,8 +16,17 @@ navegador.get('https://web.whatsapp.com')
 import os, time
 import pandas as pd
 
-tabela=pd.read_excel('Envios.xlsx')
+tabela=pd.read_excel('Envios.ods',engine='odf')
 print(tabela)
+
+i=0
+while len(navegador.find_elements(By.ID,'side'))<1:
+    time.sleep(3)
+    i+=1
+    if i>30:
+        break
+
+time.sleep(2)
 
 # o whatsapp ja carregou
 
@@ -38,9 +47,23 @@ for linha in tabela.index:
 
     navegador.get(link)
 
-    # esperar a tela do whatsapp carregar
-    
+    # esperar a tela do whatsapp carregar: espera um elemento que so existe na tela ja carregada aparecer
 
+    i=0
+    while len(navegador.find_elements(By.ID,'side'))<1:
+        time.sleep(3)
+        i+=1
+        if i>30:
+            break
+
+    time.sleep(2)
+
+    # voce tem que verificar se o numero é invalido
+    if len(navegador.find_elements(By.XPATH,'//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[1]'))<1:
+        navegador.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span').click()
+        time.sleep(2)
+    else:
+        continue
 
 
 
