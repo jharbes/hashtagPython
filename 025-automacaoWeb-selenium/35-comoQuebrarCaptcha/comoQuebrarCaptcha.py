@@ -1,12 +1,20 @@
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from anticaptchaofficial.recaptchav2proxyless import *
-import time
-from chave import chave_api
+"""
+COMO QUEBRAR CAPTCHA
 
-navegador = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+"""
+
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import os, time
+
+from anticaptchaofficial.recaptchav2proxyless import *
+from chave import chaveApi # importando a chave do arquivo chave.py
+
+navegador=webdriver.Chrome()
+
 link = "https://google.com/recaptcha/api2/demo"
 navegador.get(link)
 
@@ -14,7 +22,7 @@ chave_captcha = navegador.find_element(By.ID, 'recaptcha-demo').get_attribute('d
 
 solver = recaptchaV2Proxyless()
 solver.set_verbose(1)
-solver.set_key(chave_api)
+solver.set_key(chaveApi)
 solver.set_website_url(link)
 solver.set_website_key(chave_captcha)
 
@@ -29,4 +37,9 @@ if resposta != 0:
 else:
     print(solver.err_string)
 
-time.sleep(100)
+
+
+
+
+
+time.sleep(30)
