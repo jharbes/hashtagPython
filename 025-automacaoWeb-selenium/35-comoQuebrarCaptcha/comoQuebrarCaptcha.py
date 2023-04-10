@@ -1,6 +1,9 @@
 """
 COMO QUEBRAR CAPTCHA
 
+IMPORTANTE: Este exemplo está preenchido para o captcha do tipo recaptchav2proxyless, modificacoes serao necessarias para utilizacao com outros tipos de captchas, a lista de tipos de captcha está presente na documentacao do anticaptchaofficial
+https://anti-captcha.com/apidoc
+
 """
 
 
@@ -32,8 +35,8 @@ resposta = solver.solve_and_return_solution() # solicita a resolucao e a respost
 if resposta != 0:
     print(resposta) # imprime o token do captcha
     # preencher o campo do token do captcha
-    # g-recaptcha-response
-    # como o campo a ser preenchido está escondido nao podemos fazer um preenchimento padrao via selenium, por isso utilizaremos o metodo execute_script pelo qual faremos o preenchimento por meio de um codigo javascript conforme abaixo, exatamente como se estivessemos preenchendo por meio do console do browser
+    # g-recaptcha-response - campo onde entra a resposta do token
+    # como o campo a ser preenchido está escondido (display: none;) nao podemos fazer um preenchimento padrao via selenium, por isso utilizaremos o metodo execute_script pelo qual faremos o preenchimento por meio de um codigo javascript conforme abaixo, exatamente como se estivessemos preenchendo por meio do console do browser. Outra opcao seria desabilitar o display none do elemento por meio de javascript e depois preencher a resposta por meio do selenium
     navegador.execute_script(f"document.getElementById('g-recaptcha-response').innerHTML = '{resposta}'")
     navegador.find_element(By.ID, 'recaptcha-demo-submit').click()
 else:
@@ -44,4 +47,4 @@ else:
 
 
 
-time.sleep(30)
+time.sleep(10)
