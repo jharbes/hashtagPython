@@ -130,3 +130,39 @@ No nosso sistema, conseguimos exportar um txt com as informações dos alunos, c
 
 """
 
+arquivoAlunos=open('Alunos.txt','r')
+
+listaArquivoAlunos=arquivoAlunos.readlines()
+
+print(listaArquivoAlunos)
+
+
+clientesOrganico=0
+clientesAnuncio=0
+clientesSite=0
+clientesYoutube=0
+clientesInstagram=0
+clientesFbOuInstagram=0
+for linha in listaArquivoAlunos:
+    if 'origemurl:' in linha:
+        if 'org' in linha:
+            clientesOrganico+=1
+            if 'hashtag_site_org' in linha:
+                clientesSite+=1
+            if 'hashtag_yt_org' in linha:
+                clientesYoutube+=1
+            if 'hashtag_ig_org' in linha:
+                clientesInstagram+=1
+            if 'hashtag_igfb_org' in linha:
+                clientesFbOuInstagram+=1
+        else:
+            clientesAnuncio+=1
+
+
+print(f'{clientesAnuncio=}')
+print(f'{clientesOrganico=}')
+print('--------------------')
+print(f'{clientesSite=}')
+print(f'{clientesYoutube=}')
+print(f'{clientesInstagram=}')
+print(f'{clientesFbOuInstagram=}')
