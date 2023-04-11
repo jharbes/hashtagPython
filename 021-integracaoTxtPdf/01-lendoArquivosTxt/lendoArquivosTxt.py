@@ -67,9 +67,37 @@ Os códigos diferentes disso, são códigos de anúncio da Hashtag.
 
 Obs: orgânico é tudo aquilo que não veio de anúncios.
 
-No nosso sistema, conseguimos exportar um txt com as informações dos alunos, conforme o arquivo Alunos.txt<br>
+No nosso sistema, conseguimos exportar um txt com as informações dos alunos, conforme o arquivo Alunos.txt
+
 (Os dados foram gerados aleatoriamente para simular uma situação real, já que não podemos fornecer os dados reais dos alunos por questões de segurança)
 
 - No final, para treinar, vamos escrever todas essas respostas em um novo arquivo txt
 
 """
+
+
+### 1. Método open: -> Abre um arquivo txt
+
+# Usamos 'r' para abrir o arquivo para ler (read) e 'w' quando estamos abrindo o arquivo para escrever (write) ou 'a' se formos adicionar (append) uma informação no arquivo
+arquivo=open('Alunos.txt','r')
+
+
+
+
+### - Com o arquivo aberto, agora podemos efetivamente ler o arquivo com os métodos:
+
+print(arquivo.read()) # imprime exatamente como o arquivo se encontra no bloco de notas
+
+print(arquivo.readlines()) # transforma o arquivo em uma lista python onde cada linha é um elemento da lista
+
+print(type(arquivo.readlines())) # <class 'list'>
+
+print(len(arquivo.readlines())) # 0
+
+print('--------------------------------')
+
+
+
+
+### - Para escrever alguma coisa no arquivo teremos o método write:
+
