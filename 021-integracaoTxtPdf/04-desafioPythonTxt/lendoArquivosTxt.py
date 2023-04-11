@@ -145,7 +145,7 @@ clientesInstagram=0
 clientesFbOuInstagram=0
 for linha in listaArquivoAlunos:
     if 'origemurl:' in linha:
-        if 'org' in linha:
+        if '_org' in linha:
             clientesOrganico+=1
             if 'hashtag_site_org' in linha:
                 clientesSite+=1
@@ -158,7 +158,9 @@ for linha in listaArquivoAlunos:
         else:
             clientesAnuncio+=1
 
+totalClientes=clientesAnuncio+clientesOrganico
 
+print(f'{totalClientes=}')
 print(f'{clientesAnuncio=}')
 print(f'{clientesOrganico=}')
 print('--------------------')
