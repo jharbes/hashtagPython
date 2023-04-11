@@ -1,0 +1,8 @@
+totalClientes=500
+clientesAnuncio=274
+clientesOrganico=226
+--------------------
+clientesSite=73
+clientesYoutube=155
+clientesInstagram=22
+clientesFbOuInstagram=2

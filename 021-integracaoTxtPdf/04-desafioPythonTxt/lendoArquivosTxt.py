@@ -169,5 +169,14 @@ print(f'{clientesYoutube=}')
 print(f'{clientesInstagram=}')
 print(f'{clientesFbOuInstagram=}')
 
+with open('indicadores.txt','w') as arquivoIndicadores:
+    arquivoIndicadores.write(f'{totalClientes=}\n')
+    arquivoIndicadores.write(f'{clientesAnuncio=}\n')
+    arquivoIndicadores.write(f'{clientesOrganico=}\n')
+    arquivoIndicadores.write('--------------------\n')
+    arquivoIndicadores.write(f'{clientesSite=}\n')
+    arquivoIndicadores.write(f'{clientesYoutube=}\n')
+    arquivoIndicadores.write(f'{clientesInstagram=}\n')
+    arquivoIndicadores.write(f'{clientesFbOuInstagram=}\n')
 
 arquivoAlunos.close()
