@@ -94,6 +94,7 @@ print(type(arquivo.readlines())) # <class 'list'>
 
 print(len(arquivo.readlines())) # 0
 
+arquivo.close()
 print('--------------------------------')
 
 
@@ -101,3 +102,16 @@ print('--------------------------------')
 
 ### - Para escrever alguma coisa no arquivo teremos o método write:
 
+# ***IMPORTANTE: o parametro 'w' ao abrir o arquivo cria o arquivo caso ele nao exista, no caso dele ja existir ele APAGA todo o conteudo existente do arquivo e comeca do zero a edição, para continuar a edição de um arquivo com algo já escrito, preservando o texto existente devemos usar o parametro 'a' de append (adição)
+novoArquivo=open('resumo.txt','w')
+
+
+# caso nao seja utilizado o \n na edição não havera pulo de linhas
+novoArquivo.write('Testando edição de arquivo')
+novoArquivo.write('Escrevendo mais\npulando linha')
+novoArquivo.writelines('teste')
+novoArquivo.writelines('teste novo')
+
+
+# ao editar se faz necessário fechar o arquivo para que as mudanças no arquivo sejam salvas, caso contrario nada será salvo no arquivo
+novoArquivo.close()
