@@ -166,3 +166,6 @@ print(f'{clientesSite=}')
 print(f'{clientesYoutube=}')
 print(f'{clientesInstagram=}')
 print(f'{clientesFbOuInstagram=}')
+
+
+arquivoAlunos.close()
