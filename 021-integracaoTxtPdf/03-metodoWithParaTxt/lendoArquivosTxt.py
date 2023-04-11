@@ -119,5 +119,10 @@ novoArquivo.close()
 
 
 
-### Método with para Txt
+### Método with para Txt: Usando a estrutura with: -> ao final do with, a própria estrutura with fecha automaticamente o arquivo, torna-se desnecessario o .close ao final para salvar o arquivo
 
+with open('resumo2.txt','w') as novoArquivo2:
+    novoArquivo2.write('Segundo teste,\ntestando agora edição de txt com o método with\n')
+    novoArquivo2.write('continuando o texto')
+
+print('fim do codigo de edição com metodo with')
