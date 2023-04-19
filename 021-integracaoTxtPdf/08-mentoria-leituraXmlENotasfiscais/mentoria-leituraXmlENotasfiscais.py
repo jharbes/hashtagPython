@@ -1,4 +1,5 @@
 import xmltodict
+import time
 
 # with abre o arquivo e ja garante que no final dela o arquivo sera fechado automaticamente
 
@@ -13,3 +14,12 @@ except:
 
 
 print(documento)
+print()
+
+print(documento['nfeProc']['NFe']['infNFe']['ide']['cUF'])
+nome=documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
+print(nome)
+
+
+# agora vamos buscar os seguintes valores:
+# valorTotal, produtos/servicos(valores), cnpjVendeu, nomeVendeu, cpf/cnpjComprou, nomeComprou
