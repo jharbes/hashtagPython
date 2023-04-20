@@ -47,10 +47,7 @@ listaProdutos=[]
 for produto in dictProdutos:
     valorProduto=produto['prod']['vProd']
     nomeProduto=produto['prod']['xProd']
-    listaProdutos.append({
-        'Nome do Produto':nomeProduto,
-        'Valor do Produto':valorProduto
-    })
+    listaProdutos.append((nomeProduto,valorProduto))
 
 dictNf={
     'Valor Total':valorTotal,
@@ -63,7 +60,9 @@ dictNf={
 
 
 printDict(dictNf)
+print()
 
 
 tabela=pd.DataFrame.from_dict(dictNf)
 print(tabela)
+# tabela.to_excel('NFs.xlsx')
