@@ -1,3 +1,10 @@
+"""
+Arquivo configurado para ser rodado direto da pasta onde ele se encontra
+
+Caso seja o code runner talvez tenha que reconfigurar as paths dos diretorios/arquivos
+"""
+
+
 import xmltodict
 import pandas as pd
 import os
@@ -65,14 +72,74 @@ def lerXmlDanfe(nota):
         print('Arquivo inexistente')
 
 
+
+
+def lerXmlServicorj(nota):
+    # with abre o arquivo e ja garante que no final dela o arquivo sera fechado automaticamente
+    # print(nota)
+    # try:
+        with open(nota,'rb') as arquivo:
+            documento=xmltodict.parse(arquivo)
+    
+
+
+        # o documento em xml se tornara um grande dicionario onde poderemos capturar os dados de cada campo
+        # print(documento['nfeProc']['NFe']['infNFe']['ide']['cUF'])
+        # nome=documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
+        # print(nome)
+
+
+        # agora vamos buscar os seguintes valores:
+        # valorTotal, produtos/servicos(valores), cnpjVendeu, nomeVendeu, cpf/cnpjComprou, nomeComprou
+
+        caminho=documento['ConsultarNfseResposta']['ListaNfse']['CompNfse']['Nfse']['InfNfse']
+
+        valorTotal=caminho['Servico']['Valores']['ValorServicos']
+        cnpjVendeu=caminho['PrestadorServico']['IdentificacaoPrestador']['Cnpj']
+        nomeVendeu=caminho['PrestadorServico']['RazaoSocial']
+        cpfCnpjComprou=caminho['TomadorServico']['IdentificacaoTomador']['CpfCnpj']
+        nomeComprou=caminho['TomadorServico']['RazaoSocial']
+        servico=caminho['Servico']['Discriminacao']
+
+        # listaProdutos=[]
+        # for produto in dictProdutos:
+        #     valorProduto=produto['prod']['vProd']
+        #     nomeProduto=produto['prod']['xProd']
+        #     listaProdutos.append((nomeProduto,valorProduto))
+
+        # transformaremos todos os itens em listas para que no excel todos os produtos se mantenham na mesma linha com apenas uma copia da nota fiscal
+        dictNf={
+            'Valor Total':[valorTotal],
+            'CNPJ Vendedor':[cnpjVendeu],
+            'Nome do Vendedor':[nomeVendeu],
+            'CPF ou CNPJ do Comprador':[cpfCnpjComprou],
+            'Nome do Comprador':[nomeComprou],
+            'Lista de Produtos':[servico]
+        }
+
+
+        printDict(dictNf)
+        print()
+
+        return dictNf 
+
+    # except:
+        # print('Arquivo inexistente')
+
+
 # salva os nomes dos arquivos da pasta solicitada em uma lista de strings
 listaArquivos=os.listdir('NFs Finais') 
 
 print(listaArquivos) # ['DANFEBrota.pdf', 'DANFEBrota.xml', 'DANFENespresso.pdf', 'DANFENespresso.xml', 'NotaCariocaHashtag.pdf', 'NotaCariocaHashtag.xml']
 
 for arquivo in listaArquivos:
-    if '.xml' in arquivo and 'DANFE' in arquivo:
-        lerXmlDanfe(f'NFs Finais\\{arquivo}')
+    if '.xml' in arquivo:
+        if 'DANFE' in arquivo:
+            lerXmlDanfe(f'NFs Finais\\{arquivo}')
+        elif 'NotaCarioca' in arquivo:
+            lerXmlServicorj(f'NFs Finais\\{arquivo}')
+
+
 
 
 # tabela=pd.DataFrame.from_dict(lerXmlDanfe(caminhoArquivoXml))
