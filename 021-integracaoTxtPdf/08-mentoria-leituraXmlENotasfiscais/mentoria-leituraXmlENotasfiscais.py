@@ -45,7 +45,7 @@ nomeComprou=caminho['dest']['xNome']
 dictProdutos=caminho['det']
 listaProdutos=[]
 for produto in dictProdutos:
-    valorProduto=produto['prod']['vUnCom']
+    valorProduto=produto['prod']['vProd']
     nomeProduto=produto['prod']['xProd']
     listaProdutos.append({
         'Nome do Produto':nomeProduto,
