@@ -14,56 +14,60 @@ def printDict(dicionario):
 
 
 
-# with abre o arquivo e ja garante que no final dela o arquivo sera fechado automaticamente
-try:
-    caminhoArquivoXml='.\\021-integracaoTxtPdf\\08-mentoria-leituraXmlENotasfiscais\\NFs Finais\\DANFENespresso.xml'
-    with open(caminhoArquivoXml,'rb') as arquivo:
-        documento=xmltodict.parse(arquivo)
-except:
-    caminhoArquivoXml='NFs Finais\\DANFEBrota.xml'
-    with open(caminhoArquivoXml,'rb') as arquivo:
-        documento=xmltodict.parse(arquivo)
+caminhoArquivoXml='.\\021-integracaoTxtPdf\\08-mentoria-leituraXmlENotasfiscais\\NFs Finais\\DANFENespresso.xml'
+caminhoArquivoXml2='NFs Finais\\DANFEBrota.xml'
+
+def lerXmlDanfe(nota):
+    # with abre o arquivo e ja garante que no final dela o arquivo sera fechado automaticamente
+    try:
+        with open(nota,'rb') as arquivo:
+            documento=xmltodict.parse(arquivo)
+    except:
+        with open(nota,'rb') as arquivo:
+            documento=xmltodict.parse(arquivo)
 
 
-# o documento em xml se tornara um grande dicionario onde poderemos capturar os dados de cada campo
-print(documento['nfeProc']['NFe']['infNFe']['ide']['cUF'])
-nome=documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
-print(nome)
+    # o documento em xml se tornara um grande dicionario onde poderemos capturar os dados de cada campo
+    print(documento['nfeProc']['NFe']['infNFe']['ide']['cUF'])
+    nome=documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
+    print(nome)
 
 
-# agora vamos buscar os seguintes valores:
-# valorTotal, produtos/servicos(valores), cnpjVendeu, nomeVendeu, cpf/cnpjComprou, nomeComprou
+    # agora vamos buscar os seguintes valores:
+    # valorTotal, produtos/servicos(valores), cnpjVendeu, nomeVendeu, cpf/cnpjComprou, nomeComprou
 
-caminho=documento['nfeProc']['NFe']['infNFe']
+    caminho=documento['nfeProc']['NFe']['infNFe']
 
-valorTotal=caminho['total']['ICMSTot']['vNF']
-cnpjVendeu=caminho['emit']['CNPJ']
-nomeVendeu=caminho['emit']['xNome']
-cpfCnpjComprou=caminho['dest']['CPF']
-nomeComprou=caminho['dest']['xNome']
+    valorTotal=caminho['total']['ICMSTot']['vNF']
+    cnpjVendeu=caminho['emit']['CNPJ']
+    nomeVendeu=caminho['emit']['xNome']
+    cpfCnpjComprou=caminho['dest']['CPF']
+    nomeComprou=caminho['dest']['xNome']
 
-dictProdutos=caminho['det']
-listaProdutos=[]
-for produto in dictProdutos:
-    valorProduto=produto['prod']['vProd']
-    nomeProduto=produto['prod']['xProd']
-    listaProdutos.append((nomeProduto,valorProduto))
+    dictProdutos=caminho['det']
+    listaProdutos=[]
+    for produto in dictProdutos:
+        valorProduto=produto['prod']['vProd']
+        nomeProduto=produto['prod']['xProd']
+        listaProdutos.append((nomeProduto,valorProduto))
 
-# transformaremos todos os itens em listas para que no excel todos os produtos se mantenham na mesma linha com apenas uma copia da nota fiscal
-dictNf={
-    'Valor Total':[valorTotal],
-    'CNPJ Vendedor':[cnpjVendeu],
-    'Nome do Vendedor':[nomeVendeu],
-    'CPF ou CNPJ do Comprador':[cpfCnpjComprou],
-    'Nome do Comprador':[nomeComprou],
-    'Lista de Produtos':[listaProdutos]
-}
-
-
-printDict(dictNf)
-print()
+    # transformaremos todos os itens em listas para que no excel todos os produtos se mantenham na mesma linha com apenas uma copia da nota fiscal
+    dictNf={
+        'Valor Total':[valorTotal],
+        'CNPJ Vendedor':[cnpjVendeu],
+        'Nome do Vendedor':[nomeVendeu],
+        'CPF ou CNPJ do Comprador':[cpfCnpjComprou],
+        'Nome do Comprador':[nomeComprou],
+        'Lista de Produtos':[listaProdutos]
+    }
 
 
-tabela=pd.DataFrame.from_dict(dictNf)
+    printDict(dictNf)
+    print()
+
+    return dictNf 
+
+
+tabela=pd.DataFrame.from_dict(lerXmlDanfe(caminhoArquivoXml))
 print(tabela)
 tabela.to_excel('NFs.xlsx')
