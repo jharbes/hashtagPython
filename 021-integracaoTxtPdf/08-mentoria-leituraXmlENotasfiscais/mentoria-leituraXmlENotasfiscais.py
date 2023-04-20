@@ -49,13 +49,14 @@ for produto in dictProdutos:
     nomeProduto=produto['prod']['xProd']
     listaProdutos.append((nomeProduto,valorProduto))
 
+# transformaremos todos os itens em listas para que no excel todos os produtos se mantenham na mesma linha com apenas uma copia da nota fiscal
 dictNf={
-    'Valor Total':valorTotal,
-    'CNPJ Vendedor':cnpjVendeu,
-    'Nome do Vendedor':nomeVendeu,
-    'CPF ou CNPJ do Comprador':cpfCnpjComprou,
-    'Nome do Comprador':nomeComprou,
-    'Lista de Produtos':listaProdutos
+    'Valor Total':[valorTotal],
+    'CNPJ Vendedor':[cnpjVendeu],
+    'Nome do Vendedor':[nomeVendeu],
+    'CPF ou CNPJ do Comprador':[cpfCnpjComprou],
+    'Nome do Comprador':[nomeComprou],
+    'Lista de Produtos':[listaProdutos]
 }
 
 
@@ -65,4 +66,4 @@ print()
 
 tabela=pd.DataFrame.from_dict(dictNf)
 print(tabela)
-# tabela.to_excel('NFs.xlsx')
+tabela.to_excel('NFs.xlsx')
