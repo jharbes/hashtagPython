@@ -9,6 +9,15 @@ import xmltodict
 import pandas as pd
 import os
 
+tabela=pd.DataFrame(columns=[
+    'Valor Total',
+    'CNPJ do Vendedor',
+    'Nome do Vendedor',
+    'CPF ou CNPJ do Comprador',
+    'Nome do Comprador',
+    'Lista de Produtos'
+])
+
 
 # dicionarios nao sao iteraveis, mas o python entrega a chave quando feito um for no dicionario facilitando sua utilizacao nessa logica de repeticao
 def printDict(dicionario):
@@ -55,7 +64,7 @@ def lerXmlDanfe(nota):
         # transformaremos todos os itens em listas para que no excel todos os produtos se mantenham na mesma linha com apenas uma copia da nota fiscal
         dictNf={
             'Valor Total':[valorTotal],
-            'CNPJ Vendedor':[cnpjVendeu],
+            'CNPJ do Vendedor':[cnpjVendeu],
             'Nome do Vendedor':[nomeVendeu],
             'CPF ou CNPJ do Comprador':[cpfCnpjComprou],
             'Nome do Comprador':[nomeComprou],
@@ -96,7 +105,7 @@ def lerXmlServicorj(nota):
             cpfCnpjComprou=caminho['TomadorServico']['IdentificacaoTomador']['CpfCnpj']['Cnpj']
         except:
             cpfCnpjComprou=caminho['TomadorServico']['IdentificacaoTomador']['CpfCnpj']['Cpf']
-            
+
         nomeComprou=caminho['TomadorServico']['RazaoSocial']
         servico=caminho['Servico']['Discriminacao']
 
@@ -109,7 +118,7 @@ def lerXmlServicorj(nota):
         # transformaremos todos os itens em listas para que no excel todos os produtos se mantenham na mesma linha com apenas uma copia da nota fiscal
         dictNf={
             'Valor Total':[valorTotal],
-            'CNPJ Vendedor':[cnpjVendeu],
+            'CNPJ do Vendedor':[cnpjVendeu],
             'Nome do Vendedor':[nomeVendeu],
             'CPF ou CNPJ do Comprador':[cpfCnpjComprou],
             'Nome do Comprador':[nomeComprou],
@@ -131,20 +140,24 @@ listaArquivos=os.listdir('NFs Finais')
 
 print(listaArquivos) # ['DANFEBrota.pdf', 'DANFEBrota.xml', 'DANFENespresso.pdf', 'DANFENespresso.xml', 'NotaCariocaHashtag.pdf', 'NotaCariocaHashtag.xml']
 
+
 for arquivo in listaArquivos:
     if '.xml' in arquivo:
         if 'DANFE' in arquivo:
             print(f'Nota {arquivo} em formato DANFE')
-            lerXmlDanfe(f'NFs Finais\\{arquivo}')
+            dictNota=lerXmlDanfe(f'NFs Finais\\{arquivo}')
+            tabela=tabela.append(dictNota,ignore_index=True)
         elif 'NotaCarioca' in arquivo:
             print(f'Nota {arquivo} em formato de Serviços do RJ')
-            lerXmlServicorj(f'NFs Finais\\{arquivo}')
+            dictNota=lerXmlServicorj(f'NFs Finais\\{arquivo}')
+            tabela=tabela.append(dictNota,ignore_index=True)
+
     else:
         print(f'Nota {arquivo} em formato não reconhecido\n')
 
 
 
 
-# tabela=pd.DataFrame.from_dict(lerXmlDanfe(caminhoArquivoXml))
-# print(tabela)
-# tabela.to_excel('NFs.xlsx')
+# tabela=pd.DataFrame.from_dict(lerXmlDanfe(listaNotas))
+print(tabela)
+tabela.to_excel('NFs.xlsx')
