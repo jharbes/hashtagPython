@@ -13,8 +13,6 @@ except:
         documento=xmltodict.parse(arquivo)
 
 
-print(documento)
-print()
 
 print(documento['nfeProc']['NFe']['infNFe']['ide']['cUF'])
 nome=documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
@@ -23,3 +21,19 @@ print(nome)
 
 # agora vamos buscar os seguintes valores:
 # valorTotal, produtos/servicos(valores), cnpjVendeu, nomeVendeu, cpf/cnpjComprou, nomeComprou
+
+caminho=documento['nfeProc']['NFe']['infNFe']
+valorTotal=caminho['total']['ICMSTot']['vNF']
+print(valorTotal)
+
+cnpjVendeu=caminho['emit']['CNPJ']
+print(cnpjVendeu)
+
+nomeVendeu=caminho['emit']['xNome']
+print(nomeVendeu)
+
+cpfCnpjComprou=caminho['dest']['CPF']
+print(cpfCnpjComprou)
+
+nomeComprou=caminho['dest']['xNome']
+print(nomeComprou)
