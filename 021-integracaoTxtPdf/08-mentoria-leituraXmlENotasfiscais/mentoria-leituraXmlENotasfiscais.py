@@ -91,7 +91,12 @@ def lerXmlServicorj(nota):
         valorTotal=caminho['Servico']['Valores']['ValorServicos']
         cnpjVendeu=caminho['PrestadorServico']['IdentificacaoPrestador']['Cnpj']
         nomeVendeu=caminho['PrestadorServico']['RazaoSocial']
-        cpfCnpjComprou=caminho['TomadorServico']['IdentificacaoTomador']['CpfCnpj']
+
+        try:
+            cpfCnpjComprou=caminho['TomadorServico']['IdentificacaoTomador']['CpfCnpj']['Cnpj']
+        except:
+            cpfCnpjComprou=caminho['TomadorServico']['IdentificacaoTomador']['CpfCnpj']['Cpf']
+            
         nomeComprou=caminho['TomadorServico']['RazaoSocial']
         servico=caminho['Servico']['Discriminacao']
 
@@ -129,9 +134,13 @@ print(listaArquivos) # ['DANFEBrota.pdf', 'DANFEBrota.xml', 'DANFENespresso.pdf'
 for arquivo in listaArquivos:
     if '.xml' in arquivo:
         if 'DANFE' in arquivo:
+            print(f'Nota {arquivo} em formato DANFE')
             lerXmlDanfe(f'NFs Finais\\{arquivo}')
         elif 'NotaCarioca' in arquivo:
+            print(f'Nota {arquivo} em formato de Serviços do RJ')
             lerXmlServicorj(f'NFs Finais\\{arquivo}')
+    else:
+        print(f'Nota {arquivo} em formato não reconhecido\n')
 
 
 
