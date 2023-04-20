@@ -1,5 +1,5 @@
 import xmltodict
-import time
+import pandas as pd
 
 
 # dicionarios nao sao iteraveis, mas o python entrega a chave quando feito um for no dicionario facilitando sua utilizacao nessa logica de repeticao
@@ -16,7 +16,7 @@ def printDict(dicionario):
 
 # with abre o arquivo e ja garante que no final dela o arquivo sera fechado automaticamente
 try:
-    caminhoArquivoXml='.\\021-integracaoTxtPdf\\08-mentoria-leituraXmlENotasfiscais\\NFs Finais\\DANFEBrota.xml'
+    caminhoArquivoXml='.\\021-integracaoTxtPdf\\08-mentoria-leituraXmlENotasfiscais\\NFs Finais\\DANFENespresso.xml'
     with open(caminhoArquivoXml,'rb') as arquivo:
         documento=xmltodict.parse(arquivo)
 except:
@@ -58,10 +58,12 @@ dictNf={
     'Nome do Vendedor':nomeVendeu,
     'CPF ou CNPJ do Comprador':cpfCnpjComprou,
     'Nome do Comprador':nomeComprou,
-    'Nome do Produto':nomeProduto,
-    'Valor do Produto':valorProduto,
     'Lista de Produtos':listaProdutos
 }
 
 
 printDict(dictNf)
+
+
+tabela=pd.DataFrame.from_dict(dictNf)
+print(tabela)
