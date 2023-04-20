@@ -68,7 +68,7 @@ def lerXmlDanfe(nota):
 
         return dictNf 
 
-    except:
+    except FileNotFoundError:
         print('Arquivo inexistente')
 
 
@@ -76,17 +76,11 @@ def lerXmlDanfe(nota):
 
 def lerXmlServicorj(nota):
     # with abre o arquivo e ja garante que no final dela o arquivo sera fechado automaticamente
-    # print(nota)
-    # try:
+    print(nota)
+    try:
         with open(nota,'rb') as arquivo:
             documento=xmltodict.parse(arquivo)
     
-
-
-        # o documento em xml se tornara um grande dicionario onde poderemos capturar os dados de cada campo
-        # print(documento['nfeProc']['NFe']['infNFe']['ide']['cUF'])
-        # nome=documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
-        # print(nome)
 
 
         # agora vamos buscar os seguintes valores:
@@ -123,8 +117,8 @@ def lerXmlServicorj(nota):
 
         return dictNf 
 
-    # except:
-        # print('Arquivo inexistente')
+    except FileNotFoundError:
+        print('Arquivo inexistente')
 
 
 # salva os nomes dos arquivos da pasta solicitada em uma lista de strings
