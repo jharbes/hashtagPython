@@ -46,6 +46,8 @@ Quando você cria um ambiente virtual, ele vem praticamente sem nada, então voc
 # -m executa como script
 python -m venv nome_do_ambiente_virtual
 
+# podemos colocar python=versao no fim do comando para especificar qual a versao do python que queremos instalar
+
 
 
 # Ativando e desativando meu ambiente virtual
@@ -54,6 +56,9 @@ Windows: .\venv\Scripts\activate
 Linux e Mac: source venv/bin/activate
 Desativar: deactivate
 #
+
+
+# Quando o ambiente virtual está instalado que iremos instalar as dependencias que queremos que ele tenha com pip install, podendo escolher a versao de cada dependencia
 
 
 # Replicando ambientes
