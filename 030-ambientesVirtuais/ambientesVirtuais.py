@@ -37,6 +37,8 @@ Quando você cria um ambiente virtual, ele vem praticamente sem nada, então voc
 # ambiente virtual, mas os mais comuns são:
 # venv env .venv .env
 #
+
+
 # Como criar ambientes virtuais
 # Abra a pasta do seu projeto no terminal
 # e digite:
@@ -45,10 +47,6 @@ Quando você cria um ambiente virtual, ele vem praticamente sem nada, então voc
 python -m venv nome_do_ambiente_virtual
 
 
-# Abra a pasta do seu projeto no terminal
-# e digite:
-python -m venv nome_do_ambiente_virtual
-#
 
 # Ativando e desativando meu ambiente virtual
 
