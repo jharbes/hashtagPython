@@ -31,3 +31,23 @@ message = client.messages.create(
     body="Coe, é o Lira aqui!")
 
 print(message.sid)
+
+
+"""
+### Atenção no resultado
+
+Repare que o programa final vai ficar extremamente pesado.
+
+Isso porque o pyinstaller vai incluir todas as bibliotecas que temos instaladas no programa final, para garantir que ele vai funcionar.
+
+Para evitar isso, precisaremos criar um ambiente virtual exclusivo para esse programa, vamos ver na prática como funciona na próxima aula
+
+
+### Observações Úteis
+
+- Se o nome do seu arquivo .py tiver mais de uma palavra, na hora de testar, coloque o nome dele entre aspas duplas.<br>Ex:  python "Gabarito - SMS.py"
+- Se o seu antivírus verificar o pyinstaller, não precisa se preocupar, é normal e tá tudo certo
+- Provavelmente a 1ª vez que você rodar o seu programa, o antivírus vai verificar ele também
+- A pasta dist é o que pode ser distribuído. Você pode compactar ela em um zip e mandar para quem você quiser
+
+"""
