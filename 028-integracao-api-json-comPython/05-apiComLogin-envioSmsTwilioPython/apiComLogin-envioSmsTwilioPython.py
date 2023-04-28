@@ -35,12 +35,14 @@ from twilio.rest import Client
 account_sid = "ACe47cf7caf5d7f76d1c6f8a570230f5ee"
 auth_token  = "b7bb60ef56cffcb7e9d28a2bd1fc1f9c"
 
+remetente="+16205248958"
+destino="+5521996481674"
 
 client = Client(account_sid, auth_token)
 
 message = client.messages.create(
-    to="+5521996481674",
-    from_="+16205248958",
+    to=destino,
+    from_=remetente,
     body="Hello from Python!")
 
 print(message.sid)
