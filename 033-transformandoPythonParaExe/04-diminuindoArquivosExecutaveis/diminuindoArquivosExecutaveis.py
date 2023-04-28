@@ -14,20 +14,22 @@ Para diminuir o tamanho do arquivo a ser distribuído no final, vamos criar um a
 
 """
 
-# rodar o código de um programa que fazemos durante o curso que funcione. Exemplo o do outlook de enviar email
+# rodar o código de um programa que fazemos durante o curso que funcione. Exemplo o de envio de SMS
+
 from twilio.rest import Client
 
-account_sid = 'AC274236461c28f62d429961289af45b82'
-token = '6a2d1ea365d3674c749ce4cb7367d823'
+# Your Account SID and Auth Token from console.twilio.com
+account_sid = "ACe47cf7caf5d7f76d1c6f8a570230f5ee"
+auth_token  = "b7bb60ef56cffcb7e9d28a2bd1fc1f9c"
 
-client = Client(account_sid, token)
+remetente="+16205248958"
+destino="+5521996481674"
 
-remetente = '+18126153399'
-destino = '+5521972795556'
+client = Client(account_sid, auth_token)
 
 message = client.messages.create(
-    to=destino, 
+    to=destino,
     from_=remetente,
-    body="Coe, é o Lira aqui!")
+    body="Hello from Python!")
 
 print(message.sid)
