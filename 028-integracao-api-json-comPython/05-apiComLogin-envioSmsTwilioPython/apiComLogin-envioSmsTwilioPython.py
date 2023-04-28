@@ -29,3 +29,18 @@ No seu código, o 1º passo é sempre estabelecer a conexão com a API, usando s
 
 # 4- Agora podemos fazer o nosso código de acordo com as orientações do Twilio
 
+from twilio.rest import Client
+
+# Your Account SID and Auth Token from console.twilio.com
+account_sid = "ACe47cf7caf5d7f76d1c6f8a570230f5ee"
+auth_token  = "b7bb60ef56cffcb7e9d28a2bd1fc1f9c"
+
+
+client = Client(account_sid, auth_token)
+
+message = client.messages.create(
+    to="+5521996481674",
+    from_="+16205248958",
+    body="Hello from Python!")
+
+print(message.sid)
