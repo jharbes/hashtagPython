@@ -48,8 +48,15 @@ from tkinter import messagebox
 ### Pegando o arquivo em Excel do nosso computador 
 
 # ler csv
-buscas_df = pd.read_csv(r'.\Canais Youtube.csv', encoding = 'ISO-8859-1', sep=';')
-display(buscas_df.head())
+
+janela=Tk()
+
+arquivo=tkinter.filedialog.askopenfilename(title='Selecione o arquivo com os canais do YouTube a serem mapeados:')
+
+janela.destroy() # necessario para finalizar a janela cinza do tkinter ou ela ficara aberta mesmo dps de finalizado o programa
+
+buscas_df = pd.read_csv(arquivo, encoding = 'ISO-8859-1', sep=';')
+print(buscas_df.head())
 
 
 
