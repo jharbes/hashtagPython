@@ -55,7 +55,7 @@ arquivo=tkinter.filedialog.askopenfilename(title='Selecione o arquivo com os can
 
 janela.destroy() # necessario para finalizar a janela cinza do tkinter ou ela ficara aberta mesmo dps de finalizado o programa
 
-buscas_df = pd.read_csv(arquivo, encoding = 'ISO-8859-1', sep=';')
+buscas_df = pd.read_csv(arquivo, encoding = 'utf-8', sep=';')
 print(buscas_df.head())
 
 
@@ -76,9 +76,9 @@ for canal in buscas_canais:
         break
     hrefs.append(canal)
     driver.get(canal)
-    myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.CLASS_NAME, 'paper-tab')))
+    myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.CLASS_NAME, 'tab-content')))
     time.sleep(2)
-    tab = driver.find_elements(By.CLASS_NAME, 'paper-tab')[1].click()
+    tab = driver.find_elements(By.CLASS_NAME, 'tab-content')[1].click()
     time.sleep(2)
     altura = 0
     nova_altura = 1
