@@ -12,6 +12,15 @@ Usaremos a biblioteca pyinstaller
 
 pyinstaller -w nome_do_programa.py
 
+
+A flag -w no comando PyInstaller é usada para criar um executável sem console no Windows.
+
+Quando a opção -w é usada, o PyInstaller cria um executável que não abre uma janela do console ao ser executado. Em outras palavras, a opção -w é usada para ocultar a janela do console, o que significa que o usuário não verá nenhuma janela de prompt de comando ou de console enquanto o programa estiver sendo executado.
+
+Essa opção é útil quando se deseja criar um executável para uma aplicação gráfica ou de interface do usuário que não requer uma janela do console. Por exemplo, se você estiver criando um jogo em Python usando uma biblioteca como Pygame, pode ser útil usar a opção -w para criar um executável sem console para a sua aplicação.
+
+No entanto, se o seu programa produz saída de console ou se você precisar depurar o programa, pode ser necessário desativar a opção -w para que a janela do console seja exibida e as mensagens possam ser visualizadas.
+
 """
 
 # rodar o código de um programa que fazemos durante o curso que funcione. Exemplo o de envio de SMS
