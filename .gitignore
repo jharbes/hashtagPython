@@ -16,6 +16,7 @@ __pycache__/
 #.eggs/
 lib/
 lib64/
+output/
 #parts/
 #sdist/
 #var/
