@@ -111,6 +111,13 @@ driver.quit()
 
 ### Gerando arquivo final 
 
-#salvando o resultado em um csv
+# salvando o resultado em um csv
 hrefs_df = pd.DataFrame(hrefs)
 hrefs_df.to_csv(r'Canais Prontos.csv', sep=',', encoding='utf-8')
+
+
+
+
+### gerando mensagem comunicando o fim do programa
+janela = Tk()
+messagebox.showinfo('Status do Programa de Canais do YouTube','Programa concluído com suceso, arquivo em excel disponível na pasta do programa.')
