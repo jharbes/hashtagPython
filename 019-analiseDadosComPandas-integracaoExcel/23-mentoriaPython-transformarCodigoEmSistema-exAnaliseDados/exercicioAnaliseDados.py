@@ -7,7 +7,14 @@ print(tabelaDf)
 
 
 
-
 ### Informações Gerais
 
 print(tabelaDf.head())
+
+print(tabelaDf.info())
+
+print(tabelaDf.describe())
+
+
+
+### Como foi a evolução das exportações para a frança ao longo dos anos?
