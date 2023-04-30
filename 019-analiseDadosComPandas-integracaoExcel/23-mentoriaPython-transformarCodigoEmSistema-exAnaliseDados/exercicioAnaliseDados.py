@@ -68,13 +68,17 @@ print(avaliacaoExportacao2020Cidade['US$ FOB'].map(formatar))
 
 doisMaioresCidades=tabelaDf.loc[tabelaDf['Year']==2020,:]
 doisMaioresCidades=doisMaioresCidades[['City','SH4 Description','US$ FOB']]
-doisMaioresCidades=doisMaioresCidades.loc[doisMaioresCidades['City']=='Duque de Caxias - RJ',:].groupby('SH4 Description').sum().sort_values('US$ FOB',ascending=False).head()
 
-print(doisMaioresCidades)
+# observe que usamos o primeiro valor do indice da tabela para representar a cidade com maior valor de exportacoes por meio da variavel avaliacaoExportacao2020Cidade.index[0]
+doisMaioresCidades=doisMaioresCidades.loc[doisMaioresCidades['City']==avaliacaoExportacao2020Cidade.index[0],:].groupby('SH4 Description').sum().sort_values('US$ FOB',ascending=False).head()
+
+print(doisMaioresCidades['US$ FOB'].map(formatar))
 
 
 doisMaioresCidades=tabelaDf.loc[tabelaDf['Year']==2020,:]
 doisMaioresCidades=doisMaioresCidades[['City','SH4 Description','US$ FOB']]
-doisMaioresCidades=doisMaioresCidades.loc[doisMaioresCidades['City']=='Luís Eduardo Magalhães - BA',:].groupby('SH4 Description').sum().sort_values('US$ FOB',ascending=False).head()
 
-print(doisMaioresCidades)
+# observe que usamos o segundo valor do indice da tabela para representar a cidade com segundo maior valor de exportacoes por meio da variavel avaliacaoExportacao2020Cidade.index[1]
+doisMaioresCidades=doisMaioresCidades.loc[doisMaioresCidades['City']==avaliacaoExportacao2020Cidade.index[1],:].groupby('SH4 Description').sum().sort_values('US$ FOB',ascending=False).head()
+
+print(doisMaioresCidades['US$ FOB'].map(formatar))
