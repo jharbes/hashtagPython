@@ -2,8 +2,16 @@
 
 import pandas as pd
 
+# drop -> joga colunas fora
+# sort -> ordena as linhas
+# loc -> filtra as linhas
+
 tabelaDf=pd.read_csv('exportacoes_franca.csv')
+
+# filtrando a tabela pois todas as linhas estao duplicadas pois a franca aparece como Economic Block = Europe e European Union
+tabelaDf=tabelaDf.loc[tabelaDf['Economic Block']=='Europe',:]
 print(tabelaDf)
+
 
 
 
@@ -14,6 +22,7 @@ print(tabelaDf.head())
 print(tabelaDf.info())
 
 print(tabelaDf.describe())
+
 
 
 
@@ -30,3 +39,10 @@ def formatar(valor):
 avaliacaoDolarDf['US$ FOB']=avaliacaoDolarDf['US$ FOB'].map(formatar)
 
 print(avaliacaoDolarDf)
+
+
+
+
+### Quais os produtos mais exportados ao longo de todo o período?
+
+ 
