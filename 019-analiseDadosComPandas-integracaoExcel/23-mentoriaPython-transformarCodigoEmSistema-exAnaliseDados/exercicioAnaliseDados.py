@@ -43,10 +43,20 @@ print(avaliacaoDolarDf)
 
 
 
-### Quais os produtos mais exportados ao longo de todo o período?
+### Quais os produtos mais exportados em dólar ao longo de todo o período?
 
 avaliacaoProdutosDf=tabelaDf.groupby('SH4 Description').sum()
 avaliacaoProdutosDf=avaliacaoProdutosDf[['US$ FOB']]
 avaliacaoProdutosDf=avaliacaoProdutosDf.sort_values('US$ FOB',ascending=False)
 
 print(avaliacaoProdutosDf['US$ FOB'].map(formatar))
+
+
+
+
+### Em 2020 qual cidade mais exportou para a França em dólares?
+
+avaliacaoExportacao2020Cidade=tabelaDf.loc[tabelaDf['Year']==2020,:]
+avaliacaoExportacao2020Cidade=avaliacaoExportacao2020Cidade.groupby('City').sum()[['US$ FOB']].sort_values('US$ FOB',ascending=False)
+
+print(avaliacaoExportacao2020Cidade['US$ FOB'].map(formatar))
