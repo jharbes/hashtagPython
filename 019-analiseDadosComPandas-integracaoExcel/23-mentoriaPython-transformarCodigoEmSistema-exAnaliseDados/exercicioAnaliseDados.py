@@ -21,4 +21,12 @@ print(tabelaDf.describe())
 
 avaliacaoDolarDf=tabelaDf.groupby('Year').sum()
 avaliacaoDolarDf=avaliacaoDolarDf[['US$ FOB','Net Weight']]
+
+# criar uma funcao de formatacao para uma saida mais amigavel dos valores em dolares:
+def formatar(valor):
+    return f'{valor:,.2f}'
+
+# aplicar a formatacao
+avaliacaoDolarDf['US$ FOB']=avaliacaoDolarDf['US$ FOB'].map(formatar)
+
 print(avaliacaoDolarDf)
