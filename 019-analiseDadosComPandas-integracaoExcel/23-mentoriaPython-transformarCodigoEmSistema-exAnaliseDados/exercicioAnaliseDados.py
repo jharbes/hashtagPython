@@ -17,4 +17,8 @@ print(tabelaDf.describe())
 
 
 
-### Como foi a evolução das exportações para a frança ao longo dos anos?
+### Como foi a evolução das exportações para a frança ao longo dos anos em dólar?
+
+avaliacaoDolarDf=tabelaDf.groupby('Year').sum()
+avaliacaoDolarDf=avaliacaoDolarDf[['US$ FOB','Net Weight']]
+print(avaliacaoDolarDf)
