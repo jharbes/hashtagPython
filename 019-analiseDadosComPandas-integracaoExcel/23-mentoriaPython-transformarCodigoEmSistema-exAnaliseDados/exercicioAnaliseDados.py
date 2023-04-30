@@ -45,4 +45,8 @@ print(avaliacaoDolarDf)
 
 ### Quais os produtos mais exportados ao longo de todo o período?
 
- 
+avaliacaoProdutosDf=tabelaDf.groupby('SH4 Description').sum()
+avaliacaoProdutosDf=avaliacaoProdutosDf[['US$ FOB']]
+avaliacaoProdutosDf=avaliacaoProdutosDf.sort_values('US$ FOB',ascending=False)
+
+print(avaliacaoProdutosDf['US$ FOB'].map(formatar))
