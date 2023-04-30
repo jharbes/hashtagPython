@@ -60,3 +60,21 @@ avaliacaoExportacao2020Cidade=tabelaDf.loc[tabelaDf['Year']==2020,:]
 avaliacaoExportacao2020Cidade=avaliacaoExportacao2020Cidade.groupby('City').sum()[['US$ FOB']].sort_values('US$ FOB',ascending=False)
 
 print(avaliacaoExportacao2020Cidade['US$ FOB'].map(formatar))
+
+
+
+
+### O que as 2 maiores cidades exportaram tanto?
+
+doisMaioresCidades=tabelaDf.loc[tabelaDf['Year']==2020,:]
+doisMaioresCidades=doisMaioresCidades[['City','SH4 Description','US$ FOB']]
+doisMaioresCidades=doisMaioresCidades.loc[doisMaioresCidades['City']=='Duque de Caxias - RJ',:].groupby('SH4 Description').sum().sort_values('US$ FOB',ascending=False).head()
+
+print(doisMaioresCidades)
+
+
+doisMaioresCidades=tabelaDf.loc[tabelaDf['Year']==2020,:]
+doisMaioresCidades=doisMaioresCidades[['City','SH4 Description','US$ FOB']]
+doisMaioresCidades=doisMaioresCidades.loc[doisMaioresCidades['City']=='Luís Eduardo Magalhães - BA',:].groupby('SH4 Description').sum().sort_values('US$ FOB',ascending=False).head()
+
+print(doisMaioresCidades)
