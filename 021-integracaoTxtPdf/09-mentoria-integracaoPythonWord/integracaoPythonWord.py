@@ -59,6 +59,7 @@ paragrafo = documento.add_paragraph("PS: A quantidade de produtos vendidos foi d
 for estilo in documento.styles:
     print(estilo)
 
+# adicionando paragrafo com estilo diferente
 paragrafo = documento.add_paragraph("testando estilos aleatorios","macro")
 
 # implementando tudo que fizemos no Python no texto.docx
