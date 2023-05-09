@@ -69,7 +69,7 @@ documento.save('Texto.docx')
 
 
 
-### Aproveitando um template do word
+### Aproveitando um template do word, assim nao precisa criar o estilo no python, a criacao sera no word e iremos aproveita-lo
 
 template = Document("template.docx")
 
