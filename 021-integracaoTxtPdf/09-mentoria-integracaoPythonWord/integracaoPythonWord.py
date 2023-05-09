@@ -48,8 +48,8 @@ paragrafo.style.font.italic = True # italico ligado
 paragrafo.style.font.underline = True # sublinhado ligado
 paragrafo.style.font.color.rgb = RGBColor(255, 0, 0) # cor escolhida
 
-
-
+# criaremos um novo paragrafo, porem o estilo criado anteriormente somente sera aplicado a esse paragrafo caso passemos seu nome no segundo argumento da funcao
+paragrafo = documento.add_paragraph("PS: A quantidade de produtos vendidos foi de 10","EstiloLira")
 
 
 
