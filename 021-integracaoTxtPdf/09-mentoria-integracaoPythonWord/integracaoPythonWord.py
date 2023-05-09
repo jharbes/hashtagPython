@@ -69,9 +69,32 @@ documento.save('Texto.docx')
 
 
 
-### Aproveitando um template do word, assim nao precisa criar o estilo no python, a criacao sera no word e iremos aproveita-lo
+### Aproveitando um template do word, assim nao precisa criar o estilo no python, a criacao sera no word, depois salvaremos um arquivo (no caso o template.docx) e iremos aproveita-lo abrindo o Document com ele
 
 template = Document("template.docx")
 
 paragrafo = template.add_paragraph("Contrato de Prestação de Serviço", "novoEstiloTeste")
 template.save("NovoArquivo.docx")
+
+
+
+
+### Adicionar texto com edição dentro do texto
+
+# criando o documento no Python
+documento = Document()
+
+faturamento = 1000
+
+# aqui você edita tudo o que você quer
+texto = f"""Fala Lira,
+
+O faturamento da empresa ontem foi de """
+paragrafo = documento.add_paragraph(texto) 
+
+texto_final = "Tamo junto, abs."
+paragrafo = documento.add_paragraph(texto_final)
+
+
+
+documento.save("Texto2.docx")
