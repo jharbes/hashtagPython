@@ -23,3 +23,15 @@ Tamo junto, abs.
 """
 
 paragrafo = documento.add_paragraph(texto) 
+
+
+
+
+### formatação
+
+
+
+
+# implementando tudo que fizemos no Python no texto.docx
+
+documento.save('Texto.docx')
