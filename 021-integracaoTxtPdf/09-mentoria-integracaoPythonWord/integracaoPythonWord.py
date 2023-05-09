@@ -92,6 +92,9 @@ texto = f"""Fala Lira,
 O faturamento da empresa ontem foi de """
 paragrafo = documento.add_paragraph(texto) 
 
+# adiciona um texto no mesmo paragrafo com o estilo em negrito, poderia tambem passar o estilo especifico como segundo argumento da funcao add_run
+paragrafo.add_run(f"R${faturamento}").bold = True
+
 texto_final = "Tamo junto, abs."
 paragrafo = documento.add_paragraph(texto_final)
 
