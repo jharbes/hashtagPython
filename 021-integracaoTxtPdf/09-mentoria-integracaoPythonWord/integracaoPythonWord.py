@@ -107,7 +107,7 @@ documento.save("Texto2.docx")
 
 ### Controle de Margem e Seções
 
-# para alinhas o paragrafo (esquerda, direita ou centro)
+# para alinhar o paragrafo (esquerda, direita ou centro)
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 # criando o documento no Python
