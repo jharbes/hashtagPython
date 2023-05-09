@@ -107,7 +107,7 @@ documento.save("Texto2.docx")
 
 ### Controle de Margem e Seções
 
-# para alinhar o paragrafo (esquerda, direita ou centro)
+# para alinhar o paragrafo (esquerda, direita, justificado ou centralizado)
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 # criando o documento no Python
@@ -134,7 +134,39 @@ Tamo junto, abs.
 
 paragrafo = documento.add_paragraph(texto) 
 
-# alinha o paragrafo ao centro
+# alinha o paragrafo centralizado
 paragrafo.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
 
 documento.save("Texto3.docx")
+
+
+
+
+### Inserir Imagem
+
+# criando o documento no Python
+documento = Document()
+
+for secao in documento.sections:
+    secao.top_margin = Cm(0.5)
+    secao.bottom_margin = Cm(1)
+    secao.left_margin = Cm(1)
+    secao.right_margin = Cm(1)
+
+
+faturamento = 1000
+
+# aqui você edita tudo o que você quer
+texto = f"""Fala Lira,
+
+O faturamento da empresa ontem foi de R${faturamento}
+
+Tamo junto, abs.
+"""
+
+paragrafo = documento.add_paragraph(texto)
+
+# adiciona a imagem com o valor da largura e altura
+imagem = documento.add_picture("imagem.png", width=Cm(4), height=Cm(4))
+
+documento.save("TextoComImagem.docx")
