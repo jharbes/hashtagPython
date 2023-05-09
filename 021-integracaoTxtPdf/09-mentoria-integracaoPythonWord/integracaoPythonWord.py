@@ -65,3 +65,13 @@ paragrafo = documento.add_paragraph("testando estilos aleatorios","macro")
 # implementando tudo que fizemos no Python no texto.docx
 
 documento.save('Texto.docx')
+
+
+
+
+### Aproveitando um template do word
+
+template = Document("template.docx")
+
+paragrafo = template.add_paragraph("Contrato de Prestação de Serviço", "novoEstiloTeste")
+template.save("NovoArquivo.docx")
