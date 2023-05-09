@@ -101,3 +101,40 @@ paragrafo = documento.add_paragraph(texto_final)
 
 
 documento.save("Texto2.docx")
+
+
+
+
+### Controle de Margem e Seções
+
+# para alinhas o paragrafo (esquerda, direita ou centro)
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+
+# criando o documento no Python
+documento = Document()
+
+
+# as margens do documento passamos em centimetros com a funcao Cm
+for secao in documento.sections:
+    secao.top_margin = Cm(0.5)
+    secao.bottom_margin = Cm(1)
+    secao.left_margin = Cm(1)
+    secao.right_margin = Cm(1)
+
+
+faturamento = 1000
+
+# aqui você edita tudo o que você quer
+texto = f"""Fala Lira,
+
+O faturamento da empresa ontem foi de R${faturamento}
+
+Tamo junto, abs.
+"""
+
+paragrafo = documento.add_paragraph(texto) 
+
+# alinha o paragrafo ao centro
+paragrafo.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+
+documento.save("Texto3.docx")
