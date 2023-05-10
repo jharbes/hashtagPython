@@ -184,6 +184,7 @@ records = (
     (4, '631', 'Spam, spam, eggs, and spam')
 )
 
+# observe como inserimos o estilo por meio do argumento nomeado style, podemos ver a lista de estilos disponiveis com o loop abaixo
 table = documento.add_table(rows=1, cols=3, style="Light Grid Accent 1")
 hdr_cells = table.rows[0].cells
 hdr_cells[0].text = 'Qty'
@@ -197,3 +198,16 @@ for qty, id, desc in records:
     
     
 documento.save("Tabela.docx")
+
+
+### Para verificar todos os estilos de um arquivo:
+
+# vai mostrar todos os estilos disponiveis para documento que foi o ultimo arquivo criado com Document()
+for estilo in documento.styles:
+    print(estilo)
+
+
+
+
+### Adaptar um documento
+
