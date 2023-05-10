@@ -170,3 +170,30 @@ paragrafo = documento.add_paragraph(texto)
 imagem = documento.add_picture("imagem.png", width=Cm(4), height=Cm(4))
 
 documento.save("TextoComImagem.docx")
+
+
+
+
+### Inserir Tabela
+
+documento = Document()
+
+records = (
+    (3, '101', 'Spam'),
+    (7, '422', 'Eggs'),
+    (4, '631', 'Spam, spam, eggs, and spam')
+)
+
+table = documento.add_table(rows=1, cols=3, style="Light Grid Accent 1")
+hdr_cells = table.rows[0].cells
+hdr_cells[0].text = 'Qty'
+hdr_cells[1].text = 'Id'
+hdr_cells[2].text = 'Desc'
+for qty, id, desc in records:
+    row_cells = table.add_row().cells
+    row_cells[0].text = str(qty)
+    row_cells[1].text = id
+    row_cells[2].text = desc
+    
+    
+documento.save("Tabela.docx")
