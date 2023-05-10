@@ -13,18 +13,19 @@ outlook = win32.Dispatch('outlook.application')
 
 
 
-# - Passo 2: Escrever o e-mail e disparar
+# - Passo 2: Escrever o e-mail e disparar (nao precisa preencher o remetente, será o padrao do outlook)
 
 mail = outlook.CreateItem(0)
 mail.To = 'jharbes@hotmail.com'
 mail.CC = 'jharbes@icloud.com'
-mail.BCC = 'jorge.harbes@technipfmc.com'
+mail.BCC = 'jorge.harbes@technipfmc.com' # BCC é copia oculta
 mail.Subject = 'Email vindo do Outlook'
-mail.Body = 'Texto do E-mail'
+mail.Body = 'Texto de email, teste de automação'
 #ou mail.HTMLBody = '<p>Corpo do Email em HTML</p>'
 
 # Anexos (pode colocar quantos quiser):
-attachment  = r'C:\Users\joaop\Google Drive\Python Impressionador\Financeiro.xlsx'
+# ***OBS: o path do arquivo deve ser completo OBRIGATORIAMENTE, pois a pasta padrao sempre será a do outlook
+attachment  = r'C:\Users\jharbes\Documents\GitHub\hashtagPython\023-integracaoPythonEmail\01-integrandoPythonOutlook\Financeiro.xlsx'
 mail.Attachments.Add(attachment)
 
 mail.Send()
