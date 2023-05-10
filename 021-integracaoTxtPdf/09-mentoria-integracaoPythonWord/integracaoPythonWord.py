@@ -211,3 +211,35 @@ for estilo in documento.styles:
 
 ### Adaptar um documento
 
+from datetime import datetime
+
+# utilizaremos um template pois o python vai identificar os campos a serem substituidos
+contrato = Document("Contrato.docx")
+
+# faremos um exemplo simplificado no qual os valores abaixos virao de hard code, mas normalmente podem vir de variaveis, banco de dados ou planilha entre outros
+nome = "Lira da Hashtag"
+item1 = "Serviço de Treinamento em Excel"
+item2 = "Apostila Completa de Excel"
+item3 = "Serviço de Treinamentos de Python"
+
+# agora faremos um par chave valor com um dicionario onde o que está preenchido no modelo (template) recebera os valores definidos nas variaveis
+dicionario_valores = {
+    "XXXX": nome,
+    "YYYY": item1,
+    "ZZZZ": item2,
+    "WWWW": item3,
+    "DD": str(datetime.now().day),
+    "MM": str(datetime.now().month),
+    "AAAA": str(datetime.now().year),
+}
+
+# tem alguma função replace? -> é executada por parágrafo
+# percorrer as linhas
+    # se a linha tiver o texto xxxx substitui pelo nome
+for paragrafo in contrato.paragraphs:
+    # para cada placeholder do dicionario
+    for codigo in dicionario_valores:
+        if codigo in paragrafo.text:
+            paragrafo.text = paragrafo.text.replace(codigo, dicionario_valores[codigo])
+
+contrato.save(f"Contrato Atualizado - {nome}.docx")
