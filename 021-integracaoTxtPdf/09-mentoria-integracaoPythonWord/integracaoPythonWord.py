@@ -233,6 +233,9 @@ dicionario_valores = {
     "AAAA": str(datetime.now().year),
 }
 
+print(datetime.now())
+
+
 # tem alguma função replace? -> é executada por parágrafo
 # percorrer as linhas
     # se a linha tiver o texto xxxx substitui pelo nome
