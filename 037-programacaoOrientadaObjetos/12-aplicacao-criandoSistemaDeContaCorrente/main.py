@@ -7,3 +7,7 @@ c3=ContaCorrente('Elizabeth Barreto Ramos Ferreira Harbes',39634299768,500000)
 print(c1.__dict__)
 
 print(numerosConta.NumerosConta.numerosConta)
+
+c1.saque(200)
+
+print(c1.saldo)
