@@ -27,5 +27,11 @@ class TV:
 tv_sala = TV(55)
 tv_quarto = TV(70)
 
+tv_sala.mudar_canal("Globo")
+tv_quarto.mudar_canal('Youtube')
+
+print(tv_sala.canal)
+print(tv_quarto.canal)
+
 print(tv_sala.tamanho)
 print(tv_quarto.tamanho)
