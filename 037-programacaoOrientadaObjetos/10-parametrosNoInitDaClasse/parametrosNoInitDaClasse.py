@@ -19,6 +19,7 @@ class TV:
         self.tamanho = tamanho
         self.canal = "Netflix"
         self.volume = 10
+        self.resolucao = None
 
     def mudar_canal(self, novo_canal):
         self.canal = novo_canal
@@ -27,9 +28,17 @@ class TV:
 #programa
 tv_sala = TV(55)
 tv_quarto = TV(70)
+tvCozinha=TV(tamanho=32)
 
-print(tv_sala.tamanho)
-print(tv_quarto.tamanho)
+print(tv_sala.tamanho) # 55
+print(tv_quarto.tamanho) # 70
 
-print(tv_sala.cor)
-print(tv_quarto.cor)
+print(tv_sala.cor) # preta
+print(tv_quarto.cor) # preta
+
+tv_quarto.cor='amarela'
+
+print(tv_quarto.cor) # amarela
+
+print(tv_quarto.__dict__) # {'ligada': False, 'tamanho': 70, 'canal': 'Netflix', 'volume': 10, 'resolucao': None, 'cor': 'amarela'}
+print(tvCozinha.__dict__) # {'ligada': False, 'tamanho': 32, 'canal': 'Netflix', 'volume': 10, 'resolucao': None}
