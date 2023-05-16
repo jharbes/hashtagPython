@@ -11,3 +11,9 @@ print(numerosConta.NumerosConta.numerosConta)
 c1.saque(200)
 
 print(c1.saldo)
+
+c1.numero=55555
+
+print(c1.numero)
+
+print(numerosConta.NumerosConta.numerosConta)

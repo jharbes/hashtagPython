@@ -1,4 +1,5 @@
 import numerosConta
+from numerosConta import NumerosConta
 
 class ContaCorrente:
 
@@ -25,7 +26,9 @@ class ContaCorrente:
     
     @numero.setter
     def numero(self,novoNumero):
-        self.__numero=novoNumero
+        if novoNumero not in NumerosConta.numerosConta:
+                NumerosConta.numerosConta.append(novoNumero)
+                self.__numero=novoNumero
     
     @property
     def nomeTitular(self):
