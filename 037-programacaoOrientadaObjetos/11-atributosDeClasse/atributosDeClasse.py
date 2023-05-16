@@ -12,9 +12,11 @@
 #classes
 class TV:
 
+    # atributos de classe
     cor = 'preta'
 
     def __init__(self, tamanho):
+        # atributos de instancia
         self.ligada = False
         self.tamanho = tamanho
         self.canal = "Netflix"
@@ -28,9 +30,19 @@ class TV:
 tv_sala = TV(55)
 tv_quarto = TV(70)
 
-print(tv_sala.tamanho)
-print(tv_quarto.tamanho)
+print(tv_sala.tamanho) # 55
+print(tv_quarto.tamanho) # 70
 
-print(tv_sala.cor)
-print(tv_quarto.cor)
+print(tv_sala.cor) # preta
+print(tv_quarto.cor) # preta
 
+tv_quarto.cor='amarela'
+
+print(tv_quarto.cor) # amarela
+print(tv_sala.cor) # preta
+
+# altera o valor global, no entanto se ja tiver sido alterado apos a criacao da classe nao sera atingido por essa modificacao
+TV.cor='branca'
+
+print(tv_quarto.cor) # amarela
+print(tv_sala.cor) # branca
