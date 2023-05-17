@@ -1,6 +1,15 @@
 import numerosConta
 from numerosConta import NumerosConta
 
+
+# criando formatacao para os valores (em reais)
+import locale
+locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
+
+def formatacaoDolar(valor):
+    return locale.currency(valor,grouping=True)
+
+
 class ContaCorrente:
 
     def __init__(self,nomeTitular,cpfTitular,saldo) -> None:
@@ -8,16 +17,23 @@ class ContaCorrente:
         self.__nomeTitular=nomeTitular
         self.__cpfTitular=cpfTitular
         self.__saldo=saldo
+        self.__limite=0
 
     @property
     def saldo(self):
         return self.__saldo
+    
+    def consultarSaldo(self):
+        return 'O saldo da conta de número {} é de {}'.format(self.__numero,formatacaoDolar(self.__saldo))
+    
+    def limiteConta(self,valor):
+        self.__limite=valor
 
     def deposito(self,valor):
         self.__saldo+=valor
 
     def saque(self,valor):
-        if self.saldo>=valor:
+        if self.__saldo+self.__limite>=valor:
             self.__saldo-=valor
 
     @property
