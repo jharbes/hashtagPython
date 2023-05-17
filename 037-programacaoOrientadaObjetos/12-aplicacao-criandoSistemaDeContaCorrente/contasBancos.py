@@ -29,6 +29,9 @@ class ContaCorrente:
     def limiteConta(self,valor):
         self.__limite=valor
 
+    def consultarLimiteConta(self):
+        return 'O limite da conta de número {} possui o valor de {}'.format(self.__numero,formatacaoMoeda(self.__limite))
+
     def deposito(self,valor):
         self.__saldo+=valor
 
