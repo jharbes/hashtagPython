@@ -10,7 +10,7 @@ c3=ContaCorrente('Elizabeth Barreto Ramos Ferreira Harbes',39634299768,500000)
 
 ui(c1.__dict__)
 
-print(numerosConta.NumerosConta.numerosConta)
+ui(numerosConta.NumerosConta.numerosConta)
 
 c1.saque(200)
 c3.deposito(10000000000000)
