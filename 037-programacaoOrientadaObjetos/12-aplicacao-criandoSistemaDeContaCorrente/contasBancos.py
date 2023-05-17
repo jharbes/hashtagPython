@@ -1,4 +1,5 @@
 import numerosConta
+from UI import ui
 from numerosConta import NumerosConta
 
 
@@ -18,19 +19,20 @@ class ContaCorrente:
         self.__cpfTitular=cpfTitular
         self.__saldo=saldo
         self.__limite=0
+        ui('CONTA ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
 
     @property
     def saldo(self):
         return self.__saldo
     
     def consultarSaldo(self):
-        return 'O saldo da conta de número {} é de {}'.format(self.__numero,formatacaoMoeda(self.__saldo))
+        ui('O saldo da conta de número {} é de {}'.format(self.__numero,formatacaoMoeda(self.__saldo)))
     
     def limiteConta(self,valor):
         self.__limite=valor
 
     def consultarLimiteConta(self):
-        return 'O limite da conta de número {} possui o valor de {}'.format(self.__numero,formatacaoMoeda(self.__limite))
+        ui('O limite da conta de número {} possui o valor de {}'.format(self.__numero,formatacaoMoeda(self.__limite)))
 
     def deposito(self,valor):
         self.__saldo+=valor
@@ -38,7 +40,10 @@ class ContaCorrente:
     def saque(self,valor):
         if self.__saldo+self.__limite>=valor:
             self.__saldo-=valor
-            return 'Saque de {} efetivado com sucesso! {}'.format(formatacaoMoeda(valor),self.consultarSaldo())
+            ui('Saque de {} efetivado com sucesso!'.format(formatacaoMoeda(valor)))
+            self.consultarSaldo()
+        else:
+            ui('Saque de {} não permitido! Valores de saldo/limite insuficientes!')
 
     @property
     def numero(self):
