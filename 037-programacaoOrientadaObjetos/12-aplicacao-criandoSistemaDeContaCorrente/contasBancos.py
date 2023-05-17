@@ -43,7 +43,7 @@ class ContaCorrente:
             ui('Saque de {} efetivado com sucesso!'.format(formatacaoMoeda(valor)))
             self.consultarSaldo()
         else:
-            ui('Saque de {} não permitido! Valores de saldo/limite insuficientes!')
+            ui('Saque de {} não permitido! Valores de saldo/limite insuficientes!'.format(formatacaoMoeda(valor)))
 
     @property
     def numero(self):
