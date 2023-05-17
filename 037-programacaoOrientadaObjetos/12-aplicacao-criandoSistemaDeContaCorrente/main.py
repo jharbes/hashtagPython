@@ -1,4 +1,4 @@
-from contasBancos import *
+from ContasBancos import *
 from NumerosConta import *
 from UI import ui
 
