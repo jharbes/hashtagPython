@@ -1,17 +1,20 @@
 from contasBancos import *
-from numerosConta import *
+from NumerosConta import *
 from UI import ui
+
+agenciaLocal='2290'
 
 cc=[]
 
-cc.append(ContaCorrente('Jorge Nami Harbes',10231086741,500))
-cc.append(ContaCorrente('Carolina Ferreira Alcantara',16242112752,1500))
-cc.append(ContaCorrente('Elizabeth Barreto Ramos Ferreira Harbes',39634299768,500000))
+cc.append(ContaCorrente(agenciaLocal,'Jorge Nami Harbes',10231086741,500))
+cc.append(ContaCorrente(agenciaLocal,'Carolina Ferreira Alcantara',16242112752,1500))
+cc.append(ContaCorrente(agenciaLocal,'Elizabeth Barreto Ramos Ferreira Harbes',39634299768,500000))
 
-
+ui(cc[0].agencia)
+ui(vars(cc[0]))
 ui(cc[0].__dict__)
 
-ui(numerosConta.NumerosConta.numerosConta)
+ui(NumerosConta.numerosConta)
 
 cc[0].saque(200)
 cc[2].deposito(10000000000000)
@@ -32,13 +35,13 @@ cc[0].numero=55555
 
 
 
-ui(numerosConta.NumerosConta.numerosConta)
+ui(NumerosConta.numerosConta)
 
 
-cc.append(ContaCorrente('Matheus Attilio',96564512785,800))
+cc.append(ContaCorrente(agenciaLocal,'Matheus Attilio',96564512785,800))
 
 
 ui(cc)
 
-for conta in cc:
-    ui(conta.__dict__)
+# for conta in cc:
+#     ui(conta.__dict__)

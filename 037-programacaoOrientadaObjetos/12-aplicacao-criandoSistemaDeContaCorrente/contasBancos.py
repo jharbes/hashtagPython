@@ -1,6 +1,5 @@
-import numerosConta
 from UI import ui
-from numerosConta import NumerosConta
+from NumerosConta import NumerosConta
 
 
 # criando formatacao para os valores (em reais)
@@ -13,14 +12,25 @@ def formatacaoMoeda(valor):
 
 class ContaCorrente:
 
-    def __init__(self,nomeTitular,cpfTitular,saldo) -> None:
-        self.__numero=numerosConta.NumerosConta.gerarNumeroConta()
+
+    def __init__(self,agencia,nomeTitular,cpfTitular,saldo) -> None:
+        self.__banco='033'
+        self.__agencia=agencia
+        self.__numero=NumerosConta.gerarNumeroConta()
         self.__nomeTitular=nomeTitular
         self.__cpfTitular=cpfTitular
         self.__saldo=saldo
         self.__limite=0
         ui('CONTA ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
 
+    @property
+    def banco(self):
+        return self.__banco
+    
+    @property
+    def agencia(self):
+        return self.__agencia
+    
     @property
     def saldo(self):
         return self.__saldo
@@ -36,6 +46,7 @@ class ContaCorrente:
 
     def deposito(self,valor):
         self.__saldo+=valor
+        self.consultarSaldo()
 
     def saque(self,valor):
         if self.__saldo+self.__limite>=valor:
