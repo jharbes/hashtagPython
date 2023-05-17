@@ -6,7 +6,7 @@ from numerosConta import NumerosConta
 import locale
 locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
 
-def formatacaoDolar(valor):
+def formatacaoMoeda(valor):
     return locale.currency(valor,grouping=True)
 
 
@@ -24,7 +24,7 @@ class ContaCorrente:
         return self.__saldo
     
     def consultarSaldo(self):
-        return 'O saldo da conta de número {} é de {}'.format(self.__numero,formatacaoDolar(self.__saldo))
+        return 'O saldo da conta de número {} é de {}'.format(self.__numero,formatacaoMoeda(self.__saldo))
     
     def limiteConta(self,valor):
         self.__limite=valor
@@ -35,6 +35,7 @@ class ContaCorrente:
     def saque(self,valor):
         if self.__saldo+self.__limite>=valor:
             self.__saldo-=valor
+            return 'Saque de {} efetivado com sucesso! {}'.format(formatacaoMoeda(valor),self.consultarSaldo())
 
     @property
     def numero(self):

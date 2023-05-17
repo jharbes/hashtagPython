@@ -14,6 +14,10 @@ print(numerosConta.NumerosConta.numerosConta)
 c1.saque(200)
 c3.deposito(10000000000000)
 
+c1.limiteConta(1000)
+print(c1.saque(800))
+c1.consultarSaldo()
+
 print(c1.consultarSaldo())
 
 print(c3.consultarSaldo())
