@@ -1,5 +1,5 @@
-from ContasBancos import *
-from NumerosConta import *
+from ContaCorrente import *
+from NumeroConta import *
 from UI import ui
 
 agenciaLocal='2290'
@@ -14,7 +14,7 @@ ui(cc[0].agencia)
 ui(vars(cc[0]))
 ui(cc[0].__dict__)
 
-ui(NumerosConta.numerosConta)
+ui(NumeroConta.numerosConta)
 
 cc[0].saque(200)
 cc[2].deposito(10000000000000)
@@ -37,13 +37,18 @@ cc[0].numero=55555
 
 
 
-ui(NumerosConta.numerosConta)
+ui(NumeroConta.numerosConta)
 
 
 cc.append(ContaCorrente(agenciaLocal,'Jack Daniels','673.843.680-73',800))
 
 
 ui(cc)
+
+cc[0].transferencia(500,cc[2])
+cc[2].transferencia(1000,cc[0])
+
+cc[2].transacoes
 
 # for conta in cc:
 #     ui(conta.__dict__)

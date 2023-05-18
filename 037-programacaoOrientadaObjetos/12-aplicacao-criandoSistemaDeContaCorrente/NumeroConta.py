@@ -1,6 +1,6 @@
 import random
 
-class NumerosConta:
+class NumeroConta:
 
     numerosConta=[]
 
@@ -8,7 +8,7 @@ class NumerosConta:
     def gerarNumeroConta():
         while True:
             numeroConta=random.randint(10000,99999)
-            if numeroConta not in NumerosConta.numerosConta:
-                NumerosConta.numerosConta.append(numeroConta)
+            if numeroConta not in NumeroConta.numerosConta:
+                NumeroConta.numerosConta.append(numeroConta)
                 return numeroConta
         

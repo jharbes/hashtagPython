@@ -1,5 +1,5 @@
 from UI import ui
-from NumerosConta import NumerosConta
+from NumeroConta import NumeroConta
 from datetime import datetime
 import pytz # faz o ajuste de fuso horario
 import locale
@@ -21,17 +21,20 @@ def dataHoraAtual():
 class ContaCorrente:
 
 
-    def __init__(self,agencia,nomeTitular,cpfTitular,saldo) -> None:
+    def __init__(self,agencia,nomeTitular,cpfTitular,depositoInicial) -> None:
         self.__ativa=True
         self.__banco='033'
         self.__agencia=agencia
-        self.__numero=NumerosConta.gerarNumeroConta()
+        self.__numero=NumeroConta.gerarNumeroConta()
         self.__nomeTitular=nomeTitular
         self.__cpfTitular=cpfTitular
-        self.__saldo=saldo
+        self.__saldo=depositoInicial
         self.__limite=0
         self.__transacoes=[]
         ui('CONTA ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
+        if depositoInicial>0:
+            self.__transacoes.append((depositoInicial,self.saldo,dataHoraAtual()))
+
 
     @property
     def ativa(self):
@@ -61,15 +64,13 @@ class ContaCorrente:
             ui('O saldo da conta de número {} é de {}'.format(self.__numero,formatacaoMoeda(self.__saldo)))
     
     def limiteConta(self,valor):
-        if self.ativa:
+        if self.confereAtiva():
             self.__limite=valor
             ui('Limite de Cheque Especial no valor de {} implantado com sucesso na conta de número {}.'.format(formatacaoMoeda(valor),self.numero))
-            self.__transacoes.append((valor,self.saldo,dataHoraAtual()))
-        else:
-            ui('Operação não permitida, conta de número {} está inativa'.format(self.numero))
 
     def consultarLimiteConta(self):
-        ui('O limite da conta de número {} possui o valor de {}'.format(self.__numero,formatacaoMoeda(self.__limite)))
+        if self.confereAtiva():
+            ui('O limite da conta de número {} possui o valor de {}'.format(self.__numero,formatacaoMoeda(self.__limite)))
 
     def deposito(self,valor):
         if self.confereAtiva():
@@ -84,9 +85,21 @@ class ContaCorrente:
                 self.__saldo-=valor
                 ui('Saque de {} efetivado com sucesso!'.format(formatacaoMoeda(valor)))
                 self.consultarSaldo()
-                self.__transacoes.append((valor,self.saldo,dataHoraAtual()))
+                self.__transacoes.append((-valor,self.saldo,dataHoraAtual()))
             else:
                 ui('Saque de {} não permitido! Valores de saldo/limite insuficientes!'.format(formatacaoMoeda(valor)))
+
+    def transferencia(self,valor,contaDestino):
+        if self.confereAtiva() and contaDestino.confereAtiva():
+            if self.__saldo+self.__limite>=valor:
+                self.__saldo-=valor
+                contaDestino.__saldo+=valor
+                ui('Transferência de {} da conta número {} para a conta {} efetivada com sucesso!'.format(formatacaoMoeda(valor),self.numero,contaDestino.numero))
+                self.__transacoes.append((-valor,self.saldo,dataHoraAtual()))
+                contaDestino.__transacoes.append((valor,self.saldo,dataHoraAtual()))
+            else:
+                ui('Transferência de {} não permitida! Valores de saldo/limite insuficientes!'.format(formatacaoMoeda(valor)))
+            
 
     @property
     def numero(self):
@@ -94,8 +107,8 @@ class ContaCorrente:
     
     @numero.setter
     def numero(self,novoNumero):
-        if novoNumero not in NumerosConta.numerosConta:
-                NumerosConta.numerosConta.append(novoNumero)
+        if novoNumero not in NumeroConta.numerosConta:
+                NumeroConta.numerosConta.append(novoNumero)
                 self.__numero=novoNumero
     
     @property
