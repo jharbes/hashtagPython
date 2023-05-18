@@ -29,6 +29,8 @@ cc[0].saque(300)
 
 cc[0].consultarSaldo()
 
+cc[0].transacoes
+
 
 
 cc[0].numero=55555

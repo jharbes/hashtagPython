@@ -4,6 +4,7 @@ class NumerosConta:
 
     numerosConta=[]
 
+    @staticmethod
     def gerarNumeroConta():
         while True:
             numeroConta=random.randint(10000,99999)
