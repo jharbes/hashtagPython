@@ -19,6 +19,20 @@ def dataHoraAtual():
 
 
 class ContaCorrente:
+    """
+    Cria um objeto ContaCorrente para gerenciar as contas dos clientes
+
+    Atributos:
+        ativa (bool): Se a conta está ativa ou não
+        banco (str): Número do banco
+        agencia (str): Número da agência
+        numero (int): Número da conta gerado automaticamente de forma aleatória
+        nomeTitular (str): Nome do titular da conta
+        cpfTitular (str): CPF do titular da conta com pontos e traço
+        saldo (float): Saldo da conta
+        limite (float): Limite de cheque especial da conta
+        transacoes (list): Lista de transacoes a debito/credito lançados na conta
+    """
 
 
     def __init__(self,agencia,nomeTitular,cpfTitular,depositoInicial) -> None:

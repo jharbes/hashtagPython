@@ -2,6 +2,6 @@ def ui(conteudo):
         if isinstance(conteudo,list):
             for item in conteudo:
                   print(item)
-            print('-'*20)
+            print('-'*40)
         else:
-            return print('-'*20+'\n{}\n'.format(conteudo))
+            return print('-'*40+'\n{}\n'.format(conteudo))

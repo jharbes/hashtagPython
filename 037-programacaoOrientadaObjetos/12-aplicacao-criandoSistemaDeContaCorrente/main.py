@@ -52,3 +52,5 @@ cc[2].transacoes
 
 # for conta in cc:
 #     ui(conta.__dict__)
+
+help(ContaCorrente)
