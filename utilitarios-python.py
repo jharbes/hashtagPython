@@ -76,3 +76,13 @@ except Exception as error:
 
 for indice,item in enumerate(vetorOuString):
             print(letra)
+            
+            
+            
+
+# pegando data e hora atual            
+from datetime import datetime
+import pytz # faz o ajuste de fuso horario
+
+def dataHoraAtual():
+    return datetime.now(fusoHorarioBrasil).strftime('%d/%m/%Y %H:%M:%S') # metodo strftime mostra a data/hora em modo mais amigavel e legivel
