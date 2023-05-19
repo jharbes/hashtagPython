@@ -1,22 +1,6 @@
 from UI import ui
 from NumeroConta import NumeroConta
-from datetime import datetime
-import pytz # faz o ajuste de fuso horario
-import locale
-
-
-# criando formatacao para os valores (em reais)
-locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
-
-
-fusoHorarioBrasil=pytz.timezone('Brazil/East')
-
-def formatacaoMoeda(valor):
-    return locale.currency(valor,grouping=True)
-
-def dataHoraAtual():
-    return datetime.now(fusoHorarioBrasil).strftime('%d/%m/%Y %H:%M:%S') # metodo strftime mostra a data/hora em modo mais amigavel e legivel
-
+from funcoesAuxiliares import *
 
 class ContaCorrente:
     """
@@ -35,7 +19,7 @@ class ContaCorrente:
     """
 
 
-    def __init__(self,agencia,nomeTitular,cpfTitular,depositoInicial) -> None:
+    def __init__(self,agencia,nomeTitular,cpfTitular,depositoInicial=0) -> None:
         self.__ativa=True
         self.__banco='033'
         self.__agencia=agencia
@@ -45,7 +29,7 @@ class ContaCorrente:
         self.__saldo=depositoInicial
         self.__limite=0
         self.__transacoes=[]
-        ui('CONTA ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
+        ui('CONTA CORRENTE ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
         if depositoInicial>0:
             self.__transacoes.append((depositoInicial,self.saldo,dataHoraAtual()))
 
