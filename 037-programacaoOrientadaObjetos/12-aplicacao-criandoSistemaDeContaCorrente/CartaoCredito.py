@@ -19,3 +19,11 @@ class CartaoCredito:
         @property
         def nomeTitular(self):
             return self.__nomeTitular
+        
+        @property
+        def limite(self):
+            return self.__limite
+        
+        @property
+        def contaCorrente(self):
+            return self.__contaCorrente
