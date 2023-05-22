@@ -5,8 +5,14 @@ from UI import ui
 from ConsoleLogger import *
 
 log_file_path = "037-programacaoOrientadaObjetos\\12-aplicacao-criandoSistemaDeContaCorrente\\console.log"
-console_logger = ConsoleLogger(log_file_path)
+log_file_path2='console.log'
 
+try:
+    console_logger = ConsoleLogger(log_file_path)
+except:
+    console_logger=ConsoleLogger(log_file_path2)
+
+    
 agenciaLocal='2290'
 
 cc=[]
