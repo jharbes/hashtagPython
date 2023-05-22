@@ -70,6 +70,10 @@ cc[2].transacoes
 
 listaCartao.append(CartaoCredito(cc[1].nomeTitular,cc[1]))
 
+print(isinstance(listaCartao[1],CartaoCredito))
+
+ui(listaCartao[1])
+
 # for conta in cc:
 #     ui(conta.__dict__)
 
