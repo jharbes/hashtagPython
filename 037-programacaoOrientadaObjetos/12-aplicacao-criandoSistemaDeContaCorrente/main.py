@@ -2,6 +2,10 @@ from ContaCorrente import *
 from CartaoCredito import *
 from NumeroConta import *
 from UI import ui
+from ConsoleLogger import *
+
+log_file_path = "037-programacaoOrientadaObjetos\\12-aplicacao-criandoSistemaDeContaCorrente\\console.log"
+console_logger = ConsoleLogger(log_file_path)
 
 agenciaLocal='2290'
 
