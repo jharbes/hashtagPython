@@ -1,14 +1,22 @@
 from ContaCorrente import *
+from CartaoCredito import *
 from NumeroConta import *
 from UI import ui
 
 agenciaLocal='2290'
 
 cc=[]
+listaCartao=[]
 
 cc.append(ContaCorrente(agenciaLocal,'Jack Brown','272.628.000-51',500))
 cc.append(ContaCorrente(agenciaLocal,'Lisa White','433.782.620-36',1500))
 cc.append(ContaCorrente(agenciaLocal,'Johnie Walker','698.133.970-63',500000))
+
+listaCartao.append(CartaoCredito(cc[0].nomeTitular,cc[0]))
+
+ui(listaCartao[0])
+ui(type(listaCartao[0]))
+
 
 ui(cc[0].agencia)
 ui(vars(cc[0]))
@@ -53,4 +61,4 @@ cc[2].transacoes
 # for conta in cc:
 #     ui(conta.__dict__)
 
-help(ContaCorrente)
+# help(ContaCorrente)

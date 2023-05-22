@@ -29,6 +29,7 @@ class ContaCorrente:
         self.__saldo=depositoInicial
         self.__limite=0
         self.__transacoes=[]
+        self.__cartoes=[]
         ui('CONTA CORRENTE ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
         if depositoInicial>0:
             self.__transacoes.append((depositoInicial,self.saldo,dataHoraAtual()))
@@ -56,6 +57,9 @@ class ContaCorrente:
     @property
     def saldo(self):
         return self.__saldo
+    
+    def adicionaCartaoCredito(self,cartao):
+        self.__cartoes.append(cartao)
     
     def consultarSaldo(self):
         if self.confereAtiva():
