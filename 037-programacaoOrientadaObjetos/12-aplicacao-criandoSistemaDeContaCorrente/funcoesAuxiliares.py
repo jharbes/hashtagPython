@@ -8,6 +8,9 @@ def dataHoraAtual():
     return datetime.now(fusoHorarioBrasil).strftime('%d/%m/%Y %H:%M:%S') # metodo strftime mostra a data/hora em modo mais amigavel e legivel
 
 
+def dataHora():
+    return datetime.now(fusoHorarioBrasil)
+
 
 
 # criando formatacao para os valores (em reais)

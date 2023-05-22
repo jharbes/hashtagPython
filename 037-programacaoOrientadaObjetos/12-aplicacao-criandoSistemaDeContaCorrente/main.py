@@ -12,7 +12,7 @@ try:
 except:
     console_logger=ConsoleLogger(log_file_path2)
 
-    
+
 agenciaLocal='2290'
 
 cc=[]
@@ -67,6 +67,8 @@ cc[0].transferencia(500,cc[2])
 cc[2].transferencia(1000,cc[0])
 
 cc[2].transacoes
+
+listaCartao.append(CartaoCredito(cc[1].nomeTitular,cc[1]))
 
 # for conta in cc:
 #     ui(conta.__dict__)
