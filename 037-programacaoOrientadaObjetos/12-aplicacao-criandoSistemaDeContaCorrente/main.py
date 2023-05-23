@@ -74,6 +74,9 @@ print(isinstance(listaCartao[1],CartaoCredito))
 
 ui(listaCartao[1])
 
+cc[0].senha='2345'
+cc[1].senha='123'
+
 # for conta in cc:
 #     ui(conta.__dict__)
 
