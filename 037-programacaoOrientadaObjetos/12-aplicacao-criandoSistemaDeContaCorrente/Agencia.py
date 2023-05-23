@@ -11,7 +11,6 @@ class Agencia:
         self.__telefone=telefone
         self.__clientes=[]
         self.__dinheiroCaixa=0
-        self.__emprestimos=[]
 
     @property
     def dinheiroCaixa(self):
@@ -20,12 +19,5 @@ class Agencia:
     def verificarCaixa(self):
         ui('Caixa abaixo do nível recomendado. Caixa Atual: {}'.format(self.dinheiroCaixa)) if self.dinheiroCaixa<10000000 else ui('O valor do Caixa está ok. Caixa Atual: {}'.format(self.dinheiroCaixa))
 
-    def emprestarDinheiro(self,valor,cliente,conta,juros):
-        if self.dinheiroCaixa>=valor:
-            self.__emprestimos.append((valor,cliente,juros))
-            conta.deposito(valor)
-            return True
-        else:
-            ui('Empréstimo não é possivel, Valor não disponível em Caixa.')
-            return False
+    
         

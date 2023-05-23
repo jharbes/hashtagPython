@@ -2,6 +2,7 @@ from UI import ui
 from NumeroConta import NumeroConta
 from funcoesAuxiliares import *
 from Cliente import *
+from Agencia import *
 
 class ContaCorrente:
     """
@@ -72,6 +73,15 @@ class ContaCorrente:
     @property
     def saldo(self):
         return self.__saldo
+    
+    def fazerEmprestimo(self,valor,conta,juros):
+        if self.__agencia.dinheiroCaixa>=valor:
+            self.__emprestimos.append((valor,juros))
+            conta.deposito(valor)
+            return True
+        else:
+            ui('Empréstimo não é possivel, Valor não disponível em Caixa.')
+            return False
     
     def adicionaCartaoCredito(self,cartao):
         self.__cartoes.append(cartao)

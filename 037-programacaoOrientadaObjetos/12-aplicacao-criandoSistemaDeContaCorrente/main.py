@@ -23,9 +23,9 @@ agencias=[]
 
 agencias.append(Agencia('0990','VP','030051099052','3351-2929'))
 
-cc.append(ContaCorrente(agenciaLocal,'Jack Brown','272.628.000-51',500))
-cc.append(ContaCorrente(agenciaLocal,'Lisa White','433.782.620-36',1500))
-cc.append(ContaCorrente(agenciaLocal,'Johnie Walker','698.133.970-63',500000))
+cc.append(ContaCorrente(agencias[0],'Jack Brown','272.628.000-51',500))
+cc.append(ContaCorrente(agencias[0],'Lisa White','433.782.620-36',1500))
+cc.append(ContaCorrente(agencias[0],'Johnie Walker','698.133.970-63',500000))
 
 listaCartao.append(CartaoCredito(cc[0].nomeTitular,cc[0]))
 
@@ -63,7 +63,7 @@ cc[0].numero=55555
 ui(NumeroConta.numerosConta)
 
 
-cc.append(ContaCorrente(agenciaLocal,'Jack Daniels','673.843.680-73',800))
+cc.append(ContaCorrente(agencias[0],'Jack Daniels','673.843.680-73',800))
 
 
 ui(cc)
