@@ -3,6 +3,7 @@ from CartaoCredito import *
 from NumeroConta import *
 from UI import ui
 from ConsoleLogger import *
+from Cliente import *
 
 log_file_path = "037-programacaoOrientadaObjetos\\12-aplicacao-criandoSistemaDeContaCorrente\\console.log"
 log_file_path2='console.log'

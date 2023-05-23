@@ -1,6 +1,7 @@
 from UI import ui
 from NumeroConta import NumeroConta
 from funcoesAuxiliares import *
+from Cliente import *
 
 class ContaCorrente:
     """
