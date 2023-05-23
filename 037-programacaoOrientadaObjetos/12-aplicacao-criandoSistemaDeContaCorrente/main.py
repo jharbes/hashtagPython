@@ -4,6 +4,7 @@ from NumeroConta import *
 from UI import ui
 from ConsoleLogger import *
 from Cliente import *
+from Agencia import *
 
 log_file_path = "037-programacaoOrientadaObjetos\\12-aplicacao-criandoSistemaDeContaCorrente\\console.log"
 log_file_path2='console.log'
@@ -18,6 +19,9 @@ agenciaLocal='2290'
 
 cc=[]
 listaCartao=[]
+agencias=[]
+
+agencias.append(Agencia('0990','VP','030051099052','3351-2929'))
 
 cc.append(ContaCorrente(agenciaLocal,'Jack Brown','272.628.000-51',500))
 cc.append(ContaCorrente(agenciaLocal,'Lisa White','433.782.620-36',1500))
