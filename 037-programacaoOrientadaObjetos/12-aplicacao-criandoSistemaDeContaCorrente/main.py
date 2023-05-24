@@ -15,8 +15,6 @@ except:
     console_logger=ConsoleLogger(log_file_path2)
 
 
-agenciaLocal='2290'
-
 cc=[]
 listaCartao=[]
 agencias=[]
@@ -28,6 +26,8 @@ cc.append(ContaCorrente(agencias[0],'Lisa White','433.782.620-36',1500))
 cc.append(ContaCorrente(agencias[0],'Johnie Walker','698.133.970-63',500000))
 
 listaCartao.append(CartaoCredito(cc[0].nomeTitular,cc[0]))
+
+
 
 ui(listaCartao[0])
 ui(type(listaCartao[0]))
@@ -86,3 +86,7 @@ cc[1].senha='123'
 #     ui(conta.__dict__)
 
 # help(ContaCorrente)
+
+agencias[0].dinheiroCaixa=1000000
+
+cc[0].fazerEmprestimo(50000,0.5)

@@ -33,6 +33,7 @@ class ContaCorrente:
         self.__limite=0
         self.__transacoes=[]
         self.__cartoes=[]
+        self.__emprestimos=[]
         ui('CONTA CORRENTE ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
         if depositoInicial>0:
             self.__transacoes.append((depositoInicial,self.saldo,dataHoraAtual()))
@@ -74,10 +75,11 @@ class ContaCorrente:
     def saldo(self):
         return self.__saldo
     
-    def fazerEmprestimo(self,valor,conta,juros):
+    def fazerEmprestimo(self,valor,juros):
         if self.__agencia.dinheiroCaixa>=valor:
             self.__emprestimos.append((valor,juros))
-            conta.deposito(valor)
+            ui('Empréstimo no valor de {} disponibilizado na conta {} com sucesso!'.format(formatacaoMoeda(valor),self.numero))
+            self.deposito(valor)
             return True
         else:
             ui('Empréstimo não é possivel, Valor não disponível em Caixa.')

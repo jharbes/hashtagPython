@@ -15,6 +15,10 @@ class Agencia:
     @property
     def dinheiroCaixa(self):
         return self.__dinheiroCaixa
+    
+    @dinheiroCaixa.setter
+    def dinheiroCaixa(self,valor):
+        self.__dinheiroCaixa=valor
 
     def verificarCaixa(self):
         ui('Caixa abaixo do nível recomendado. Caixa Atual: {}'.format(self.dinheiroCaixa)) if self.dinheiroCaixa<10000000 else ui('O valor do Caixa está ok. Caixa Atual: {}'.format(self.dinheiroCaixa))
