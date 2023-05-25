@@ -20,7 +20,9 @@ listaCartao=[]
 agencias=[]
 
 agencias.append(AgenciaComum('0990','Largo do Bicao','030051099052','3351-2929'))
-agencias.append(AgenciaVirtual('0544','Vila da Penha','00360305005403','2515-5566','https://www.agenciavirtual.com.br'))
+agencias.append(AgenciaVirtual('0544','Vila da Penha','00360305054403','2515-5566','https://www.agenciavirtual.com.br'))
+
+agencias.append(AgenciaPremium('4144','Av Rio Branco','00360305414433','2945-1245'))
 
 cc.append(ContaCorrente(agencias[0],'Jack Brown','272.628.000-51',500))
 cc.append(ContaCorrente(agencias[0],'Lisa White','433.782.620-36',1500))
@@ -92,4 +94,6 @@ agencias[0].dinheiroCaixa=1000000
 
 cc[0].fazerEmprestimo(50000,0.5)
 
+agencias[0].verificarCaixa()
 agencias[1].verificarCaixa()
+agencias[2].verificarCaixa()

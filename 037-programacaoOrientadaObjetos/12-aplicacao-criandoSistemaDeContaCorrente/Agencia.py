@@ -38,7 +38,7 @@ class Agencia:
         self.__dinheiroCaixa=valor
 
     def verificarCaixa(self):
-        ui('Caixa da Agência {} abaixo do nível recomendado. Caixa Atual: {}'.format(self.__numero,self.dinheiroCaixa)) if self.dinheiroCaixa<10000000 else ui('O valor do Caixa da Agência {} está ok. Caixa Atual: {}'.format(self.__numero,self.dinheiroCaixa))
+        ui('Caixa da Agência {} abaixo do nível recomendado. Caixa Atual: {}'.format(self.__numero,formatacaoMoeda(self.dinheiroCaixa))) if self.dinheiroCaixa<10000000 else ui('O valor do Caixa da Agência {} está ok. Caixa Atual: {}'.format(self.__numero,formatacaoMoeda(self.dinheiroCaixa)))
 
 
 
@@ -50,16 +50,20 @@ class AgenciaVirtual(Agencia):
     def __init__(self, numero, nome, cnpj, telefone, site) -> None:
         self.__site=site
         super().__init__(numero, nome, cnpj, telefone)
-        self.dinheiroCaixa=10000000
+        self.dinheiroCaixa=1000000
 
 
 
 class AgenciaComum(Agencia):
 
-    pass
+    def __init__(self, numero, nome, cnpj, telefone) -> None:
+        super().__init__(numero, nome, cnpj, telefone)
+        self.dinheiroCaixa=1000000
 
 
 
 class AgenciaPremium(Agencia):
 
-    pass
+    def __init__(self, numero, nome, cnpj, telefone) -> None:
+        super().__init__(numero, nome, cnpj, telefone)
+        self.dinheiroCaixa=10000000
