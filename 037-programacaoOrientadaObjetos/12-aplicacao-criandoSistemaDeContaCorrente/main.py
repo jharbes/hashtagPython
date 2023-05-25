@@ -19,11 +19,12 @@ cc=[]
 listaCartao=[]
 agencias=[]
 
-agencias.append(Agencia('0990','VP','030051099052','3351-2929'))
+agencias.append(AgenciaComum('0990','Largo do Bicao','030051099052','3351-2929'))
+agencias.append(AgenciaVirtual('0544','Vila da Penha','00360305005403','2515-5566'))
 
 cc.append(ContaCorrente(agencias[0],'Jack Brown','272.628.000-51',500))
 cc.append(ContaCorrente(agencias[0],'Lisa White','433.782.620-36',1500))
-cc.append(ContaCorrente(agencias[0],'Johnie Walker','698.133.970-63',500000))
+cc.append(ContaCorrente(agencias[1],'Johnie Walker','698.133.970-63',500000))
 
 listaCartao.append(CartaoCredito(cc[0].nomeTitular,cc[0]))
 
