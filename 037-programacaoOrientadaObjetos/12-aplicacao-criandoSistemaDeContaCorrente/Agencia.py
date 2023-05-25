@@ -14,6 +14,22 @@ class Agencia:
         self.verificarCaixa()
 
     @property
+    def numero(self):
+        return self.__numero
+    
+    @property
+    def nome(self):
+        return self.__nome
+    
+    @property
+    def cnpj(self):
+        return self.__cnpj
+    
+    @property
+    def telefone(self):
+        return self.__telefone
+
+    @property
     def dinheiroCaixa(self):
         return self.__dinheiroCaixa
     
@@ -27,11 +43,14 @@ class Agencia:
 
 
 
-# Vamos criar AgenciaVirtual, AgenciaComum e AgenciaPremium
+# Vamos criar AgenciaVirtual, AgenciaComum e AgenciaPremium, todas sao subclasses de Agencia
 
 class AgenciaVirtual(Agencia):
 
-    pass
+    def __init__(self, numero, nome, cnpj, telefone, site) -> None:
+        self.__site=site
+        super().__init__(numero, nome, cnpj, telefone)
+        self.dinheiroCaixa=10000000
 
 
 
