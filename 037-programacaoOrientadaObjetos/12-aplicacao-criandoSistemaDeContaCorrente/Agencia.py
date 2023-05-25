@@ -9,7 +9,7 @@ class Agencia:
         self.__nome=nome
         self.__cnpj=cnpj
         self.__telefone=telefone
-        self.__dinheiroCaixa=0
+        self._dinheiroCaixa=0
         ui('AGENCIA ABERTA COM SUCESSO COM OS SEGUINTES DADOS:\n{}'.format(self.__dict__))
         self.verificarCaixa()
 
@@ -31,11 +31,11 @@ class Agencia:
 
     @property
     def dinheiroCaixa(self):
-        return self.__dinheiroCaixa
+        return self._dinheiroCaixa
     
     @dinheiroCaixa.setter
     def dinheiroCaixa(self,valor):
-        self.__dinheiroCaixa=valor
+        self._dinheiroCaixa=valor
 
     def verificarCaixa(self):
         ui('Caixa da Agência {} abaixo do nível recomendado. Caixa Atual: {}'.format(self.__numero,formatacaoMoeda(self.dinheiroCaixa))) if self.dinheiroCaixa<10000000 else ui('O valor do Caixa da Agência {} está ok. Caixa Atual: {}'.format(self.__numero,formatacaoMoeda(self.dinheiroCaixa)))
@@ -50,7 +50,28 @@ class AgenciaVirtual(Agencia):
     def __init__(self, numero, nome, cnpj, telefone, site) -> None:
         self.__site=site
         super().__init__(numero, nome, cnpj, telefone)
-        self.dinheiroCaixa=1000000
+        self._dinheiroCaixa=1000000
+        self.__caixaPaypal=0
+
+    @property
+    def site(self):
+        return self.__site
+    
+    @property
+    def caixaPaypal(self):
+        return self.__caixaPaypal
+
+    def depositarPaypal(self,valor):
+        if valor<=self.dinheiroCaixa:
+            self._dinheiroCaixa-=valor
+            self.__caixaPaypal+=valor
+            ui('Caixa do Paypal da Agência {} recebeu o crédito de {} reais.'.format(self.numero,formatacaoMoeda(valor)))
+
+    def sacarPaypal(self,valor):
+        if valor<=self.__caixaPaypal:
+            self.__caixaPaypal-=valor
+            self._dinheiroCaixa+=valor
+            ui('Caixa do Paypal da Agência {} recebeu o débito de {} reais.'.format(self.numero,formatacaoMoeda(valor)))
 
 
 
@@ -58,7 +79,7 @@ class AgenciaComum(Agencia):
 
     def __init__(self, numero, nome, cnpj, telefone) -> None:
         super().__init__(numero, nome, cnpj, telefone)
-        self.dinheiroCaixa=1000000
+        self._dinheiroCaixa=1000000
 
 
 
@@ -66,4 +87,4 @@ class AgenciaPremium(Agencia):
 
     def __init__(self, numero, nome, cnpj, telefone) -> None:
         super().__init__(numero, nome, cnpj, telefone)
-        self.dinheiroCaixa=10000000
+        self._dinheiroCaixa=10000000

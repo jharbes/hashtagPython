@@ -90,10 +90,12 @@ cc[1].senha='123'
 
 # help(ContaCorrente)
 
-agencias[0].dinheiroCaixa=1000000
+agencias[0].dinheiroCaixa=5000000
 
 cc[0].fazerEmprestimo(50000,0.5)
 
 agencias[0].verificarCaixa()
 agencias[1].verificarCaixa()
 agencias[2].verificarCaixa()
+
+agencias[1].depositarPaypal(1000000)
