@@ -10,6 +10,21 @@
 stringQualquer.isdigit() # True ou False
 
 
+
+
+
+# roda o conteudo que está em 'pass' APENAS se o arquivo em questao for o arquivo que for
+# objeto da execução, caso ele esteja sendo importado, por exemplo, ele não
+# executará o bloco em questao
+
+if __name__==='__main__':
+    pass
+
+
+
+
+
+
 """
 Trocar o cursor entre janelas do editor e terminal no vscode
 
