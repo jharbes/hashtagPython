@@ -230,3 +230,29 @@ print(texto.isnumeric()) # True
 
 
 
+# Método .replace() -> Substitui um texto por um outro texto em uma string.
+texto = '1000.00'
+print(texto.replace('.', ',')) # '1000,00'
+
+# Obs: o replace precisa de 2 argumentos para funcionar. O 1º é o texto que você quer trocar. O 2º é o texto que você quer colocar no lugar daquele texto que você está tirando.
+
+
+
+
+# Método .split() -> Separa uma string de acordo com um delimitador em vários textos diferentes.
+texto = 'lira@gmail.com'
+print(texto.split('@')) # ['lira', 'gmail.com']
+
+
+
+
+# Método .splitlines() -> separa um texto em vários textos de acordo com os "enters" do texto
+texto = '''Olá, bom dia
+Venho por meio desse e-mail lhe informar o faturamento da loja no dia de hoje.
+Faturamento = R$2.500,00
+'''
+print(texto.splitlines()) # ['Olá, bom dia', 'Venho por meio desse e-mail lhe informar o faturamento da loja no dia de hoje.', 'Faturamento = R$2.500,00']
+
+
+
+
