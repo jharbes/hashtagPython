@@ -12,3 +12,6 @@ pyodbc.drivers() -> caso não encontre seu driver ali, basta buscar no google po
 
 """
 
+import pyodbc
+
+print(pyodbc.drivers())
