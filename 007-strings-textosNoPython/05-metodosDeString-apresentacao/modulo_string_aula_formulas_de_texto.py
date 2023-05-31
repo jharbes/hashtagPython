@@ -187,6 +187,46 @@ print(texto.casefold()) # lira
 
 
 
-# Método .count()	-> Quantidade de vezes que um valor aparece na string
+# Método .count() -> Quantidade de vezes que um valor aparece na string
 texto = 'lira@yahoo.com.br'
 print(texto.count('.')) # 2
+
+
+
+
+# Método .endswith() -> Verifica se o texto termina com um valor específico e dá como resposta True ou False
+texto = 'lira@gmail.com'
+print(texto.endswith('gmail.com')) # True
+
+
+
+
+# Método .find() -> Procura um texto dentro de outro texto e dá como resposta a posição do texto encontrado
+texto = 'lira@gmail.com'
+print(texto.find('@')) # 4
+
+# Obs: lembrando como funciona a posição nas strings, então o @ está na posição 4
+# l i r a @ g m a i l  .  c  o  m
+# 0 1 2 3 4 5 6 7 8 9 10 11 12 13
+
+
+
+
+# Método .isalnum() -> Verifica se um texto é todo feito com caracteres alfanuméricos (letras e números) -> letras com acento ou ç são considerados letras para essa função.
+texto = 'João123'
+print(texto.isalnum()) # True
+
+# Obs: se o texto fosse 'Jo~ao' ou então 'Joao#' o resultado seria False
+
+
+
+
+# Método .isnumeric() -> Verifica se um texto é todo feito por números.
+texto = '123'
+print(texto.isnumeric()) # True
+
+# Obs: existem os métodos isdigit() e isdecimal() que tem variações pontuais em caracteres especiais tipo textos com frações e potências, mas para 99% dos casos eles não vão ser necessários.
+
+
+
+
