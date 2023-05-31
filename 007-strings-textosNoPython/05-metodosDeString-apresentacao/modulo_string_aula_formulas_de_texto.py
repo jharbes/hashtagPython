@@ -256,3 +256,30 @@ print(texto.splitlines()) # ['Olá, bom dia', 'Venho por meio desse e-mail lhe i
 
 
 
+# Método .startswith() -> Verifica se a string começa com determinado texto
+texto = 'BEB123453'
+print(texto.startswith('BEB')) # True
+
+
+
+
+# Método .strip() -> Retira caracteres indesejados dos textos. Por padrão, retira espaços "extras" no início e no final
+texto = ' BEB123453 '
+print(texto.strip()) # 'BEB123453'
+
+palavra='cachorro1'
+print(palavra.strip('1')) # cachorro
+
+
+
+
+# Método .title() -> Coloca a 1ª letra de cada palavra em maiúscula
+texto = 'joão paulo lira'
+print(texto.title()) # 'João Paulo Lira'
+
+
+
+
+# Método .upper() -> Coloca o texto todo em letra maiúscula
+texto = 'beb12343'
+print(texto.upper()) # 'BEB12343'
