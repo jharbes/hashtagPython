@@ -15,7 +15,7 @@ conexao=pyodbc.connect(dadosConexao)
 
 cursor=conexao.cursor()
 
-cursor.execute()
+# cursor.execute()
 
 # fechando conexao
 
