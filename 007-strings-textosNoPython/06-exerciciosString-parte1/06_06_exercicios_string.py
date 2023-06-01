@@ -24,7 +24,8 @@ if not (cpf.isdigit() and len(cpf)==11):
 else:
     print('CPF ok')
 
-    
+
+
 
 """## 2. Melhorando nosso Cadastro de CPF
 
@@ -36,6 +37,16 @@ A verificação de tamanho do CPF com 11 caracteres continua válida, mas ela s�
 
 No final, nosso programa deve exibir uma mensagem para o usuário, caso ele tenha inserido o CPF inválido ou então apenas deve printar o CPF correto já só com número.
 """
+
+cpf=input('Digite o CPF apenas com números: ')
+
+cpf=cpf.strip().replace('.','').replace('-','')
+print(cpf)
+if not (cpf.isdigit() and len(cpf)==11):
+    print('Digite seu CPF corretamente e digite apenas números')
+else:
+    print('CPF ok')
+
 
 
 
