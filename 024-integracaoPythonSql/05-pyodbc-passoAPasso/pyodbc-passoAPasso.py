@@ -52,3 +52,15 @@ cursor=conexao.cursor()
 
 # o comando cursor execute executa o comando sql que está em seu argumento
 cursor.execute('SELECT * FROM Salaries')
+
+# puxa as informacoes do cursor e colocam na variavel valores
+valores=cursor.fetchall()
+
+# imprime os 10 primeiros valores, observe que se trata de uma lista de tuplas, onde cada tupla é uma linha da tabela em questao
+print(valores[:10])
+
+
+
+# encerrando a conexao
+cursor.close()
+conexao.close()
