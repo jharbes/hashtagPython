@@ -17,7 +17,14 @@ Ex: 'Insira seu CPF (digite apenas números)'
 Caso o usuário digite algo diferente de números ou digite menos de 11 caracteres (tamanho do CPF brasileiro), o programa deve exibir uma mensagem de "Digite seu CPF corretamente e digite apenas números"
 """
 
+cpf=input('Digite o CPF apenas com números: ')
 
+if not (cpf.isdigit() and len(cpf)==11):
+    print('Digite seu CPF corretamente e digite apenas números')
+else:
+    print('CPF ok')
+
+    
 
 """## 2. Melhorando nosso Cadastro de CPF
 
