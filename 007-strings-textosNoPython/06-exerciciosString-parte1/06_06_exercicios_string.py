@@ -65,3 +65,15 @@ Crie um programa que permita o cadastro de nome e e-mail de uma pessoa (por meio
 Obs: Pode te ajudar lembrar do método .find da aula de Métodos de String. Você pode testar o que ele dá como resposta caso ele não encontre um item dentro da string
 """
 
+nome=input('Digite seu nome: ')
+email=input('Digite seu email: ')
+
+if len(nome)<2 or not nome.isalpha():
+    print('Nome inválido, digite-o corretamente')
+else:
+    print('Nome ok')
+
+if len(email)>5 and email.find('@')!=-1 and email.count('@')==1 and email.find('.')!=-1:
+    print('Email ok')
+else:
+    print('Email inválido, digite-o corretamente')
