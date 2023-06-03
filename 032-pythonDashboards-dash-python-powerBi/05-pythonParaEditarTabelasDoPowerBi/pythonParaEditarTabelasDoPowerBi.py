@@ -32,3 +32,11 @@ print(vendas_df)
 # todos os dataframes presentes (clientes_df, produtos_df, lojas_df e vendas_df estarao presentes no Power BI e lá poderemos decidir quais delas vamos importar)
 
 
+
+# estamos filtrando tres lojas de toda a tabela, apenas as lojas que tiverem o 'ID Loja' =86 306 e 172
+# ao transferir para o PowerBI o script teremos que a tabela vendas_df estara com o nome 'dataset' que foi colocado pelo PowerBI
+
+# Caso haja problema na data na hora de execução do script python provavelmente teremos que converte-la para texto e depois retornarmos o tipo dela para data
+tres_lojas_df=vendas_df[vendas_df['ID Loja'].isin([86,306,172])]
+print(tres_lojas_df)
+
