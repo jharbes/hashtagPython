@@ -56,18 +56,29 @@ fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
 
 # FRONTEND
 # PARTE DA CRIACAO DO LAYOUT DO APLICATIVO
+
+# observe que o abaixo temos uma lista de valores e cada um dos elementos de HTML podem ter outros elementos como itens de uma lista
+
+# podemos utilizar CSS no html por meio do argumento style presente nos elementos HTML, os elementos de css formarão um dicionário nos argumentos, conforme abaixo
 app.layout = html.Div(children=[
-    html.H1(children='My Dashboard'),
+    html.H1(children='Hello Dash', style={'text-align': 'center', 'color':'brown'}),
 
     html.Div(children='''
         Dash: A web application framework for your data.
     '''),
 
+    html.H2(children='Vendas de cada Produto por Loja'),
+
     dcc.Graph(
         id='example-graph',
         figure=fig
     )
-])
+], style={'background-color': 'lightgray'})
+
+
+
+
+# CALLBACKS
 
 
 
