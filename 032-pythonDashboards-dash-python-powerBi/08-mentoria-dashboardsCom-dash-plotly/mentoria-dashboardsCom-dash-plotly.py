@@ -42,13 +42,14 @@ app = Dash(__name__) # criando o seu aplicativo Dash
 
 # BACKEND
 # PARTE DE CRIACAO DA LOGICA DO APLICATIVO
-df = pd.DataFrame({
-    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [4, 1, 2, 2, 4, 5],
-    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-})
+df = pd.read_excel('Vendas.xlsx')
 
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+
+# grafico criado com plotly
+# tipos de graficos possiveis em plotly https://plotly.com/python/
+# o barmode='group' faz com que cada cor esteja em uma coluna independente, facilita a visualizacao
+# existem varios tipos de graficos como o px.bar (barra), px.line (linha), px.scatter
+fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
 
 
 
