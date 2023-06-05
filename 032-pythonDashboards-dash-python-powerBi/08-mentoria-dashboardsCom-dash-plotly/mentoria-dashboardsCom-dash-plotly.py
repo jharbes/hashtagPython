@@ -30,10 +30,18 @@ Estrutura Básica
 from dash import Dash, html, dcc, Input, Output
 import plotly.express as px
 import pandas as pd
+import dash_auth
+
+# utilizaremos a biblioteca dash_auth para criar uma autenticacao BASICA para podermos utilizar o dashboard, abaixo segue a lista de usuarios autorizada em um dicionario python
+USUARIOS={
+    'jharbes':'123456',
+    'root':'1234'
+}
 
 
 
 app = Dash(__name__) # criando o seu aplicativo Dash
+auth=dash_auth.BasicAuth(app,USUARIOS)
 
 
 
