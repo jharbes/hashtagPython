@@ -72,7 +72,7 @@ app.layout = html.Div(children=[
         Dash: A web application framework for your data.
     '''),
 
-    html.H2(children='Vendas de cada Produto por Loja'),
+    html.H2(children='Vendas de cada Produto por Loja',id='subtitulo'),
 
     # value será o valor padrão que virá marcado
     dcc.RadioItems(lista_marcas, value='Todas', id='selecao_marcas'),
@@ -91,12 +91,15 @@ app.layout = html.Div(children=[
 # CALLBACKS -> dar funcionalidade pro nosso dashboard (conecta os botoes aos graficos)
 
 @app.callback(
-        Output(),
-        Input()
+        Output('subtitulo','children'), # quem eu quero modificar (elemento) e o que do elemento eu quero modificar
+        Input('selecao_marcas','value') # quem é o agente modificador dos graficos e o que será exportado
 )
-def selecionar_marca():
-    pass
-
+def selecionar_marca(marca):
+    if marca=='Todas':
+        texto='Vendas de cada Produto por Loja'
+    else:
+        texto=f'Vendas de cada Produto por loja da Marca {marca}'
+    return texto
 
 
 
