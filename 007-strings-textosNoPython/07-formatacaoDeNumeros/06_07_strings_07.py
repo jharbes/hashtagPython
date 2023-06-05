@@ -31,13 +31,13 @@ Original file is located at
 email = 'lira@gmail.com'
 
 # o {:<30} na string está definindo que a caixa de texto desse item tera 30 caracteres e o valor em si a ser impresso estará alinhado a esquerda dentro dessa caixa de 30 caracteres
-print('Meu e-mail não é {:<30}, show?'.format(email))
+print('Meu e-mail não é {:<30}, show?'.format(email)) # Meu e-mail não é lira@gmail.com                , show?
 
 # exemplo alinhado no meio
-print('Meu e-mail não é {:^30}, show?'.format(email))
+print('Meu e-mail não é {:^30}, show?'.format(email)) # Meu e-mail não é         lira@gmail.com        , show?
 
 # exemplo alinhado a direita
-print('Meu e-mail não é {:>30}, show?'.format(email))
+print('Meu e-mail não é {:>30}, show?'.format(email)) # Meu e-mail não é                 lira@gmail.com, show?
 
 
 
@@ -49,7 +49,7 @@ faturamento = 270
 lucro = faturamento - custo
 
 # o {:+} faz com que sempre apareca o sinal, seja ele positivo ou negativo
-print('Faturamento foi {:+} e lucro foi {:+}'.format(faturamento, lucro))
+print('Faturamento foi {:+} e lucro foi {:+}'.format(faturamento, lucro)) # Faturamento foi +270 e lucro foi -230
 
 
 
@@ -61,7 +61,7 @@ faturamento = 2700
 lucro = faturamento - custo
 
 # separador de milhar com virgula (,)
-print('Faturamento foi {:,} e lucro foi {:+,}'.format(faturamento, lucro))
+print('Faturamento foi {:,} e lucro foi {:+,}'.format(faturamento, lucro)) # Faturamento foi 2,700 e lucro foi -2,300
 
 
 
@@ -73,7 +73,7 @@ faturamento = 270
 lucro = faturamento - custo
 
 # observe que {:.2f} delimite as casa decimais em dois, quando colocamos {:f} ficara o padrao que sao seis casas decimais
-print('Faturamento foi {:.2f} e lucro foi {:f}'.format(faturamento, lucro))
+print('Faturamento foi {:.2f} e lucro foi {:f}'.format(faturamento, lucro)) # Faturamento foi 270.00 e lucro foi -230.000000
 
 
 
@@ -84,7 +84,14 @@ custo = 500
 faturamento = 1300
 lucro = faturamento - custo
 margem = lucro / faturamento
-print('Margem de lucro foi de {:.2%}'.format(margem))
+print(margem) # 0.6153846153846154
+print('{:%}'.format(margem)) # 61.538462%
+
+# aqui definimos com o {:.2%} definimos o numero em percentual com duas casas decimais, observe que o {:%} ja faz o calculo da multiplicacao por 100 no percentual
+print('Margem de lucro foi de {:.2%}'.format(margem)) # Margem de lucro foi de 61.54%
+
+
+
 
 """- Formato Moeda -> Combinação de Formatos
 
@@ -94,15 +101,20 @@ Existem módulos/bibliotecas que vão facilitar isso, caso a gente queira, mas v
 custo = 5000
 faturamento = 27000
 lucro = faturamento - custo
-print('Faturamento foi R${:,.2f} e lucro foi R${:,.2f}'.format(faturamento, lucro))
+print('Faturamento foi R${:,.2f} e lucro foi R${:,.2f}'.format(faturamento, lucro)) # Faturamento foi R$27,000.00 e lucro foi R$22,000.00
 
-#transformando no formato brasileiro
+# transformando no formato brasileiro, usamos o separador de milhar em um primeiro momento como underscore (_), depois usamos o replace para muda-lo para ponto (o ponto nao funciona como separador de milhar em um primeiro momento)
 lucro_texto = 'R${:_.2f}'.format(lucro)
-print(lucro_texto.replace('.', ',').replace('_', '.'))
+print(lucro_texto.replace('.', ',').replace('_', '.')) # R$22.000,00
+
+
+
 
 """- Função round() para arredondar números, caso seja necessário"""
 
 imposto = 0.15758
 preco = 100
+
+# o segundo argumento é o numero de casas decimais desejado
 valor_imposto = round(preco * imposto, 1)
 print('Imposto sobre o preço é de {}'.format(valor_imposto))
