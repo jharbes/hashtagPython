@@ -52,6 +52,10 @@ df = pd.read_excel('Vendas.xlsx')
 fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
 fig2= px.scatter(df, x="Quantidade", y="Valor Final", color="Produto", size='Valor Unitário',size_max=60)
 
+# lista_marcas=['Treinamentos','Programação','Todas']
+# ou
+lista_marcas=list(df['Marca'].unique())
+lista_marcas.append('Todas')
 
 
 
@@ -72,11 +76,16 @@ app.layout = html.Div(children=[
 
     dcc.Graph(id='vendas_por_loja',figure=fig),
 
-    dcc.Graph(id='grafico2', figure=fig2)
+    dcc.Graph(id='distribuicao_vendas', figure=fig2),
+
+    # value será o valor padrão que virá marcado
+    dcc.RadioItems(lista_marcas, value='Todas', id='selecao_marcas')
 
 ], style={'text-align': 'center'})
 
 
+
+# site https://dash.plotly.com possui toda a lista dos Dash Core Componnents
 
 
 # CALLBACKS
