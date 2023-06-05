@@ -27,7 +27,7 @@ Estrutura Básica
 # Run this app with `python app.py` and
 # visit http://127.0.0.1:8050/ in your web browser.
 
-from dash import Dash, html, dcc
+from dash import Dash, html, dcc, Input, Output
 import plotly.express as px
 import pandas as pd
 
@@ -74,12 +74,12 @@ app.layout = html.Div(children=[
 
     html.H2(children='Vendas de cada Produto por Loja'),
 
+    # value será o valor padrão que virá marcado
+    dcc.RadioItems(lista_marcas, value='Todas', id='selecao_marcas'),
+
     dcc.Graph(id='vendas_por_loja',figure=fig),
 
     dcc.Graph(id='distribuicao_vendas', figure=fig2),
-
-    # value será o valor padrão que virá marcado
-    dcc.RadioItems(lista_marcas, value='Todas', id='selecao_marcas')
 
 ], style={'text-align': 'center'})
 
@@ -88,7 +88,14 @@ app.layout = html.Div(children=[
 # site https://dash.plotly.com possui toda a lista dos Dash Core Componnents
 
 
-# CALLBACKS
+# CALLBACKS -> dar funcionalidade pro nosso dashboard (conecta os botoes aos graficos)
+
+@app.callback(
+        Output(),
+        Input()
+)
+def selecionar_marca():
+    pass
 
 
 
