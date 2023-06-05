@@ -50,6 +50,7 @@ df = pd.read_excel('Vendas.xlsx')
 # o barmode='group' faz com que cada cor esteja em uma coluna independente, facilita a visualizacao
 # existem varios tipos de graficos como o px.bar (barra), px.line (linha), px.scatter
 fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
+fig2= px.scatter(df, x="Quantidade", y="Valor Final", color="Produto", size='Valor Unitário',size_max=60)
 
 
 
@@ -61,7 +62,7 @@ fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
 
 # podemos utilizar CSS no html por meio do argumento style presente nos elementos HTML, os elementos de css formarão um dicionário nos argumentos, conforme abaixo
 app.layout = html.Div(children=[
-    html.H1(children='Hello Dash', style={'text-align': 'center', 'color':'brown'}),
+    html.H1(children='Hello Dash', style={'background-color':'lightgray', 'color':'brown'}),
 
     html.Div(children='''
         Dash: A web application framework for your data.
@@ -69,11 +70,11 @@ app.layout = html.Div(children=[
 
     html.H2(children='Vendas de cada Produto por Loja'),
 
-    dcc.Graph(
-        id='example-graph',
-        figure=fig
-    )
-], style={'background-color': 'lightgray'})
+    dcc.Graph(id='vendas_por_loja',figure=fig),
+
+    dcc.Graph(id='grafico2', figure=fig2)
+
+], style={'text-align': 'center'})
 
 
 
