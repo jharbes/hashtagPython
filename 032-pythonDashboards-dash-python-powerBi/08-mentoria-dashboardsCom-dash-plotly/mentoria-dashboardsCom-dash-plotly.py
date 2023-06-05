@@ -39,6 +39,9 @@ app = Dash(__name__) # criando o seu aplicativo Dash
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
+
+# BACKEND
+# PARTE DE CRIACAO DA LOGICA DO APLICATIVO
 df = pd.DataFrame({
     "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
     "Amount": [4, 1, 2, 2, 4, 5],
@@ -50,6 +53,8 @@ fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 
 
 
+# FRONTEND
+# PARTE DA CRIACAO DO LAYOUT DO APLICATIVO
 app.layout = html.Div(children=[
     html.H1(children='My Dashboard'),
 
@@ -68,6 +73,6 @@ app.layout = html.Div(children=[
 
 # colocando o seu site (dashboard) no ar
 # caso ocorra bug no debug=True mudar para False
-# o debug=True permite que qualquer alteracao no codigo se reflita automaticamente no dashboard que esteja sendo executada, mas geralmente essa funcao nao funciona bem no jupyter
+# o debug=True permite que qualquer alteracao no codigo se reflita automaticamente no dashboard que esteja sendo executada, de forma dinamica, mas geralmente essa funcao nao funciona bem no jupyter
 if __name__ == '__main__':
     app.run_server(debug=True)
