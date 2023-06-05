@@ -22,32 +22,61 @@ Original file is located at
 :X		Formato HEX maiúscula (para cores)
 :%		Formato Percentual
 
+
+
+
 - Exemplo de Alinhamento
 """
 
 email = 'lira@gmail.com'
+
+# o {:<30} na string está definindo que a caixa de texto desse item tera 30 caracteres e o valor em si a ser impresso estará alinhado a esquerda dentro dessa caixa de 30 caracteres
 print('Meu e-mail não é {:<30}, show?'.format(email))
+
+# exemplo alinhado no meio
+print('Meu e-mail não é {:^30}, show?'.format(email))
+
+# exemplo alinhado a direita
+print('Meu e-mail não é {:>30}, show?'.format(email))
+
+
+
 
 """- Exemplo de Edição de Sinal"""
 
 custo = 500
 faturamento = 270
 lucro = faturamento - custo
+
+# o {:+} faz com que sempre apareca o sinal, seja ele positivo ou negativo
 print('Faturamento foi {:+} e lucro foi {:+}'.format(faturamento, lucro))
+
+
+
 
 """- Exemplo de Separador de Milhar"""
 
-custo = 500
-faturamento = 270
+custo = 5000
+faturamento = 2700
 lucro = faturamento - custo
-print('Faturamento foi {:+} e lucro foi {:+}'.format(faturamento, lucro))
+
+# separador de milhar com virgula (,)
+print('Faturamento foi {:,} e lucro foi {:+,}'.format(faturamento, lucro))
+
+
+
 
 """- Formato com casas Decimais fixas"""
 
 custo = 500
 faturamento = 270
 lucro = faturamento - custo
-print('Faturamento foi {:.2f} e lucro foi {:2f}'.format(faturamento, lucro))
+
+# observe que {:.2f} delimite as casa decimais em dois, quando colocamos {:f} ficara o padrao que sao seis casas decimais
+print('Faturamento foi {:.2f} e lucro foi {:f}'.format(faturamento, lucro))
+
+
+
 
 """- Formato Percentual"""
 
