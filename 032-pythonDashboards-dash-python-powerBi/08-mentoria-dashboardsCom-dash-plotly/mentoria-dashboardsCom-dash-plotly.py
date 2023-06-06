@@ -88,7 +88,10 @@ app.layout = html.Div(children=[
     # value será o valor padrão que virá marcado
     dcc.RadioItems(lista_marcas, value='Todas', id='selecao_marcas'),
 
-    dcc.Dropdown(lista_paises, value='Todos', id='selecao_pais'),
+    # envolvemos o botao de dropdown em uma div para podermos estilizar o botao
+    html.Div(children=[
+        dcc.Dropdown(lista_paises, value='Todos', id='selecao_pais'),
+    ],style={'width':'50%','margin':'auto'}),
 
     dcc.Graph(id='vendas_por_loja',figure=fig),
 
