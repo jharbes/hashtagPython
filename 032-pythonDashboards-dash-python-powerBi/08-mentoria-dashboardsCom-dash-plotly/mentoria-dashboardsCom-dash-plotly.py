@@ -65,6 +65,9 @@ fig2= px.scatter(df, x="Quantidade", y="Valor Final", color="Produto", size='Val
 lista_marcas=list(df['Marca'].unique())
 lista_marcas.append('Todas')
 
+lista_paises=list(df['País'].unique())
+lista_paises.append('Todos')
+
 
 
 # FRONTEND
@@ -85,6 +88,8 @@ app.layout = html.Div(children=[
     # value será o valor padrão que virá marcado
     dcc.RadioItems(lista_marcas, value='Todas', id='selecao_marcas'),
 
+    dcc.Dropdown(lista_paises, value='Todos', id='selecao_pais'),
+
     dcc.Graph(id='vendas_por_loja',figure=fig),
 
     dcc.Graph(id='distribuicao_vendas', figure=fig2),
@@ -100,19 +105,30 @@ app.layout = html.Div(children=[
 # Adicionaremos novos outputs e inputs para criar novas funcionalidades para o mesmo radio button
 # A ordem sempre deve ser primeiro output e depois input, e a ordem dos retornos no fim da funcao devem ser de acordo com a ordem dos outputs - cada um para seu output devido
 
+# a quantidade de entradas na funcao sera a quantidade de inputs e a quantidade de retornos sera a quantidade de outputs
 @app.callback(
         Output('subtitulo','children'), # quem eu quero modificar (elemento) e o que do elemento eu quero modificar
         Output('vendas_por_loja','figure'),
         Output('distribuicao_vendas','figure'),
-        Input('selecao_marcas','value') # quem é o agente modificador dos graficos e o que será exportado
+        Input('selecao_marcas','value'), # quem é o agente modificador dos graficos e o que será exportado
+        Input('selecao_pais','value')
 )
-def selecionar_marca(marca):
-    if marca=='Todas':
+def selecionar_marca(marca,pais):
+    if marca=='Todas' and pais=='Todos':
         texto='Vendas de cada Produto por Loja'
         fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
         fig2= px.scatter(df, x="Quantidade", y="Valor Final", color="Produto", size='Valor Unitário',size_max=60)
     else:
         # filtrar as linhas da tabela onde a marca é igual a variavel marca
+        
+        if marca!='Todas':
+            # filtrar de acordo com a marca
+            ...
+        
+        if pais!='Todos':
+            # filtrar de acordo com o pais
+            ...
+
         texto=f'Vendas de cada Produto por loja da Marca {marca}'
         df_filtrada=df.loc[df['Marca']==marca,:]
         fig = px.bar(df_filtrada, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
