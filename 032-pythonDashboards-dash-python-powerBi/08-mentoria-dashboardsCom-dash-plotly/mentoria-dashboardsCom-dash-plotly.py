@@ -119,18 +119,18 @@ def selecionar_marca(marca,pais):
         fig = px.bar(df, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
         fig2= px.scatter(df, x="Quantidade", y="Valor Final", color="Produto", size='Valor Unitário',size_max=60)
     else:
+        df_filtrada=df
         # filtrar as linhas da tabela onde a marca é igual a variavel marca
         
         if marca!='Todas':
             # filtrar de acordo com a marca
-            ...
+            df_filtrada=df_filtrada.loc[df_filtrada['Marca']==marca,:]
         
         if pais!='Todos':
             # filtrar de acordo com o pais
-            ...
+            df_filtrada=df_filtrada.loc[df_filtrada['País']==pais,:]
 
-        texto=f'Vendas de cada Produto por loja da Marca {marca}'
-        df_filtrada=df.loc[df['Marca']==marca,:]
+        texto=f'Vendas de cada Produto por loja da Marca {marca} e do País {pais}'
         fig = px.bar(df_filtrada, x="Produto", y="Quantidade", color="ID Loja", barmode="group")
         fig2= px.scatter(df_filtrada, x="Quantidade", y="Valor Final", color="Produto", size='Valor Unitário',size_max=60)
     return texto, fig, fig2
