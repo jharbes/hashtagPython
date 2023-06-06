@@ -86,9 +86,11 @@ app.layout = html.Div(children=[
     html.H2(children='Vendas de cada Produto por Loja',id='subtitulo'),
 
     # value será o valor padrão que virá marcado
+    # embora esteja implicito a a lista_paises e lista_marcas sao o parametro 'options'
     dcc.RadioItems(lista_marcas, value='Todas', id='selecao_marcas'),
 
     # envolvemos o botao de dropdown em uma div para podermos estilizar o botao
+    # embora esteja implicito a a lista_paises e lista_marcas sao o parametro 'options'
     html.Div(children=[
         dcc.Dropdown(lista_paises, value='Todos', id='selecao_pais'),
     ],style={'width':'50%','margin':'auto'}),
@@ -107,6 +109,23 @@ app.layout = html.Div(children=[
 # CALLBACKS -> dar funcionalidade pro nosso dashboard (conecta os botoes aos graficos)
 # Adicionaremos novos outputs e inputs para criar novas funcionalidades para o mesmo radio button
 # A ordem sempre deve ser primeiro output e depois input, e a ordem dos retornos no fim da funcao devem ser de acordo com a ordem dos outputs - cada um para seu output devido
+
+@app.callback(
+    # embora esteja implicito a a lista_paises e lista_marcas sao o parametro 'options'
+    Output('selecao_pais','options'),
+    Input('selecao_marcas','value')
+)
+def opcoes_pais(marca):
+    # criar uma logica que diga qual a lista de paises que ele vai retornar
+    if marca=='Todas':
+        return lista_paises
+    else:
+        df_filtrada=df.loc[df['Marca']==marca,:]
+        nova_lista_paises=list(df_filtrada['País'].unique())
+        nova_lista_paises.append('Todos')
+        return nova_lista_paises
+
+
 
 # a quantidade de entradas na funcao sera a quantidade de inputs e a quantidade de retornos sera a quantidade de outputs
 @app.callback(
