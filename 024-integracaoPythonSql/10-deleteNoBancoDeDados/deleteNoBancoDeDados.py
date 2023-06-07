@@ -12,3 +12,16 @@ dadosConexao=('Driver={SQLite3 ODBC Driver};Server=localhost;Database=chinook.db
 conexao=pyodbc.connect(dadosConexao)
 
 cursor=conexao.cursor()
+
+
+# executando o delete (deletando uma linha do banco de dados)
+cursor.execute("""
+DELETE FROM albums WHERE AlbumId=2
+""")
+
+cursor.commit()
+
+
+# Fechando conexao
+cursor.close()
+conexao.close()
