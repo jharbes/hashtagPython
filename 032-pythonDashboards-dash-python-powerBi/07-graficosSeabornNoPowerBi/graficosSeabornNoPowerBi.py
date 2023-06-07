@@ -57,6 +57,7 @@ import seaborn as sns
 
 sns.set_theme(style="darkgrid")
 
+# data = Base de dados
 sns.lineplot(x="Data da Venda", y="Quantidade Vendida", hue="Nome da Loja", data=tres_lojas_df)
 
 
