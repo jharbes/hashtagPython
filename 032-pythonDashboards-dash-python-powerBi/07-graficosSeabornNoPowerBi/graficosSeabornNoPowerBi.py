@@ -53,12 +53,26 @@ print(tres_lojas_df)
 ### Passo 2: Vamos agora criar um gráfico de linha para comparar as Vendas das 3 Lojas
 
 import matplotlib.pyplot as plt
+from matplotlib.dates import DateFormatter
 import seaborn as sns
 
 sns.set_theme(style="darkgrid")
 
+# codigo abaixo para usar no PowerBI (podemos usar tambem em outros locais) para aumentar o tamanho do grafico
+fig,ax=plt.subplots(figsize=(15,5))
+
+
+# editando eixo
+
+# vamos alterar a formatacao da data do eixo x para que haja apenas o mes de forma a ficar mais legivel
+ax.xaxis.set_major_formatter(DateFormatter('%m')) 
+
+# vamos editar o ax para que o eixo x mostre as datas de forma correta, colocaremos apenas 12 marcadores no eixo x
+ax.xaxis.set_major_locator(plt.MaxNLocator(12))
+
 # data = Base de dados
-sns.lineplot(x="Data da Venda", y="Quantidade Vendida", hue="Nome da Loja", data=tres_lojas_df)
+# ax = tamanho setado anteriormente para o grafico
+sns.lineplot(x="Data da Venda", y="Quantidade Vendida", hue="Nome da Loja", data=tres_lojas_df ,ax=ax)
 
 
 plt.show()
