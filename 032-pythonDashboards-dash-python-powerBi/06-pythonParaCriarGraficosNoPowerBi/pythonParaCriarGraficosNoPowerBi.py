@@ -44,3 +44,10 @@ print(vendas_df)
 tres_lojas_df=vendas_df[vendas_df['ID Loja'].isin([86,306,172])]
 tres_lojas_df['Data da Venda'] = pd.to_datetime(tres_lojas_df['Data da Venda'], format='%d/%m/%Y')
 print(tres_lojas_df)
+
+
+
+import matplotlib.pyplot as plt
+
+tres_lojas_df.plot(x='Data da Venda', y='Quantidade Vendida', figsize=(15, 5))
+plt.show()
