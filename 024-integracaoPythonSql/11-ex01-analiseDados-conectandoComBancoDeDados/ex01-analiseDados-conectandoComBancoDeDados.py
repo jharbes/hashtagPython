@@ -105,10 +105,32 @@ evolucao_salario=evolucao_salario.drop(['TotalPay','TotalPayBenefits'],axis=1)
 print(evolucao_salario)
 
 
-#### RESOLUCAO PROFESSOR
 
 #### RESOLUCAO PROFESSOR
 
 tabela_salario_medio=tabela_salarios_sqlite.groupby('Year').mean()
 
 print(tabela_salario_medio[['TotalPay','TotalPayBenefits']])
+
+
+
+
+##### 2. Quantos funcionários tivemos ao longo dos anos
+
+#### MINHA RESOLUCAO
+
+tabela_numero_funcionarios=tabela_salarios_pyodbc.groupby('Year').count()
+
+tabela_numero_funcionarios=tabela_numero_funcionarios['Id']
+
+print(tabela_numero_funcionarios)
+
+
+#### RESOLUCAO PROFESSOR
+
+tabela_quantidade=tabela_salarios_sqlite.groupby('Year').count()
+
+tabela_quantidade=tabela_quantidade[['Id']]
+tabela_quantidade=tabela_quantidade.rename(columns={'Id':'Quantidade Funcionários'})
+
+print(tabela_quantidade)
