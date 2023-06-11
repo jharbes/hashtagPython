@@ -69,3 +69,36 @@ for tupla in descricao_tabela_pyodbc:
 tabela_salarios_pyodbc=pd.DataFrame.from_records(valores_tabela_pyodbc, columns=colunas)
 
 print(tabela_salarios_pyodbc)
+
+
+
+
+### Análise de Dados
+
+# garantindo que estamos só com San Francisco
+
+tabela_salarios_pyodbc=tabela_salarios_pyodbc.loc[tabela_salarios_pyodbc['Agency']=='San Francisco']
+
+tabela_salarios_sqlite=tabela_salarios_sqlite.loc[tabela_salarios_sqlite['Agency']=='San Francisco']
+
+print(tabela_salarios_pyodbc)
+print(tabela_salarios_sqlite)
+
+# a partir de agora utilizaremos apenas uma das tabelas pois elas sao iguais e darao os mesmos resultados
+
+
+
+
+##### 1. Qual foi a evolução do salário médio ao longo dos anos
+
+#### MINHA RESOLUCAO
+
+evolucao_salario=tabela_salarios_sqlite.groupby('Year').mean()
+
+evolucao_salario=evolucao_salario.drop(columns=['Id'])
+
+evolucao_salario['TotalPayment']=evolucao_salario['TotalPay']+evolucao_salario['TotalPayBenefits']
+
+evolucao_salario=evolucao_salario.drop(['TotalPay','TotalPayBenefits'],axis=1)
+
+print(evolucao_salario)
