@@ -85,7 +85,38 @@ def consumir_insumo():
 
 
 def visualizar_insumo():
-    print("visualizar_insumo")
+    if len(nome_insumo.get())<2:
+        # deletar tudo da caixa de texto caso ja tenha alguma coisa inserida anteriormente na caixa de texto
+        caixa_texto.delete("1.0", END)
+    
+        # escrever na caixa de texto uma mensagem de não sucesso
+        caixa_texto.insert("1.0", f"Nome do insumo inválido!")
+        return
+    
+    cursor.execute(f"""
+    SELECT * FROM Estoque WHERE Produto='{nome_insumo.get()}'
+    """)
+
+    retorno_consulta=cursor.fetchall()
+
+    texto=''
+
+    # unpacking da tupla permite que ao efetuar um for cada item da tupla seja retornado separado no for na sua ordem:
+    for id_produto,nome,quantidade,validade,lote in retorno_consulta:
+        texto+=f"""
+        -----
+        Produto: {nome}
+        Quantidade: {quantidade}
+        Validade: {validade}
+        Lote: {lote}
+        """
+    
+    # deletar tudo da caixa de texto caso ja tenha alguma coisa inserida anteriormente na caixa de texto
+    caixa_texto.delete("1.0", END)
+
+    # escrever na caixa de texto uma mensagem com o retorno da consulta
+    caixa_texto.insert("1.0", texto)
+
 
     
     
