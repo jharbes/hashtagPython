@@ -54,3 +54,18 @@ print(valores_tabela_pyodbc)
 
 cursor.close()
 conexao.close()
+
+
+# gerando uma lista do cabeçalho por meio de list comprehension onde percorre a descricao_tabela_pyodbc, cada linha dela (que eh uma tupla) e seu primeiro item
+colunas=[tupla[0] for tupla in descricao_tabela_pyodbc]
+
+# podemos tambem fazer assim:
+"""
+colunas=[]
+for tupla in descricao_tabela_pyodbc:
+    colunas.append(tupla[0])
+"""
+
+tabela_salarios_pyodbc=pd.DataFrame.from_records(valores_tabela_pyodbc, columns=colunas)
+
+print(tabela_salarios_pyodbc)
