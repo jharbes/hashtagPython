@@ -2,6 +2,16 @@ from tkinter import *
 
 ######## funcionalidades do sistema #############
 
+import pyodbc
+
+dados_conexao=('Driver={SQLite3 ODBC Driver};Server=localhost;Database=Estoque.db')
+
+conexao=pyodbc.connect(dados_conexao)
+cursor=conexao.cursor()
+
+
+
+
 def adicionar_insumo():
     print(caixa_texto.get('1.0', END))
     print(nome_insumo.get())
@@ -176,3 +186,9 @@ qtde_insumo.place(
 
 window.resizable(False, False)
 window.mainloop()
+
+
+# FINALIZANDO A CONEXAO COM O BANCO DE DADOS
+
+cursor.close()
+conexao.close()
