@@ -126,6 +126,7 @@ tabela_numero_funcionarios=tabela_numero_funcionarios['Id']
 print(tabela_numero_funcionarios)
 
 
+
 #### RESOLUCAO PROFESSOR
 
 tabela_quantidade=tabela_salarios_sqlite.groupby('Year').count()
@@ -134,3 +135,38 @@ tabela_quantidade=tabela_quantidade[['Id']]
 tabela_quantidade=tabela_quantidade.rename(columns={'Id':'Quantidade Funcionários'})
 
 print(tabela_quantidade)
+
+
+
+
+##### 3. Qual foi a evolução do total gasto com salário ao longo dos anos
+
+#### MINHA RESOLUCAO
+
+tabela_total_salario=tabela_salarios_sqlite.groupby('Year').sum()
+
+tabela_total_salario=tabela_total_salario.drop(columns=['Id'])
+
+tabela_total_salario['TotalPayment']=tabela_total_salario['TotalPay']+tabela_total_salario['TotalPayBenefits']
+
+tabela_total_salario=tabela_total_salario.drop(columns=['TotalPay','TotalPayBenefits'])
+
+pd.options.display.float_format = '{:.2f}'.format
+
+print(tabela_total_salario)
+
+
+
+#### RESOLUCAO PROFESSOR
+
+def formatar(valor):
+    return 'R${:,.2f}'.format(valor)
+
+tabela_total=tabela_salarios_pyodbc.groupby('Year').sum()
+
+tabela_total=tabela_total[['TotalPay','TotalPayBenefits']]
+
+tabela_total['TotalPay']=tabela_total['TotalPay'].apply(formatar)
+tabela_total['TotalPayBenefits']=tabela_total['TotalPayBenefits'].apply(formatar)
+
+print(tabela_total)
