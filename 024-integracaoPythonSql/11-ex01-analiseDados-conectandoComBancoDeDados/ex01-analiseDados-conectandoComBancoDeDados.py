@@ -93,6 +93,7 @@ print(tabela_salarios_sqlite)
 
 #### MINHA RESOLUCAO
 
+# observe que após fazer o comando que calcula as médias ele manterá apenas as colunas numericas
 evolucao_salario=tabela_salarios_sqlite.groupby('Year').mean()
 
 evolucao_salario=evolucao_salario.drop(columns=['Id'])
@@ -102,3 +103,12 @@ evolucao_salario['TotalPayment']=evolucao_salario['TotalPay']+evolucao_salario['
 evolucao_salario=evolucao_salario.drop(['TotalPay','TotalPayBenefits'],axis=1)
 
 print(evolucao_salario)
+
+
+#### RESOLUCAO PROFESSOR
+
+#### RESOLUCAO PROFESSOR
+
+tabela_salario_medio=tabela_salarios_sqlite.groupby('Year').mean()
+
+print(tabela_salario_medio[['TotalPay','TotalPayBenefits']])
