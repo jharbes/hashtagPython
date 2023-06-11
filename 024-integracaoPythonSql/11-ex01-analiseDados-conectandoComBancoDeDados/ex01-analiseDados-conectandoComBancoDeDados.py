@@ -15,3 +15,42 @@
 
 ### Importação da Base de Dados
 
+
+# Com SQLITE
+
+import pandas as pd
+import sqlite3
+
+conexao=sqlite3.connect('salarios.sqlite')
+
+tabela_salarios_sqlite=pd.read_sql('SELECT * FROM Salaries',conexao)
+
+conexao.close()
+
+print(tabela_salarios_sqlite)
+
+
+
+
+# Com PYODBC
+
+import pyodbc
+
+print(pyodbc.drivers())
+
+dados_conexao=('Driver={SQLite3 ODBC Driver};Server=localhost;Database=salarios.sqlite')
+
+conexao=pyodbc.connect(dados_conexao)
+cursor=conexao.cursor()
+
+cursor.execute('SELECT * FROM Salaries')
+
+valores_tabela_pyodbc=cursor.fetchall() # cursor.fetchall() resgata os valores da tabela (sem o cabeçalho)
+
+descricao_tabela_pyodbc=cursor.description # cursos.description() resgata o cabeçalho da tabela (sem os valores)
+
+print(descricao_tabela_pyodbc)
+print(valores_tabela_pyodbc)
+
+cursor.close()
+conexao.close()
