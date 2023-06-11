@@ -34,6 +34,8 @@ def adicionar_insumo():
     # escrever na caixa de texto uma mensagem de sucesso
     caixa_texto.insert("1.0", f"Insumo {nome_insumo.get()} adicionado com sucesso!")
     
+
+
 def deletar_insumo():
     if len(nome_insumo.get())<2:
         # deletar tudo da caixa de texto caso ja tenha alguma coisa inserida anteriormente na caixa de texto
@@ -58,7 +60,29 @@ def deletar_insumo():
     
 
 def consumir_insumo():
-    print("consumir_insumo")
+    if len(nome_insumo.get())<2 or len(lote_insumo.get())<1 or len(qtde_insumo.get())<1:
+        # deletar tudo da caixa de texto caso ja tenha alguma coisa inserida anteriormente na caixa de texto
+        caixa_texto.delete("1.0", END)
+    
+        # escrever na caixa de texto uma mensagem de não sucesso
+        caixa_texto.insert("1.0", f"Nome, Quantidade ou Lote do insumo inválido!")
+        return
+    
+    # consumir o insumo
+    cursor.execute(f"""
+    UPDATE Estoque
+    SET Quantidade=Quantidade-{qtde_insumo.get()}
+    WHERE Produto='{nome_insumo.get()}' AND Lote={lote_insumo.get()}
+    """)
+    cursor.commit()
+
+    # deletar tudo da caixa de texto caso ja tenha alguma coisa inserida anteriormente na caixa de texto
+    caixa_texto.delete("1.0", END)
+
+    # escrever na caixa de texto uma mensagem de não sucesso
+    caixa_texto.insert("1.0", f"Insumo de nome {nome_insumo.get()} foi consumido em {qtde_insumo.get()} unidades!")
+
+
 
 def visualizar_insumo():
     print("visualizar_insumo")
