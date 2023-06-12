@@ -14,11 +14,13 @@ Todos os exercícios são feitos partindo-se do pressuposto de que todas as entr
 # As duas strings são de tamanhos diferentes.
 # As duas strings possuem conteúdo diferente.
 
+string1=input('Informe a primeira string: ')
+string2=input('Informe a segunda string: ')
 
-
-
-
-
+print('\nTamanho de "'+string1+'": '+str(len(string1))+' caracteres')
+print('Tamanho de "'+string2+'": '+str(len(string2))+' caracteres')
+print('As duas strings são de tamanhos diferentes.' if len(string1)!=len(string2) else 'As duas strings são de tamanho igual.')
+print('As duas strings possuem conteúdo diferente.' if string1!=string2 else 'As duas strings possuem conteúdo igual.')
 
 
 
