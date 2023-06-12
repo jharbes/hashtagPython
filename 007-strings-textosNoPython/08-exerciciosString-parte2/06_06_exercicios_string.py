@@ -17,6 +17,14 @@ Ex: 'Insira seu CPF (digite apenas números)'
 Caso o usuário digite algo diferente de números ou digite menos de 11 caracteres (tamanho do CPF brasileiro), o programa deve exibir uma mensagem de "Digite seu CPF corretamente e digite apenas números"
 """
 
+cpf=input('Digite o CPF apenas com números: ')
+
+if not (cpf.isdigit() and len(cpf)==11):
+    print('Digite seu CPF corretamente e digite apenas números')
+else:
+    print('CPF ok')
+
+    
 
 
 """## 2. Melhorando nosso Cadastro de CPF
@@ -29,6 +37,16 @@ A verificação de tamanho do CPF com 11 caracteres continua válida, mas ela s�
 
 No final, nosso programa deve exibir uma mensagem para o usuário, caso ele tenha inserido o CPF inválido ou então apenas deve printar o CPF correto já só com número.
 """
+
+cpf=input('Digite o CPF apenas com números: ')
+
+cpf=cpf.strip().replace('.','').replace('-','')
+print(cpf)
+if not (cpf.isdigit() and len(cpf)==11):
+    print('Digite seu CPF corretamente e digite apenas números')
+else:
+    print('CPF ok')
+
 
 
 
@@ -47,3 +65,15 @@ Crie um programa que permita o cadastro de nome e e-mail de uma pessoa (por meio
 Obs: Pode te ajudar lembrar do método .find da aula de Métodos de String. Você pode testar o que ele dá como resposta caso ele não encontre um item dentro da string
 """
 
+nome=input('Digite seu nome: ')
+email=input('Digite seu email: ')
+
+if len(nome)<2 or not nome.isalpha():
+    print('Nome inválido, digite-o corretamente')
+else:
+    print('Nome ok')
+
+if len(email)>5 and email.find('@')!=-1 and email.count('@')==1 and email.find('.')!=-1:
+    print('Email ok')
+else:
+    print('Email inválido, digite-o corretamente')
