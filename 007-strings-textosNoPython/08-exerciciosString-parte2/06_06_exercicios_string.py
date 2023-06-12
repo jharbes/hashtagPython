@@ -24,7 +24,7 @@ if not (cpf.isdigit() and len(cpf)==11):
 else:
     print('CPF ok')
 
-    
+
 
 
 """## 2. Melhorando nosso Cadastro de CPF
@@ -73,7 +73,7 @@ if len(nome)<2 or not nome.isalpha():
 else:
     print('Nome ok')
 
-if len(email)>5 and email.find('@')!=-1 and email.count('@')==1 and email.find('.')!=-1:
+if len(email)>5 and email.find('@')!=-1 and email.count('@')==1 and email.find('.')!=-1 and email.find('@')<email.find('.')-1:
     print('Email ok')
 else:
     print('Email inválido, digite-o corretamente')
