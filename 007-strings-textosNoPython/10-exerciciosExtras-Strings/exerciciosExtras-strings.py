@@ -32,3 +32,22 @@ print('As duas strings possuem conteúdo diferente.' if string1!=string2 else 'A
 # Telefone possui 7 dígitos. Vou acrescentar o digito três na frente.
 # Telefone corrigido sem formatação: 34610133
 # Telefone corrigido com formatação: 3461-0133
+
+telefone=input('Digite o número do telefone: ')
+
+print('Telefone: '+telefone)
+
+telefone=telefone.replace('-','').strip()
+
+if len(telefone)<7:
+    print('Número inválido, favor preencher novamente.')
+elif len(telefone)==7:
+    print('Telefone possui 7 dígitos. Vou acrescentar o dígito três na frente.')
+    telefone='3'+telefone
+    print('Telefone corrigido sem formatação: '+telefone)
+    print('Telefone corrigido com formatação: '+telefone[:4]+'-'+telefone[4:])
+elif len(telefone)==8:
+    print('Telefone ok')
+    pass
+else:
+    print('Número inválido, favor preencher novamente.')
