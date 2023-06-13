@@ -21,6 +21,14 @@ E a Apple lançou o IPhone 11 e irá tirar dos seus estoques o IPhone X
 
 produtos = ['apple tv', 'mac', 'iphone x', 'IPad', 'apple watch', 'mac book', 'airpods']
 
+produtos.append('iphone 11')
+produtos.remove('iphone x')
+
+print(produtos)
+
+
+
+
 """## Existem 2 formas de tratar o erro:
 
 1. Criar um if para evitar que ele aconteça
