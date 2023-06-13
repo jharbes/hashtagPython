@@ -17,6 +17,9 @@ produtos = ['apple tv', 'mac', 'iphone x', 'IPad', 'apple watch', 'mac book', 'a
 
 """- Quantos produtos temos a venda?"""
 
+print('Temos {} produtos a venda'.format(len(produtos)))
+
+
 
 
 """## Maior e Menor Valor
@@ -32,3 +35,6 @@ vendas = [1000, 1500, 15000, 270, 900, 100, 1200]
 - Qual o item menos vendido?
 """
 
+print('O item mais vendido é o {}.'.format(produtos[vendas.index(max(vendas))]))
+
+print('O item menos vendido é o {}.'.format(produtos[vendas.index(min(vendas))]))
