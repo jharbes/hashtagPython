@@ -22,8 +22,12 @@ estoque = [100, 150, 100, 120, 70, 180, 80]
 
 E agora, como eu faço para descobrir a quantidade em estoque do produto geladeira?
 """
+print(estoque[produtos.index('geladeira')]) # 180
 
 
 
 """Crie um programa para fazer uma consulta de estoque. O usuário do programa deve inserir o nome do produto e, caso ele não exista na lista, ele deve ser avisado. Caso exista, o programa deve dizer a quantidade de unidades em estoque do produto"""
 
+produto=input('Digite o nome do produto para obter sua quantidade em estoque: ')
+
+print('Produto inexistente no estoque' if produto not in produtos else estoque[produtos.index(produto)])
