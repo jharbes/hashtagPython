@@ -15,9 +15,26 @@ Original file is located at
 
 produtos = ['apple tv', 'mac', 'iphone x', 'iphone 11', 'IPad', 'apple watch', 'mac book', 'airpods']
 
+print(produtos) # ['apple tv', 'mac', 'iphone x', 'iphone 11', 'IPad', 'apple watch', 'mac book', 'airpods']
+
+
+
+# .join resume-se em uma maneira de imprimir as listas em python onde seu retorno se dará de forma mais amigavel e com o separador de escolha do usuario
+
+print(', '.join(produtos)) # apple tv, mac, iphone x, iphone 11, IPad, apple watch, mac book, airpods
+
+print('\n'.join(produtos))
+
+
+
+
 """Lembrando do método split de strings:
 
 lista = texto.split(separador)
 """
 
 produtos = 'apple tv, mac, iphone x, iphone 11, IPad, apple watch, mac book, airpods'
+
+lista=produtos.split(', ')
+
+print(lista) # ['apple tv', 'mac', 'iphone x', 'iphone 11', 'IPad', 'apple watch', 'mac book', 'airpods']
