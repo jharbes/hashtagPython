@@ -27,13 +27,24 @@ lista2 = lista
 
 lista[1] = 'iphone 11'
 
-print(lista2)
+print(lista2) # ['ipad', 'iphone 11', 'apple tv']
+
+
+
 
 """### Agora copiando:"""
 
+from copy import deepcopy
+
 lista = ['ipad', 'iphone x', 'apple tv']
 lista2 = lista.copy()
+lista3 = lista[:]
+lista4 = deepcopy(lista)
 
 lista[1] = 'iphone 11'
 
-print(lista2)
+print(lista2) # ['ipad', 'iphone x', 'apple tv']
+print(lista3) # ['ipad', 'iphone x', 'apple tv']
+print(lista4) # ['ipad', 'iphone x', 'apple tv']
+
+print(lista) # ['ipad', 'iphone 11', 'apple tv']
