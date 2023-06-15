@@ -31,11 +31,40 @@ vendas = [
 - Qual o total de vendas de IPhone?
 """
 
+vendas_ipad_joao=vendas[1][0]
+print(f'João vendeu {vendas_ipad_joao} unidades de {produtos[0]}') # João vendeu 300 unidades de ipad
+
+venda_iphone_diego=vendas[2][1]
+print('Diego vendeu {} unidades de {}'.format(venda_iphone_diego,produtos[1])) # Diego vendeu 1000 unidades de iphone
+
+total_vendas_iphone=0
+for venda in vendas:
+    total_vendas_iphone+=venda[:][1]
+
+print('O total de vendas de IPhone foi de '+str(total_vendas_iphone)) # O total de vendas de IPhone foi de 1710
+
+
 
 
 """- E se Lira na verdade fez apenas 50 vendas de IPhone, como eu modifico na minha lista o valor de vendas dele?"""
+
+vendas[0][1]=50
+print(vendas) # [[100, 50], [300, 500], [50, 1000], [900, 10]]
+
 
 
 
 """- E se agora eu tenho um novo produto 'mac', como eu adiciono as vendas em cada um dos vendedores?"""
 
+produtos.append('mac')
+print(vendas) # [[100, 50], [300, 500], [50, 1000], [900, 10]]
+
+for i,venda in enumerate(vendas):
+    valor_venda=input('Digite o valor da venda para o vendedor '+vendedores[i]+': ')
+    try:
+        valor_venda=int(valor_venda)
+        venda.append(valor_venda)
+    except:
+        print('Valor de venda inválido')
+
+print(vendas) # [[100, 50, 50], [300, 500, 60], [50, 1000, 70], [900, 10, 80]]
