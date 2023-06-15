@@ -23,6 +23,13 @@ def formatacaoMoeda(valor):
     return locale.currency(valor,grouping=True)
 
 
+def formatacaoPercentual(valor):
+    valor*=100
+    return '{}%'.format(round(valor,2))
+
+
+
+
 meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 vendas_1sem = [25000, 29000, 22200, 17750, 15870, 19900]
 vendas_2sem = [19850, 20120, 17540, 15555, 49051, 9650]
@@ -58,4 +65,13 @@ print('O faturamento total foi de {} e o melhor mês representou {} desse fatura
 Dica: o método remove retira um item da lista.
 """
 
+from copy import deepcopy
+
+vendas_ano_copia=deepcopy(vendas_ano)
 top3 = []
+
+
+while len(top3)<3:
+    top3.append(vendas_ano_copia.pop(vendas_ano_copia.index(max(vendas_ano_copia))))
+
+print(top3)
