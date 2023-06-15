@@ -14,9 +14,26 @@ Qual foi o valor de vendas do melhor mês do Ano?
 E valor do pior mês do ano?
 """
 
+# criando formatacao para os valores (em reais)
+import locale
+
+locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
+
+def formatacaoMoeda(valor):
+    return locale.currency(valor,grouping=True)
+
+
 meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 vendas_1sem = [25000, 29000, 22200, 17750, 15870, 19900]
 vendas_2sem = [19850, 20120, 17540, 15555, 49051, 9650]
+
+
+vendas_ano=vendas_1sem+vendas_2sem
+
+print('O valor de vendas do melhor mês do ano foi {} e o do pior foi {}'.format(formatacaoMoeda(max(vendas_ano)),formatacaoMoeda(min(vendas_ano))))
+
+
+
 
 """## 2. Continuação
 
