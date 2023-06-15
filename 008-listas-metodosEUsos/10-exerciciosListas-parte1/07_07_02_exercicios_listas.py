@@ -44,6 +44,13 @@ Calcule também o faturamento total do Ano e quanto que o melhor mês represento
 Obs: Para o faturamento total, pode usar a função sum(lista) que soma todos os itens de uma lista
 """
 
+print('O melhor mês do ano foi {} com {} em vendas.'.format(meses[vendas_ano.index(max(vendas_ano))],formatacaoMoeda(max(vendas_ano))))
+
+print('O pior mês do ano foi {} com {} em vendas.'.format(meses[vendas_ano.index(min(vendas_ano))],formatacaoMoeda(min(vendas_ano))))
+
+print('O faturamento total foi de {} e o melhor mês representou {} desse faturamento'.format(formatacaoMoeda(sum(vendas_ano)),formatacaoPercentual(max(vendas_ano)/sum(vendas_ano))))
+
+
 
 
 """## 3. Crie uma lista com o top 3 valores de vendas do ano (sem fazer "no olho")
