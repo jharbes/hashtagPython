@@ -24,10 +24,11 @@ Obs: para facilitar, colocamos apenas 1 livro na lista, mas em breve vamos apren
 
 Obs2: Seu código deve funcionar mesmo que não haja livros na lista de produtos da empresa
 """
+aliquota_imposto=0.1
 
 produtos = ['computador', 'livro', 'tablet', 'celular', 'tv', 'ar condicionado', 'alexa', 'máquina de café', 'kindle']
 
-#cada item da lista dos produtos corresponde a quantidade de vendas no mês e preço, nessa ordem
+# cada item da lista dos produtos corresponde a quantidade de vendas no mês e preço, nessa ordem
 produtos_ecommerce = [
     [10000, 2500],
     [50000, 40],
@@ -39,3 +40,29 @@ produtos_ecommerce = [
     [3300, 700],
     [1900, 400]
 ]
+
+
+
+# criando formatacao para os valores (em reais)
+import locale
+
+locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
+
+def formatacaoMoeda(valor):
+    return locale.currency(valor,grouping=True)
+
+
+
+
+livro=input('Digite o nome do livro: ')
+
+try:
+    aumento_de_custo=aliquota_imposto*produtos_ecommerce[produtos.index('livro')][1]*produtos_ecommerce[produtos.index(livro)][0]
+
+    produtos_ecommerce[produtos.index(livro)][1]+=aliquota_imposto*produtos_ecommerce[produtos.index(livro)][1]
+
+    print(produtos_ecommerce)
+
+    print('O aumento de custo para a empresa será de {}'.format(formatacaoMoeda(aumento_de_custo)))
+except:
+    print('Livro {} não está na lista.'.format(livro))
