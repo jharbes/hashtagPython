@@ -21,22 +21,28 @@ Exemplo: vamos adicionar às variáveis criadas o Produto IPad, 500 vendas
 
 lista = ['mac', 'iphone']
 vendas = [100, 200]
-#adicionando IPad na lista
+# adicionando IPad na lista
+
+# lista.append('IPad')
+# ou
+lista+=['IPad']
+print(lista) # ['mac', 'iphone', 'IPad']
 
 
 
 
 soma_vendas = 300
-#adicionando na soma a quantidade de IPad
+# adicionando na soma a quantidade de IPad
 
-
+soma_vendas+=500
+print(soma_vendas) # 800
 
 
 
 email = 'Esse mês vendemos um total de {} produtos, sendo:\n{} unidades de {}\n{} unidades de {}'.format(soma_vendas, vendas[0], lista[0], vendas[1], lista[1])
-#adicionando no fim do texto o Ipad
+# adicionando no fim do texto o Ipad
 
-
-
+vendas.append(500)
+email+='\n{} unidades de {}'.format(vendas[2],lista[2])
 
 print(email)
