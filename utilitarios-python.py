@@ -117,3 +117,11 @@ locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
 
 def formatacaoMoeda(valor):
     return locale.currency(valor,grouping=True)
+
+
+
+
+# formatando percentual
+def formatacaoPercentual(valor):
+    valor*=100
+    return '{}%'.format(round(valor,2))
