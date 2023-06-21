@@ -32,7 +32,7 @@ def formatacaoPercentual(valor):
 
 numero_funcionario_meta=0
 for venda_funcionario in vendas:
-    if venda_funcionario>=1000:
+    if venda_funcionario>=meta:
         numero_funcionario_meta+=1
 
 percentual_meta=numero_funcionario_meta/len(vendas)
