@@ -19,6 +19,7 @@ for item in lista:
     
 ou então para string:
 
+# onde ch seria cada caractere
 for ch in texto:
     print(ch)
 
@@ -27,3 +28,30 @@ for ch in texto:
 produtos = ['coca', 'pepsi', 'guarana', 'sprite', 'fanta']
 texto = 'lira@gmail.com'
 
+
+for produto in produtos:
+    print(produto)
+# coca
+# pepsi
+# guarana
+# sprite
+# fanta
+
+
+
+for caractere in texto:
+    print(caractere)
+# l
+# i
+# r
+# a
+# @
+# g
+# m
+# a
+# i
+# l
+# .
+# c
+# o
+# m
