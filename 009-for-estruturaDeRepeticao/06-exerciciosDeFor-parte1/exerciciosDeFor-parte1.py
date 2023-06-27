@@ -20,3 +20,20 @@ quarto = [
 
 """
 
+numero_hospedes=input('Digite o número de hospedes: ')
+
+registroHospedes=[]
+try:
+    numero_hospedes=int(numero_hospedes)
+    for i in range(numero_hospedes):
+        nome_hospede=input('Digite o nome do hospede de número '+str(i+1)+':')
+        cpf_hospede=input('Digite o cpf do hospede de número '+str(i+1)+':')
+        registroHospedes.append([nome_hospede,'cpf:'+cpf_hospede])
+    for hospede in registroHospedes:
+        print(hospede)
+except:
+    print('Número de hóspedes inválido')
+
+
+
+
