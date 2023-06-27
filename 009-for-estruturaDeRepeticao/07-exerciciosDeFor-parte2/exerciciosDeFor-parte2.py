@@ -85,4 +85,4 @@ vendas2020 = [951642,244295,26964,787604,867660,78830,710331,646016,694913,53970
 print('Seguem abaixo os produtos que tiveram aumento de vendas em 2020 comparados ao ano de 2019:\n')
 for i,produto in enumerate(produtos):
     if vendas2020[i]>vendas2019[i]:
-        print('Produto {}\nValor vendas 2019: R$ {}\nValor vendas 2020: R$ {}\nPercentual de crescimento: {}%\n'.format(produto,vendas2019[i],vendas2020[i],round((vendas2020[i]/vendas2019[i]-1)*100)))
+        print('Produto {}\nValor vendas 2019: R$ {}\nValor vendas 2020: R$ {}\nPercentual de crescimento: {}%\n'.format(produto,vendas2019[i],vendas2020[i],round((vendas2020[i]/vendas2019[i]-1)*100,2)))
