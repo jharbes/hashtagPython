@@ -10,7 +10,12 @@ Todos os exercícios são feitos partindo-se do pressuposto de que todas as entr
 vendas = [1000, 1500, 1200, 1300]
 vendedores = ["Fulano", "Beltrano", "Ciclano", "Lira"]
 
+print('A média de vendas foi de {}.\n'.format(formatacaoMoeda(sum(vendas)/len(vendas))))
+      
+for i,vendedor in enumerate(vendedores):
+    print('O resultado do vendedor {} foi de {}'.format(vendedor,formatacaoMoeda(vendas[i])))
 
+    
 
 
 #### 2. Faça um Programa que crie uma lista com as médias de cada aluno, imprima as médias de cada aluno e a quantidade de alunos com média maior que 7.
