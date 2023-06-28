@@ -212,11 +212,16 @@ O menor consumo é do peugeout.
 
 """
 
-print('Comparativo de Consumo de Combustível')
-veiculos = ['fusca',' gol', 'uno', 'vectra', 'peugeot']
+print('Comparativo de Consumo de Combustível\n')
+veiculos = ['fusca','gol', 'uno', 'vectra', 'peugeot']
 autonomias = [7, 10, 12.5, 9, 14.5]
     
-print('Relatório Final')
+print('Relatório Final:\n')
+
+for i in range(len(veiculos)):
+    print(f'{i+1}-{veiculos[i]:<8} - {autonomias[i]}km/l\t- {formatacaoMoeda(1000/autonomias[i]):<10}\t-\t{formatacaoMoeda(1000/autonomias[i]*2.25)}')
+
+print('\nO carro mais econômico é o {}'.format(veiculos[autonomias.index(max(autonomias))]))
 
 
 
