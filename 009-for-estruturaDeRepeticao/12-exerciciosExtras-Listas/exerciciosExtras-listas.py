@@ -107,6 +107,14 @@ meses = [
 temperaturas = [30, 29, 28, 28, 25, 26, 20, 21, 19, 25, 27, 32]
 
 
+import statistics
+
+media_temperatura=statistics.mean(temperaturas)
+
+print('A média de temperatura foi maior do que a média nacional nos meses de:\n')
+for i in range(len(meses)):
+    if temperaturas[i]>media_temperatura:
+        print(meses[i])
 
 
 """
