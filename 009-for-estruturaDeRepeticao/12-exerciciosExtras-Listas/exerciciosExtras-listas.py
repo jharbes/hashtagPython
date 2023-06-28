@@ -5,6 +5,24 @@ Todos os exercícios são feitos partindo-se do pressuposto de que todas as entr
 
 """
 
+# criando formatacao para os valores (em reais)
+import locale
+
+locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
+
+def formatacaoMoeda(valor):
+    return locale.currency(valor,grouping=True)
+
+
+
+
+# formatando percentual
+def formatacaoPercentual(valor):
+    valor*=100
+    return '{}%'.format(round(valor,2))
+
+
+
 #### 1. Faça um Programa que leia as vendas dos vendedores, mostre a venda de cada vendedor com o seu nome e a média de vendas. 
 
 vendas = [1000, 1500, 1200, 1300]
@@ -15,7 +33,7 @@ print('A média de vendas foi de {}.\n'.format(formatacaoMoeda(sum(vendas)/len(v
 for i,vendedor in enumerate(vendedores):
     print('O resultado do vendedor {} foi de {}'.format(vendedor,formatacaoMoeda(vendas[i])))
 
-    
+
 
 
 #### 2. Faça um Programa que crie uma lista com as médias de cada aluno, imprima as médias de cada aluno e a quantidade de alunos com média maior que 7.
@@ -33,6 +51,20 @@ notas = [
     [10, 9, 7, 4],
     [10, 1, 3, 3],
 ]
+
+
+medias=[]
+maior_que_sete=0
+for i,nota in enumerate(notas):
+    media=sum(nota)/len(nota)
+    medias.append(media)
+    print(alunos[i],'possui média',media)
+    if media>7:
+        maior_que_sete+=1
+
+print('\nExistem {} alunos com média maior que 7.\n'.format(maior_que_sete))
+
+print(medias)
 
 
 
