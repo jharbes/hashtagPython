@@ -31,6 +31,35 @@ for item in vendas:
 
 
 
+"""
+- Vamos resolver de 2 formas:
+    1. Criando uma lista auxiliar apenas com os vendedores que bateram a meta
+    2. Fazendo o cálculo diretamente na lista que já temos
+
+"""
+
+#criando lista auxiliar
+acima_meta = []
+
+for venda in vendas:
+    if venda[1] >= meta:
+        acima_meta.append(venda)
+        
+print(acima_meta)
+print('{:.1%} dos vendedores bateram a meta'.format(len(acima_meta) / len(vendas)))
+
+
+#cálculo diretamente na lista
+qtde_vendedores_acima = 0
+
+for venda in vendas:
+    if venda[1] >= meta:
+        qtde_vendedores_acima += 1
+        
+print('{:.1%} dos vendedores bateram a meta'.format(qtde_vendedores_acima / len(vendas)))
+
+
+
 
 ## Para treinar uma estrutura parecida, crie um código para responder: quem foi o vendedor que mais vendeu?
 
