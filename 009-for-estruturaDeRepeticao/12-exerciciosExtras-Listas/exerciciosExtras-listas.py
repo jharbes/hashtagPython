@@ -158,6 +158,22 @@ Maior valor de abono pago: R$ 900.00
 lista_salarios = [1000, 300, 500, 200, 1500, 3000, 3400, 5000, 7000, 2000, 600, 800, 250, 1500, 20000]
 abonos = []
 
+abonos=[salario*0.2 if salario*0.2>=100 else 100 for salario in lista_salarios]
+
+print(abonos,len(abonos),len(lista_salarios))
+
+print('Projeção de Gastos com Abono\n============================\n')
+for i in range(len(lista_salarios)):
+    print('Salário: ',formatacaoMoeda(lista_salarios[i]))
+print('\nSalário\t\t-\tAbono')
+for i in range(len(lista_salarios)):
+    print(str(formatacaoMoeda(lista_salarios[i]))+'\t-\t'+str(formatacaoMoeda(abonos[i])))
+
+print('Foram processados {} colaboradores'.format(len(lista_salarios)))
+print('Total gasto com abonos: {}'.format(formatacaoMoeda(sum(abonos))))
+print('Valor minimo pago a {} colaboradores'.format(len([abono for abono in abonos if abono==100])))
+print('Maior valor de abono pago: {}'.format(formatacaoMoeda(max(abonos))))
+
 
 
 
