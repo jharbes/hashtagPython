@@ -75,6 +75,16 @@ idades = [35,32,50,33,48,50,33,48,22,49,35,38,20,47,49,48,34,21,48,44,48,30,25,4
 salarios = [3739,2219,3554,3978,4014,3270,4792,3879,2981,2384,4826,2460,3680,4318,1872,1770,4640,3929,3295,1729,3965,4267,4007,1916,2987,2943,3852,4543,2055,1730]
 
 
+media_salarios=sum(salarios)/len(salarios)
+
+soma_funcionarios=0
+for i in range(len(idades)):
+    if salarios[i]<media_salarios and idades[i]>25:
+        soma_funcionarios+=1
+
+print('{} funcionários possuem mais de 25 anos e salário inferior à média de todos os salários.'.format(soma_funcionarios))
+
+
 
 
 #### 4.Em quais meses a média de temperatura foi maior do que a média nacional?
