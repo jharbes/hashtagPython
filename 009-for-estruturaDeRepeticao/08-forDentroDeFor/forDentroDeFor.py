@@ -25,3 +25,10 @@ estoque = [
 ]
 fabricas = ['Lira Manufacturing', 'Fábrica Hashtag', 'Python Manufaturas', 'Produções e Cia', 'Manufatura e Cia']
 nivel_minimo = 50
+
+
+for i,estoqueFabrica in enumerate(estoque):
+    for j,nivel in enumerate(estoqueFabrica):
+        if nivel<nivel_minimo:
+            print(f'Produto[{j}] com nível {nivel} na Fábrica {fabricas[i]} abaixo do nível mínimo')
+    print()
