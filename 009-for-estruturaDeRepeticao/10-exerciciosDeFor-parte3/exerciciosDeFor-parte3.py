@@ -18,3 +18,28 @@ vendas = [
     ['Ana', 10300],
     ['Alon', 7870],
 ]
+
+
+numero_vendedores_meta=0
+maior_venda=0
+
+for item in vendas:
+    if item[1]>=10000:
+        numero_vendedores_meta+=1
+    if item[1]>maior_venda:
+        maior_venda=item[1]
+
+
+
+
+## Para treinar uma estrutura parecida, crie um código para responder: quem foi o vendedor que mais vendeu?
+
+print(maior_venda)
+
+listaMaiorVendedores=[]
+
+for item in vendas:
+    if item[1]>=maior_venda:
+        listaMaiorVendedores.append(item[0])
+
+print('O maior vendedor é:\n{}'.format(listaMaiorVendedores))
