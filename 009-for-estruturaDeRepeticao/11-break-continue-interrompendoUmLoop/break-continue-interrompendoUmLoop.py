@@ -14,6 +14,13 @@ vendas = [100, 150, 1500, 2000, 120]
 
 meta = 110
 
+mensagem_bonus='Loja ganhou o bônus'
+for venda in vendas:
+    if venda<=110:
+        mensagem_bonus='Loja não ganhou o bônus'
+        break
+print(mensagem_bonus)
+
 
 
 
@@ -21,3 +28,7 @@ meta = 110
 
 vendedores = ['João', 'Julia', 'Ana', 'José', 'Maria']
 meta = 130
+
+for i,vendedor in enumerate(vendedores):
+    if vendas[i]>=meta:
+        print(vendedor,'bateu a meta.')
