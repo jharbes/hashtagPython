@@ -31,3 +31,22 @@ for i, lista in enumerate(estoque):
     for qtde in lista:
         if qtde < nivel_minimo:
             print(fabricas[i])
+            break # apenas adicionamos o break
+
+
+
+# OU GABARITO HASHTAG:
+
+fabricas_abaixo_nivel = []
+
+for i, lista in enumerate(estoque):
+    #se dentro daquela lista tem alguem abaixo do nível minimo
+    for qtde in lista:
+        if qtde < nivel_minimo:
+            if fabricas[i] in fabricas_abaixo_nivel:
+                pass
+            else:
+                fabricas_abaixo_nivel.append(fabricas[i])
+            
+            
+print(fabricas_abaixo_nivel)
