@@ -248,3 +248,20 @@ Desafio: Crie uma forma para chegar na posição da lista a partir do salário, 
 """
 
 vendas = [1000, 2000, 3000, 4000, 5000, 6000, 5500, 4500, 3600]
+
+import math
+
+salarios=sorted([200+0.09*venda for venda in vendas])
+faixa_salarios=[0 for item in range(9)]
+
+
+for salario in salarios:
+    faixa=math.trunc(salario/100)
+    faixa_salarios[faixa-2]+=1
+
+
+for i,faixa in enumerate(faixa_salarios):
+    if i<8:
+        print(f'${i+2}00 - ${+2}99\t= {faixa}')
+    else:
+        print(f'${i+2}00 em diante\t= {faixa}')
