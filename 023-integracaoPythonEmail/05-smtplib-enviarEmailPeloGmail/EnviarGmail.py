@@ -9,17 +9,18 @@ import email.message
 
 def enviar_email():  
     corpo_email = """
+    <h3>Teste de email</h3>
     <p>Parágrafo1</p>
     <p>Parágrafo2</p>
     """
 
     msg = email.message.Message()
     msg['Subject'] = "Assunto"
-    msg['From'] = 'remetente'
-    msg['To'] = 'destinatario'
+    msg['From'] = 'jorgenamiharbes@gmail.com'
+    msg['To'] = 'jharbes@hotmail.com'
     password = 'senha' 
     msg.add_header('Content-Type', 'text/html')
-    msg.set_payload(corpo_email )
+    msg.set_payload(corpo_email)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
