@@ -21,13 +21,15 @@ Nele, a pessoa deve inserir o nome do produto e o produto deve ser adicionado na
 
 venda = input('Registre um produto. Para cancelar o registro de um novo produto, basta apertar enter com a caixa vazia')
 vendas = []
+
 #crie aqui o programa
 
 vendas.append(venda)
 
 while venda!='':
     venda=input('Registre o próximo produto: ')
-    vendas.append(venda)
+    if venda!='':
+        vendas.append(venda)
 
 
 print('Registro Finalizado. As vendas cadastradas foram: {}'.format(vendas))
