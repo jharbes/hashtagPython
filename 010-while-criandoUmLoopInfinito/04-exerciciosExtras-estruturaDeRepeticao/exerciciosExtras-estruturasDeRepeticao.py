@@ -230,3 +230,38 @@ print('O faturamento total foi de {} e o faturamento médio mensal foi de {}.'.f
 
 #### 8. Faça um programa que consiga categorizar a idade das equipes de uma empresa. Faça um programa que peça para n pessoas a sua idade, ao final o programa devera verificar se a média de idade da equipe varia entre 0 e 25 (jovem) ,26 e 60 (sênior) e maior que 60 (idosa); e então, dizer se a equipe é jovem, sênior ou idosa, conforme a média calculada.
 
+while True:
+        numero_funcionarios=input('Entre com o número de funcionários: ')
+        try:
+            numero_funcionarios=int(numero_funcionarios)
+            if numero_funcionarios>=1:
+                break
+            else:
+                print('\nVALOR INVÁLIDO! Número de funcionários deve ser numérico e igual ou maior que zero!')
+                continue
+        except:
+            print('\nVALOR INVÁLIDO! Número de funcionários deve ser numérico e igual ou maior que zero!')
+
+idade_funcionarios=[]
+for i in range(numero_funcionarios):
+     while True:
+        idade=input('Digite a idade do funcionário de número {}: '.format(i+1))
+        try:
+            idade=int(idade)
+            if idade>=0:
+                idade_funcionarios.append(idade)
+                break
+            else:
+                print('\nVALOR INVÁLIDO! Idade do funcionário deve ser numérico e igual ou maior que zero!')
+                continue
+        except:
+            print('\nVALOR INVÁLIDO! Idade do funcionário deve ser numérico e igual ou maior que zero!')
+
+media_idade=round(mean(idade_funcionarios),0)
+
+if media_idade<=25:
+    print('A equipe é jovem e a média de idade é de {}'.format(media_idade))
+elif media_idade<=60:
+    print('A equipe é sênior e a média de idade é de {}'.format(media_idade))
+else:
+    print('A equipe é idosa e a média de idade é de {}'.format(media_idade))
