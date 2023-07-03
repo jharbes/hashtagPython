@@ -38,6 +38,7 @@ while produto!='' and quantidade_produto!='':
     numero_produto+=1
 
 
+print('LISTA DE VENDAS:\n')
 for venda in vendas:
     print(venda[0],' - ',venda[1])
 
