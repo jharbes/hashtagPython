@@ -23,7 +23,23 @@ Sugestão para sua lista de produtos vendidos:
 
 # seu código aqui
 
+vendas=[]
+numero_produto=1
+print('SISTEMA DE VENDAS\n')
+print('Para finalizar deixe o nome do produto ou a quantidade em branco.\n')
 
+produto='x'
+quantidade_produto='1'
+while produto!='' and quantidade_produto!='':
+    produto=input('Digite o produto de número {}: '.format(numero_produto))
+    quantidade_produto=input('Digite a quantidade do produto de número {}: '.format(numero_produto))
+    if produto and quantidade_produto:
+        vendas.append([produto,quantidade_produto])
+    numero_produto+=1
+
+
+for venda in vendas:
+    print(venda[0],' - ',venda[1])
 
 
 
