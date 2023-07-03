@@ -265,3 +265,50 @@ elif media_idade<=60:
     print('A equipe é sênior e a média de idade é de {}'.format(media_idade))
 else:
     print('A equipe é idosa e a média de idade é de {}'.format(media_idade))
+
+
+
+
+    #### 9. Numa eleição existem três candidatos. Faça um programa que peça o número total de eleitores. Peça para cada eleitor votar e ao final mostrar o número de votos de cada candidato.
+
+    while True:
+        numero_eleitores=input('Entre com o número de eleitores: ')
+        try:
+            numero_eleitores=int(numero_eleitores)
+            if numero_eleitores>=1:
+                break
+            else:
+                print('\nVALOR INVÁLIDO! Número de eleitores deve ser numérico e igual ou maior que zero!')
+                continue
+        except:
+            print('\nVALOR INVÁLIDO! Número de eleitores deve ser numérico e igual ou maior que zero!')
+
+
+votos_computados=[0,0,0]
+
+for i in range(numero_eleitores):
+    voto=input('Escolha o candidato 0, 1 ou 2 (valores diferentes anulam o voto): ')
+    if voto=='0':
+        votos_computados[0]+=1
+        print('Voto computado para o candidato 0.')
+    elif voto=='1':
+        votos_computados[1]+=1
+        print('Voto computado para o candidato 1.')
+    elif voto=='2':
+        votos_computados[2]+=1
+        print('Voto computado para o candidato 2.')
+    else:
+        print('Voto anulado')
+
+print("""
+Os votos computados são:
+Candidato 0: {} votos,
+Candidato 1: {} votos,
+Candidato 2: {} votos
+""".format(votos_computados[0],votos_computados[1],votos_computados[2]))
+
+
+
+
+#### 10. Faça um programa que calcule o valor total investido por um colecionador em sua coleção de CDs e o valor médio gasto em cada um deles. O usuário deverá informar a quantidade de CDs e o valor para em cada um.
+
