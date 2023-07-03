@@ -182,3 +182,9 @@ elif populacao_Y>populacao_X and taxa_Y>=taxa_X:
     print('Nunca ultrapassará a população')
 elif populacao_Y==populacao_X:
     print('Populações já são iguais')
+
+
+
+
+#### 6. Faça um programa que peça para o usuário inserir o faturamento dos últimos 5 meses (individualmente) e informe o maior faturamento
+
