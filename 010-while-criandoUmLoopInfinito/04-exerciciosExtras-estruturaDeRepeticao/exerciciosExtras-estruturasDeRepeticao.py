@@ -110,3 +110,75 @@ print('O número de anos necessários serão de {}.'.format(numero_anos))
 
 #### 5. Altere o programa anterior permitindo ao usuário informar as populações e as taxas de crescimento iniciais. Valide a entrada e permita repetir a operação.
 
+while True:
+    populacao_X=input('Digite a população do país X: ')
+    try:
+        populacao_X=int(populacao_X)
+        if populacao_X>=0:
+            break
+        else:
+            print('\nVALOR INVÁLIDO!')
+            continue
+    except:
+        print('\nVALOR INVÁLIDO!')
+
+while True:
+    populacao_Y=input('Digite a população do país Y: ')
+    try:
+        populacao_Y=int(populacao_Y)
+        if populacao_Y>=0:
+            break
+        else:
+            print('\nVALOR INVÁLIDO!')
+            continue
+    except:
+        print('\nVALOR INVÁLIDO!')
+
+
+while True:
+    taxa_X=input('Digite a taxa de crescimento do país X: (em %) ')
+    try:
+        taxa_X=float(taxa_X)
+        if taxa_X>=0:
+            break
+        else:
+            print('\nVALOR INVÁLIDO!')
+            continue
+    except:
+        print('\nVALOR INVÁLIDO!')
+
+while True:
+    taxa_Y=input('Digite a taxa de crescimento do país Y: (em %) ')
+    try:
+        taxa_Y=float(taxa_Y)
+        if taxa_Y>=0:
+            break
+        else:
+            print('\nVALOR INVÁLIDO!')
+            continue
+    except:
+        print('\nVALOR INVÁLIDO!')
+
+taxa_X=taxa_X/100+1
+taxa_Y=taxa_Y/100+1
+
+numero_anos_xy=0
+
+if populacao_X>populacao_Y and taxa_X<taxa_Y:
+    while populacao_X<=populacao_B:
+        populacao_X*=taxa_X
+        populacao_Y*=taxa_Y
+        numero_anos_xy+=1
+    print('O número de anos necessários serão de {}.'.format(numero_anos_xy))
+elif populacao_X>populacao_Y and taxa_X>=taxa_Y:
+    print('Nunca ultrapassará a população')
+elif populacao_Y>populacao_X and taxa_Y<taxa_X:
+    while populacao_Y<=populacao_X:
+        populacao_X*=taxa_X
+        populacao_Y*=taxa_Y
+        numero_anos_xy+=1
+    print('O número de anos necessários serão de {}.'.format(numero_anos_xy))
+elif populacao_Y>populacao_X and taxa_Y>=taxa_X:
+    print('Nunca ultrapassará a população')
+elif populacao_Y==populacao_X:
+    print('Populações já são iguais')
