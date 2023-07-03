@@ -221,3 +221,12 @@ print('O maior faturamento foi de {} no mês de número {}.'.format(formatacaoMo
 
 #### 7. Faça um programa que peça para o usuário inserir o faturamento dos últimos 5 meses (individualmente) e informe o faturamento total (soma) e o faturamento médio por mês (média).
 
+from statistics import mean
+
+print('O faturamento total foi de {} e o faturamento médio mensal foi de {}.'.format(formatacaoMoeda(sum(faturamento)),formatacaoMoeda(mean(faturamento))))
+
+
+
+
+#### 8. Faça um programa que consiga categorizar a idade das equipes de uma empresa. Faça um programa que peça para n pessoas a sua idade, ao final o programa devera verificar se a média de idade da equipe varia entre 0 e 25 (jovem) ,26 e 60 (sênior) e maior que 60 (idosa); e então, dizer se a equipe é jovem, sênior ou idosa, conforme a média calculada.
+
