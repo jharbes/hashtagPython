@@ -312,3 +312,51 @@ Candidato 2: {} votos
 
 #### 10. Faça um programa que calcule o valor total investido por um colecionador em sua coleção de CDs e o valor médio gasto em cada um deles. O usuário deverá informar a quantidade de CDs e o valor para em cada um.
 
+while True:
+        numero_cds=input('Entre com o número de CDs: ')
+        try:
+            numero_cds=int(numero_cds)
+            if numero_cds>=1:
+                break
+            else:
+                print('\nVALOR INVÁLIDO! Número de CDs deve ser numérico e igual ou maior que zero!')
+                continue
+        except:
+            print('\nVALOR INVÁLIDO! Número de CDs deve ser numérico e igual ou maior que zero!')
+
+valor_cds=[0 in range(numero_cds)]
+
+
+
+for i in range(numero_cds):
+    while True:
+        valor_cd=input('Entre com o valor do CD de número {}: '.format(i))
+        try:
+            valor_cd=float(valor_cd)
+            if valor_cd>=0:
+                valor_cds.append(valor_cd)
+                break
+            else:
+                print('\nVALOR INVÁLIDO! Valor do CD deve ser numérico e igual ou maior que zero!')
+                continue
+        except:
+            print('\nVALOR INVÁLIDO! Valor do CD deve ser numérico e igual ou maior que zero!')
+
+import statistics
+
+print("""
+O valor total investido na coleção de CDS foi de {}.
+A média de valor gasta em cada um deles foi de {}.
+""".format(formatacaoMoeda(sum(valor_cds)),formatacaoMoeda(mean(valor_cds))))
+
+
+
+
+#### 11. O Sr. Manoel Joaquim possui uma grande loja de artigos de R$ 1,99, com cerca de 10 caixas. Para agilizar o cálculo de quanto cada cliente deve pagar ele desenvolveu um tabela que contém o número de itens que o cliente comprou e ao lado o valor da conta. Desta forma a atendente do caixa precisa apenas contar quantos itens o cliente está levando e olhar na tabela de preços. Você foi contratado para desenvolver o programa que monta esta tabela de preços, que conterá os preços de 1 até 50 produtos, conforme o exemplo abaixo:
+
+# Lojas Quase Dois - Tabela de preços
+# 1 - R$ 1.99
+# 2 - R$ 3.98
+# ...
+# 50 - R$ 99.50
+
