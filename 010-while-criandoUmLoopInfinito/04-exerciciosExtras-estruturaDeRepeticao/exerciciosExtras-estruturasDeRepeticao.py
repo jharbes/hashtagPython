@@ -188,3 +188,36 @@ elif populacao_Y==populacao_X:
 
 #### 6. Faça um programa que peça para o usuário inserir o faturamento dos últimos 5 meses (individualmente) e informe o maior faturamento
 
+# criando formatacao para os valores (em reais)
+import locale
+
+locale.setlocale(locale.LC_MONETARY,'pt_BR.UTF-8')
+
+def formatacaoMoeda(valor):
+    return locale.currency(valor,grouping=True)
+
+faturamento=[]
+
+for i in range(5):
+    while True:
+        faturamento_mes=input('Entre com o faturamento do mês {}: '.format(i+1))
+        try:
+            faturamento_mes=float(faturamento_mes)
+            if faturamento_mes>=0:
+                faturamento.append(faturamento_mes)
+                break
+            else:
+                print('\nVALOR INVÁLIDO! Faturamento deve ser numérico e ser igual ou maior que zero!')
+                continue
+        except:
+            print('\nVALOR INVÁLIDO! Faturamento deve ser numérico e ser igual ou maior que zero!')
+
+print(faturamento)
+
+print('O maior faturamento foi de {} no mês de número {}.'.format(formatacaoMoeda(max(faturamento)),faturamento.index(max(faturamento))+1))
+
+
+
+
+#### 7. Faça um programa que peça para o usuário inserir o faturamento dos últimos 5 meses (individualmente) e informe o faturamento total (soma) e o faturamento médio por mês (média).
+
