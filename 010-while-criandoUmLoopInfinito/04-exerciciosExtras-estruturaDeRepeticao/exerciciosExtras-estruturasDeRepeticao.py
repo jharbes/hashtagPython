@@ -43,3 +43,53 @@ while login==senha:
 ##### Sexo: 'f' ou 'm';
 ##### Estado Civil: 's', 'c', 'v', 'd';
 
+nome=input('Digite o seu nome: ')
+while len(nome)<=3:
+    print('\nNOME INVÁLIDO! Deve ter mais de três caracteres')
+    nome=input('Digite o seu nome: ')
+
+
+while True:
+    idade=input('Digite sua idade: ')
+    try:
+        idade=int(idade)
+        if idade>=0 and idade<=150:
+            break
+        else:
+            print('\nVALOR INVÁLIDO! Idade deve ser entre 0 e 150 anos!')
+            continue
+    except:
+        print('\nVALOR INVÁLIDO! Idade deve ser entre 0 e 150 anos!')
+
+
+while True:
+    salario=input('Digite seu salário: ')
+    try:
+        salario=float(salario)
+        if salario>0:
+            break
+        else:
+            print('\nVALOR INVÁLIDO! Salário deve ser numérico e maior que zero!')
+            continue
+    except:
+        print('\nVALOR INVÁLIDO! Salário deve ser numérico e maior que zero!')
+
+
+sexo=input('Informe seu sexo (m ou f): ')
+sexo=sexo.lower()
+while sexo!='m' and sexo!='f':
+    print('\nSEXO INVÁLIDO, preencha com m ou f.')
+    sexo=input('Informe seu sexo (m ou f): ')
+
+
+estado_civil=input('Informe seu estado civil (s, c, v ou d): ')
+estado_civil=estado_civil.lower()
+while estado_civil!='s' and estado_civil!='c' and estado_civil!='v' and estado_civil!='d':
+    print('\nESTADO CIVIL INVÁLIDO, preencha com s, c, v ou d.')
+    estado_civil=input('Informe seu estado civil (s, c, v ou d): ')
+
+
+
+
+#### 4. Supondo que a população de um país A seja da ordem de 80000 habitantes com uma taxa anual de crescimento de 3% e que a população de B seja 200000 habitantes com uma taxa de crescimento de 1.5%. Faça um programa que calcule e escreva o número de anos necessários para que a população do país A ultrapasse ou iguale a população do país B, mantidas as taxas de crescimento.
+
