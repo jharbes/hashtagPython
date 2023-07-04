@@ -360,3 +360,18 @@ A média de valor gasta em cada um deles foi de {}.
 # ...
 # 50 - R$ 99.50
 
+print('Loja Quase Dois - Tabela de preços')
+
+preco_item=1.99
+for i in range(50):
+    print(i+1,' - R$',preco_item*(i+1))
+
+
+
+
+#### 12. Um funcionário de uma empresa recebe aumento salarial anualmente: Sabe-se que:
+
+# Esse funcionário foi contratado em 1995, com salário inicial de R$ 1.000,00;
+# Em 1996 recebeu aumento de 1,5% sobre seu salário inicial;
+# A partir de 1997 (inclusive), os aumentos salariais sempre correspondem ao dobro do percentual do ano anterior. Faça um programa que determine o salário desse funcionário em 2003. 
+
