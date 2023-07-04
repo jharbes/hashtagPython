@@ -402,3 +402,46 @@ print('R$',round(salario_final,2))
 # Refrigerante    105     R$ 1,00
 # Faça um programa que leia o código dos itens pedidos e as quantidades desejadas. Calcule e mostre o valor a ser pago por item (preço * quantidade) e o total geral do pedido. Considere que o cliente deve informar quando o pedido deve ser encerrado.
 
+codigos_cardapio=[100,101,102,103,104,105]
+precos_cardapio=[1.20,1.30,1.50,1.20,1.30,1]
+
+itens_pedido=[]
+quantidade_pedido=[]
+while True:
+        cod_cardapio=input('Entre com o código do produto: (Digite "fim" para terminar)')
+        if cod_cardapio=='fim':
+            print('Pedido finalizado')
+            break
+        try:
+            cod_cardapio=int(cod_cardapio)
+            if cod_cardapio>=100 and cod_cardapio<=105:
+                itens_pedido.append(cod_cardapio)
+                while True:
+                    quantidade_item=input('Entre com a quantidade do item: ')
+                    try:
+                        quantidade_item=int(quantidade_item)
+                        if quantidade_item>=0:
+                            quantidade_pedido.append(quantidade_item)
+                            break
+                        else:
+                            print('\nVALOR INVÁLIDO! Quantidade do item deve ser numérico, inteiro e maior que zero!')
+                            continue
+                    except:
+                        print('\nVALOR INVÁLIDO! Quantidade do item deve ser numérico, inteiro e maior que zero!')
+                        continue
+            else:
+                print('\nVALOR INVÁLIDO! Número de código do cardápio deve ser numérico, inteiro entre 100 e 105!')
+                continue
+        except:
+            print('\nVALOR INVÁLIDO! Número de código do cardápio deve ser numérico, inteiro entre 100 e 105!')
+
+print(itens_pedido)
+print(quantidade_pedido)
+
+
+total_pedido=0
+
+for i in range(len(itens_pedido)):
+    total_pedido+=precos_cardapio[codigos_cardapio.index(itens_pedido[i])]*quantidade_pedido[i]
+
+print('R$',total_pedido)
