@@ -480,3 +480,30 @@ print('R$',total_pedido)
 # 10              3               37,5%
 # 11              1               12,5%
 
+votos_jogadores=[0 for i in range(23)]
+print(votos_jogadores)
+numero_votos=0
+
+while True:
+    numero_jogador=input('Quem foi o melhor jogador? (0 para finalizar): ')
+    try:
+        numero_jogador=int(numero_jogador)
+        if numero_jogador>=1:
+            votos_jogadores[numero_jogador-1]+=1
+            numero_votos+=1
+        elif numero_jogador==0:
+            print('Votação Finalizada!')
+            break
+        else:
+            print('\nVALOR INVÁLIDO! Número do jogador deve ser numérico, igual ou maior que 1 e menor ou igual que 23!')
+    except:
+        print('\nVALOR INVÁLIDO! Número do jogador deve ser numérico, igual ou maior que 1 e menor ou igual que 23!')
+
+print('\nTotal de votos computados:',numero_votos)
+print('\nJogadores que receberam votos:')
+for i,voto in enumerate(votos_jogadores):
+    if voto>0:
+        print('Nº jogador:',i+1,' - Nº votos:',voto,'Percentual:',round(voto/numero_votos*100,2),'%')
+
+print('\nJogador escolhido como melhor da partida:')
+print('Nº jogador:',votos_jogadores.index(max(votos_jogadores))+1,'Percentual votos:',round(max(votos_jogadores)/numero_votos*100,2),'%')
