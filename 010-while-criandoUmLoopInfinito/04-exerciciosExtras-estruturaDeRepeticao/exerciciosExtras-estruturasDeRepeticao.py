@@ -375,3 +375,30 @@ for i in range(50):
 # Em 1996 recebeu aumento de 1,5% sobre seu salário inicial;
 # A partir de 1997 (inclusive), os aumentos salariais sempre correspondem ao dobro do percentual do ano anterior. Faça um programa que determine o salário desse funcionário em 2003. 
 
+salario_inicial=1000
+aumento=0.015
+ano_inicial=1995
+ano_final=2003
+numero_anos_aumento=ano_final-ano_inicial
+salario_final=salario_inicial
+
+for i in range(numero_anos_aumento):
+    salario_final=salario_final*(1+aumento)
+    aumento*=2
+
+print('R$',round(salario_final,2))
+
+
+
+
+#### 13. O cardápio de uma lanchonete é o seguinte:
+
+# Especificação   Código  Preço
+# Cachorro Quente 100     R$ 1,20
+# Bauru Simples   101     R$ 1,30
+# Bauru com ovo   102     R$ 1,50
+# Hambúrguer      103     R$ 1,20
+# Cheeseburguer   104     R$ 1,30
+# Refrigerante    105     R$ 1,00
+# Faça um programa que leia o código dos itens pedidos e as quantidades desejadas. Calcule e mostre o valor a ser pago por item (preço * quantidade) e o total geral do pedido. Considere que o cliente deve informar quando o pedido deve ser encerrado.
+
