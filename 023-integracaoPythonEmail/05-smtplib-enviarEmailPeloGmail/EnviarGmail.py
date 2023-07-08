@@ -6,6 +6,11 @@
 
 import smtplib
 import email.message
+import sys
+sys.path.append('C:\\Users\\Jorge\\Desktop\\hashtag')
+print(sys.path) # imprimindo todos os sys.path disponiveis após a adicao acima
+
+from passwd import senha_app_gmail
 
 def enviar_email():  
     corpo_email = """
@@ -18,7 +23,7 @@ def enviar_email():
     msg['Subject'] = "Assunto"
     msg['From'] = 'jorgenamiharbes@gmail.com'
     msg['To'] = 'jharbes@hotmail.com'
-    password = 'senha' 
+    password = senha_app_gmail
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
 
