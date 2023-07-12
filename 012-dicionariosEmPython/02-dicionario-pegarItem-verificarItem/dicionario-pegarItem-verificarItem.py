@@ -41,3 +41,6 @@ print(vendas_tecnologia.get('copo')) # None
 
 # Nao funciona como o get, da erro:
 # print(vendas_tecnologia['copo'])
+
+
+print('copo' if 'copo' in vendas_tecnologia else 'Copo nao está na lista de produtos de tecnologia')
