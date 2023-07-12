@@ -20,3 +20,8 @@ vendas = [
     ('Ana', 10300),
     ('Alon', 7870),
 ]
+
+for item in vendas:
+    vendedor,venda=item
+    if venda>=meta:
+        print('{} bateu a meta com R${} em vendas'.format(vendedor,venda))
