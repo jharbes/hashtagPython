@@ -38,3 +38,46 @@ vendas = [
     ('21/08/2020', 'ipad', 'prata', '128gb', 4000, 5000),
 ]
 
+
+
+
+# - Qual foi o faturamento de IPhone no dia 20/08/2020?
+# - Qual foi o produto mais vendido (em unidades) no dia 21/08/2020?
+
+# faturamento_iphone_200820=vendas[0][4]*vendas[0][5]+vendas[0][4]*vendas[1][5]
+# print(faturamento_iphone_200820)
+
+# ou
+
+faturamento_iphone_200820=0
+for item in vendas:
+    data,produto,cor,capacidade,unidades,valor_unitario=item
+    if data=='20/08/2020' and produto=='iphone x':
+        faturamento_iphone_200820+=unidades*valor_unitario
+
+print(faturamento_iphone_200820)
+
+
+
+
+# vendas_21082020=[item for item in vendas if item[0]=='21/08/2020']
+# print(vendas_21082020)
+
+# unidades=-1
+# produto_maior_venda=''
+# for venda in vendas_21082020:
+#     if venda[4]>unidades:
+#         produto_maior_venda='{} {} {}'.format(venda[1],venda[2],venda[3])
+
+# print(produto_maior_venda)
+
+# ou
+
+maior_unidades=-1
+
+for item in vendas:
+    data,produto,cor,capacidade,unidades,valor_unitario=item
+    if data=='21/08/2020' and unidades>maior_unidades:
+        produto_mais_vendido='{} {} {}'.format(produto,cor,capacidade)
+
+print(produto_mais_vendido)
