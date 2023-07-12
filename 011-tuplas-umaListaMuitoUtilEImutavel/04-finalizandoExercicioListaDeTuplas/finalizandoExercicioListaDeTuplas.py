@@ -84,4 +84,7 @@ for item in vendas:
     elif data=='21/08/2020' and unidades==maior_unidades:
         produto_mais_vendido.append(item)
 
-print(produto_mais_vendido)
+
+for item in produto_mais_vendido:
+    data,produto,cor,capacidade,unidades,valor_unitario=item
+    print('{} {} {}'.format(produto,cor,capacidade))
