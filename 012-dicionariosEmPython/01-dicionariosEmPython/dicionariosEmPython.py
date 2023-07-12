@@ -24,9 +24,9 @@ vendas_tecnologia = {'iphone': 15000, 'samsung galaxy': 12000, 'tv samsung': 100
 # - Qual foi o item mais vendido nas categorias 'livros' e 'lazer'?
 # - Quanto foi vendido de 'notebook asus' e de 'ipad'?
 
-print(mais_vendidos['livros'])
-print(mais_vendidos['lazer'])
+print(mais_vendidos['livros']) # o alquimista
+print(mais_vendidos['lazer']) # prancha surf
 
 
-print(vendas_tecnologia['notebook asus'])
-print(vendas_tecnologia.get('ipad'))
+print(vendas_tecnologia['notebook asus']) # 2450
+print(vendas_tecnologia.get('ipad')) # 1000
