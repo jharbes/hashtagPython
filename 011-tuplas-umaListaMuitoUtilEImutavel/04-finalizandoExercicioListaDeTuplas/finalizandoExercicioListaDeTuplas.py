@@ -74,10 +74,14 @@ print(faturamento_iphone_200820)
 # ou
 
 maior_unidades=-1
-
+produto_mais_vendido=[]
 for item in vendas:
     data,produto,cor,capacidade,unidades,valor_unitario=item
     if data=='21/08/2020' and unidades>maior_unidades:
-        produto_mais_vendido='{} {} {}'.format(produto,cor,capacidade)
+        maior_unidades=unidades
+        produto_mais_vendido=[]
+        produto_mais_vendido.append(item)
+    elif data=='21/08/2020' and unidades==maior_unidades:
+        produto_mais_vendido.append(item)
 
 print(produto_mais_vendido)
