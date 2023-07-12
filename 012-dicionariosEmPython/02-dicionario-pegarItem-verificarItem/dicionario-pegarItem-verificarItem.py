@@ -25,3 +25,19 @@ print(mais_vendidos['lazer']) # prancha surf
 
 print(vendas_tecnologia.get('notebook asus')) # 2450
 print(vendas_tecnologia.get('ipad')) # 1000
+
+
+
+
+### Verificar se item está no dicionário:
+
+# - if
+# - .get(chave) = None
+
+# Se tentarmos procurar as vendas de "copo" na lista de vendas tecnologia, o que acontece?
+
+print(vendas_tecnologia.get('copo')) # None
+
+
+# Nao funciona como o get, da erro:
+# print(vendas_tecnologia['copo'])
