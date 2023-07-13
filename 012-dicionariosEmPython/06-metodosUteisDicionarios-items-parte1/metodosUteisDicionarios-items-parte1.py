@@ -42,6 +42,13 @@ for item in vendas_tecnologia_items:
     if item[1]>5000:
         print(item[0])
 
+print('\n')
+# ou
+
+for produto,numero_itens in vendas_tecnologia_items:
+    if numero_itens>5000:
+        print(produto)
+
 
 
 
@@ -93,3 +100,41 @@ print(list(valores)) # [2450, 15000, 12000, 10000, 14300, 1720, 17000, 1000, 250
 for chave in vendas_tecnologia:
      print('{}: {} unidades'.format(chave, vendas_tecnologia[chave]))
 print('-' * 40)
+
+# output:
+
+# notebook asus: 2450 unidades
+# iphone: 15000 unidades
+# samsung galaxy: 12000 unidades
+# tv samsung: 10000 unidades
+# ps5: 14300 unidades
+# tablet: 1720 unidades
+# notebook dell: 17000 unidades
+# ipad: 1000 unidades
+# tv philco: 2500 unidades
+# notebook hp: 1000 unidades
+# liraphone: 10 unidades
+# ----------------------------------------
+
+
+
+# agora se quisermos organizar isso, fazemos:
+
+vendas_tecnologia_items=vendas_tecnologia.items()
+
+for item in sorted(vendas_tecnologia_items):
+    print(item)
+
+# output:
+
+# ('ipad', 1000)
+# ('iphone', 15000)
+# ('liraphone', 10)
+# ('notebook asus', 2450)
+# ('notebook dell', 17000)
+# ('notebook hp', 1000)
+# ('ps5', 14300)
+# ('samsung galaxy', 12000)
+# ('tablet', 1720)
+# ('tv philco', 2500)
+# ('tv samsung', 10000)
