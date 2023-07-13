@@ -34,7 +34,8 @@ print(lucro_1tri) # {'janeiro': 100000, 'fevereiro': 120000, 'março': 90000, 'a
 
 
 # adicionando um item já existente (manualmente ou pelo update)
-
+lucro_1tri['janeiro']=88000
+print(lucro_1tri) # {'janeiro': 88000, 'fevereiro': 120000, 'março': 90000, 'abril': 88000, 'maio': 89000, 'junho': 120000, 'julho': 56000, 'agosto': 24000, 'setembro': 86000}
 
 
 
@@ -83,3 +84,17 @@ funcionarios = ['João', 'Lira', 'Maria', 'Ana', 'Paula']
 
 del funcionarios[0]
 print(funcionarios) # ['Lira', 'Maria', 'Ana', 'Paula']
+
+
+# podemos usar o pop sem armazenar em variaveis
+lucro_1tri.pop('janeiro') 
+print(lucro_1tri) # {'fevereiro': 85000, 'março': 90000, 'abril': 88000, 'maio': 89000, 'agosto': 24000, 'setembro': 86000}
+
+
+# apaga todos os dados do dicionario .clear()
+lucro_1tri.clear()
+print(lucro_1tri) # {}
+
+
+# apaga a VARIAVEL (nao limpa o dicionario)
+del lucro_1tri
