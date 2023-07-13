@@ -81,3 +81,15 @@ print(list(valores)) # [2450, 15000, 12000, 10000, 14300, 1720, 17000, 1000, 250
 
 
 
+
+### O for vai funcionar normal em dict_listas, porque não deixa de ser uma lista de itens que pode ser percorrida (iterable), mas o que aprendemos de lista não necessariamente se aplicam a essas dict_listas.
+
+# Para transformar as dict_listas em listas normais, usamos a função list:
+
+# - lista_chaves = list(dicionario.keys())
+
+# - Pode ser útil caso a gente queira fazer alguma organização das chaves. Ex: Imprimir uma lista com os valores em ordem alfabética, de forma que todas as tvs fiquem juntas, todos os iphone/ipad também e assim vai:
+
+for chave in vendas_tecnologia:
+     print('{}: {} unidades'.format(chave, vendas_tecnologia[chave]))
+print('-' * 40)
