@@ -47,11 +47,11 @@ niveis_co2 = {
     'DF': [376,516,320,310,518], 
 }
 
-from statistics import median
+from statistics import mean
 
 for chave in niveis_co2:
-    if median(niveis_co2[chave])>450:
-        print('{} está com níveis altíssimos de CO2 ({}), chamar equipe especializada para verificar a região.'.format(chave,median(niveis_co2[chave])))
+    if mean(niveis_co2[chave])>450:
+        print('{} está com níveis altíssimos de CO2 ({}), chamar equipe especializada para verificar a região.'.format(chave,mean(niveis_co2[chave])))
 
 
 # output:
