@@ -26,3 +26,10 @@ vendas2020 = [951642,244295,26964,787604,867660,78830,710331,646016,694913,53970
 
 # seu código aqui
 
+vendas2019e2020=zip(vendas2019,vendas2020)
+
+produtos_vendas=zip(produtos,vendas2019e2020)
+
+dict_produtos_vendas=dict(produtos_vendas)
+
+print(dict_produtos_vendas) # {'iphone': (558147, 951642), 'galaxy': (712350, 244295), 'ipad': (573823, 26964), 'tv': (405252, 787604), 'máquina de café': (718654, 867660), 'kindle': (531580, 78830), 'geladeira': (973139, 710331), 'adega': (892292, 646016), 'notebook dell': (422760, 694913), 'notebook hp': (154753, 539704), 'notebook asus': (887061, 324831), 'microsoft surface': (438508, 667179), 'webcam': (237467, 295633), 'caixa de som': (489705, 725316), 'microfone': (328311, 644622), 'câmera canon': (591120, 994303)}
