@@ -15,3 +15,9 @@ def cadastrar_produto():
     produto = produto.casefold()
     produto = produto.strip()
     return produto
+
+
+
+produto=cadastrar_produto()
+
+print(produto)
