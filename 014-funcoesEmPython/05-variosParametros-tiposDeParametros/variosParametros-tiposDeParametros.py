@@ -38,6 +38,21 @@ for produto in produtos:
 
 
 
+
+# utilizando keyword argument:
+# observe que usando o keyword arguments podemos alterar a ordem dos argumentos
+# ao usar o keyword argument TODOS os outros argumentos POSTERIORES devem ser nomeados
+
+for produto in produtos:
+    if confereCategoria(categoria='BEB',produto=produto):
+        print('Enviar {} para setor de bebidas alcóolicas'.format(produto))
+    else:
+        print('Enviar {} para o setor de bebidas não alcóolicas'.format(produto))
+
+print('-'*20)
+
+
+
 """
 ## Obs Importante: Sua função deve estar SEMPRE antes de ser usada.
 
@@ -45,3 +60,7 @@ for produto in produtos:
 - É comum dar '2 enters' após a definição da função para deixar o código mais organizado
 
 """
+
+# Exemplos de argumentos nomeados:
+
+print('Testando argumentos nomeados','testando',sep='\n')
