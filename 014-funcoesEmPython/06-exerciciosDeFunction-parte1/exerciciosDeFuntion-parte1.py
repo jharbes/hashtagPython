@@ -22,8 +22,12 @@ lucro = 800
 
 # crie sua function aqui
 
-
+def percCargaTributaria(preco,custo,lucro):
+    imposto=preco-custo-lucro
+    return imposto/preco
 
 
 
 # aplique sua function nos valores fornecidos para ver se ela está funcionando corretamente
+
+print('A carga tributária foi de {:.1%}'.format(percCargaTributaria(preco, custo, lucro)))
