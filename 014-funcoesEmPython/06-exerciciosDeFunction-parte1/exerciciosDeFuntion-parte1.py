@@ -30,4 +30,4 @@ def percCargaTributaria(preco,custo,lucro):
 
 # aplique sua function nos valores fornecidos para ver se ela está funcionando corretamente
 
-print('A carga tributária foi de {:.1%}'.format(percCargaTributaria(preco, custo, lucro)))
+print('A carga tributária foi de {:.2%}'.format(percCargaTributaria(preco, custo, lucro)))
