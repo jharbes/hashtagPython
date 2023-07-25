@@ -24,7 +24,17 @@ for produto in produtos:
         print('Enviar {} para setor de bebidas alcóolicas'.format(produto))
 
 
+print('-'*20)
 
+
+def confereCategoria(produto,categoria):
+    return True if categoria.lower() in produto.lower() else False
+
+for produto in produtos:
+    if confereCategoria(produto,'BEB'):
+        print('Enviar {} para setor de bebidas alcóolicas'.format(produto))
+    else:
+        print('Enviar {} para o setor de bebidas não alcóolicas'.format(produto))
 
 
 
