@@ -27,9 +27,11 @@ print(produtos) # ['mac book', 'mac', 'iphone x', 'iPad', 'apple watch', 'apple 
 # - Vamos criar uma função que padronize códigos de produtos. O default será padronizar os códigos para letras minúsculas (dado por 'm'), mas se o usuário quiser pode padronizar para maiúscula, dado por ('M').
 
 def padronizar_codigos(lista_codigos, padrao='m'):
-    #seu código aqui
-    return lista_codigos
+    return [codigo.lower().strip() for codigo in lista_codigos] if padrao=='m' else [codigo.upper().strip() for codigo in lista_codigos]
 
 
 cod_produtos = [' ABC12 ', 'abc34', 'AbC37']
-print(padronizar_codigos(cod_produtos, padrao = 'm'))
+
+print(padronizar_codigos(cod_produtos, padrao = 'm')) # ['abc12', 'abc34', 'abc37']
+
+print(padronizar_codigos(cod_produtos, padrao='M')) # ['ABC12', 'ABC34', 'ABC37']
