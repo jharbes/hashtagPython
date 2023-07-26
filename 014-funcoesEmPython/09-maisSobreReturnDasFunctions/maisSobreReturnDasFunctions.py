@@ -28,7 +28,7 @@ def bateu_meta(vendas, meta):
     else:
         return False
     
-    
+
 # retornar uma lista, tupla ou dicionario
 def filtrar_lista_texto(lista, pedaco_texto):
     lista_filtrada = []
@@ -36,3 +36,12 @@ def filtrar_lista_texto(lista, pedaco_texto):
         if pedaco_texto in item:
             lista_filtrada.append(item)
             return lista_filtrada
+        
+
+
+
+lista_textos = ['lira@gmail.com', 'zezinho@hotmail.com', 'joao@gmail.com', 'alon@gmail.com']
+
+lista = filtrar_lista_texto(lista_textos, 'gmail')
+
+print(lista) # ['lira@gmail.com']
