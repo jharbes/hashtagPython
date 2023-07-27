@@ -95,5 +95,9 @@ def retornarInadimplentes(listaDevedores):
 
 # rode sua function aqui com a lista dada para ver se está funcionando
 
+print(len(clientes_devedores))
+
+print(len(retornarInadimplentes(clientes_devedores)))
+
 for clienteDevedor in retornarInadimplentes(clientes_devedores):
     print(clienteDevedor)
