@@ -65,8 +65,11 @@ print('Percentual de Stockout: {:.2%}'.format(percentualStockout(vendas)))
 ### Item 2: Crie uma função para descobrir os clientes inadimplentes de uma empresa
 
 - O objetivo é identificar quem são os clientes inadimplentes e enviar essa lista de clientes para o setor de cobrança poder fazer a cobrança dos clientes.
+
 - Sua função deve então receber uma lista de clientes, analisar quais clientes estão inadimplentes, e retornar uma lista com os clientes inadimplentes (apenas o CPF deles já é suficiente)
+
 - A inadimplência nessa empresa é calculada da seguinte forma:
+
     1. Se o cliente tiver devendo mais de 1.000 reais por mais de 20 dias, ele é considerado inadimplente.
     2. Isso significa que caso ou cliente esteja devendo 2.000 reais a 10 dias, ele não é inadimplente, pois não se passaram 20 dias ainda. Da mesma forma, se ele estiver devendo 500 reais por 40 dias, ele também não é inadimplente, dado que ele deve menos de 1.000 reais.
     3. As informações vêm no formato (cpf, valor_devido, qtde de dias)
@@ -77,7 +80,20 @@ clientes_devedores = [('462.286.561-65',14405,24),('251.569.170-81',16027,1),('2
 
 # sua function aqui
 
+def retornarInadimplentes(listaDevedores):
+    cpfDevedores=[]
+
+    for cliente in clientes_devedores:
+        cpfCliente,valorDevido,diasDecorridos=cliente
+
+        if valorDevido>1000 and diasDecorridos>20:
+            cpfDevedores.append(cpfCliente)
+    
+    return cpfDevedores
 
 
 
 # rode sua function aqui com a lista dada para ver se está funcionando
+
+for clienteDevedor in retornarInadimplentes(clientes_devedores):
+    print(clienteDevedor)
