@@ -6,6 +6,8 @@
     
 """
 
+# observe que ambos returns funcionarao de maneira identica retornando uma tupla
+# logo o padrao de retorno de multiplos valores, e também recomendada é uma tupla
 def operacoes_basicas(num1, num2):
     soma = num1 + num2
     diferenca = num1 - num2
@@ -16,6 +18,8 @@ def operacoes_basicas(num1, num2):
 
 
 print(operacoes_basicas(1,2)) # (3, -1, 2, 0.5)
+
+
 
 
 """
