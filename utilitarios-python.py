@@ -11,6 +11,10 @@ stringQualquer.isdigit() # True ou False
 
 
 
+# impressao de formato percentual no .format com duas casas decimais
+
+print('Percentual de Stockout: {:.2%}'.format(percentualStockout(vendas)))
+
 
 
 # roda o conteudo que está em 'pass' APENAS se o arquivo em questao for o arquivo que for

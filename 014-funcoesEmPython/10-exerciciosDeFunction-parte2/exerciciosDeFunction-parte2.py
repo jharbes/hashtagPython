@@ -21,6 +21,7 @@ O ponto importante é, cada empresa tem alguma adaptação do cálculo de indica
 ### Item 1: Crie uma função que calcula o percentual de Stockout de uma empresa
 
 - O % de stockout é dado por (Vendas Perdidas por Estoque) / (Vendas Concluídas + Vendas Perdidas por Estoque) -> essas vendas são dadas em valor total (dinheiro) e não em quantidade de vendas
+
 - Seu programa recebe um dicionário com todas as vendas da empresa, o status dela (se foi Concluída ou Cancelada) e, caso tenha sido Cancelada, o motivo de Cancelamento. O formato é o seguinte:
 
 vendas = {
@@ -38,7 +39,21 @@ vendas = {'VE0001': (9868,'Concluído',''),'VE0002': (9642,'Concluído',''),'VE0
 
 # sua function aqui
 
+def percentualStockout(dicionario):
+    vendasPerdidasEstoque=0
+    vendasConcluidas=0
+
+    for chave in dicionario:
+        valorVenda,statusVenda,motivoStatus=dicionario[chave]
+        if statusVenda=='Concluído':
+            vendasConcluidas+=valorVenda
+        if statusVenda=='Cancelado' and motivoStatus=='Estoque em Falta':
+            vendasPerdidasEstoque+=valorVenda
+
+    return vendasPerdidasEstoque/(vendasPerdidasEstoque+vendasConcluidas)
 
 
 
 # rode sua function aqui com o dicionário dado para ver se ela está funcionando
+
+print('Percentual de Stockout: {:.2%}'.format(percentualStockout(vendas)))
