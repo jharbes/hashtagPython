@@ -57,3 +57,8 @@ def minha_funcao(arg1: isso, arg2: aquilo) -> o que a função retorna:
 
 def minha_soma(num1: int, num2: int, num3: int) -> int:
     return num1 + num2 + num3
+
+
+
+# observe que mesmo que as annotations indiquem a utilizacao do int a funcao nao deixará de funcionar com o float por exemplo, nao funciona como limitador
+print(minha_soma(0.5,2,4.3)) # 6.8
