@@ -9,20 +9,36 @@ except:
     o que vou fazer caso dê erro
 
 """
+"""
+### Tratamento Completo:
+
+try:
+    tente fazer isso
+except ErroEspecífico:
+    deu esse erro aqui que era esperado 
+else:
+    caso não dê o erro esperado, rode isso.
+finally:
+    independente do que acontecer, faça isso.
+
+"""
 
 def descobrir_servidor(email):
-    posicao_a = email.index('@')
-    servidor = email[posicao_a:]
-    if 'gmail' in servidor:
-        return 'gmail'
-    elif 'hotmail' in servidor or 'outlook' in servidor or 'live' in servidor:
-        return 'hotmail'
-    elif 'yahoo' in servidor:
-        return 'yahoo'
-    elif 'uol' in servidor or 'bol' in servidor:
-        return 'uol'
-    else:
-        return 'não determinado'
+    try:
+        posicao_a = email.index('@')
+        servidor = email[posicao_a:]
+        if 'gmail' in servidor:
+            return 'gmail'
+        elif 'hotmail' in servidor or 'outlook' in servidor or 'live' in servidor:
+            return 'hotmail'
+        elif 'yahoo' in servidor:
+            return 'yahoo'
+        elif 'uol' in servidor or 'bol' in servidor:
+            return 'uol'
+        else:
+            return 'não determinado'
+    except:
+        print('E-mail digitado incorretamente, tente novamente')
     
 
 
@@ -48,18 +64,29 @@ raise ZeroDivisionError('O erro foi esse')
 """
 
 def descobrir_servidor(email):
-    posicao_a = email.index('@')
-    servidor = email[posicao_a:]
-    if 'gmail' in servidor:
-        return 'gmail'
-    elif 'hotmail' in servidor or 'outlook' in servidor or 'live' in servidor:
-        return 'hotmail'
-    elif 'yahoo' in servidor:
-        return 'yahoo'
-    elif 'uol' in servidor or 'bol' in servidor:
-        return 'uol'
+    try:
+        posicao_a = email.index('@')
+    except ValueError:
+        print('E-mail digitado incorretamente, tente novamente')
+        email = input('Qual o seu e-mail?')
+        print(descobrir_servidor(email))
     else:
-        return 'não determinado'
+        servidor = email[posicao_a:]
+        if 'gmail' in servidor:
+            return 'gmail'
+        elif 'hotmail' in servidor or 'outlook' in servidor or 'live' in servidor:
+            return 'hotmail'
+        elif 'yahoo' in servidor:
+            return 'yahoo'
+        elif 'uol' in servidor or 'bol' in servidor:
+            return 'uol'
+        else:
+            return 'não determinado'
+
+
+
+email = input('Qual o seu e-mail?')
+print(descobrir_servidor(email))
 
 
 
