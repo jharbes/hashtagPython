@@ -22,7 +22,7 @@ percentual_teste=0.1
 
 
 # Isso significa que a lista de teste tem quantos itens?
-numero_itens_teste=percentual_teste*len(precos_imoveis)
+numero_itens_teste=int(percentual_teste*len(precos_imoveis)) if int(percentual_teste*len(precos_imoveis))>1 else 1
 print(numero_itens_teste) # 1
 
 
@@ -57,7 +57,7 @@ precos_imoveis = [2.17,1.54,1.45,1.94,2.37,2.3,1.79,1.8,2.25,1.37,2.4,1.72,2,1.6
 tamanho_imoveis = [207,148,130,203,257,228,160,194,232,147,222,165,184,175,147,217,214,171,86,111,180,211,210,168,156,154,179,163,99,246,162,205,195,263,198,121,149,140,122,119,197,210,218,202,258,256,135,203,173,152,197,145,154,252,141,141,151,133,232,229,134,215,155,138,186,120,152,213,256,219,200,210,238,140,224,233,222,120,233,151,185,111,149,186,194,194,222,223,185,157,154,164,129,128,169,240,136,191, 157, 154]
 
 
-numero_itens_teste=int(percentual_teste*len(precos_imoveis))
+numero_itens_teste=int(percentual_teste*len(precos_imoveis)) if int(percentual_teste*len(precos_imoveis))>1 else 1
 print(numero_itens_teste) # 10
 
 precos_imoveis_treino=[]
