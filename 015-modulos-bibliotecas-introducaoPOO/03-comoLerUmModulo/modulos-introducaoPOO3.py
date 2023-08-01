@@ -12,4 +12,4 @@
 import webbrowser
 
 webbrowser.open_new('https://hashtagtreinamentos.com')
-#webbrowser.open('https://www.hashtagtreinamentos.com/blog/')
+# webbrowser.open('https://www.hashtagtreinamentos.com/blog/')
