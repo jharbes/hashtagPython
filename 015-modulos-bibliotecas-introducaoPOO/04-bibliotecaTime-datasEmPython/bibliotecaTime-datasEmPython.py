@@ -3,6 +3,8 @@
 
 O módulo `time` em Python fornece uma variedade de funções para trabalhar com tempo. 
 
+O horário retornado será o horário do SISTEMA OPERACIONAL
+
 ## time.time()
 
 A função `time()` retorna o tempo atual em segundos desde a Epoch (1º de janeiro de 1970).  
@@ -27,6 +29,7 @@ print(f"Tempo atual: {tempo_atual_nanosegundos} nanosegundos desde a Epoch") # T
 
 inicio = time.time()
 
+# observe que o underscore (_) so está sendo utilizado para facilitar a leitura do numero, ele é o mesmo que 100000000 (cem milhoes), porem podemos usar o (_) underscore na casa dos milhares para facilitar a leitura
 for i in range(100_000_000): # 10000000
     pass
 
