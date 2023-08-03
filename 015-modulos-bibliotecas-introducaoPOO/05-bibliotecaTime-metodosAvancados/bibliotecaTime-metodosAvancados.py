@@ -105,3 +105,27 @@ gmt_struct_exemplo = time.gmtime(1_234_567_890)
 print(f"Tempo em UTC: {gmt_struct_exemplo}") # Tempo em UTC: time.struct_time(tm_year=2009, tm_mon=2, tm_mday=13, tm_hour=23, tm_min=31, tm_sec=30, tm_wday=4, tm_yday=44, tm_isdst=0)
 
 print(f"Tempo em UTC: {time.strftime('%A, %d de %B de %Y, %H:%M:%S', gmt_struct_exemplo)}") # Tempo em UTC: sexta-feira, 13 de fevereiro de 2009, 23:31:30
+
+
+
+
+## time.mktime()
+
+# A função `mktime()` converte um objeto `struct_time` em segundos desde a epoch. Este é o inverso da função `localtime()`. Por exemplo, podemos converter o objeto `struct_time` retornado pela função `localtime()` em segundos desde a epoch usando a função `mktime()`. O resultado deve ser o mesmo que o valor retornado pela função `time()`.
+
+tempo_em_struct = time.localtime()
+tempo_em_segundos = time.mktime(tempo_em_struct)
+
+print(f"Tempo em segundos: {tempo_em_segundos}") # Tempo em segundos: 1691059220.0
+
+print(f"Tempo em segundos: {time.time()}") # Tempo em segundos: 1691059220.7142253
+
+
+# Podemos usar o método `mktime` para calcular a diferença entre dois tempos. Por exemplo, podemos calcular a diferença entre o tempo atual e o início do ano. O resultado será o número de segundos entre esses dois tempos. Podemos usar a função `localtime()` para obter o tempo atual e a função `mktime()` para obter o tempo em 1 de janeiro de 2023 (ano deste material).
+
+tempo_atual = time.localtime()
+tempo_ano_novo = time.mktime((2023, 1, 1, 0, 0, 0, 0, 0, 0))
+
+diferenca = time.mktime(tempo_atual) - tempo_ano_novo
+
+print(f"Diferença em segundos: {diferenca}") # Diferença em segundos: 15502800.0
