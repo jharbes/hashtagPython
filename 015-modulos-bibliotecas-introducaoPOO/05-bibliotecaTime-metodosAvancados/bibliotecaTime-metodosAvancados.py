@@ -43,3 +43,32 @@ tempo_em_struct = time.localtime()
 tempo_formatado = time.strftime("%A, %d de %B de %Y, %H:%M:%S", tempo_em_struct)
 
 print(f"Tempo formatado: {tempo_formatado}") # Tempo formatado: quinta-feira, 03 de agosto de 2023, 07:18:42
+
+
+
+
+## time.strptime()
+
+# A função `strptime()` analisa uma string representando um horário de acordo com um formato. O retorno é um objeto `struct_time`.
+
+string_tempo = "30 Junho, 2023"
+formato = "%d %B, %Y"
+tempo_em_struct = time.strptime(string_tempo, formato)
+
+print(f"Tempo em struct: {tempo_em_struct}") # Tempo em struct: time.struct_time(tm_year=2023, tm_mon=6, tm_mday=30, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=4, tm_yday=181, tm_isdst=-1)
+
+
+# data na forma dia/mês/ano
+string_tempo = "06/09/2023"
+formato = "%d/%m/%Y"
+tempo_em_struct = time.strptime(string_tempo, formato)
+
+print(f"Tempo em struct: {tempo_em_struct}") # Tempo em struct: time.struct_time(tm_year=2023, tm_mon=9, tm_mday=6, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=2, tm_yday=249, tm_isdst=-1)
+
+
+# data na forma mês/dia/ano
+string_tempo = "06/09/2023"
+formato = "%m/%d/%Y"
+tempo_em_struct = time.strptime(string_tempo, formato)
+
+print(f"Tempo em struct: {tempo_em_struct}") # Tempo em struct: time.struct_time(tm_year=2023, tm_mon=6, tm_mday=9, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=4, tm_yday=160, tm_isdst=-1)
