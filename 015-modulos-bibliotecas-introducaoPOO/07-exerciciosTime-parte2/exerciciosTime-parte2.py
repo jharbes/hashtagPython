@@ -34,3 +34,30 @@ print(tempo_atual_segundos) # 1691078599.0
 
 diferenca_de_tempo=proximo_ano_novo_segundos-tempo_atual_segundos
 print(diferenca_de_tempo) # 12999401.0
+
+
+print('------INICIO DOS CALCULOS)')
+
+diferenca_de_tempo=int(diferenca_de_tempo)
+
+segundos=diferenca_de_tempo%60
+minutos=diferenca_de_tempo//60
+
+print(segundos)
+print(minutos)
+
+
+horas=minutos//60
+minutos=minutos%60
+
+print(minutos)
+print(horas)
+
+
+dias=horas//24
+horas=horas%24
+
+print(horas)
+print(dias)
+
+print('O tempo para o próximo ano novo é de {} dias, {} horas, {} minutos e {} segundos'.format(dias,horas,minutos,segundos))
