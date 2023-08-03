@@ -9,7 +9,7 @@ import time
 
 for i in range(11):
     time.sleep(1)
-    print(10-i)
+    print(10-i,end=' \r')
 
 
 
@@ -21,3 +21,16 @@ Uma empresa quer exibir a data e a hora atual em seu site no formato "Dia da sem
 
 """
 
+import locale
+import time
+
+locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
+
+
+def formataTempo(objeto_structime):
+    return time.strftime('%A, %d de %B de %Y, %H:%M',objeto_structime)
+
+
+tempo_atual=time.localtime()
+
+print(formataTempo(tempo_atual)) # quinta-feira, 03 de agosto de 2023, 10:20
