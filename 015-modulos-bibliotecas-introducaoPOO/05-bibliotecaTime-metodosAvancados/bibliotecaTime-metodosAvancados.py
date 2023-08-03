@@ -135,4 +135,4 @@ tempo_ano_novo = time.mktime((2023, 1, 1, 0, 0, 0, 0, 0, 0))
 
 diferenca = time.mktime(tempo_atual) - tempo_ano_novo
 
-print(f"Diferença em segundos: {diferenca}") # Diferença em segundos: 15502800.0
+print(f"Diferença em segundos: {diferenca}") # Diferença em segundos: 18517300.0
