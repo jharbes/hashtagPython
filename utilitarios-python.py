@@ -129,6 +129,12 @@ def formatacaoMoeda(valor):
 def formatacaoPercentual(valor):
     valor*=100
     return '{}%'.format(round(valor,2))
+    
+
+# recebe o percentual em decimal e retorna em percentual
+# com duas casas decimais
+def formatacaoPercentual2(valor):
+    return '{:.2%}'.format(valor) 
 
 
 
