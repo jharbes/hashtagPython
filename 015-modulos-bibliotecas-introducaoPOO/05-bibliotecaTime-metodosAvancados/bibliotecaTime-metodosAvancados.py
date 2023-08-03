@@ -3,7 +3,7 @@
 
 O módulo `time` em Python fornece uma variedade de funções para trabalhar com tempo.
 
-## time.strftime()
+## time.strftime() - Stringfy time
 
 A função `strftime()` converte um objeto de tempo struct para uma string de acordo com um formato específico.
 
@@ -36,7 +36,7 @@ print(f"Tempo formatado: {tempo_formatado}") # Tempo formatado: Thursday, 29 de 
 import locale
 import time
 
-# Definir a localização para português.
+# Definir a localização para português. Observe que após feita a definição todo o restante do código irá obedecer essa regra, para mudar teremos que alterar a localizacao
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
 tempo_em_struct = time.localtime()
@@ -47,9 +47,9 @@ print(f"Tempo formatado: {tempo_formatado}") # Tempo formatado: quinta-feira, 03
 
 
 
-## time.strptime()
+## time.strptime() - Structurize time
 
-# A função `strptime()` analisa uma string representando um horário de acordo com um formato. O retorno é um objeto `struct_time`.
+# A função `strptime()` analisa uma string representando um horário de acordo com um formato. O retorno é um objeto `struct_time`. Funciona como o INVERSO da strftime
 
 string_tempo = "30 Junho, 2023"
 formato = "%d %B, %Y"
@@ -97,7 +97,10 @@ print(f"Tempo local: {time.localtime()}") # Tempo local: time.struct_time(tm_yea
 print(f"Tempo em UTC: {time.strftime('%A, %d de %B de %Y, %H:%M:%S', gmt_struct)}") # Tempo em UTC: quinta-feira, 03 de agosto de 2023, 10:36:21
 
 
+locatime_struct=time.localtime()
+
 print(gmt_struct.tm_zone) # UTC
+print(locatime_struct.tm_zone) # E. South America Standard Time
 
 
 gmt_struct_exemplo = time.gmtime(1_234_567_890)
@@ -113,6 +116,8 @@ print(f"Tempo em UTC: {time.strftime('%A, %d de %B de %Y, %H:%M:%S', gmt_struct_
 
 # A função `mktime()` converte um objeto `struct_time` em segundos desde a epoch. Este é o inverso da função `localtime()`. Por exemplo, podemos converter o objeto `struct_time` retornado pela função `localtime()` em segundos desde a epoch usando a função `mktime()`. O resultado deve ser o mesmo que o valor retornado pela função `time()`.
 
+# ** INVERSO DA LOCALTIME E GMTIME
+
 tempo_em_struct = time.localtime()
 tempo_em_segundos = time.mktime(tempo_em_struct)
 
@@ -122,6 +127,8 @@ print(f"Tempo em segundos: {time.time()}") # Tempo em segundos: 1691059220.71422
 
 
 # Podemos usar o método `mktime` para calcular a diferença entre dois tempos. Por exemplo, podemos calcular a diferença entre o tempo atual e o início do ano. O resultado será o número de segundos entre esses dois tempos. Podemos usar a função `localtime()` para obter o tempo atual e a função `mktime()` para obter o tempo em 1 de janeiro de 2023 (ano deste material).
+
+# *** A biblioteca time exige a conversão em segundos para calcular a diferença entre duas datas.
 
 tempo_atual = time.localtime()
 tempo_ano_novo = time.mktime((2023, 1, 1, 0, 0, 0, 0, 0, 0))
