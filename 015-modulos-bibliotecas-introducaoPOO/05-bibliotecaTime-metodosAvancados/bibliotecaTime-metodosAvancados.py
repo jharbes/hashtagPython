@@ -72,3 +72,36 @@ formato = "%m/%d/%Y"
 tempo_em_struct = time.strptime(string_tempo, formato)
 
 print(f"Tempo em struct: {tempo_em_struct}") # Tempo em struct: time.struct_time(tm_year=2023, tm_mon=6, tm_mday=9, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=4, tm_yday=160, tm_isdst=-1)
+
+
+
+
+## time.gmtime()
+
+# A função `gmtime()` converte um tempo expresso em segundos desde a epoch em um objeto struct_time em UTC. UTC significa Coordinated Universal Time, também conhecido como GMT (Greenwich Mean Time). Este é o fuso horário padrão em que as funções `time` operam.
+
+# Tempo em UTC para 0 segundos desde a epoch
+
+time.gmtime(0) # time.struct_time(tm_year=1970, tm_mon=1, tm_mday=1, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=1, tm_isdst=0
+
+
+gmt_struct = time.gmtime()  # tempo atual em UTC já que não fornecemos nenhum argumento
+
+print(f"Tempo em UTC: {gmt_struct}") # Tempo em UTC: time.struct_time(tm_year=2023, tm_mon=8, tm_mday=3, tm_hour=10, tm_min=36, tm_sec=21, tm_wday=3, tm_yday=215, tm_isdst=0)
+
+
+# comparando com localtime
+print(f"Tempo local: {time.localtime()}") # Tempo local: time.struct_time(tm_year=2023, tm_mon=8, tm_mday=3, tm_hour=7, tm_min=37, tm_sec=20, tm_wday=3, tm_yday=215, tm_isdst=0)
+
+
+print(f"Tempo em UTC: {time.strftime('%A, %d de %B de %Y, %H:%M:%S', gmt_struct)}") # Tempo em UTC: quinta-feira, 03 de agosto de 2023, 10:36:21
+
+
+print(gmt_struct.tm_zone) # UTC
+
+
+gmt_struct_exemplo = time.gmtime(1_234_567_890)
+
+print(f"Tempo em UTC: {gmt_struct_exemplo}") # Tempo em UTC: time.struct_time(tm_year=2009, tm_mon=2, tm_mday=13, tm_hour=23, tm_min=31, tm_sec=30, tm_wday=4, tm_yday=44, tm_isdst=0)
+
+print(f"Tempo em UTC: {time.strftime('%A, %d de %B de %Y, %H:%M:%S', gmt_struct_exemplo)}") # Tempo em UTC: sexta-feira, 13 de fevereiro de 2009, 23:31:30
