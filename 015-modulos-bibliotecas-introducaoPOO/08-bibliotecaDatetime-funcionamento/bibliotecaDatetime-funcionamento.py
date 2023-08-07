@@ -16,3 +16,87 @@ print(f"Agora: {agora}") # Agora: 2023-08-07 10:17:04.114486
 
 print(f"Data: {agora.date()}") # Data: 2023-08-07
 print(f"Horário: {agora.time()}") # Horário: 10:17:04.114486
+
+print(f"Ano: {agora.year}") # Ano: 2023
+print(f"Mês: {agora.month}") # Mês: 8
+print(f"Dia: {agora.day}") # Dia: 7
+print(f"Hora: {agora.hour}") # Hora: 10
+print(f"Minuto: {agora.minute}") # Minuto: 17
+print(f"Segundo: {agora.second}") # Segundo: 4
+
+
+
+
+## datetime.date.today()
+
+# A função `today()` retorna a data atual.
+
+from datetime import date
+
+hoje = date.today()
+print(f"Data atual: {hoje}") # Data atual: 2023-08-07
+
+print(f"Ano: {hoje.year}") # Ano: 2023
+print(f"Mês: {hoje.month}") # Mês: 8
+print(f"Dia: {hoje.day}") # Dia: 7
+
+
+
+
+## datetime.timedelta()
+
+# A classe `timedelta` é usada para realizar operações com datas (adição e subtração).
+
+from datetime import datetime, timedelta
+
+data_atual = datetime.now()
+print(f"Data atual: {data_atual}") # Data atual: 2023-08-07 10:23:47.549034
+
+data_futura = data_atual + timedelta(days=10)
+print(f"Data 10 dias no futuro: {data_futura}") # Data 10 dias no futuro: 2023-08-17 10:23:47.549034
+
+data_passada = data_atual - timedelta(days=10)
+print(f"Data 10 dias no passado: {data_passada}") # Data 10 dias no passado: 2023-07-28 10:23:47.549034
+
+
+dez_horas_adiante = data_atual + timedelta(hours=10)
+print(f"10 horas adiante: {dez_horas_adiante}") # 10 horas adiante: 2023-08-07 20:23:47.549034
+
+
+
+
+"""
+## Criação de um objeto datetime
+
+Podemos criar um objeto datetime usando a classe `datetime`. O construtor da classe possui como principais argumentos:
+
+- `year`: ano (por exemplo, 2023)
+- `month`: mês (1-12)
+- `day`: dia (1-31)
+- `hour`: hora (0-23)
+- `minute`: minuto (0-59)
+- `second`: segundo (0-59)
+- `microsecond`: microssegundo (0-999999)
+- `tzinfo`: fuso horário
+
+"""
+
+from datetime import datetime
+
+data = datetime(2023, 7, 20, 8, 30, 20)
+print(f"Data: {data}") # Data: 2023-07-20 08:30:20
+
+
+data = datetime(2023, 7, 20)
+print(f"Data: {data}") # Data: 2023-07-20 00:00:00
+
+
+data = datetime(2023, 7, 20, 8, 30, 20, 100000)
+print(f"Data: {data}") # Data: 2023-07-20 08:30:20.100000
+
+
+
+# `fromisoformat()` é um método de classe que converte uma string em um objeto datetime.
+
+data_hora_iso = datetime.fromisoformat("2023-06-26 15:30:20")
+print(f"Data/hora: {data_hora_iso}") # Data/hora: 2023-06-26 15:30:20
