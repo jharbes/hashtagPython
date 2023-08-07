@@ -14,7 +14,10 @@ from datetime import datetime
 agora = datetime.now()
 print(f"Agora: {agora}") # Agora: 2023-08-07 10:17:04.114486
 
+# busca apenas a data
 print(f"Data: {agora.date()}") # Data: 2023-08-07
+
+# busca apenas a hora
 print(f"Horário: {agora.time()}") # Horário: 10:17:04.114486
 
 print(f"Ano: {agora.year}") # Ano: 2023
@@ -115,7 +118,12 @@ data1 = datetime(2023, 6, 25)
 data2 = datetime(2023, 7, 25)
 
 diferenca = data2 - data1
-print(f"A diferença entre as duas datas é de {diferenca.days} dias.") # A diferença entre as duas datas é de 30 dias.
+
+print(diferenca) # 30 days, 0:00:00
+
+print(type(diferenca)) # <class 'datetime.timedelta'>
+
+print(f"A diferença entre as duas datas é de {diferenca.days} dias.")
 
 
 type(diferenca) # datetime.timedelta
