@@ -80,7 +80,6 @@ Podemos criar um objeto datetime usando a classe `datetime`. O construtor da cla
 - `tzinfo`: fuso horário
 
 """
-
 from datetime import datetime
 
 data = datetime(2023, 7, 20, 8, 30, 20)
@@ -100,3 +99,96 @@ print(f"Data: {data}") # Data: 2023-07-20 08:30:20.100000
 
 data_hora_iso = datetime.fromisoformat("2023-06-26 15:30:20")
 print(f"Data/hora: {data_hora_iso}") # Data/hora: 2023-06-26 15:30:20
+
+
+
+
+"""
+## Calcular a diferença entre duas datas
+
+Podemos calcular a diferença entre duas datas subtraindo uma da outra. O resultado será um objeto timedelta.
+
+"""
+from datetime import datetime
+
+data1 = datetime(2023, 6, 25)
+data2 = datetime(2023, 7, 25)
+
+diferenca = data2 - data1
+print(f"A diferença entre as duas datas é de {diferenca.days} dias.") # A diferença entre as duas datas é de 30 dias.
+
+
+type(diferenca) # datetime.timedelta
+
+diferenca.days # 30
+
+
+
+
+"""
+## Comparação entre datas
+
+Podemos comparar datas usando os operadores de comparação padrão.
+
+Segue uma lógica intuitiva:
+
+    passado < presente < futuro
+
+"""
+from datetime import datetime
+
+data1 = datetime(2023, 7, 25)
+data2 = datetime(2023, 7, 25)
+
+if data1 > data2:
+    print("A data1 é posterior à data2")
+elif data1 < data2:
+    print("A data1 é anterior à data2")
+else:
+    print("As datas são iguais")
+
+# As datas são iguais
+
+
+data1 = datetime(2023, 7, 25, 8, 30, 30)
+data2 = datetime(2023, 7, 25, 8, 30, 20)
+
+if data1 > data2:
+    print("A data1 é posterior à data2")
+elif data1 < data2:
+    print("A data1 é anterior à data2")
+else:
+    print("As datas são iguais")
+
+# A data1 é posterior à data2
+
+
+
+
+"""
+## Ordenando uma lista de datas
+
+Podemos usar a função `sorted` para ordenar uma lista de datas.
+
+"""
+from datetime import datetime
+
+datas = [
+    datetime(2023, 6, 28),
+    datetime(2023, 5, 28),
+    datetime(2023, 7, 28),
+    datetime(2023, 6, 18),
+]
+
+datas_ordenadas = sorted(datas)
+
+print(datas_ordenadas) # [datetime.datetime(2023, 5, 28, 0, 0), datetime.datetime(2023, 6, 18, 0, 0), datetime.datetime(2023, 6, 28, 0, 0), datetime.datetime(2023, 7, 28, 0, 0)]
+
+
+for data in datas_ordenadas:
+    print(data.date())
+
+# 2023-05-28
+# 2023-06-18
+# 2023-06-28
+# 2023-07-28
