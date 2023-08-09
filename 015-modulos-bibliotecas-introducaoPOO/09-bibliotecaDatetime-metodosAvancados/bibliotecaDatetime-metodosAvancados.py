@@ -160,6 +160,14 @@ Podemos converter um objeto datetime de um fuso horário para outro usando o mé
 """
 from datetime import datetime
 from zoneinfo import ZoneInfo
+
+
+import zoneinfo
+
+# listando todas as ZoneInfo disponiveis
+zoneinfo.available_timezones()
+
+
  
 data_hora_atual = datetime.now()
 
