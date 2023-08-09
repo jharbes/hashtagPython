@@ -13,8 +13,12 @@ def oferecer_desconto(obj_datetime):
     else:
         return 'Não oferecer desconto'
 
-print(oferecer_desconto(datetime(2022,6,10)))
-print(oferecer_desconto(datetime(2023,8,5)))
+
+print(oferecer_desconto(datetime(2022,6,10))) # Oferecer desconto
+
+print(oferecer_desconto(datetime(2023,8,5))) # Não oferecer desconto
+
+print(oferecer_desconto(datetime(2023,5,10))) # Oferecer desconto
 
 
 
