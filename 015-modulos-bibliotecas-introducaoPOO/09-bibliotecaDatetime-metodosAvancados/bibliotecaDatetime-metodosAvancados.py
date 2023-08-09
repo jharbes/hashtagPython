@@ -46,3 +46,36 @@ print(f"Data formatada: {data_formatada}") # Data formatada: quarta-feira, 09 de
 
 
 
+"""
+## datetime.datetime.strptime()
+
+A função `strptime()` analisa uma string representando uma data e hora de acordo com um formato. O retorno é um objeto datetime.
+
+"""
+from datetime import datetime
+
+string_data = "30 Junho, 2023, 15:30:20"
+formato = "%d %B, %Y, %H:%M:%S"
+data = datetime.strptime(string_data, formato)
+
+print(f"Data: {data}") # Data: 2023-06-30 15:30:20
+
+print(type(data)) # <class 'datetime.datetime'>
+
+
+
+# formato DD/MM/YYYY
+string_data = "09/06/2023, 15:30:20"
+formato = "%d/%m/%Y, %H:%M:%S"
+data = datetime.strptime(string_data, formato)
+
+print(f"Data: {data}") # Data: 2023-06-09 15:30:20
+
+
+
+# formato MM/DD/YYYY
+string_data = "09/06/2023, 15:30:20"
+formato = "%m/%d/%Y, %H:%M:%S"
+data = datetime.strptime(string_data, formato)
+
+print(f"Data: {data}") # Data: 2023-09-06 15:30:20
