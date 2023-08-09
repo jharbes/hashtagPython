@@ -123,10 +123,53 @@ print(f"Data/hora: {data_hora}") # Data/hora: 2023-06-26 15:30:20+00:00
 
 
 # Podemos passar um objeto `timedelta` para o construtor da classe `timezone` para criar um fuso horário com um deslocamento específico. Por exemplo, o código abaixo cria um fuso horário com um deslocamento de 3 horas em relação ao UTC:
-# exemplo com fuso horário de São Paulo
 
+# exemplo com fuso horário de São Paulo
 from datetime import datetime, timezone, timedelta
 
 fuso_horario_sao_paulo = timezone(timedelta(hours=-3))
 data_hora = datetime(2023, 6, 26, 15, 30, 20, tzinfo=fuso_horario_sao_paulo)
-print(f"Data/hora: {data_hora}")
+
+print(f"Data/hora: {data_hora}") # Data/hora: 2023-06-26 15:30:20-03:00
+
+
+
+
+# Como alternativa, podemos usar o módulo `zoneinfo` para criar um objeto `tzinfo`. O módulo `zoneinfo` está disponível na biblioteca padrão do Python desde a versão 3.9. O módulo `zoneinfo` fornece uma classe `ZoneInfo` que pode ser usada para criar um objeto `tzinfo`. No exemplo abaixo, usamos o fuso horário de São Paulo. Observe que não precisamos passar um objeto `timedelta` para o construtor da classe `ZoneInfo`.
+
+# exemplo com fuso horário de São Paulo sem necessidade de timedelta
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+fuso_horario_sao_paulo = ZoneInfo('America/Sao_Paulo')
+data_hora = datetime(2023, 6, 26, 15, 30, 20, tzinfo=fuso_horario_sao_paulo)
+
+print(f"Data/hora: {data_hora}") # Data/hora: 2023-06-26 15:30:20-03:00
+
+
+
+
+"""
+### Conversão entre fusos horários
+
+Podemos converter um objeto datetime de um fuso horário para outro usando o método `astimezone()`.
+
+"""
+from datetime import datetime
+from zoneinfo import ZoneInfo
+ 
+data_hora_atual = datetime.now()
+
+print(f"Data/hora atual (fuso horário local): {data_hora_atual}") # Data/hora atual (fuso horário local): 2023-08-09 12:58:36.005368
+
+
+fuso_horario_sao_paulo = ZoneInfo('America/Sao_Paulo')
+data_hora_sao_paulo = data_hora_atual.astimezone(fuso_horario_sao_paulo)
+
+print(f"Data/hora atual em São Paulo: {data_hora_sao_paulo}") # Data/hora atual em São Paulo: 2023-08-09 12:58:36.005368-03:00
+
+
+fuso_horario_ny = ZoneInfo('America/New_York')
+data_hora_ny = data_hora_atual.astimezone(fuso_horario_ny)
+
+print(f"Data/hora atual em Nova York: {data_hora_ny}") # Data/hora atual em Nova York: 2023-08-09 11:58:36.005368-04:00
