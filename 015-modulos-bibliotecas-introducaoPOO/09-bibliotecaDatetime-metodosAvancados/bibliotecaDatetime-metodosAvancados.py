@@ -22,12 +22,15 @@ print(agora) # 2023-08-09 11:07:21.283169
 print(type(agora)) # <class 'datetime.datetime'>
 
 
+print(agora.strftime('%a')) # Wed
 print(agora.strftime("%A, %d de %B")) # Thursday, 29 de June
 
 
 data_formatada = agora.strftime("%A, %d de %B de %Y, %H:%M:%S")
 
 print(f"Data formatada: {data_formatada}") # Data formatada: Wednesday, 09 de August de 2023, 11:07:21
+
+print(type(data_formatada)) # <class 'str'>
 
 
 
@@ -122,7 +125,7 @@ print(f"Data/hora: {data_hora}") # Data/hora: 2023-06-26 15:30:20+00:00
 
 
 
-# Podemos passar um objeto `timedelta` para o construtor da classe `timezone` para criar um fuso horário com um deslocamento específico. Por exemplo, o código abaixo cria um fuso horário com um deslocamento de 3 horas em relação ao UTC:
+# Podemos passar um objeto `timedelta` para o construtor da classe `timezone` para criar um fuso horário com um deslocamento específico. Por exemplo, o código abaixo cria um fuso horário com um deslocamento de 3 horas em relação ao UTC (o que significa que o horário apresentado está enquandrado no fuso horário -3):
 
 # exemplo com fuso horário de São Paulo
 from datetime import datetime, timezone, timedelta
@@ -137,7 +140,7 @@ print(f"Data/hora: {data_hora}") # Data/hora: 2023-06-26 15:30:20-03:00
 
 # Como alternativa, podemos usar o módulo `zoneinfo` para criar um objeto `tzinfo`. O módulo `zoneinfo` está disponível na biblioteca padrão do Python desde a versão 3.9. O módulo `zoneinfo` fornece uma classe `ZoneInfo` que pode ser usada para criar um objeto `tzinfo`. No exemplo abaixo, usamos o fuso horário de São Paulo. Observe que não precisamos passar um objeto `timedelta` para o construtor da classe `ZoneInfo`.
 
-# exemplo com fuso horário de São Paulo sem necessidade de timedelta
+# exemplo com fuso horário de São Paulo sem necessidade de timedelta (o que significa que o horário apresentado está enquandrado no fuso horário -3)
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
