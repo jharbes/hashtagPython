@@ -15,3 +15,62 @@ meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', '
 
 
 # plotar o gráfico da forma mais simples
+
+import matplotlib.pyplot as plt
+
+# utiliza a lista 'vendas_meses' como base de dados para o grafico a ser mostrado
+# foi informado apenas o eixo x, o eixo y sera os indices pois foi omitido
+plt.plot(vendas_meses)
+
+plt.show()
+
+
+
+
+# - Adicionar um Label no eixo X ou eixo Y
+
+# foi informado apenas o eixo x, o eixo y sera os indices pois foi omitido
+plt.plot(vendas_meses)
+ 
+plt.ylabel('Vendas') # coloca o label do eixo y de 'Vendas'
+plt.xlabel('Meses') # coloca o label do eixo x de 'Meses'
+
+plt.show()
+
+
+
+
+# - Mudar os nomes dos meses
+
+# foram informados os meses e os valores das vendas dos meses, eixo x e y respectivamente
+plt.plot(meses,vendas_meses)
+
+plt.ylabel('Vendas') # coloca o label do eixo y de 'Vendas'
+plt.xlabel('Meses') # coloca o label do eixo x de 'Meses'
+
+plt.show()
+
+
+
+
+# - Ajeitando o Eixo
+
+# foram informados os meses e os valores das vendas dos meses, eixo x e y respectivamente
+plt.plot(meses,vendas_meses)
+
+plt.ylabel('Vendas') # coloca o label do eixo y de 'Vendas'
+plt.xlabel('Meses') # coloca o label do eixo x de 'Meses'
+
+# o metodo axis informa qual sera o dominio e imagem representado no grafico, neste caso o eixo x do grafico ficara compreendido entre 0 e 12 e o eixo y entre 0 e 3000
+# plt.axis([0,12,0,3000])
+
+# ou
+
+# plt.axis([0,12,0,max(vendas_meses)])
+
+# ou
+
+plt.axis([0,12,0,max(vendas_meses)+500])
+
+
+plt.show()
