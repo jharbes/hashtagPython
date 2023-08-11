@@ -24,7 +24,36 @@ meses = np.arange(1, 51)
 
 
 print(vendas)
-print(type(vendas))
+print(type(vendas)) # <class 'numpy.ndarray'>
 
 print(meses)
-print(type(meses))
+print(type(meses)) # <class 'numpy.ndarray'>
+
+
+
+plt.plot(meses,vendas) # define meses no eixo x e vendas no eixo y
+
+plt.axis([0,50,0,max(vendas)+200]) # define o dominio de x entre 0 e 50 e a imagem em 0 a numero maximo de vendas +200
+
+plt.xlabel('Meses') # ajusta o label do eixo x para 'Meses'
+
+plt.ylabel('Vendas') # ajusta o label do eixo y para 'Vendas'
+
+plt.show()
+
+
+
+
+# Editando o grafico de linha
+
+# mudando a linha para apenas os marcadores (sem a continuidade da linha, apenas os pontos existentes)
+
+plt.plot(meses,vendas,'ro') # define meses no eixo x e vendas no eixo y, o parametro 'ro' define o gradico como marcadores conforme explicado acima
+
+plt.axis([0,50,0,max(vendas)+200]) # define o dominio de x entre 0 e 50 e a imagem em 0 a numero maximo de vendas +200
+
+plt.xlabel('Meses') # ajusta o label do eixo x para 'Meses'
+
+plt.ylabel('Vendas') # ajusta o label do eixo y para 'Vendas'
+
+plt.show()
