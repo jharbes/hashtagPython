@@ -26,3 +26,19 @@ produtos = ['vinho', 'cafeiteira', 'microondas', 'iphone']
 
 # digamos que o imposto sobre os produtos é de 30%, ou seja, 0.3. Como eu faria para criar uma lista com os 
 # valores de imposto de cada produto?
+
+
+# - Usando um for
+
+imposto_produtos_for=[]
+for preco_produto in preco_produtos:
+    imposto_produtos_for.append(preco_produto*0.3)
+
+print(imposto_produtos_for) # [30.0, 45.0, 90.0, 1650.0]
+
+
+# - Usando list comprehension
+
+imposto_produtos_lc=[0.3*preco_produto for preco_produto in preco_produtos]
+
+print(imposto_produtos_lc) # [30.0, 45.0, 90.0, 1650.0]
