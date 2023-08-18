@@ -20,6 +20,13 @@
 
 lista = [expressão for item in iterable]
 
+
+### Observação:
+
+- Normalmente isso é usado quando queremos fazer uma única ação com os itens de uma lista. Não é obrigatório, mas é comum de encontrar principalmente com programadores mais experientes/preocupados com "a melhor forma de fazer alguma coisa"
+
+- Cuidado: se a sua lista for MUITO grande, o list comprehension pode acabar sendo difícil de compilar. Nesses casos podemos usar funções, for tradicionais com breaks para interromper ou até bibliotecas como o panda que trabalham bem com muitos dados
+
 """
 preco_produtos = [100, 150, 300, 5500]
 produtos = ['vinho', 'cafeiteira', 'microondas', 'iphone']
@@ -42,3 +49,13 @@ print(imposto_produtos_for) # [30.0, 45.0, 90.0, 1650.0]
 imposto_produtos_lc=[0.3*preco_produto for preco_produto in preco_produtos]
 
 print(imposto_produtos_lc) # [30.0, 45.0, 90.0, 1650.0]
+
+
+# - A "expressão" na list comprehension pode ser uma function tb
+
+def calcular_imposto(preco, imposto):
+    return preco * imposto
+
+imposto_produtos_func=[calcular_imposto(preco_produto,0.3) for preco_produto in preco_produtos]
+
+print(imposto_produtos_func) # [30.0, 45.0, 90.0, 1650.0]
