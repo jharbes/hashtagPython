@@ -46,3 +46,8 @@ print(bonus2) # [('Maria', 120.0), ('José', 0), ('Antônio', 0), ('João', 150.
 
 # - Fazendo por Dict Comprehension
 
+bonus3={
+    vendedor:vendedores_dic[vendedor]*0.1 if vendedores_dic[vendedor]>meta else 0 for vendedor in vendedores_dic
+}
+
+print(bonus3) # {'Maria': 120.0, 'José': 0, 'Antônio': 0, 'João': 150.0, 'Francisco': 190.0, 'Ana': 275.0, 'Luiz': 0, 'Paulo': 0, 'Carlos': 0, 'Manoel': 0, 'Pedro': 0, 'Francisca': 0, 'Marcos': 110.0, 'Raimundo': 0, 'Sebastião': 0, 'Antônia': 0, 'Marcelo': 0, 'Jorge': 0, 'Márcia': 111.10000000000001, 'Geraldo': 0, 'Adriana': 0, 'Sandra': 0, 'Luis': 0}
