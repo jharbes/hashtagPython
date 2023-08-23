@@ -30,5 +30,6 @@ print('Top 5 representou {:0.1%} das vendas'.format(total_top5/sum(vendas))) # T
 
 total_top5=sum([vendas[i] for i,produto in enumerate(produtos) if produto in top5])
 
-print(total_top5)
-print('Top 5 representou {:0.1%} das vendas'.format(total_top5/sum(vendas)))
+print(total_top5) # 8461
+
+print('Top 5 representou {:0.1%} das vendas'.format(total_top5/sum(vendas))) # # Top 5 representou 50.6% das vendas
