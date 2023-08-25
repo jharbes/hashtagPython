@@ -45,8 +45,11 @@ def preco_maior_2000(item):
 
 produto_preco_maior=filter(preco_maior_2000,preco_tecnologia.items())
 
-# print(preco_tecnologia.items())
-print(list(produto_preco_maior)) # [('notebook asus', 2450), ('iphone', 4500), ('samsung galaxy', 3000), ('ps5', 3000), ('notebook dell', 3000), ('ipad', 3000)]
+produto_preco_maior=list(produto_preco_maior)
+
+print(produto_preco_maior) # [('notebook asus', 2450), ('iphone', 4500), ('samsung galaxy', 3000), ('ps5', 3000), ('notebook dell', 3000), ('ipad', 3000)]
+
+print(dict(list(produto_preco_maior))) # {'notebook asus': 2450, 'iphone': 4500, 'samsung galaxy': 3000, 'ps5': 3000, 'notebook dell': 3000, 'ipad': 3000}
 
 
 
@@ -54,4 +57,8 @@ print(list(produto_preco_maior)) # [('notebook asus', 2450), ('iphone', 4500), (
 
 produto_preco_maior2=filter(lambda x:x[1]>2000,preco_tecnologia.items())
 
-print(list(produto_preco_maior2)) # [('notebook asus', 2450), ('iphone', 4500), ('samsung galaxy', 3000), ('ps5', 3000), ('notebook dell', 3000), ('ipad', 3000)]
+produto_preco_maior2=list(produto_preco_maior2)
+
+print(produto_preco_maior2) # [('notebook asus', 2450), ('iphone', 4500), ('samsung galaxy', 3000), ('ps5', 3000), ('notebook dell', 3000), ('ipad', 3000)]
+
+print(dict(list(produto_preco_maior2))) # {'notebook asus': 2450, 'iphone': 4500, 'samsung galaxy': 3000, 'ps5': 3000, 'notebook dell': 3000, 'ipad': 3000}
