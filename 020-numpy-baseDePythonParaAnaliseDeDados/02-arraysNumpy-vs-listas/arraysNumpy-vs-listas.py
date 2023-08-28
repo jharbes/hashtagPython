@@ -73,6 +73,16 @@ print(array) # ['1' 'dois' '3.0']
 
 print(type(array)) # <class 'numpy.ndarray'>
 
+for elemento in array:
+    print(type(elemento))
+"""
+output:
+<class 'numpy.str_'>
+<class 'numpy.str_'>
+<class 'numpy.str_'>
+"""
+
+# <U32 quer dizer que o tipo dos elementos sao caracteres unicode que ocupam 32 bits de memoria
 print(array.dtype) # <U32
 
 
