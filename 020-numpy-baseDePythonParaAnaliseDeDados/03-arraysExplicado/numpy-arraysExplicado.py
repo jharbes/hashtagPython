@@ -33,3 +33,9 @@ print(array[0:-1]) # [1 2 3 4]
 print(array[0:-1:2]) # [1 3]
 
 print(array[0::2]) # [1 3 5]
+
+print(array[::2]) # [1 3 5]
+
+print(array[::]) # [1 2 3 4 5]
+
+print(array[::-1]) # [5 4 3 2 1]
