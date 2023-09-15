@@ -63,3 +63,42 @@ produto_mais_caro = np.max(precos)
 produto_mais_barato = np.min(precos)
 
 print(produto_mais_caro, produto_mais_barato) # 40 20
+
+
+
+
+## np.sort()
+
+# A função `sort()` é usada para ordenar os elementos de um array. Por exemplo, para ordenar as vendas diárias.
+
+# Vendas diárias
+vendas = np.array([200, 220, 250, 210, 300])
+
+# Ordenar as vendas
+vendas_ordenadas = np.sort(vendas)
+
+print(vendas_ordenadas) # [200 210 220 250 300]
+
+
+
+
+## np.dot()
+
+# A função `np.dot()` é usada para calcular o produto escalar de dois arrays. Por exemplo, em uma empresa de varejo, você pode querer calcular o valor total de vendas, dado o número de cada produto vendido e o preço de cada produto.
+
+# Número de produtos vendidos
+quantidades = np.array([10, 20, 30, 40])
+
+# Preços dos produtos
+precos = np.array([5, 10, 15, 20])
+
+# Calcular o valor total de vendas?
+
+print(quantidades * precos) # [ 50 200 450 800]
+
+print(np.sum(quantidades * precos)) # 1500
+
+
+total_vendas = np.dot(quantidades, precos)
+
+print(total_vendas) # 1500
