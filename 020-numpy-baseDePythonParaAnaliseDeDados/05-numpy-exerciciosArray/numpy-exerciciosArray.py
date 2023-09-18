@@ -10,7 +10,7 @@ dados = [127, 90, 201, 150, 210, 220, 115]
 
 dados=np.array(dados)
 media=np.mean(dados)
-print('A média das vendas do produto foi {:.2f}'.format(media))
+print('A média das vendas do produto foi {:.2f}'.format(media)) # A média das vendas do produto foi 159.00
 
 
 
@@ -27,7 +27,7 @@ preco_maximo=np.max(precos)
 preco_minimo=np.min(precos)
 variacao_preco=preco_maximo-preco_minimo
 
-print('O preço máximo foi de R$ {}, o preço mínimo foi de R$ {} e a variação entre os dois foi de R$ {:.2f}}'.format(preco_maximo,preco_minimo,variacao_preco))
+print('O preço máximo foi de R$ {}, o preço mínimo foi de R$ {} e a variação entre os dois foi de R$ {:.2f}}'.format(preco_maximo,preco_minimo,variacao_preco)) # O preço máximo foi de R$ 31.6, o preço mínimo foi de R$ 30.95 e a variação entre os dois foi de R$ 0.65
 
 
 
@@ -40,3 +40,7 @@ Sua loja vendeu em um dia 5 unidades do *Produto A*, 3 unidades do *Produto B* e
 """
 quantidades = np.array([5, 3, 2])
 precos = np.array([100, 200, 50])
+
+total_vendas=np.dot(quantidades,precos)
+
+print('O total de vendas do dia foi de R$ {:.2f}'.format(total_vendas)) # O total de vendas do dia foi de R$ 1200.00
