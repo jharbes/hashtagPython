@@ -56,7 +56,7 @@ Suponha que você seja um analista de vendas em uma empresa e queira entender me
 """
 # Gere dados de vendas falsos para 30 dias
 # Vamos supor que as vendas de um produto podem variar de 50 a 200 por dia 
-
+# Pode definir uma seed para garantir que os resultados sejam reproduziveis, ou seja, com o valor do seed outra pessoa usando o mesmo seed tera os mesmos resultados 'aleatorios' assim podendo reproduzir o experimento
 rng = np.random.default_rng(seed=42)
 
 
@@ -70,9 +70,12 @@ print(dados_vendas) # [ 63 166 148 115 114 178  62 154  80  64 128 196 160 164 1
 
 # Agora, você pode usar esses dados para realizar várias análises. Por exemplo, você pode querer saber qual foi o dia com as vendas mais altas, as vendas mais baixas, ou a média de vendas durante o mês. Aqui está como você pode fazer isso:
 
+# valor máximo de vendas
 print(np.max(dados_vendas)) # 196
 
+# indice onde está o valor máximo de vendas (começa em zero)
 print(np.argmax(dados_vendas)) # 11
+
 
 # Dia com as vendas mais altas
 vendas_maximas = np.max(dados_vendas)
@@ -93,13 +96,27 @@ media_vendas = np.mean(dados_vendas)
 print(f"A média de vendas durante o mês foi de {media_vendas} vendas por dia.") # A média de vendas durante o mês foi de 131.4 vendas por dia.
 
 
+
+# Cálculo da MEDIANA
 print(np.median(dados_vendas)) # 129.5
 
 
+
+# Cálculo do PERCENTIL
 print(np.percentile(dados_vendas, 50)) # 129.5
 
+# leia-se 30% dos valores estão abaixo de 114.7
+print(np.percentile(dados_vendas, 30)) # 114.7
 
+# leia-se 80% dos valores estão abaixo de 167.0
+print(np.percentile(dados_vendas, 80)) # 167.0
+
+ 
+
+ # Cálculo do DESVIO PADRÃO (Standard Deviation)
 print(np.std(dados_vendas)) # 39.305300745149715
 
 
+
+# Cálculo da VARIÂNCIA (quadrado do desvio padrão)
 print(np.var(dados_vendas)) # 1544.9066666666665
