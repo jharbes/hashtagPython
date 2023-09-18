@@ -26,14 +26,20 @@ Essas medidas são amplamente utilizadas na estatística para resumir e analisar
 
 import numpy as np
 
-# Crie um gerador de números aleatórios.
+# Crie um objeto gerador de números aleatórios. (recomendação dos criadores da biblioteca), nesse caso o gerador PADRÃO do numpy (default_rng())
 rng = np.random.default_rng()
 
+
+# o random, por padrao, sempre gera numeros entre 0 e 1
 numero_aleatorio = rng.random()
 print(numero_aleatorio) # 0.016581514099106687
 
+numero_aleatorio2=rng.random()*10
+print(numero_aleatorio2) # 6.567096646996188
+
 
 array_aleatorio = rng.random(3)
+print(type(array_aleatorio)) # <class 'numpy.ndarray'>
 print(array_aleatorio) # [0.81672889 0.64768309 0.71536078]
 
 
@@ -52,8 +58,12 @@ Suponha que você seja um analista de vendas em uma empresa e queira entender me
 # Vamos supor que as vendas de um produto podem variar de 50 a 200 por dia 
 
 rng = np.random.default_rng(seed=42)
+
+
+# .integers() define que serao numeros inteiros, low=numero minimo, high=numero maximo, size= tamanho do array
 dados_vendas = rng.integers(low=50, high=200, size=30)
 
+print(type(dados_vendas)) # <class 'numpy.ndarray'>
 print(dados_vendas) # [ 63 166 148 115 114 178  62 154  80  64 128 196 160 164 157 167 126  69 175 117 125 105  77 189 167 146 110 173 131 116]
 
 
