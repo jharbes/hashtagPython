@@ -7,7 +7,7 @@ NumPy, que significa Numerical Python, é uma biblioteca fundamental para a comp
 """
 ## Filtros e np.where()
 
-A função `np.where()` é muito útil para fazer uma seleção condicional de elementos de um array. Por exemplo, em uma empresa, você pode querer identificar quais funcionários têm salários acima da média.
+A função `np.where()` é muito útil para fazer uma seleção condicional de elementos de um array (FUNCIONANDO COMO UM FILTRO). Por exemplo, em uma empresa, você pode querer identificar quais funcionários têm salários acima da média.
 
 """
 import numpy as np
@@ -23,6 +23,7 @@ print(media_salarial) # 3714.285714285714
 
 
 # Identificar funcionários com salários acima da média
+# retorna um array do numpy com os indices onde a condicao é verdadeira, o dtype=int64 mostra que os elementos sao do tipo int (inteiros de 64 bits)
 funcionarios_acima_media = np.where(salarios > media_salarial)
 
 print(funcionarios_acima_media) # (array([2, 4, 5, 6], dtype=int64),)
