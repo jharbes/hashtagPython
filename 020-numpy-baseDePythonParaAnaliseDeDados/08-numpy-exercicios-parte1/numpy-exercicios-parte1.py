@@ -27,25 +27,33 @@ print(type(salarios_acima_media)) # <class 'numpy.ndarray'>
 
 # Faremos de três maneiras:
 
+
 # length da lista salarios[acima_media]
 print(len(salarios[acima_media])) # 5
+
 
 # size do primeiro elemento da tupla resultante do where acima
 print(acima_media[0].size) # 5
 
+
 # somando as condicoes True do array
+# observe que a soma de True sempre será 1 e False sempre será zero (True == 1) (False == 0)
 print(salarios>media_salarios) # [False False  True  True False  True False  True  True]
 print(np.sum(salarios>media_salarios)) # 5
 
 
 
 
+##### Observe abaixo que o somatório de Booleanos também funciona para listas simples do Python e não apenas para Arrays do Numpy
+
 lista=[True, False, True, False]
 
+# observe que a soma de True sempre será 1 e False sempre será zero (True == 1) (False == 0)
 print(sum(lista)) # 2
 
 
 
 lista2=[2<5,not True,5!=5,6==6]
 
-print(sum(lista2))
+# observe que a soma de True sempre será 1 e False sempre será zero (True == 1) (False == 0)
+print(sum(lista2)) # 2
