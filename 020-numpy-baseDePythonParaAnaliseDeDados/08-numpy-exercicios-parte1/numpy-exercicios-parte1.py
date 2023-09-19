@@ -36,3 +36,16 @@ print(acima_media[0].size) # 5
 # somando as condicoes True do array
 print(salarios>media_salarios) # [False False  True  True False  True False  True  True]
 print(np.sum(salarios>media_salarios)) # 5
+
+
+
+
+lista=[True, False, True, False]
+
+print(sum(lista)) # 2
+
+
+
+lista2=[2<5,not True,5!=5,6==6]
+
+print(sum(lista2))
