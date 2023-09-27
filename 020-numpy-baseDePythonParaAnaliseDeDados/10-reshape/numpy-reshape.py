@@ -63,7 +63,8 @@ print(vendas_reshaped.shape) # (2, 7)
 print(vendas_reshaped) # [[200 220 250 210 300 280 230] [210 220 240 230 210 280 220]]
 
 
-# axis=0 colunas, axis=1 linhas
+# AXIS = EIXO
+# axis=0 (coluna), axis=1 (linha)
 print(vendas_reshaped.sum(axis=0)) # [410 440 490 440 510 560 450]
 
 print(vendas_reshaped.sum(axis=1)) # [1690 1610]
