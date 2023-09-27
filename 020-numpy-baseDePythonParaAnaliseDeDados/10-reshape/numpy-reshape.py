@@ -15,15 +15,27 @@ import numpy as np
 # Vendas diárias para 2 semanas
 vendas = np.array([200, 220, 250, 210, 300, 280, 230, 210, 220, 240, 230, 210, 280, 220])
 
+print(vendas) # [200 220 250 210 300 280 230 210 220 240 230 210 280 220]
+
 # Reorganizar os dados em uma matriz de 2x7
 vendas_reshaped = np.reshape(vendas, (2, 7))
 
 print(vendas_reshaped) # [[200 220 250 210 300 280 230] [210 220 240 230 210 280 220]]
 
 
+# observe que o reshaped nao alterar o array antigo
+print(vendas) # [200 220 250 210 300 280 230 210 220 240 230 210 280 220]
+
+
+# o atributo ndim informa o NUMERO DE DIMENSOES do array
 print(vendas.ndim) # 1
 
+
+# informa a forma do array, nesse caso 14 de comprimento
 print(vendas.shape) # (14,)
+
+print(vendas_reshaped.shape) # (2, 7)
+
 
 print(vendas_reshaped.ndim) # 2
 
