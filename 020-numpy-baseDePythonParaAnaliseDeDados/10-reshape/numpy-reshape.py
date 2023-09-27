@@ -32,8 +32,10 @@ print(vendas.ndim) # 1
 
 
 # informa a forma do array, nesse caso 14 de comprimento
+# leia-se: a primeira dimensao do array tem tamanho 14
 print(vendas.shape) # (14,)
 
+# leia-se: a primeira dimensao do array tem tamanho 2 e a segunda dimensao do array tem tamanho 7 
 print(vendas_reshaped.shape) # (2, 7)
 
 
@@ -47,8 +49,11 @@ print(vendas_reshaped[0]) # [200 220 250 210 300 280 230]
 
 print(vendas_reshaped[1]) # [210 220 240 230 210 280 220]
 
+
+# elemento da primeira linha e primeira coluna
 print(vendas_reshaped[0][0]) # 200
 
+# elemento da segunda linha e primeira coluna
 print(vendas_reshaped[1][0]) # 210
 
 print(vendas_reshaped.sum()) # 3300
