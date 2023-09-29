@@ -23,7 +23,7 @@ vendas_reshaped = np.reshape(vendas, (2, 7))
 print(vendas_reshaped) # [[200 220 250 210 300 280 230] [210 220 240 230 210 280 220]]
 
 
-# observe que o reshaped nao alterar o array antigo
+# observe que o reshaped nao altera o array antigo
 print(vendas) # [200 220 250 210 300 280 230 210 220 240 230 210 280 220]
 
 
