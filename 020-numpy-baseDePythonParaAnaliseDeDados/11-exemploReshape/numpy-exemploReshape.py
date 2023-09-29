@@ -55,3 +55,53 @@ rng = np.random.default_rng(seed=42)
 vendas = rng.integers(low=20, high=200, size=30, endpoint=True)
 
 print(vendas) # [ 36 160 138  99  98 175  35 146  56  37 115 196 153 157 149 162 112  43 171 101 110  87  53 187 161 136  92 168 118 100]
+
+vendas_semanais = np.reshape(vendas, (5, 6))
+
+print(vendas_semanais)
+"""
+[[ 36 160 138  99  98 175]
+ [ 35 146  56  37 115 196]
+ [153 157 149 162 112  43]
+ [171 101 110  87  53 187]
+ [161 136  92 168 118 100]]
+"""
+
+
+
+### MINHA SOLUÇÃO ###
+
+total_de_vendas_semana=vendas_semanais.sum(axis=1)
+media_vendas_semana=vendas_semanais.mean(axis=1)
+media_vendas_dia_semana=vendas_semanais.mean(axis=0)
+
+print('\nO total de vendas por semana é:')
+for i,semana in enumerate(total_de_vendas_semana):
+    print('Semana {} :   R$ {}'.format(i+1,semana))
+
+print('\nA média de vendas por semana é:')
+for i,semana in enumerate(media_vendas_semana):
+    print('Semana {} :   R$ {:.2f}'.format(i+1,semana))
+
+print('\nA média de vendas por dia da semana é:')
+for i,semana in enumerate(media_vendas_dia_semana):
+    print('Dia {} :   R$ {:.2f}'.format(i+1,semana))
+
+
+
+
+### SOLUÇÃO CURSO ###
+
+total_vendas_semana = vendas_semanais.sum(axis=1)
+
+print(total_vendas_semana) # [706 585 776 709 775]
+
+
+media_vendas_semana = vendas_semanais.mean(axis=1)
+
+print(media_vendas_semana) # [117.66666667  97.5        129.33333333 118.16666667 129.16666667]
+
+
+media_vendas_dia = vendas_semanais.mean(axis=0)
+
+print(media_vendas_dia) # [111.2 140.  109.  110.6  99.2 140.2]
