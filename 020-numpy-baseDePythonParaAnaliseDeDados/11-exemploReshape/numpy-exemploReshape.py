@@ -15,10 +15,19 @@ import numpy as np
 # Vendas diárias para 2 semanas
 vendas = np.array([200, 220, 250, 210, 300, 280, 230, 210, 220, 240, 230, 210, 280, 220])
 
+
 # Reorganizar os dados em uma matriz de 2x7
+# Reorganizar os dados em uma matriz de 2x7
+# podemos colocar o valor -1 no lugar das linhas OU no lugar das colunas caso nao quisermos ou nao sabermos qual numero complementaria o outro na multiplicacao de forma a manter o mesmo numero de elementos
 vendas_reshaped = np.reshape(vendas, (2, 7))
 
+
 print(vendas_reshaped) # [[200 220 250 210 300 280 230] [210 220 240 230 210 280 220]]
+
+
+print(np.reshape(vendas,(2,-1))) # [[200 220 250 210 300 280 230] [210 220 240 230 210 280 220]]
+print(np.reshape(vendas,(-1,7))) # [[200 220 250 210 300 280 230] [210 220 240 230 210 280 220]]
+
 
 
 # observe que o reshaped nao altera o array antigo
@@ -52,11 +61,15 @@ Considere que uma loja funciona de segunda a sábado, independentemente de feria
 
 """
 rng = np.random.default_rng(seed=42)
+
+# com o argumento 'endpoint=True' o que significa que o valor setado para o argumento 'high' será incluido entre os numeros aleatorios gerados, porque por default o valor de 'high' fica de fora do conjunto de numeros aptos a aleatoriedade
 vendas = rng.integers(low=20, high=200, size=30, endpoint=True)
 
 print(vendas) # [ 36 160 138  99  98 175  35 146  56  37 115 196 153 157 149 162 112  43 171 101 110  87  53 187 161 136  92 168 118 100]
 
 vendas_semanais = np.reshape(vendas, (5, 6))
+
+print(vendas_semanais.ndim) # 2
 
 print(vendas_semanais)
 """
