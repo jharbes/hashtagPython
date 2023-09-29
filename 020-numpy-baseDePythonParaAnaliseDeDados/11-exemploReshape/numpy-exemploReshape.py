@@ -65,7 +65,22 @@ rng = np.random.default_rng(seed=42)
 # com o argumento 'endpoint=True' o que significa que o valor setado para o argumento 'high' será incluido entre os numeros aleatorios gerados, porque por default o valor de 'high' fica de fora do conjunto de numeros aptos a aleatoriedade
 vendas = rng.integers(low=20, high=200, size=30, endpoint=True)
 
+# ou
+
+# observe que no size passamos diretamente a matriz desejada (5 linhas e 6 colunas)
+vendas1=rng.integers(low=20, high=200, size=(5,6), endpoint=True)
+
+
 print(vendas) # [ 36 160 138  99  98 175  35 146  56  37 115 196 153 157 149 162 112  43 171 101 110  87  53 187 161 136  92 168 118 100]
+
+print(vendas1)
+"""
+[[101  61  36 120 180  31]
+ [175 169  70 134  49 157]
+ [146  84  32 195 100 181]
+ [142 160 157  55  85 104]
+ [110  27 118  47 154 143]]
+"""
 
 vendas_semanais = np.reshape(vendas, (5, 6))
 
