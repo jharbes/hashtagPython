@@ -24,7 +24,7 @@ lucro = faturamento - custo
 
 """Uso do str() e do concatenar com +"""
 
-print ('O faturamento da loja foi de: ' + faturamento)
+print ('O faturamento da loja foi de: ' + str(faturamento))
 
 """Uso do Format"""
 
