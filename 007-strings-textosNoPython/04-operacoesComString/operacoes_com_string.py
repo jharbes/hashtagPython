@@ -28,11 +28,13 @@ print ('O faturamento da loja foi de: ' + str(faturamento))
 
 """Uso do Format"""
 
-print('O faturamento foi de: ')
+print('O faturamento foi de:',faturamento)
+
+print('O faturamento foi de: {}'.format(faturamento))
 
 """Uso do %s e %d"""
 
-print ('O faturamento foi de: ')
+print ('O faturamento foi de: %d e o custo foi de %d' % (faturamento, custo))
 
 """Uso do in (mais exercícios práticos nas próximas aulas)"""
 
