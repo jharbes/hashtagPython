@@ -94,3 +94,57 @@ resultado2=re.findall(padrao2, texto)
 print(resultado2) # ['bebida', 'bebida', 'bebida', 'bebida', 'bebida']
 
 print(len(resultado2)) # 5
+
+
+
+
+# o metodo re.compile() passa o padrao que desejamos que seja procurado
+padrao=re.compile('comida')
+
+# o metodo re.search() retorna um objeto com a primeira ocorrencia desse padrao, mostra o que encontrou e a posicao encontrada (caractere inicial e caractere final em relacao a string inteira) 
+resultado=re.search(padrao, texto)
+
+print(resultado) # <re.Match object; span=(271, 277), match='comida'>
+
+print(resultado.group(0)) # comida
+
+
+
+
+# o metodo re.compile() passa o padrao que desejamos que seja procurado
+padrao=re.compile('comida')
+
+# o metodo re.finditer() cria um objeto iterador, onde nele cada um dos elementos serão todos os resultados para o padrao procurado
+resultado=re.finditer(padrao, texto)
+
+print(resultado) # <callable_iterator object at 0x000002CDA83B2FE0>
+
+for item in resultado:
+    print(item)
+"""
+<re.Match object; span=(271, 277), match='comida'>
+<re.Match object; span=(303, 309), match='comida'>
+<re.Match object; span=(336, 342), match='comida'>
+<re.Match object; span=(369, 375), match='comida'>
+<re.Match object; span=(403, 409), match='comida'>
+<re.Match object; span=(435, 441), match='comida'>
+<re.Match object; span=(466, 472), match='comida'>
+<re.Match object; span=(506, 512), match='comida'>
+<re.Match object; span=(546, 552), match='comida'>
+<re.Match object; span=(577, 583), match='comida'>
+<re.Match object; span=(618, 624), match='comida'>
+"""
+
+
+
+
+# quantos itens
+
+# para todos os caracteres especiais que sao usados como operadores do regex (o $ por exemplo) utilizaremos uma contra barra ('\') antes dele
+padrao3=re.compile('\$')
+
+resultado3=re.findall(padrao3,texto)
+
+print(resultado3) # ['$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$', '$']
+
+print(len(resultado3)) # 18
