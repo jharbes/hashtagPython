@@ -72,4 +72,25 @@ Att.,"""
 
 #### Ex: Quantos itens
 
+# importando a biblioteca REGEX
+import re
+
 # quantas comidas
+# o metodo re.compile() passa o padrao que desejamos que seja procurado
+padrao=re.compile('comida')
+resultado=re.findall(padrao, texto)
+
+print(resultado) # ['comida', 'comida', 'comida', 'comida', 'comida', 'comida', 'comida', 'comida', 'comida', 'comida', 'comida']
+
+print(len(resultado)) # 11
+
+
+
+
+# quantas bebidas
+padrao2=re.compile('bebida')
+resultado2=re.findall(padrao2, texto)
+
+print(resultado2) # ['bebida', 'bebida', 'bebida', 'bebida', 'bebida']
+
+print(len(resultado2)) # 5
