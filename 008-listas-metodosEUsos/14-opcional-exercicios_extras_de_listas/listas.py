@@ -8,6 +8,27 @@
 
 produtos = ["celular", "camera", "fone de ouvido", "monitor"]
 
+print('***CADASTRO DE PRODUTOS***')
+print(produtos)
+print('Caso queira finalizar digite "fim"',end='\n\n')
+
+while True:
+    
+    novo_produto=input('Digite o nome do produto: ')
+    if novo_produto=='fim':
+        print('PROGRAMA FINALIZADO!')
+        break
+
+    elif novo_produto.casefold() not in produtos:
+        produtos.append(novo_produto.casefold())
+        print('Produto {} cadastrado com sucesso!'.format(novo_produto))
+        print(produtos,end='\n\n')
+
+    else:
+        print('Produto já existente, tente novamente!')
+
+
+
 
 # Exercício 2
 # Crie um sistema de consulta de preços
