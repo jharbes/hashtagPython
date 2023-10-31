@@ -24,3 +24,10 @@
 
 #### Pegar a Cotação Atual de Todas as Moedas 
 
+import requests
+import json
+
+cotacoes=requests.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')
+
+cotacoes_dic=cotacoes.json
+print(cotacoes_dic)
