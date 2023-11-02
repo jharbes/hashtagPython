@@ -24,10 +24,18 @@
 
 #### Pegar a Cotação Atual de Todas as Moedas 
 
+# request é a biblioteca para utilizar requisicoes http
 import requests
 import json
 
 cotacoes=requests.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')
 
-cotacoes_dic=cotacoes.json
-print(cotacoes_dic)
+# a resposta 200 significa que o retorno foi recebido ok, 404 seria moeda inexistente 
+print(cotacoes) # <Response [200]>
+
+# transforma o arquivo json em um dicionario python
+cotacoes_dic=cotacoes.json()
+
+print(cotacoes_dic) # {'USDBRL': {'code': 'USD', 'codein': 'BRL', 'name': 'Dólar Americano/Real Brasileiro', 'high': '4.9545', 'low': '4.9543', 'varBid': '0.0009', 'pctChange': '0.02', 'bid': '4.9539', 'ask': '4.9548', 'timestamp': '1698872400', 'create_date': '2023-11-01 18:00:00'}, 'EURBRL': {'code': 'EUR', 'codein': 'BRL', 'name': 'Euro/Real Brasileiro', 'high': '5.3119', 'low': '5.2478', 'varBid': '0.0107', 'pctChange': '0.2', 'bid': '5.2598', 'ask': '5.2678', 'timestamp': '1698939025', 'create_date': '2023-11-02 12:30:25'}, 'BTCBRL': {'code': 'BTC', 'codein': 'BRL', 'name': 'Bitcoin/Real Brasileiro', 'high': '178935', 'low': '172851', 'varBid': '622', 'pctChange': '0.36', 'bid': '173293', 'ask': '173378', 'timestamp': '1698939042', 'create_date': '2023-11-02 12:30:42'}}
+
+type(cotacoes_dic) # dict
